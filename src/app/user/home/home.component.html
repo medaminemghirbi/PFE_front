@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Home-FreeLancy</title>
+  </head>
+  <body>
+      <!--############################# navbar section ##########################""-->
+    <app-navbar></app-navbar>
+<!--#############################main section##########################""-->
+<section class="main py-5"> 
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-7">
+            <h1>
+                FreeLancy is an exclusive network of the best freelance talents and experts in Tunisia.</h1><br>
+          <!-- <input type="text" placeholder="Job Title Or Keyword">
+            <button class="btn2">Find Mission</button>-->
+          
+        </div>
+    </div>
+</div>
+</section>
+<!--#############################categorie section##########################""-->
+
+<section class="ceta">
+    <div class="container-fluid py-5 text-center">
+        <p class="blue">Expert Marketplace</p>
+        <h4>Find the most qualified professionals in any digital field on the same platform.</h4>
+        <div class="row py-5">
+            <div class="col-lg-11 m-auto pt-3">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card py-3">
+                            <div class="card-body">
+                                <img [src]="cate1" class="img-fluid my-3">
+                                <h6>Graphic Design</h6>
+                                  <br>  <hr><br>
+                                <p class="card-text">Looking for a great designer for your logo or brochure, browse our freelancers portfolio!.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card py-3">
+                            <div class="card-body">
+                                <img [src]="cate2" class="img-fluid my-3">
+                                <h6>Digital Marketing</h6>
+                                <br>  <hr><br>
+                                <p class="card-text">Are you planning to promote your brand or product? Let our freelancers surprise you with their talent!.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card py-3">
+                            <div class="card-body">
+                                <img [src]="cate3" class="img-fluid my-3">
+                                <h6>Buisiness</h6>
+                                <br>  <hr><br>
+                                <p class="card-text">Business plans, Analyses, Strategies... whatever you want. Our freelancers are here to make your project a success!.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card py-3">
+                            <div class="card-body">
+                                <img [src]="cate4" class="img-fluid my-3">
+                                <h6>Programming And Tech</h6>
+                                <br>  <hr><br>
+                                <p class="card-text">You are planning to create a software, website or to integrate systems, our developers are there for that!.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="row ">
+            <div class="col-lg-11 m-auto pt-3">
+           
+                <div class="row py-5">
+                    <div class="col-lg-5 m-auto">
+                        <button class="btn3">Browse All Sectors</button>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section class="resume py-5 text-center text-white">
+    <div class="container py-5">
+        <div class="row py-5">
+            <div class="col-lg-10 m-auto">
+                <p class="pb-3">Featured Tours Packages</p>
+                <h1>make A difference with Your  CV</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 m-auto">
+                 <button class="btn3">Upload your CV</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--###############section job"#################""-->
+<section class="job py-5">
+    <div class="container py-5">
+        <div class="row py-5">
+            <div class="col-lg-7">
+                <p class="blue">What we are doing</p>
+                <h1 class="py-4" style="font-weight:700;">24H talented Freelancer On your service</h1>
+                <p>we ensure for your a collection of talented  freelancer and for you the choice 
+                    , for your project work 
+                </p>
+                <button class="btn4 mt-3">Post A Job</button>
+            </div>
+            <div class="col-lg-5">
+                <img [src]="job" class="img-fluid my-3">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="apply py-5">
+    <div class="container text-white text-center py-5">
+        <p class="blue">Apply Process</p>
+        <h1>How It Works</h1>
+        <div class="row py-5">
+            <div class="col-lg-4">
+                <div class="card p-3">
+                    <div class="card-body text-center">
+                        <div class="cir1 pt-3 mb-3">
+                            <img [src]="cate5" class="img-fluid my-3">
+                        </div>
+                        <h2>1. search a job</h2>
+                        <p class="py-3">the freelancer is considred to search a job 
+                            to start working on  
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card p-3">
+                    <div class="card-body text-center">
+                        <div class="cir1 pt-3 mb-3">
+                            <img [src]="cate4" class="img-fluid my-3">
+                        </div>
+                        <h2>2. select a freelancer</h2>
+                        <p class="py-3">the client need to select the best rated freealncer 
+                            to work on his postuled project 
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <div class="card p-3">
+                    <div class="card-body text-center">
+                        <div class="cir1 pt-3 mb-3">
+                            <img [src]="cate4" class="img-fluid my-3">
+                        </div>
+                        <h2>1. search a job</h2>
+                        <p class="py-3">some words here some words 
+                            some words here some words 
+                            some words here some words 
+                            some words here some words 
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--<section class="footer py-5">
+    <div class="container-fluid py-5">
+        <div class="row">
+            <div class="col-lg-10 m-auto">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <h3 class="py-5" style="color:black;">About Us</h3>
+                        <p>
+                            FreeLancy is a tunisian freelance Plateforme , 
+                            facilate finding freelance job in each domaine 
+                            and for each one 
+                        </p>
+                    </div>
+                    <div class="col-lg-3">
+                        <h3 class="py-5" style="color:black;">Contact Info</h3>
+                        <p>Adresse : sahloul sousse </p>
+                        <p class="link">Phone : +21612345678</p>
+                        <p class="link">Email : contact@FreeLancy.com</p>
+                    </div>
+                    <div class="col-lg-3">
+                        <h3 class="py-5" style="color:black;">Important Links </h3>
+                        <p class="link">View Projects</p>
+                        <p class="link">Contact Us</p>
+                        <p class="link">Testimonal</p>
+                        <p class="link">Proprieties</p>
+                        <p class="link">Support</p>
+                    </div>
+                    <div class="col-lg-3">
+                        <h3 class="py-5" style="color:black;">Newseletter </h3>
+                        <p>Ask for anything our system is strong and smart,appear creaping </p>
+                       <input  autofocus type="text" placeholder="Enter Your Email">
+                       <button>Go</button>
+                 
+                    </div>
+
+                </div><br><br>
+                <p style="text-align:center;" class="py-4">Copyright @2022 All rights reserved |this website was made by <span class="blue">FreeLancy dev Team</span> </p>
+            </div>
+        </div>
+    </div>
+</section>-->
+
+
+<app-footer></app-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  </body>
+</html>
