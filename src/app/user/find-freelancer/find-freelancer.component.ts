@@ -11,7 +11,7 @@ export class FindFreelancerComponent implements OnInit {
   search = faSearch;
   freelancers:any;
   constructor(user:FreelancersService) { 
-    this.freelancers = user.listefreelancers();
+    //this.freelancers = user.listefreelancers();
   }
 
   ngOnInit(): void {

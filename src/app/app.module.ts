@@ -13,6 +13,10 @@ import { ContactComponent } from './user/contact/contact.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonModule } from 'primeng/button';
 import {CardModule} from 'primeng/card';
+import { LoginComponent } from './login/login.component';
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,14 +26,20 @@ import {CardModule} from 'primeng/card';
     FindFreelancerComponent,
     FindProjectComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent ,
+    LoginComponent,
+    DashboardAdminComponent ,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     CardModule,
-    ButtonModule
+    ButtonModule ,
+    FormsModule , 
+    HttpClientModule ,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
