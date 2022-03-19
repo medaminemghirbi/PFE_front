@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { AboutComponent } from './user/about/about.component';
 import { ContactComponent } from './user/contact/contact.component';
 import { FindFreelancerComponent } from './user/find-freelancer/find-freelancer.component';
@@ -15,6 +16,8 @@ const routes: Routes = [
   {path:'about' , component:AboutComponent},
   {path:'contact' , component:ContactComponent} ,
   
+  { path : 'register' , component:RegisterComponent } ,
+
   {path:'login' , component:LoginComponent } ,
   { path : 'dashboard' , component:DashboardAdminComponent  } , 
 

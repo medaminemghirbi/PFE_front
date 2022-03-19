@@ -23,11 +23,11 @@
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..."  name="email" required #email="ngModel" ngModel >
+                                                placeholder="Enter Email Address..."  name="email"  #email="ngModel" ngModel required >
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password" name="password" required #password="ngModel" ngModel >
+                                                id="exampleInputPassword" placeholder="Password" name="password"  #password="ngModel" ngModel required >
                                         </div>
                                         <div class="alert alert-danger" *ngIf="messageError">
                                           {{messageError}}
@@ -36,7 +36,7 @@
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
+                                                <label class="custom-control-label" for="customCheck"> &nbsp;&nbsp;&nbsp;&nbsp; Remember
                                                     Me</label>
                                             </div>
                                         </div>

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './user/home/home.component';
 import { NavbarComponent } from './user/navbar/navbar.component';
 import { FooterComponent } from './user/footer/footer.component';
@@ -16,7 +17,10 @@ import {CardModule} from 'primeng/card';
 import { LoginComponent } from './login/login.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,17 +32,19 @@ import { HttpClientModule } from '@angular/common/http';
     AboutComponent,
     ContactComponent ,
     LoginComponent,
-    DashboardAdminComponent ,
+    DashboardAdminComponent,
+    RegisterComponent ,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule ,
     FontAwesomeModule,
     CardModule,
     ButtonModule ,
     FormsModule , 
-    HttpClientModule ,
+    
     
   ],
   providers: [],
