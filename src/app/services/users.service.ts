@@ -8,11 +8,13 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class UsersService {
-
+  public connecte : boolean = false ; 
   constructor(private http : HttpClient , private router: Router ) { }
 
   login(body:any){
+    this.connecte = true;
     return this.http.post(environment.urlBackend+'sessions/',body) ;
+    
   }
 
   register(body:any){
@@ -24,5 +26,10 @@ export class UsersService {
     
     return this.http.get(environment.urlBackend+'logged_in/',id)
   
+  }
+  logout(){
+    this.connecte = false;
+    // localStorage.removeItem('token')
+    return this.http.delete(environment.urlBackend+'logout/') ;
   }
 }
