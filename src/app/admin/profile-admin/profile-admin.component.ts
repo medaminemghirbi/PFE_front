@@ -12,11 +12,40 @@ export class ProfileAdminComponent implements OnInit {
 
   messageErr:any;
   admindata:any;
-  constructor(private route:Router, private servicesService:UsersService) {
-this.admindata = JSON.parse( localStorage.getItem('admindata') !);
+  //dataStudent: any;
+  messageSuccess: any;
+  constructor(private route:Router, private usersService:UsersService) {
+    this.admindata = JSON.parse( localStorage.getItem('admindata') !) ;
     console.log(this.admindata)
 
-}
+  }
+
+  getdata(email:string , adresse :string, id:any){
+    this.messageSuccess=''
+    this.admindata.id = id 
+    this.admindata.email = email
+     this.admindata.adresse = adresse 
+    console.log(this.admindata)
+
+  }
+  
+  updatenewuser (f:any){
+    let data=f.value
+    this.usersService.updateProfileUser(this.admindata.id,data).subscribe(response=>
+      {
+      console.log(response)
+        let indexId=this.admindata.findIndex((obj:any)=>obj.id==this.admindata.id)
+
+        this.admindata[indexId].email=data.email
+        this.admindata[indexId].adresse=data.adresse
+
+        this.messageSuccess=`this email : ${this.admindata[indexId].email} is updated`
+
+      },(err:HttpErrorResponse)=>{
+        console.log(err.message)
+      
+      })
+  }
 
   ngOnInit(): void {
 

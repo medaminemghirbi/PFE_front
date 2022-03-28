@@ -4,36 +4,32 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-const AUTH_API = 'http://localhost:3000/';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
+
   public connecte : boolean = false ; 
   logged_in : boolean = true ; 
+
   constructor(private http : HttpClient , public router: Router ) { }
 
 
   login(data:any): Observable<any> {
     this.connecte = true;
-    return this.http.post(AUTH_API + 'sessions/', data);
+    return this.http.post(environment.urlBackend + 'sessions/', data);
   }
     
- getUser(){
-
-  return this.http.get(AUTH_API + 'logged_in/')
-
-}
-  register(body:any){
-    return this.http.post('http://localhost:3000/registrations/' ,body)
+  getUser(){
+    return this.http.get(environment.urlBackend + 'logged_in/')
   }
 
+  register(data:any){
+    return this.http.post(environment.urlBackend + 'registrations/' , data)
+  }
 
-  /*getOnestudent(id:any){
-    
-    return this.http.get(environment.urlBackend+'logged_in/',id)
-  
-  }*/
   logout(){
     this.connecte = false;
     localStorage.clear();
@@ -44,38 +40,78 @@ export class UsersService {
     getAllcategories(){
       return this.http.get(`${environment.urlBackend}`+'categories/')
     }
-    addcategory(profile:any){
 
-      return this.http.post(environment.urlBackend+'categories/',profile) ;
+    addcategory(data:any){
+      return this.http.post(environment.urlBackend+'categories/' , data) ;
+    }
+
+    deleteCat(id:any){
+      return this.http.delete(environment.urlBackend+'categories/' + id )
+    }
   
+    updateCat(id:string,newdata:any){
+      return this.http.patch(environment.urlBackend+'categories/' + id , newdata )
+    }
+
+    /////////////// users 
+    getAllusers(){
+      return this.http.get(`${environment.urlBackend}`+'admin/')
+    }
+
+    getOneuser(id:any){   
+      return this.http.get(environment.urlBackend+'admin/' + id)
+    }
+
+    deleteuser(id:any){
+      return this.http.delete(environment.urlBackend+'admin/' + id )
+    }
+
+    updateProfileUser(id:string,newprofile:any){
+      return this.http.patch(environment.urlBackend+'admin/' + id , newprofile )
     }
 
     ////////////////// missions 
-    addstudent(profile:any){
-
+    addMission (profile:any) {
       return this.http.post(environment.urlBackend+'missions/',profile) ;
-  
     }
     
-    getAllstudents(){
+    getAllMissions () {
       return this.http.get(`${environment.urlBackend}`+'missions/')
     }
   
-  
-    getOnestudent(id:any){
-      
-      return this.http.get(environment.urlBackend+'missions/'+id)
+    getOneMission (id:any) {    
+      return this.http.get(environment.urlBackend+'missions/' + id)
     }
   
-    deletestudent(id:any){
-      return this.http.delete(environment.urlBackend+'missions/' +id )
-  
+    deleteMission (id:any) {
+      return this.http.delete(environment.urlBackend+'missions/' + id )
     }
   
-    updateStudent(id:string,newprofile:any){
-  
-      return this.http.patch(environment.urlBackend+'missions/'+id,newprofile )
-  
+    updateMission (id:string,newdata:any) {
+      return this.http.patch(environment.urlBackend+'missions/' + id , newdata )
     }
+
+    ////////////////////// reviews 
+    addReview (profile:any) {
+      return this.http.post(environment.urlBackend+'reviews/',profile) ;
+    }
+    
+    getAllReviews () {
+      return this.http.get(`${environment.urlBackend}`+'reviews/')
+    }
+  
+    getOneReview  (id:any) {    
+      return this.http.get(environment.urlBackend+'reviews/' + id)
+    }
+  
+    deleteReview  (id:any) {
+      return this.http.delete(environment.urlBackend+'reviews/' + id )
+    }
+  
+    updateReview  (id:string,newdata:any) {
+      return this.http.patch(environment.urlBackend+'reviews/' + id , newdata )
+    }
+
+
 
 }

@@ -12,7 +12,66 @@
    
              <!-- Begin Page Content -->
                   <!-- Begin Page Content -->
-                  <p>liste users works!</p>
+                  
+
+<div class="container">
+  
+    <div class="col" >
+      <div class="alert alert-danger" role="alert" *ngIf="messageErr" >
+         {{messageErr}}
+        </div>
+  </div>
+
+  
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Users  </h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" *ngIf="dataArray">
+                <thead >
+                  <tr >
+                    <th scope="col" (click)="sort('id')" ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
+                    <th scope="col" (click)="sort('title')" >Email &nbsp;<i class="fa fa-sort"> </i> </th>
+                    <th scope="col" (click)="sort('lastname')" >Last name &nbsp;<i class="fa fa-sort"> </i> </th>
+                    <th scope="col" (click)="sort('firstname')" >First name &nbsp;<i class="fa fa-sort"> </i> </th>
+                    <th scope="col" (click)="sort('role')" >Role  &nbsp;<i class="fa fa-sort"> </i> </th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                   
+                  
+                    <tr *ngFor="let item of dataArray  ; index as i" >
+                      <th scope="row" > {{item.id}} </th>
+                        <td> {{item.email}} </td>
+                        <td> {{item.lastname}}</td>
+                        <td> {{item.firstname}}</td>
+                        <td> {{item.role}} </td>
+                        
+                        <td>
+                          <a  class="text-success" (click)="details(item.id)" > <i class="fas  fa-2x fa-eye"></i> </a>
+                           
+                            
+                            &nbsp;&nbsp;
+                          <button class="text-danger" (click)="delete(item.id , i)" > <i class="fas  fa-2x fa-trash-alt"></i> </button>
+                           
+
+                        </td>
+                      </tr>
+                </tbody>
+         
+              </table>
+
+
+            </div>
+
+    </div>
+  </div>
+
+  
+
  
                      <!-- Content Row -->
              <!-- /.container-fluid -->

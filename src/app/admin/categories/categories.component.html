@@ -16,23 +16,35 @@
         <h6 class="m-0 font-weight-bold text-primary">Categories </h6>
     </div>
     <div class="card-body">
+
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" >
+            <table class="table table-bordered"  width="100%" *ngIf="dataArray" >
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Image</th>
                        
+                        <th scope="col" (click)="sort('id')" ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
+                        <th>Name</th>
+                        <th>Avatar</th>
+                        <th scope="col"> created_at</th>
+                        <th scope="col"> updated_at</th>
+                        <th>Actions </th>
+
                     </tr>
                 </thead>
                
                 <tbody>
                   
                     <tr *ngFor="let item of dataArray ; index as i" >
-                        <th scope="row" > {{item.id}} </th>
+                        <th scope="row"  > {{item.id}} </th>
                         <td> {{item.name}} </td>
-                        <td> {{item.image}}  </td>
+                        <td> {{item.avatar}}  </td>
+                        <td> {{item.created_at | date:'medium'}}  </td>
+                        <td> {{item.updated_at | date:'medium'}}  </td>
+                        <td>  
+                           <button  (click)="getdata(item.name,item.avatar,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > update </button>&nbsp;&nbsp;
+                           <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> delete </button> 
+                        
+                        </td>
                     </tr>
                     
                 </tbody>
@@ -79,6 +91,61 @@ aria-hidden="true">
 </div>
 </div>
 </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- form update start here -->
+          <form #f="ngForm" (ngSubmit)="updatenewcat(f)">
+            <!-- firstName validation start here -->
+                <div class="form-group">
+            
+                  <label for="exampleFormControlInput1">Name </label>
+                  <input type="text" class="form-control" placeholder="name" [(ngModel)]="dataCat.name" required name="name" #name="ngModel" ngModel minlength="2" maxlength="20">
+                </div>
+                <!--  
+                   <div class="alert alert-danger" *ngIf="title.touched">
+                  title is required
+                </div>
+                 -->
+               
+             
+            <!-- lastName validation end here -->
+            
+            <!-- lastName validation start here -->
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Avatar </label>
+                    <input type="file" class="form-control" placeholder="avatar" [(ngModel)]="dataCat.avatar" required name="avatar" #image="ngModel" minlength="2" maxlength="20" ngModel>
+                  </div>
+                
+            <!-- lastName validation end here -->
+            
+             
+                <div class="alert alert-success" *ngIf="messageSuccess">
+                    {{messageSuccess}}
+                </div>      
+
+               <button class="btn btn-primary" >Update student</button>
+              </form>
+
+
+
+          <!-- form update end here -->
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+
 
 
 

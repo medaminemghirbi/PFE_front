@@ -15,21 +15,22 @@
   
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Categories </h6>
+            <h6 class="m-0 font-weight-bold text-primary">Missions </h6>
         </div>
         <div class="card-body">
             <div class="table-responsive" >
-            <table class="table table-bordered" id="dataTable" width="100%" *ngIf="dataArray">
+            <table class="table table-bordered"  width="100%" >
                 <thead >
                   <tr >
-                    <th scope="col" (click)="sort('id')" >#  &nbsp;<i class="fa fa-sort"> </i>  </th>
+                    <th scope="col" (click)="sort('id')" ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
                     <th scope="col"(click)="sort('title')" >title &nbsp;<i class="fa fa-sort"> </i> </th>
-                    <th scope="col"> description</th>
+                    
                     <th scope="col"> completed</th>
                     <th scope="col"> filepath </th>
                     <th scope="col"> user </th>
-                    <th scope="col"> last Name </th>
+                   
                     <th scope="col"> category</th>
+                    <th scope="col"> created_at</th>
                     <th scope="col"> updated_at</th>
                     <th scope="col">Actions</th>
                   </tr>
@@ -40,24 +41,23 @@
                     <tr *ngFor="let item of dataArray  ; index as i" >
                       <th scope="row" > {{item.id}} </th>
                         <td> {{item.title}} </td>
-                        <td> {{item.description}}  </td>
+                        
                         <td>{{item.completed}}</td>
                         <td> {{item.filepath}}</td>
                         <td > {{item.user_id}}  </td>
-                        <td > {{item.user.lastname}}  </td>
+                       
                         <td> {{item.category_id}}  </td>
-        
+                        <td> {{item.created_at | date:'medium'}}  </td>
                         <td> {{item.updated_at | date:'medium'}}  </td>
-                        <td>
-                         
-                            <a  class="text-success" (click)="details(item.id)" > <i class="fas  fa-2x fa-eye"></i> </a>
+                        <td>  
+                            <button  class="btn btn-outline-success" (click)="details(item.id)" > Show </button> &nbsp;&nbsp;
                            
-                            &nbsp;&nbsp;
-                            <a  (click)="getdata(item.title,item.description,item.id)" data-toggle="modal" data-target="#exampleModal"  > <i class="fas fa-2x fa-edit" ></i>  </a>&nbsp;&nbsp;
-                            <button class="text-danger" (click)="delete(item.id , i)" > <i class="fas  fa-2x fa-trash-alt"></i> </button>
-                           
-
+                            <button  (click)="getdata(item.title,item.description,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > Update </button>&nbsp;&nbsp;
+                            <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
+                          
                         </td>
+
+                       
                       </tr>
                 </tbody>
                

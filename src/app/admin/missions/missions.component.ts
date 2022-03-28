@@ -28,14 +28,14 @@ export class MissionsComponent implements OnInit {
   searchedKeyword!:string;
   dataArray: any;
 
-  constructor(private produitServiceService:UsersService,private route:Router) {
+  constructor(private usersService:UsersService,private route:Router) {
     
   }
   messageErrr =''
 
 
   ngOnInit(): void {
-    this.produitServiceService.getAllstudents().subscribe(data=>{
+    this.usersService.getAllMissions().subscribe(data=>{
       console.log(data)
       this.dataArray=data , (err:HttpErrorResponse)=>{
         console.log(err)
@@ -79,7 +79,7 @@ export class MissionsComponent implements OnInit {
 
   delete(id:any  , i :number){
 
-    this.produitServiceService.deletestudent(id).subscribe(response=>{
+    this.usersService.deleteMission(id).subscribe(response=>{
       console.log(response)
       this.dataArray.splice(i,1)
 
@@ -97,7 +97,7 @@ export class MissionsComponent implements OnInit {
     }
     updatenewstudent(f:any){
       let data=f.value
-      this.produitServiceService.updateStudent(this.dataStudent.id,data).subscribe(response=>
+      this.usersService.updateMission(this.dataStudent.id,data).subscribe(response=>
         {
         console.log(response)
           let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataStudent.id)

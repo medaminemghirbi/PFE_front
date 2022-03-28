@@ -22,6 +22,18 @@ export class CategoriesComponent implements OnInit {
   name: string ="" ;
   searchedKeyword!:string;
 
+  dataCat={
+    id : '',
+    name:'',
+    avatar:'' ,
+   /* averagePayment:0 ,
+    period:0,
+    start_date:'',
+    end_date:'',
+    */
+  }
+ 
+
   constructor(private usersService:UsersService,private route:Router) { }
 
   ngOnInit(): void {
@@ -44,6 +56,44 @@ export class CategoriesComponent implements OnInit {
   details(id:any){
     this.route.navigate(['/categories/'+id])
   }
+
+  delete(id:any  , i :number){
+
+    this.usersService.deleteCat(id).subscribe(response=>{
+      console.log(response)
+      this.dataArray.splice(i,1)
+
+    })
+    
+  }
+
+  getdata(name:string,avatar:string,id:any){
+    this.messageSuccess=''
+    this.dataCat.name= name 
+    this.dataCat.avatar =avatar 
+    this.dataCat.id= id 
+    console.log(this.dataCat)
+
+  }
+
+  updatenewcat(f:any){
+    let data=f.value
+    this.usersService.updateCat(this.dataCat.id,data).subscribe(response=>
+      {
+      console.log(response)
+        let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataCat.id)
+
+        this.dataArray[indexId].name=data.name
+        this.dataArray[indexId].avatar=data.avatar
+
+        this.messageSuccess=`this name : ${this.dataArray[indexId].name} is updated`
+
+      },(err:HttpErrorResponse)=>{
+        console.log(err.message)
+      
+      })
+
+}
 
 /*
   delete(id:any  , i :number){

@@ -14,26 +14,31 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   registerr:any = "https://imgs.bharatmatrimony.com/bmimgs/login/login-otp-banner.png";
+
+  public connecte : boolean = false ;
+
   messageError:any
 
   registerForm =  new FormGroup({
-
     email:new FormControl(),
     password:new FormControl()
-})
-user : User ={
-  email:'',
-  password:'',
-}
+  })
+
+  user : User ={
+    email:'',
+    password:'',
+  }
+
   constructor(private freelancersService:UsersService,private route:Router) { }
 
   ngOnInit(): void {
   }
-  public connecte : boolean = false ;
-  login(){
-    const data = {
 
+  login(){
+
+    const data = {
       email:this.user.email,
       password:this.user.password,
 
@@ -65,7 +70,8 @@ user : User ={
           })
         }
      
-          },(err:HttpErrorResponse)=>this.messageError=err.error.error);
+      },(err:HttpErrorResponse)=>this.messageError=err.error.error);
   }
 
+  
 }

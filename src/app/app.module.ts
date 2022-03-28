@@ -30,6 +30,7 @@ import { ListUsersComponent } from './admin/list-users/list-users.component';
 import { CookieService } from 'ngx-cookie-service';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { MissionsComponent } from './admin/missions/missions.component';
+import { ReviewsComponent } from './admin/reviews/reviews.component';
 
 
 
@@ -55,7 +56,8 @@ import { MissionsComponent } from './admin/missions/missions.component';
     AddCategoryComponent,
     ListUsersComponent,
     CategoriesComponent,
-    MissionsComponent ,
+    MissionsComponent,
+    ReviewsComponent ,
 
   ],
   imports: [
