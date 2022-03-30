@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="container-fluid" >
+  <div class="row" >
+    <div class="col-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let produit of produits "  >
+      <div class="card">
+     <a [routerLink]="['/DetailProduitComponent',produit.idProduit]">  <img  height="180" [src]="produit.photo" alt="" class="card-img-top"></a> 
+        <div class="card-body">
+          <div class="card-title text-center">
+            <h1>{{produit.eanrs }}TND</h1>
+            <h2>{{produit.nomProduit}}</h2>
+            <p>Delivered in Max 2 Days!</p>
+     <!--<button (click)="inc(produit)" type="buttton" class="btn1" ><fa-icon [icon]="plus"></fa-icon></button>
+            <span>{{produit.quan}}</span>
+          <button (click)="dec(produit)" type="buttton" class="btn1"><fa-icon [icon]="minus"></fa-icon></button>   
+           <br>  <br> <hr>-->
+            <button   type="button" class="btn btn-outline-danger">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
