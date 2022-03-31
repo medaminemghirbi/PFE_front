@@ -47,8 +47,8 @@ export class LoginComponent implements OnInit {
     this.freelancersService.login(data).subscribe(
       response => {
         console.log(response);
-        
-        if(response.logged_in ==true && response.role =="admin"){
+       if(response.user.email_confirmed==true) {
+        if(response.logged_in ==true && response.role =="admin"  ){
           localStorage.setItem( 'admindata', JSON.stringify( response.user ) );
           console.log(response);
           this.route.navigate(['/dashboard']);
@@ -69,6 +69,16 @@ export class LoginComponent implements OnInit {
             text: 'Email or Password is Incorrect!'
           })
         }
+       }else{
+     
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'account created but not confirmed!, check Your EMail'
+          })
+        }
+       
+ 
      
       },(err:HttpErrorResponse)=>this.messageError=err.error.error);
   }

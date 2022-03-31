@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
 
 import { UsersService } from 'src/app/services/users.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -66,6 +67,23 @@ export class CategoriesComponent implements OnInit {
     this.usersService.deleteCat(id).subscribe(response=>{
       console.log(response)
       this.dataArray.splice(i,1)
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+      })
 
     })
     
