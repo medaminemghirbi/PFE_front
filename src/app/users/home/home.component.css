@@ -118,6 +118,22 @@ color: rgb(255, 255, 255);
     outline: none;
     transition: all 0.4s;
 }
+.btn15{
+    height: 40px;
+    width: 40%;
+    border: 1px solid rgb(7, 7, 78);
+    background: transparent;
+    border-radius: 5px;
+    color: rgb(7, 7, 78);
+    transition: all 0.4s;
+}
+.btn15:hover{
+    background: rgb(7, 7, 78);
+    color: white;
+    border: none;
+    outline: none;
+    transition: all 0.4s;
+}
 .resume{
     background:linear-gradient(rgba(4,11,75,0.717),rgba(4,26,100,0.73)) ,url(/assets/woman.jpg)no-repeat;
     background-size: cover;

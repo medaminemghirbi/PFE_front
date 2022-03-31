@@ -29,8 +29,8 @@ const routes: Routes = [
   { path : 'register' , component:RegisterComponent } ,
   {path:'login' , component:LoginComponent } ,
 
-  {path:'dashboard'  ,canActivate:[AuthGuard]   , component:DashboardAdminComponent } ,
-  { path : 'profil-admin' ,canActivate:[AuthGuard]  , component:ProfileAdminComponent  },
+  {path:'dashboard'    , component:DashboardAdminComponent } ,
+  { path : 'profil-admin' , component:ProfileAdminComponent  },
   { path : 'addcategory' , canActivate:[AuthGuard]    ,component:AddCategoryComponent} ,
   { path : 'categories' , canActivate:[AuthGuard]   , component : CategoriesComponent} ,
   { path : 'missions' , canActivate:[AuthGuard]   ,component : MissionsComponent} ,

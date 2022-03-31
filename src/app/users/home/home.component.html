@@ -33,66 +33,26 @@
     <div class="container-fluid py-5 text-center">
         <p class="blue">Expert Marketplace</p>
         <h4>Find the most qualified professionals in any digital field on the same platform.</h4>
-        <div class="row py-5">
-            <div class="col-lg-11 m-auto pt-3">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="card py-3">
-                            <div class="card-body">
-                                <img [src]="cate1" class="img-fluid my-3">
-                                <h6>Graphic Design</h6>
-                                  <br>  <hr><br>
-                                <p class="card-text">Looking for a great designer for your logo or brochure, browse our freelancers portfolio!.</p>
-                            </div>
-                        </div>
+<br>
+        <div class="container-fluid" >
+            <div class="row" >
+              <div class="col-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let produit of dataArray "  >
+                <div class="card">
+               <a [routerLink]="['/DetailProduitComponent',produit.id]">  <img  height="180" [src]="produit.image_url" alt="" class="card-img-top"></a> 
+                  <div class="card-body">
+                    <div class="card-title text-center">
+                      <h2>{{produit.name}}</h2>
+                      <p>Delivered in Max 2 Days!</p>
+ 
+                     <br>  <br> <hr><br>
+                      <button class="btn15"   type="button" >Browse Categorie</button>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="card py-3">
-                            <div class="card-body">
-                                <img [src]="cate2" class="img-fluid my-3">
-                                <h6>Digital Marketing</h6>
-                                <br>  <hr><br>
-                                <p class="card-text">Are you planning to promote your brand or product? Let our freelancers surprise you with their talent!.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card py-3">
-                            <div class="card-body">
-                                <img [src]="cate3" class="img-fluid my-3">
-                                <h6>Buisiness</h6>
-                                <br>  <hr><br>
-                                <p class="card-text">Business plans, Analyses, Strategies... whatever you want. Our freelancers are here to make your project a success!.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card py-3">
-                            <div class="card-body">
-                                <img [src]="cate4" class="img-fluid my-3">
-                                <h6>Programming And Tech</h6>
-                                <br>  <hr><br>
-                                <p class="card-text">You are planning to create a software, website or to integrate systems, our developers are there for that!.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
+                  </div>
                 </div>
+              </div>
             </div>
-            
         </div>
-        <div class="row ">
-            <div class="col-lg-11 m-auto pt-3">
-           
-                <div class="row py-5">
-                    <div class="col-lg-5 m-auto">
-                        <button class="btn3">Browse All Categories</button>
 
-                    </div>
-                </div>
-            </div>
-            
-        </div>
     </div>
 </section>
 

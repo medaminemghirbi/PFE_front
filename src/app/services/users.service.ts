@@ -26,6 +26,12 @@ export class UsersService {
     return this.freelancers;
   }
 
+  getallcategories(){
+    return this.http.get(`${environment.urlBackend}`+'categories/')
+  }
+
+  
+
   login(data:any): Observable<any> {
     this.connecte = true;
     return this.http.post(environment.urlBackend + 'sessions/', data);
