@@ -42,6 +42,10 @@ export class UsersService {
     return this.http.get(`${environment.urlBackend}`+'freelancers/')
   }
 
+  updateProfileFreelancer (id:string,newprofile:any){
+    return this.http.patch(environment.urlBackend+'upadateFreelancer/' + id , newprofile )
+  }
+
   logout(){
     this.connecte = false;
     localStorage.clear();

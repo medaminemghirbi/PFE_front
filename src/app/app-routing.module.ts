@@ -39,7 +39,7 @@ const routes: Routes = [
   
   { path : 'profil-client' ,canActivate:[AuthGuard]  , component:ProfilClientComponent  },
 
-  { path : 'profil-freelancer' ,canActivate:[AuthGuard]  , component:ProfilFreelancerComponent  } , 
+  { path : 'profil-freelancer' /* ,canActivate:[AuthGuard] */ , component:ProfilFreelancerComponent  } , 
 
 
 
