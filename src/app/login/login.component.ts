@@ -48,33 +48,35 @@ export class LoginComponent implements OnInit {
       response => {
         console.log(response);
        if(response.user.email_confirmed==true) {
-        if(response.logged_in ==true && response.role =="admin"  ){
-          localStorage.setItem( 'admindata', JSON.stringify( response.user ) );
-          console.log(response);
-          this.route.navigate(['/dashboard']);
-        }
-        else if(response.logged_in ==true && response.role =="client")
+          if(response.logged_in ==true && response.role =="admin"  ){
+            localStorage.setItem( 'admindata', JSON.stringify( response.user ) );
+            console.log(response);
+            this.route.navigate(['/dashboard']);
+          }
+          else if(response.logged_in ==true && response.role =="client")
+          {
+            localStorage.setItem( 'clientdata', JSON.stringify( response.user ) );
+            this.route.navigate(['/profil-client']);
+          }else if(response.logged_in ==true && response.role =="freelancer")
+          {
+            localStorage.setItem( 'freelancerdata', JSON.stringify( response.user ) );
+            this.route.navigate(['/profil-freelancer']);
+          }
+          else{
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Email or Password is Incorrect!'
+            })
+          }
+        } 
+        else
         {
-          localStorage.setItem( 'clientdata', JSON.stringify( response.user ) );
-          this.route.navigate(['/profil-client']);
-        }else if(response.logged_in ==true && response.role =="freelancer")
-        {
-          localStorage.setItem( 'freelancerdata', JSON.stringify( response.user ) );
-          this.route.navigate(['/profil-freelancer']);
-        }
-        else{
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Email or Password is Incorrect!'
-          })
-        }
-       }else{
      
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'account created but not confirmed!, check Your EMail'
+            text: 'account created but not confirmed !, check Your Email '
           })
         }
        

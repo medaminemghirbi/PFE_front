@@ -5,6 +5,7 @@ import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
 
 import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -33,15 +34,21 @@ export class CategoriesComponent implements OnInit {
     end_date:'',
     */
   }
- 
+  image: any;
+  update! :  FormGroup;
+  submitted: boolean = false ; 
 
   constructor(private usersService:UsersService,private route:Router) { 
+    this.update = new FormGroup({
+      name: new FormControl(''),
+      avatar: new FormControl(''),
+    });
     
   }
 
   ngOnInit(): void {
     this.usersService.getAllcategories().subscribe(data=>{
-      debugger
+      // debugger
       console.log(data)
       
       this.dataArray=data , (err:HttpErrorResponse)=>{
@@ -89,22 +96,31 @@ export class CategoriesComponent implements OnInit {
     
   }
 
-  getdata(name:string,avatar:string,id:any){
+  getdata(name:string,image_url:string,id:any){
     this.messageSuccess=''
     this.dataCat.name= name 
-    this.dataCat.avatar =avatar 
+    this.dataCat.avatar =image_url 
     this.dataCat.id= id 
     console.log(this.dataCat)
 
   }
-
+  fileChange(event:any) {
+    this.image =event.target.files[0];
+    
+  }
   updatenewcat(f:any){
     let data=f.value
-    this.usersService.updateCat(this.dataCat.id,data).subscribe(response=>
+    const formData = new FormData();
+    formData.append('avatar', this.image );
+    formData.append('name', this.update.value.name);
+
+    this.usersService.updateCat(this.dataCat.id,formData).subscribe(response=>
       {
       console.log(response)
+      this.submitted = true ;
         let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataCat.id)
 
+        //this.dataArray[indexId].id=data.id
         this.dataArray[indexId].name=data.name
         this.dataArray[indexId].avatar=data.avatar
 

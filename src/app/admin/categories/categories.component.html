@@ -104,38 +104,37 @@ aria-hidden="true">
         </div>
         <div class="modal-body">
           <!-- form update start here -->
-          <form #f="ngForm" (ngSubmit)="updatenewcat(f)">
-            <!-- firstName validation start here -->
-                <div class="form-group">
+          <form [formGroup]="update" #f="ngForm" (ngSubmit)="updatenewcat (f); f.reset()" >
+     
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Name  </label>
+              <input type="text"  class="form-control"  formControlName="name" [(ngModel)]="dataCat.name"  ngModel>
+            </div>
+           <!-- <div [hidden]='name.valid || name.pristine' class="alert alert-danger" role="alert" >
+                name is required
+            </div>-->
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Avatar  </label>
+              
+            <input type="file" 
+            (change)="fileChange($event)"  class="form-control"  formControlName="avatar"  [(ngModel)]="dataCat.avatar" ngModel rows="3"   /> 
             
-                  <label for="exampleFormControlInput1">Name </label>
-                  <input type="text" class="form-control" placeholder="name" [(ngModel)]="dataCat.name" required name="name" #name="ngModel" ngModel minlength="2" maxlength="20">
-                </div>
-                <!--  
-                   <div class="alert alert-danger" *ngIf="title.touched">
-                  title is required
-                </div>
-                 -->
-               
-             
-            <!-- lastName validation end here -->
-            
-            <!-- lastName validation start here -->
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Avatar </label>
-                    <input type="file" class="form-control" placeholder="avatar" [(ngModel)]="dataCat.avatar" required name="avatar" #image="ngModel" minlength="2" maxlength="20" ngModel>
-                  </div>
-                
-            <!-- lastName validation end here -->
-            
-             
-                <div class="alert alert-success" *ngIf="messageSuccess">
-                    {{messageSuccess}}
-                </div>      
-
-               <button class="btn btn-primary" >Update student</button>
-              </form>
-
+            </div>
+           <!-- <div [hidden]='avatar.valid || avatar.pristine' class="alert alert-danger"role="alert" >
+                image is required
+            </div>-->
+           
+          
+  
+            <div class="form-group">
+  
+                <button [disabled]="f.invalid" [hidden]="submitted" class="btn btn-danger" type="submit">save</button>
+            </div>
+            <div class="alert alert-danger" [hidden]="!submitted" role="alert"> 
+              Your post has been successfully created. 
+              <a routerLink="/categories" class="alert-link" > View all categories </a>
+            </div>
+          </form>
 
 
           <!-- form update end here -->
