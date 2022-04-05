@@ -26,10 +26,6 @@ export class UsersService {
     return this.freelancers;
   }
 
-  getallcategories(){
-    return this.http.get(`${environment.urlBackend}`+'categories/')
-  }
-
   
 
   login(data:any): Observable<any> {
@@ -44,9 +40,11 @@ export class UsersService {
   register(data:any){
     return this.http.post(environment.urlBackend + 'registrations/' , data)
   }
+
   getallfreelancers(){
     return this.http.get(`${environment.urlBackend}`+'freelancers/')
   }
+
   updateProfileFreelancer (id:string,newprofile:any){
     return this.http.patch(environment.urlBackend+'upadateFreelancer/' + id , newprofile )
   }
@@ -72,6 +70,27 @@ export class UsersService {
   
     updateCat(id:string,newdata:any){
       return this.http.patch(environment.urlBackend+'categories/' + id , newdata )
+    }
+    
+    ////////////////// languages 
+    addLanguage (profile:any) {
+      return this.http.post(environment.urlBackend+'languages/',profile) ;
+    }
+    
+    getAllLanguages () {
+      return this.http.get(`${environment.urlBackend}`+'languages/')
+    }
+  
+    getOneLanguage (id:any) {    
+      return this.http.get(environment.urlBackend+'languages/' + id)
+    }
+  
+    deleteLanguage (id:any) {
+      return this.http.delete(environment.urlBackend+'languages/' + id )
+    }
+  
+    updateLanguage (id:string,newdata:any) {
+      return this.http.patch(environment.urlBackend+'languages/' + id , newdata )
     }
 
     /////////////// users 
@@ -111,6 +130,7 @@ export class UsersService {
     updateMission (id:string,newdata:any) {
       return this.http.patch(environment.urlBackend+'missions/' + id , newdata )
     }
+
 
     ////////////////////// reviews 
     addReview (profile:any) {

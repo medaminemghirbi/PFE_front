@@ -18,11 +18,11 @@ export class AuthGuard implements CanActivate {
       this.admindata = JSON.parse(localStorage.getItem('admindata')||'{}');
       this.clientdata = JSON.parse(localStorage.getItem('clientdata')||'{}');
       this.freelancerdata = JSON.parse(localStorage.getItem('freelancerdata')||'{}');
-      if(this.admindata !=null || this.clientdata !=null|| this.freelancerdata!=null )
-      return true;
+      if(this.admindata != null || this.clientdata != null|| this.freelancerdata != null )
+        return true;
       else
-      this.router.navigate(['/login ']);
-      return false;
+        this.router.navigate(['/login ']);
+        return false;
   }
   
 }

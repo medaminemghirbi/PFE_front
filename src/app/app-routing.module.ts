@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './admin/add-category/add-category.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
+import { LanguagesComponent } from './admin/languages/languages.component';
 import { ListUsersComponent } from './admin/list-users/list-users.component';
 import { MissionsComponent } from './admin/missions/missions.component';
 import { ProfileAdminComponent } from './admin/profile-admin/profile-admin.component';
@@ -32,14 +33,15 @@ const routes: Routes = [
   {path:'dashboard'    , component:DashboardAdminComponent } ,
   { path : 'profil-admin' , component:ProfileAdminComponent  },
   { path : 'addcategory' , canActivate:[AuthGuard]    ,component:AddCategoryComponent} ,
-  { path : 'categories' , canActivate:[AuthGuard]   , component : CategoriesComponent} ,
+  { path : 'categories'  , component : CategoriesComponent} ,
   { path : 'missions' , canActivate:[AuthGuard]   ,component : MissionsComponent} ,
+  { path : 'languages' , canActivate:[AuthGuard]   ,component : LanguagesComponent} ,
   {path:'allusers'  ,canActivate:[AuthGuard] , component:ListUsersComponent} ,
   {path:'allreviews' ,canActivate:[AuthGuard]   ,component:ReviewsComponent} ,
   
-  { path : 'profil-client' ,canActivate:[AuthGuard]  , component:ProfilClientComponent  },
+  { path : 'profil-client'   , component:ProfilClientComponent  },
 
-  { path : 'profil-freelancer' ,canActivate:[AuthGuard]  , component:ProfilFreelancerComponent  } , 
+  { path : 'profil-freelancer'   , component:ProfilFreelancerComponent  } , 
 
 
 

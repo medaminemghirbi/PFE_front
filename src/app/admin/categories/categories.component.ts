@@ -1,4 +1,3 @@
-
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
@@ -70,29 +69,28 @@ export class CategoriesComponent implements OnInit {
   }
 
   delete(id:any  , i :number){
-
-    this.usersService.deleteCat(id).subscribe(response=>{
-      console.log(response)
-      this.dataArray.splice(i,1)
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-        }
-      })
-
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.usersService.deleteCat(id).subscribe(response=>{
+          console.log(response)
+          this.dataArray.splice(i,1)   
+        })
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
     })
+
     
   }
 
@@ -113,7 +111,7 @@ export class CategoriesComponent implements OnInit {
     const formData = new FormData();
     formData.append('avatar', this.image );
     formData.append('name', this.update.value.name);
-
+    Swal.fire('Whooa!', 'Category Succefuly updated!', 'success')
     this.usersService.updateCat(this.dataCat.id,formData).subscribe(response=>
       {
       console.log(response)
@@ -123,9 +121,10 @@ export class CategoriesComponent implements OnInit {
         //this.dataArray[indexId].id=data.id
         this.dataArray[indexId].name=data.name
         this.dataArray[indexId].avatar=data.avatar
-
         this.messageSuccess=`this name : ${this.dataArray[indexId].name} is updated`
-
+        window.location.reload();
+       this.route.navigate(['/categories']);
+      
       },(err:HttpErrorResponse)=>{
         console.log(err.message)
       
@@ -135,11 +134,9 @@ export class CategoriesComponent implements OnInit {
 
 /*
   delete(id:any  , i :number){
-
     this.servicesService.deletestudent(id).subscribe(response=>{
       console.log(response)
       this.dataArray.splice(i,1)
-
     })
     
   }
@@ -168,7 +165,6 @@ export class CategoriesComponent implements OnInit {
           console.log(err.message)
         
         })
-
 }
 */
 

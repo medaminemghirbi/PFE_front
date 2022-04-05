@@ -31,6 +31,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { MissionsComponent } from './admin/missions/missions.component';
 import { ReviewsComponent } from './admin/reviews/reviews.component';
+import { LanguagesComponent } from './admin/languages/languages.component';
 
 
 
@@ -57,7 +58,8 @@ import { ReviewsComponent } from './admin/reviews/reviews.component';
     ListUsersComponent,
     CategoriesComponent,
     MissionsComponent,
-    ReviewsComponent ,
+    ReviewsComponent,
+    LanguagesComponent ,
 
   ],
   imports: [
