@@ -23,7 +23,7 @@ export class EditFreelancerComponent implements OnInit {
     console.log(this.freelancerdata)
 
     this.upadate = new FormGroup({
-      avatar: new FormControl('', [Validators.required]),
+     // avatar: new FormControl('', [Validators.required]),
       firstname: new FormControl('', [Validators.required]),
       lastname: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
@@ -50,6 +50,32 @@ export class EditFreelancerComponent implements OnInit {
   fileChange(event:any) {
     this.image =event.target.files[0];   
   }
+ /* updateimage (f:any){
+    let data=f.value
+    const formData = new FormData();
+   formData.append('avatar', this.image );
+
+   this.usersService.updateimagefreelancer(this.freelancerdata.id,formData).subscribe(response=>
+    {
+      debugger
+      localStorage.clear();
+      localStorage.setItem( 'freelancerdata', JSON.stringify( response ) );
+      window.location.reload();
+   
+    console.log(response)
+      let indexId=this.freelancerdata.findIndex((obj:any)=>obj.id==this.freelancerdata.id)
+
+      this.freelancerdata[indexId].user_image_url=data.user_image_url
+
+
+      this.messageSuccess=`this email : ${this.freelancerdata[indexId].email} is updated`
+
+    },(err:HttpErrorResponse)=>{
+      console.log(err.message)
+    
+    })
+    
+  }*/
 
   updatenewuser (f:any){
     let data=f.value
@@ -85,6 +111,7 @@ export class EditFreelancerComponent implements OnInit {
             let indexId=this.freelancerdata.findIndex((obj:any)=>obj.id==this.freelancerdata.id)
     
             this.freelancerdata[indexId].email=data.email
+            this.freelancerdata[indexId].user_image_url=data.user_image_url
             this.freelancerdata[indexId].firstname=data.firstname
             this.freelancerdata[indexId].lastname=data.lastname
             this.freelancerdata[indexId].adresse=data.adresse

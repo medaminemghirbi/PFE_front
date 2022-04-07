@@ -35,6 +35,7 @@ import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freel
 import { SideBarrComponent } from './freelancer/side-barr/side-barr.component';
 import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/dashbord-freelancer.component';
 import { ExpEducationComponent } from './freelancer/exp-education/exp-education.component';
+import { ExperianceComponent } from './freelancer/experiance/experiance.component';
 
 
 
@@ -66,6 +67,7 @@ import { ExpEducationComponent } from './freelancer/exp-education/exp-education.
     SideBarrComponent,
     DashbordFreelancerComponent,
     ExpEducationComponent,
+    ExperianceComponent,
 
   ],
   imports: [

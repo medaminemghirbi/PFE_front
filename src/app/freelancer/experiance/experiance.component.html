@@ -22,7 +22,7 @@
                       <div class="container" >
                      
                           <div align="right" >
-                            <button  (click)="clicker()" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-dark btn-sm">+ Add  School/University </button>
+                            <button  (click)="clicker()" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-dark btn-sm">+ Add  Experaince </button>
                           </div>
                       
   
@@ -30,11 +30,11 @@
                           <div class="panel-body inf-content">
                               <div class="row">
                                   <div class="col-md-4">
-                                      <img alt="" style="width:150px;" title="" src="https://icon-library.com/images/school-icon/school-icon-11.jpg" data-original-title="Usuario"> 
+                                      <img alt="" style="width:320px;" title="" src="https://g.foolcdn.com/editorial/images/466511/man-working-at-a-computer_gettyimages-650066898.jpg" data-original-title="Usuario"> 
                      
                                   </div>
                                   <div class="col-md-6">
-                                      <strong> School/University    Details</strong><br>
+                                      <strong> Experiance    Details</strong><br>
                                       <div class="table-responsive">
                                       <table class="table table-user-information">
                                           <tbody>
@@ -42,14 +42,36 @@
                                                   <td>
                                                       <strong>
                                                           <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                          School/University                                             
+                                                          entreprise                                          
                                                       </strong>
                                                   </td>
                                                   <td class="text-primary">
-                                                   {{ data.ecole }}
+                                                   {{ data.entreprise }}
                                                   </td>
                                               </tr>
-                            
+                                              <tr>        
+                                                <td>
+                                                    <strong>
+                                                        <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                                        JobType                                          
+                                                    </strong>
+                                                </td>
+                                                <td class="text-primary">
+                                                 {{ data.jobType }}
+                                                </td>
+                                            </tr>
+                                            <tr>        
+                                              <td>
+                                                  <strong>
+                                                      <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                                      Description                                          
+                                                  </strong>
+                                              </td>
+                                              <td class="text-primary">
+                                               {{ data.description }}
+                                              </td>
+                                          </tr>
+                          
                                               <tr>        
                                                   <td>
                                                       <strong>
@@ -66,7 +88,7 @@
                                                   <td>
                                                       <strong>
                                                           <span class="glyphicon glyphicon-envelope text-primary"></span> 
-                                                          Graduation Date                                                      </strong>
+                                                          End Date                                                      </strong>
                                                   </td>
                                                   <td class="text-primary">
                                                     {{data.dateFin  }}     
@@ -83,8 +105,8 @@
                                   </div>
                               </div>
                               <div align="right" >
-                                <button   (click)="deleteeducation(data.id )" type="button"  class="btn btn-outline-danger btn-sm"> Delete  School/University   </button> &nbsp; &nbsp;
-                                <button  (click)="clicker()" type="button" data-toggle="modal" data-target="#exampleModal1" class="btn btn-outline-success btn-sm">Update  School/University   </button>
+                                <button  (click)="clicker()" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-danger btn-sm"> Delete  Experaince   </button> &nbsp; &nbsp;
+                                <button  (click)="clicker()" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-success btn-sm">Update  Experaince  </button>
                               </div>
                           
                           </div>
@@ -99,34 +121,41 @@
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Add School </h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Add Experaince </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
                                   <div class="modal-body">
                                     <!-- form update start here -->
-                                    <form [formGroup]="addeducation" #f="ngForm" (ngSubmit)="addschool (f); f.reset()" >
+                                    <form  >
                                
                                       <div class="form-group">
-                                        <label for="exampleFormControlInput1">School/University  </label>
-                                        <input type="text"  class="form-control"  formControlName="ecole"  placeholder="your School/University is ?"  ngModel>
+                                        <label for="exampleFormControlInput1">society  </label>
+                                        <input type="text"  class="form-control"  formControlName="name"  placeholder="your society is ?"  ngModel>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleFormControlInput1">JobType  </label>
+                                        <input type="text"  class="form-control"  formControlName="name"  placeholder="your JobType is ?"  ngModel>
                                       </div>
                      
                                       <div class="form-group">
                                         <label for="fullName">Start Date</label>
-                                        <input type="date" class="form-control" formControlName="dateDebut" id="dateDebut" placeholder="your Post is ?">
+                                        <input type="date" class="form-control" id="fullName" placeholder="your Post is ?">
                                       </div>
                                       <div class="form-group">
                                         <label for="fullName">Finish Date</label>
-                                        <input type="date" class="form-control" formControlName="dateFin" id="dateFin" placeholder="your Post is ?">
+                                        <input type="date" class="form-control" id="fullName" placeholder="your Post is ?">
                                       </div>
-
+                                      <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Experiance Description</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                      </div>
                                       <div class="row gutters">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                           <div class="text-right">
                                             
-                                            <button type="submit"  class="btn btn-primary"> Add  </button>
+                                            <button type="button" id="submit" name="submit" class="btn btn-primary"> Add  </button>
                                           </div>
                                         </div>
                                       </div>
@@ -139,60 +168,6 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Update School </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    <!-- form update start here -->
-                                    <form [formGroup]="addeducation" #f="ngForm" (ngSubmit)="addschool (f); f.reset()" >
-                               
-                                      <div class="form-group">
-                                        <label for="exampleFormControlInput1">School/University  </label>
-                                        <input type="text"  class="form-control"  formControlName="ecole"  placeholder="your School/University is ?"  ngModel>
-                                      </div>
-                     
-                                      <div class="form-group">
-                                        <label for="fullName">Start Date</label>
-                                        <input type="date" class="form-control" formControlName="dateDebut" id="dateDebut" placeholder="your Post is ?">
-                                      </div>
-                                      <div class="form-group">
-                                        <label for="fullName">Finish Date</label>
-                                        <input type="date" class="form-control" formControlName="dateFin" id="dateFin" placeholder="your Post is ?">
-                                      </div>
-
-                                      <div class="row gutters">
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                          <div class="text-right">
-                                            
-                                            <button type="submit"  class="btn btn-primary"> Update  </button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </form>
-                            
-                            
-                                    <!-- form update end here -->
-                                  </div>
-                                  
-                                </div>
-                              </div>
-                            </div>
-
-
-
-
-
-
-
-
-
-
                   <!--    <div class="row gutters">
                           
                         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">

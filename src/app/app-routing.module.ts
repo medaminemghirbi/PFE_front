@@ -11,6 +11,7 @@ import { ProfilClientComponent } from './client/profil-client/profil-client.comp
 import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/dashbord-freelancer.component';
 import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freelancer.component';
 import { ExpEducationComponent } from './freelancer/exp-education/exp-education.component';
+import { ExperianceComponent } from './freelancer/experiance/experiance.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './services/auth.guard';
@@ -39,10 +40,10 @@ const routes: Routes = [
   {path:'allreviews' ,canActivate:[AuthGuard]   ,component:ReviewsComponent} ,
   
   { path : 'profil-client' ,canActivate:[AuthGuard]  , component:ProfilClientComponent  },
-  { path:'exp', component:ExpEducationComponent},
+  { path:'Education', component:ExpEducationComponent},
   {path:'edit-freelancer' ,canActivate:[AuthGuard]  ,component:EditFreelancerComponent} ,
   {path:'dashbord-freelancer' ,canActivate:[AuthGuard]  ,component:DashbordFreelancerComponent} ,
-
+  { path:'experiance', component:ExperianceComponent},
 
 
 ];
