@@ -47,6 +47,9 @@ export class UsersService {
   getallfreelancers(){
     return this.http.get(`${environment.urlBackend}`+'freelancers/')
   }
+  updateProfileFreelancer (id:string,newprofile:any){
+    return this.http.patch(environment.urlBackend+'upadateFreelancer/' + id , newprofile )
+  }
 
   logout(){
     this.connecte = false;
@@ -58,6 +61,7 @@ export class UsersService {
     getAllcategories(){
       return this.http.get(`${environment.urlBackend}`+'categories/')
     }
+
 
     addcategory(data:any){
       return this.http.post(environment.urlBackend+'categories/' , data) ;
@@ -130,7 +134,13 @@ export class UsersService {
       return this.http.patch(environment.urlBackend+'reviews/' + id , newdata )
     }
 
-    
+       countall(){
+      return this.http.get(`${environment.urlBackend}`+'countall/')
+    }
 
+    getfreelancerexperiance(id:any){
+      return this.http.get(`${environment.urlBackend}`+'getuserexperiance/'+id)
+
+    }
 
 }

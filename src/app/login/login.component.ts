@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     password:'',
   }
 
-  constructor(private freelancersService:UsersService,private route:Router) { }
+  constructor(private UsersSErvice:UsersService,private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -44,9 +44,19 @@ export class LoginComponent implements OnInit {
 
     };
 
-    this.freelancersService.login(data).subscribe(
+    this.UsersSErvice.login(data).subscribe(
       response => {
         console.log(response);
+        if(response.status==401){
+     
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'User Not Found Or invalide Credentialns'
+          })
+        }else{
+
+
        if(response.user.email_confirmed==true) {
         if(response.logged_in ==true && response.role =="admin"  ){
           localStorage.setItem( 'admindata', JSON.stringify( response.user ) );
@@ -60,7 +70,7 @@ export class LoginComponent implements OnInit {
         }else if(response.logged_in ==true && response.role =="freelancer")
         {
           localStorage.setItem( 'freelancerdata', JSON.stringify( response.user ) );
-          this.route.navigate(['/profil-freelancer']);
+          this.route.navigate(['/dashbord-freelancer']);
         }
         else{
           Swal.fire({
@@ -78,9 +88,10 @@ export class LoginComponent implements OnInit {
           })
         }
        
- 
+      }
      
       },(err:HttpErrorResponse)=>this.messageError=err.error.error);
+      
   }
 
   

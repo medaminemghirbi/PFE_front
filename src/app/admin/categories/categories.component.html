@@ -1,56 +1,55 @@
-
 <div id="wrapper">
-    <app-side-bar></app-side-bar>
-       <div id="content-wrapper" class="d-flex flex-column">
-     
-           <!-- Main Content -->
-           <div id="content">
-     
-               <!-- Topbar -->
+  <app-side-bar></app-side-bar>
+     <div id="content-wrapper" class="d-flex flex-column">
    
-               <app-navbarr></app-navbarr>
+         <!-- Main Content -->
+         <div id="content">
+   
+             <!-- Topbar -->
+ 
+             <app-navbarr></app-navbarr>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Categories </h6>
-    </div>
-    <div class="card-body">
+  <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Categories </h6>
+  </div>
+  <div class="card-body">
 
-        <div class="table-responsive">
-            <table class="table table-bordered"  width="100%" *ngIf="dataArray" >
-                <thead>
-                    <tr>
-                       
-                        <th scope="col" (click)="sort('id')" ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
-                        <th>Name</th>
-                        <th>Avatar</th>
-                        <th scope="col"> created_at</th>
-                        <th scope="col"> updated_at</th>
-                        <th>Actions </th>
+      <div class="table-responsive">
+          <table class="table table-bordered"  width="100%" *ngIf="dataArray" >
+              <thead>
+                  <tr>
+                     
+                      <th scope="col" (click)="sort('id')" ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
+                      <th>Name</th>
+                      <th>Avatar</th>
+                      <th scope="col"> created_at</th>
+                      <th scope="col"> updated_at</th>
+                      <th>Actions </th>
 
-                    </tr>
-                </thead>
-               
-                <tbody>
+                  </tr>
+              </thead>
+             
+              <tbody>
+                
+                  <tr *ngFor="let item of dataArray ; index as i" >
+                      <th scope="row"  > {{item.id}} </th>
+                      <td> {{item.name}} </td>
+                      <td> <img  height="180" [src]="item.image_url" alt="" class="card-img-top"></td>
+                      <td> {{item.created_at | date:'medium'}}  </td>
+                      <td> {{item.updated_at | date:'medium'}}  </td>
+                      <td>  
+                         <button  (click)="getdata(item.name,item.image_url,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > update </button>&nbsp;&nbsp;
+                         <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> delete </button> 
+                      
+                      </td>
+                  </tr>
                   
-                    <tr *ngFor="let item of dataArray ; index as i" >
-                        <th scope="row"  > {{item.id}} </th>
-                        <td> {{item.name}} </td>
-                        <td> <img  height="180" [src]="item.image_url" alt="" class="card-img-top"></td>
-                        <td> {{item.created_at | date:'medium'}}  </td>
-                        <td> {{item.updated_at | date:'medium'}}  </td>
-                        <td>  
-                           <button  (click)="getdata(item.name,item.image_url,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > update </button>&nbsp;&nbsp;
-                           <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> delete </button> 
-                        
-                        </td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-        </div>
-    </div>
+              </tbody>
+          </table>
+      </div>
+  </div>
 </div>
 
 
@@ -77,75 +76,69 @@
 aria-hidden="true">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-    <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="/login" >Logout</a>
-    </div>
+  <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+      </button>
+  </div>
+  <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+  <div class="modal-footer">
+      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+      <a class="btn btn-primary" href="/login" >Logout</a>
+  </div>
 </div>
 </div>
 </div>
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Update </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <!-- form update start here -->
-          <form #f="ngForm" (ngSubmit)="updatenewcat(f)">
-            <!-- firstName validation start here -->
-                <div class="form-group">
-            
-                  <label for="exampleFormControlInput1">Name </label>
-                  <input type="text" class="form-control" placeholder="name" [(ngModel)]="dataCat.name" required name="name" #name="ngModel" ngModel minlength="2" maxlength="20">
-                </div>
-                <!--  
-                   <div class="alert alert-danger" *ngIf="title.touched">
-                  title is required
-                </div>
-                 -->
-               
-             
-            <!-- lastName validation end here -->
-            
-            <!-- lastName validation start here -->
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Avatar </label>
-                    <input type="file" class="form-control" placeholder="avatar" [(ngModel)]="dataCat.avatar" required name="avatar" #image="ngModel" minlength="2" maxlength="20" ngModel>
-                  </div>
-                
-            <!-- lastName validation end here -->
-            
-             
-                <div class="alert alert-success" *ngIf="messageSuccess">
-                    {{messageSuccess}}
-                </div>      
-
-               <button class="btn btn-primary" >Update student</button>
-              </form>
-
-
-
-          <!-- form update end here -->
-        </div>
-        
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <!-- form update start here -->
+        <form [formGroup]="update" #f="ngForm" (ngSubmit)="updatenewcat (f); f.reset()" >
+   
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Name  </label>
+            <input type="text"  class="form-control"  formControlName="name" [(ngModel)]="dataCat.name"  ngModel>
+          </div>
+         <!-- <div [hidden]='name.valid || name.pristine' class="alert alert-danger" role="alert" >
+              name is required
+          </div>-->
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Avatar  </label>
+            
+          <input type="file" 
+          (change)="fileChange($event)"  class="form-control"  formControlName="avatar"  [(ngModel)]="dataCat.avatar" ngModel rows="3"   /> 
+          
+          </div>
+         <!-- <div [hidden]='avatar.valid || avatar.pristine' class="alert alert-danger"role="alert" >
+              image is required
+          </div>-->
+         
+        
+
+          <div class="form-group">
+
+              <button [disabled]="f.invalid" [hidden]="submitted" class="btn btn-danger" type="submit">save</button>
+          </div>
+          <div class="alert alert-danger" [hidden]="!submitted" role="alert"> 
+            Your post has been successfully created. 
+            <a routerLink="/categories" class="alert-link" > View all categories </a>
+          </div>
+        </form>
+
+
+        <!-- form update end here -->
+      </div>
+      
     </div>
   </div>
-  
-
-
-
-
+</div>

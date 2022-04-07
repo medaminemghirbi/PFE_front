@@ -8,7 +8,9 @@ import { MissionsComponent } from './admin/missions/missions.component';
 import { ProfileAdminComponent } from './admin/profile-admin/profile-admin.component';
 import { ReviewsComponent } from './admin/reviews/reviews.component';
 import { ProfilClientComponent } from './client/profil-client/profil-client.component';
-import { ProfilFreelancerComponent } from './freelancer/profil-freelancer/profil-freelancer.component';
+import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/dashbord-freelancer.component';
+import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freelancer.component';
+import { ExpEducationComponent } from './freelancer/exp-education/exp-education.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './services/auth.guard';
@@ -27,8 +29,7 @@ const routes: Routes = [
   {path:'contact' , component:ContactComponent} ,
 
   { path : 'register' , component:RegisterComponent } ,
-  {path:'login' , component:LoginComponent } ,
-
+  {path:'login' ,  component:LoginComponent } ,
   {path:'dashboard'    , component:DashboardAdminComponent } ,
   { path : 'profil-admin' , component:ProfileAdminComponent  },
   { path : 'addcategory' , canActivate:[AuthGuard]    ,component:AddCategoryComponent} ,
@@ -38,9 +39,9 @@ const routes: Routes = [
   {path:'allreviews' ,canActivate:[AuthGuard]   ,component:ReviewsComponent} ,
   
   { path : 'profil-client' ,canActivate:[AuthGuard]  , component:ProfilClientComponent  },
-
-  { path : 'profil-freelancer' ,canActivate:[AuthGuard]  , component:ProfilFreelancerComponent  } , 
-
+  { path:'exp', component:ExpEducationComponent},
+  {path:'edit-freelancer' ,canActivate:[AuthGuard]  ,component:EditFreelancerComponent} ,
+  {path:'dashbord-freelancer' ,canActivate:[AuthGuard]  ,component:DashbordFreelancerComponent} ,
 
 
 

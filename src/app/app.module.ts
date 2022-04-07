@@ -24,13 +24,17 @@ import { ProfileAdminComponent } from './admin/profile-admin/profile-admin.compo
 import { SideBarComponent } from './admin/side-bar/side-bar.component';
 import { NavbarrComponent } from './admin/navbarr/navbarr.component';
 import { ProfilClientComponent } from './client/profil-client/profil-client.component';
-import { ProfilFreelancerComponent } from './freelancer/profil-freelancer/profil-freelancer.component';
 import { AddCategoryComponent } from './admin/add-category/add-category.component';
 import { ListUsersComponent } from './admin/list-users/list-users.component';
 import { CookieService } from 'ngx-cookie-service';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { MissionsComponent } from './admin/missions/missions.component';
 import { ReviewsComponent } from './admin/reviews/reviews.component';
+import { NavBarrComponent } from './freelancer/nav-barr/nav-barr.component';
+import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freelancer.component';
+import { SideBarrComponent } from './freelancer/side-barr/side-barr.component';
+import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/dashbord-freelancer.component';
+import { ExpEducationComponent } from './freelancer/exp-education/exp-education.component';
 
 
 
@@ -45,19 +49,23 @@ import { ReviewsComponent } from './admin/reviews/reviews.component';
     AboutComponent,
     ContactComponent ,
     LoginComponent,
-    DashboardAdminComponent,
+    DashboardAdminComponent, 
     RegisterComponent,
     ProfileAdminComponent,
     SideBarComponent,
     NavbarrComponent,
 
     ProfilClientComponent,
-    ProfilFreelancerComponent,
     AddCategoryComponent,
     ListUsersComponent,
     CategoriesComponent,
     MissionsComponent,
-    ReviewsComponent ,
+    ReviewsComponent,
+    NavBarrComponent,
+    EditFreelancerComponent,
+    SideBarrComponent,
+    DashbordFreelancerComponent,
+    ExpEducationComponent,
 
   ],
   imports: [

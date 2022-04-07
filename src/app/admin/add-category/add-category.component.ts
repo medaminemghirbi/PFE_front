@@ -38,7 +38,7 @@ export class AddCategoryComponent implements OnInit {
     this.usersService.addcategory(formData).subscribe( ()=>{
         console.log(data)
         this.submitted = true ;
-      //this.router.navigate(['/posts'])
+      this.router.navigate(['/categories'])
 
     },(err:HttpErrorResponse)=>{
       this.messageErr=err.error

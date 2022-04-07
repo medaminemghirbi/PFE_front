@@ -27,13 +27,13 @@ export class RegisterComponent implements OnInit {
     let data=f.value
     console.log(data)
     this.freelancersService.register(data).subscribe(data=>{
-      Swal.fire('Whooa!', 'Account succeful created , Login to acced account profil!', 'success')
+      Swal.fire('Whooa!', 'Account succeful created , Acctivate Email to acced account profil!', 'success')
       this.router.navigate(['/login'])
       
       console.log(data)
     },(err:HttpErrorResponse)=>{
       console.log(err)
-      this.messageError="champs required"})
+      this.messageError="champs required or not valid"})
 
   }
 

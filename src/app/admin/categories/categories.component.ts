@@ -1,10 +1,10 @@
-
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
 
 import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -33,15 +33,21 @@ export class CategoriesComponent implements OnInit {
     end_date:'',
     */
   }
- 
+  image: any;
+  update! :  FormGroup;
+  submitted: boolean = false ; 
 
   constructor(private usersService:UsersService,private route:Router) { 
+    this.update = new FormGroup({
+      name: new FormControl(''),
+      avatar: new FormControl(''),
+    });
     
   }
 
   ngOnInit(): void {
     this.usersService.getAllcategories().subscribe(data=>{
-      debugger
+      // debugger
       console.log(data)
       
       this.dataArray=data , (err:HttpErrorResponse)=>{
@@ -63,67 +69,89 @@ export class CategoriesComponent implements OnInit {
   }
 
   delete(id:any  , i :number){
-
-    this.usersService.deleteCat(id).subscribe(response=>{
-      console.log(response)
-      this.dataArray.splice(i,1)
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-        }
-      })
-
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.usersService.deleteCat(id).subscribe(response=>{
+          console.log(response)
+          this.dataArray.splice(i,1)   
+        })
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
     })
+
     
   }
 
-  getdata(name:string,avatar:string,id:any){
+  getdata(name:string,image_url:string,id:any){
     this.messageSuccess=''
     this.dataCat.name= name 
-    this.dataCat.avatar =avatar 
+    this.dataCat.avatar =image_url 
     this.dataCat.id= id 
     console.log(this.dataCat)
 
   }
-
+  fileChange(event:any) {
+    this.image =event.target.files[0];
+    
+  }
+  
   updatenewcat(f:any){
     let data=f.value
-    this.usersService.updateCat(this.dataCat.id,data).subscribe(response=>
-      {
-      console.log(response)
-        let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataCat.id)
+    const formData = new FormData();
+    formData.append('avatar', this.image );
+    formData.append('name', this.update.value.name);
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.usersService.updateCat(this.dataCat.id,formData).subscribe(response=>
+          {
+          console.log(response)
+          this.submitted = true ;
+            let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataCat.id)
+    
+            //this.dataArray[indexId].id=data.id
+            this.dataArray[indexId].name=data.name
+            this.dataArray[indexId].avatar=data.avatar
+            this.messageSuccess=`this name : ${this.dataArray[indexId].name} is updated`
+            window.location.reload();
+           this.route.navigate(['/categories']);
+          
+          },(err:HttpErrorResponse)=>{
+            console.log(err.message)
+          
+          })
+        Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
 
-        this.dataArray[indexId].name=data.name
-        this.dataArray[indexId].avatar=data.avatar
-
-        this.messageSuccess=`this name : ${this.dataArray[indexId].name} is updated`
-
-      },(err:HttpErrorResponse)=>{
-        console.log(err.message)
-      
-      })
 
 }
 
 /*
   delete(id:any  , i :number){
-
     this.servicesService.deletestudent(id).subscribe(response=>{
       console.log(response)
       this.dataArray.splice(i,1)
-
     })
     
   }
@@ -152,7 +180,6 @@ export class CategoriesComponent implements OnInit {
           console.log(err.message)
         
         })
-
 }
 */
 
