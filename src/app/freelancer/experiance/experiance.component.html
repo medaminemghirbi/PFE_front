@@ -1,0 +1,277 @@
+<div id="wrapper">
+  <app-side-barr></app-side-barr>
+     <div id="content-wrapper" class="d-flex flex-column">
+   
+         <!-- Main Content -->
+         <div id="content" >
+   
+             <!-- Topbar -->
+ 
+             <app-nav-barr></app-nav-barr>
+             <!-- End of Topbar -->
+   
+             <!-- Begin Page Content -->
+                  <!-- Begin Page Content -->
+
+
+
+
+                    <br><br>
+                    <div class="container" >
+    
+                      <div class="container" >
+                     
+                          <div align="right" >
+                            <button  (click)="clicker()" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-dark btn-sm">+ Add  Experaince </button>
+                          </div>
+                      
+  
+                        <div class="container bootstrap snippets bootdey" *ngFor="let data of dataArray">
+                          <div class="panel-body inf-content">
+                              <div class="row">
+                                  <div class="col-md-4">
+                                      <img alt="" style="width:320px;" title="" src="https://g.foolcdn.com/editorial/images/466511/man-working-at-a-computer_gettyimages-650066898.jpg" data-original-title="Usuario"> 
+                     
+                                  </div>
+                                  <div class="col-md-6">
+                                      <strong> Experiance    Details</strong><br>
+                                      <div class="table-responsive">
+                                      <table class="table table-user-information">
+                                          <tbody>
+                                              <tr>        
+                                                  <td>
+                                                      <strong>
+                                                          <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                                          entreprise                                          
+                                                      </strong>
+                                                  </td>
+                                                  <td class="text-primary">
+                                                   {{ data.entreprise }}
+                                                  </td>
+                                              </tr>
+                                              <tr>        
+                                                <td>
+                                                    <strong>
+                                                        <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                                        JobType                                          
+                                                    </strong>
+                                                </td>
+                                                <td class="text-primary">
+                                                 {{ data.jobType }}
+                                                </td>
+                                            </tr>
+                                            <tr>        
+                                              <td>
+                                                  <strong>
+                                                      <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                                      Description                                          
+                                                  </strong>
+                                              </td>
+                                              <td class="text-primary">
+                                               {{ data.description }}
+                                              </td>
+                                          </tr>
+                          
+                                              <tr>        
+                                                  <td>
+                                                      <strong>
+                                                          <span class="glyphicon glyphicon-cloud text-primary"></span>  
+                                                          Start Date                                                      </strong>
+                                                  </td>
+                                                  <td class="text-primary">
+                                                      {{data.dateDebut}}      
+                                                  </td>
+                                              </tr>
+                          
+                            
+                                              <tr>        
+                                                  <td>
+                                                      <strong>
+                                                          <span class="glyphicon glyphicon-envelope text-primary"></span> 
+                                                          End Date                                                      </strong>
+                                                  </td>
+                                                  <td class="text-primary">
+                                                    {{data.dateFin  }}     
+                                                  </td>
+                                              </tr>
+                                              <tr>        
+                              
+                                           </tr>
+                           
+                                                                   
+                                          </tbody>
+                                      </table>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div align="right" >
+                                <button  (click)="clicker()" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-danger btn-sm"> Delete  Experaince   </button> &nbsp; &nbsp;
+                                <button  (click)="clicker()" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-success btn-sm">Update  Experaince  </button>
+                              </div>
+                          
+                          </div>
+                          
+                          </div> 
+               
+              
+                          </div><br>
+              
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Add Experaince </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <!-- form update start here -->
+                                    <form  >
+                               
+                                      <div class="form-group">
+                                        <label for="exampleFormControlInput1">society  </label>
+                                        <input type="text"  class="form-control"  formControlName="name"  placeholder="your society is ?"  ngModel>
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleFormControlInput1">JobType  </label>
+                                        <input type="text"  class="form-control"  formControlName="name"  placeholder="your JobType is ?"  ngModel>
+                                      </div>
+                     
+                                      <div class="form-group">
+                                        <label for="fullName">Start Date</label>
+                                        <input type="date" class="form-control" id="fullName" placeholder="your Post is ?">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="fullName">Finish Date</label>
+                                        <input type="date" class="form-control" id="fullName" placeholder="your Post is ?">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Experiance Description</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                      </div>
+                                      <div class="row gutters">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                          <div class="text-right">
+                                            
+                                            <button type="button" id="submit" name="submit" class="btn btn-primary"> Add  </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </form>
+                            
+                            
+                                    <!-- form update end here -->
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                            </div>
+                  <!--    <div class="row gutters">
+                          
+                        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="card h-100">
+                          <div class="card-body">
+                            <div class="row gutters">
+                              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <h6 class="mb-2 text-primary">Experiance Details</h6>
+                                <div [hidden]="clicked">
+                                  <button (click)="click()" type="button" class="btn btn-outline-dark btn-sm">+ Add Experiance</button>
+                                </div>
+                              </div>
+                              
+                              <div [hidden]="!clicked" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                  <label for="fullName">Job Type</label>
+                                  <input type="text" class="form-control" id="fullName" placeholder="your Post is ?">
+                                </div>
+                              </div>
+                              <div  [hidden]="!clicked" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                  <label for="fullName">Entreprise</label>
+                                  <input type="text" class="form-control" id="fullName" placeholder="Society Name ?">
+                                </div>
+                              </div>
+                              <div  [hidden]="!clicked" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                  <label for="fullName">Start Date</label>
+                                  <input type="date" class="form-control" id="fullName" placeholder="your Post is ?">
+                                </div>
+                              </div>
+                              <div  [hidden]="!clicked" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                  <label for="fullName">Finish Date</label>
+                                  <input type="date" class="form-control" id="fullName" placeholder="your Post is ?">
+                                </div>
+                              </div>
+  
+                          
+                        
+                            </div>
+                        
+                         
+                            <div [hidden]="!clicked" class="form-group">
+                              <label for="exampleFormControlTextarea1">Experiance Description</label>
+                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <div [hidden]="!clicked" class="row gutters">
+                              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="text-right">
+                                  <button  (click)="cancel()" type="button" id="submit" name="submit" class="btn btn-secondary">Cancel </button>
+                                  <button type="button" id="submit" name="submit" class="btn btn-primary"> Ajouter </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        
+                        </div>
+                      </div>
+                    </div>-->
+
+
+
+
+
+
+         <!-- End of Main Content -->
+   
+         <!-- Footer -->
+ 
+         <!-- End of Footer -->
+   
+     </div>
+     <!-- End of Content Wrapper -->
+   
+   </div>
+   <!-- End of Page Wrapper -->
+   
+   <!-- Scroll to Top Button-->
+   <a class="scroll-to-top rounded" href="#page-top">
+     <i class="fas fa-angle-up"></i>
+   </a>
+   
+   <!-- Logout Modal-->
+   <div  class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">×</span>
+                 </button>
+             </div>
+             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+             <div class="modal-footer">
+                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                 <a class="btn btn-primary" href="/login" >Logout</a>
+             </div>
+         </div>
+     </div>
+   </div>
+
+
+

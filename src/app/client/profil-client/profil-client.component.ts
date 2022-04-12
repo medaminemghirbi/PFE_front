@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profil-client.component.css']
 })
 export class ProfilClientComponent implements OnInit {
-
-  constructor() { }
-
+  clientdata:any;
+  constructor() { 
+    this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
+    console.log(this.clientdata)
+  }
   ngOnInit(): void {
   }
-
 }

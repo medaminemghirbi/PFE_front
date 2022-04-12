@@ -38,14 +38,15 @@
             <div class="row" >
               <div class="col-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let produit of dataArray "  >
                 <div class="card">
-               <a [routerLink]="['/DetailProduitComponent',produit.id]">  <img  height="180" [src]="produit.image_url" alt="" class="card-img-top"></a> 
+               <a [routerLink]="['/DetailProduitComponent',produit.id]"> 
+                    <img  height="180" [src]="produit.image_url" alt="" class="card-img-top"></a> 
                   <div class="card-body">
                     <div class="card-title text-center">
                       <h2>{{produit.name}}</h2>
-                      <p>Delivered in Max 2 Days!</p>
+                      
  
                      <br>  <br> <hr><br>
-                      <button class="btn15"   type="button" >Browse Categorie</button>
+                      <button class="btn15"   type="button" >Browse Category </button>
                     </div>
                   </div>
                 </div>

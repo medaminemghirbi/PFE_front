@@ -111,7 +111,7 @@ export class CategoriesComponent implements OnInit {
     const formData = new FormData();
     formData.append('avatar', this.image );
     formData.append('name', this.update.value.name);
-    Swal.fire('Whooa!', 'Category Succefuly updated!', 'success')
+    Swal.fire('Whooa!', 'Category Succeffully updated !', 'success')
     this.usersService.updateCat(this.dataCat.id,formData).subscribe(response=>
       {
       console.log(response)

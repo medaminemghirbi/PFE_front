@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfilFreelancerComponent } from './profil-freelancer.component';
+import { DashboardClientComponent } from './dashboard-client.component';
 
-describe('ProfilFreelancerComponent', () => {
-  let component: ProfilFreelancerComponent;
-  let fixture: ComponentFixture<ProfilFreelancerComponent>;
+describe('DashboardClientComponent', () => {
+  let component: DashboardClientComponent;
+  let fixture: ComponentFixture<DashboardClientComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfilFreelancerComponent ]
+      declarations: [ DashboardClientComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfilFreelancerComponent);
+    fixture = TestBed.createComponent(DashboardClientComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

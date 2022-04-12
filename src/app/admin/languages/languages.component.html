@@ -1,23 +1,26 @@
 <div id="wrapper">
-    <app-side-bar></app-side-bar>
+  <app-side-bar></app-side-bar>
        <div id="content-wrapper" class="d-flex flex-column">
      
            <!-- Main Content -->
            <div id="content">
      
                <!-- Topbar -->
-   
                <app-navbarr></app-navbarr>
+               
   
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Languages </h6>
     </div>
-    <button class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal1"  > Add Language  </button>&nbsp;&nbsp;
-                          
+                        
     <div class="card-body">
-  
+      <div align="right" >
+      <button class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal1"  > Add Language  </button>&nbsp;&nbsp;
+     </div>
+
+      <br> 
         <div class="table-responsive">
             <table class="table table-bordered"  width="100%" *ngIf="dataArray" >
                 <thead>
@@ -42,7 +45,7 @@
                         <td> {{item.created_at | date:'medium'}}  </td>
                         <td> {{item.updated_at | date:'medium'}}  </td>
                         <td>  
-                           <button  (click)="getdata(item.name,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > update </button>&nbsp;&nbsp;
+                           <button  (click)="getdata(item.name,item.id)"  class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal"  > update </button>&nbsp;&nbsp;
                            <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> delete </button> 
                         
                         </td>
@@ -113,7 +116,7 @@
   
             <div class="form-group">
   
-                <button [disabled]="f.invalid" [hidden]="submitted" class="btn btn-danger" type="submit">save</button>
+                <button [disabled]="f.invalid" [hidden]="submitted" class="btn btn-danger" type="submit">Save </button>
             </div>
             <div class="alert alert-danger" [hidden]="!submitted" role="alert"> 
               Your language has been successfully created. 
@@ -144,7 +147,7 @@
      
             <div class="form-group">
               <label for="exampleFormControlInput1">Name  </label>
-              <input type="text"  class="form-control"  formControlName="name" [(ngModel)]="dataCat.name"  ngModel>
+              <input type="text"  class="form-control"  formControlName="name" [(ngModel)]="dataLang.name"  ngModel>
             </div>
            <!-- <div [hidden]='name.valid || name.pristine' class="alert alert-danger" role="alert" >
                 name is required
@@ -153,7 +156,7 @@
   
             <div class="form-group">
   
-                <button [disabled]="f.invalid" [hidden]="submitted" class="btn btn-danger" type="submit">save</button>
+                <button [hidden]="submitted" class="btn btn-danger" type="submit">Update </button>
             </div>
             <div class="alert alert-danger" [hidden]="!submitted" role="alert"> 
               Your language has been successfully created. 

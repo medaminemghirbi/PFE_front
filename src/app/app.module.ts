@@ -24,13 +24,24 @@ import { ProfileAdminComponent } from './admin/profile-admin/profile-admin.compo
 import { SideBarComponent } from './admin/side-bar/side-bar.component';
 import { NavbarrComponent } from './admin/navbarr/navbarr.component';
 import { ProfilClientComponent } from './client/profil-client/profil-client.component';
-import { ProfilFreelancerComponent } from './freelancer/profil-freelancer/profil-freelancer.component';
 import { AddCategoryComponent } from './admin/add-category/add-category.component';
 import { ListUsersComponent } from './admin/list-users/list-users.component';
 import { CookieService } from 'ngx-cookie-service';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { MissionsComponent } from './admin/missions/missions.component';
 import { ReviewsComponent } from './admin/reviews/reviews.component';
+import { NavBarrComponent } from './freelancer/nav-barr/nav-barr.component';
+import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freelancer.component';
+import { SideBarrComponent } from './freelancer/side-barr/side-barr.component';
+import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/dashbord-freelancer.component';
+import { ExpEducationComponent } from './freelancer/exp-education/exp-education.component';
+import { ExperianceComponent } from './freelancer/experiance/experiance.component';
+import { NavbarclientComponent } from './client/navbarclient/navbarclient.component';
+import { SidebarclientComponent } from './client/sidebarclient/sidebarclient.component';
+import { MissionsClientComponent } from './client/missions-client/missions-client.component';
+import { AddMissionComponent } from './client/add-mission/add-mission.component';
+import { DashboardClientComponent } from './client/dashboard-client/dashboard-client.component';
+
 import { LanguagesComponent } from './admin/languages/languages.component';
 
 
@@ -46,19 +57,28 @@ import { LanguagesComponent } from './admin/languages/languages.component';
     AboutComponent,
     ContactComponent ,
     LoginComponent,
-    DashboardAdminComponent,
+    DashboardAdminComponent, 
     RegisterComponent,
     ProfileAdminComponent,
     SideBarComponent,
-    NavbarrComponent,
-
+    NavbarrComponent,    /// admin
     ProfilClientComponent,
-    ProfilFreelancerComponent,
     AddCategoryComponent,
     ListUsersComponent,
     CategoriesComponent,
-    MissionsComponent,
+    MissionsComponent,  /// admin 
     ReviewsComponent,
+    NavBarrComponent,   /// freelancer
+    EditFreelancerComponent,
+    SideBarrComponent,
+    DashbordFreelancerComponent,
+    ExpEducationComponent,
+    ExperianceComponent,
+    NavbarclientComponent,   /// client
+    SidebarclientComponent ,
+    MissionsClientComponent ,
+    AddMissionComponent ,
+    DashboardClientComponent,
     LanguagesComponent ,
 
   ],

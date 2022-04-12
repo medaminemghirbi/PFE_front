@@ -13,18 +13,24 @@ export class NavbarrComponent implements OnInit {
 
   messageErr:any;
   admindata:any;
+  freelancerdata: any;
+  clientdata: any;
   constructor(private route:Router, private servicesService:UsersService) {
   this.admindata = JSON.parse( localStorage.getItem('admindata') !);
-    console.log(this.admindata.firstname)
-
+  //  console.log(this.admindata.firstname)
+  //  this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
+  //  console.log(this.freelancerdata.firstname)
+  //  this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
+  //  console.log(this.clientdata.firstname)
 }
   ngOnInit(): void {
   
   }
-  logout(){
   
-    this.servicesService.logout();
-    this.route.navigate(['/login']);
+  logout(){
+      this.servicesService.logout();
+      localStorage.clear();
+      this.route.navigate(['/login']);
    
   }
 }

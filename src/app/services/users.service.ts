@@ -130,6 +130,10 @@ export class UsersService {
     updateMission (id:string,newdata:any) {
       return this.http.patch(environment.urlBackend+'missions/' + id , newdata )
     }
+    
+    getclientmission (client_id : any) {
+      return this.http.get(`${environment.urlBackend}`+'client/' + client_id )
+    }
 
 
     ////////////////////// reviews 
@@ -153,7 +157,34 @@ export class UsersService {
       return this.http.patch(environment.urlBackend+'reviews/' + id , newdata )
     }
 
+//***********************countall api***********************/
+    countall(){
+      return this.http.get(`${environment.urlBackend}`+'countall/')
+    }
+
+//***********************experience  call api***********************/
+    getfreelancerexperiance(id:any){
+      return this.http.get(`${environment.urlBackend}`+'getuserexperiance/'+id)
+
+    }
+
+
+//***********************education  call api***********************/
+    getfreelancereducation(id:any){
+      return this.http.get(`${environment.urlBackend}`+'getusereducation/'+id)
+    }
+
+    addschool(data:any){
+      return this.http.post(environment.urlBackend+'educations/' , data) ;
+    }
+
+    deleteeducation  (id:any) {
+      return this.http.delete(environment.urlBackend+'educations/' + id )
+    }
     
+    updateschool(id:string,newdata:any){
+      return this.http.patch(environment.urlBackend+'educations/' + id , newdata )
+    }
 
 
 }

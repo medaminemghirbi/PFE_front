@@ -20,14 +20,17 @@ export class LanguagesComponent implements OnInit {
   name: string ="" ;
   searchedKeyword!:string;
 
-  dataCat={
-    id : '',
-    name:''
-  }
+
   image: any;
   // add! :  FormGroup;
   submitted: boolean = false ; 
   update!: FormGroup;
+
+
+  dataLang ={
+    id : '',
+    name:''
+  }
 
   constructor(private usersService:UsersService,private route:Router) { 
    /* this.add = new FormGroup({
@@ -113,10 +116,10 @@ export class LanguagesComponent implements OnInit {
 
   getdata(name:string,id:any){
     this.messageSuccess=''
-    this.dataCat.name= name 
+    this.dataLang.name= name 
    
-    this.dataCat.id= id 
-    console.log(this.dataCat)
+    this.dataLang.id= id 
+    console.log(this.dataLang)
 
   }
 
@@ -126,18 +129,19 @@ export class LanguagesComponent implements OnInit {
     
     formData.append('name', this.update.value.name);
     Swal.fire('Whooa!', 'Language Succeffully updated !', 'success')
-    this.usersService.updateLanguage(this.dataCat.id,formData).subscribe(response=>
+    this.usersService.updateLanguage(this.dataLang.id,formData).subscribe(response=>
       {
-      console.log(response)
-      this.submitted = true ;
-        let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataCat.id)
+        console.log(response)
+        this.submitted = true ;
+
+        let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataLang.id)
 
         //this.dataArray[indexId].id=data.id
         this.dataArray[indexId].name=data.name
         
         this.messageSuccess=`this name : ${this.dataArray[indexId].name} is updated`
         window.location.reload();
-       this.route.navigate(['/languages']);
+       this.route.navigate(['/alllanguages']);
       
       },(err:HttpErrorResponse)=>{
         console.log(err.message)

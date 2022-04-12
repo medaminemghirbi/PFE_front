@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
           }else if(response.logged_in ==true && response.role =="freelancer")
           {
             localStorage.setItem( 'freelancerdata', JSON.stringify( response.user ) );
-            this.route.navigate(['/profil-freelancer']);
+            this.route.navigate(['/dashbord-freelancer']);
           }
           else{
             Swal.fire({
