@@ -13,20 +13,11 @@ export class UsersService {
 
   public connecte : boolean = false ; 
   logged_in : boolean = true ; 
-  freelancers:User[];
+  
   constructor(private http : HttpClient , public router: Router ) {
-    this.freelancers = [
-      {id:1,lastname:"mohamed amine",firstname:"mghirbi",photo:"../assets/users/image1.jpg",earning:500,job:"web dev"},
-      {id:1,lastname:"mohamed amine",firstname:"mghirbi",photo:"../assets/users/image2.jpg",earning:500,job:"web dev"},
-      {id:1,lastname:"mohamed amine",firstname:"mghirbi",photo:"../assets/users/image3.jpg",earning:500,job:"web dev"},
-      {id:1,lastname:"mohamed amine",firstname:"mghirbi",photo:"../assets/users/image4.jpg",earning:500,job:"web dev"}
-    ];
-   }
-   listeProduits():User[] {
-    return this.freelancers;
+
   }
 
-  
 
   login(data:any): Observable<any> {
     this.connecte = true;
@@ -130,32 +121,13 @@ export class UsersService {
     updateMission (id:string,newdata:any) {
       return this.http.patch(environment.urlBackend+'missions/' + id , newdata )
     }
-    
+
     getclientmission (client_id : any) {
       return this.http.get(`${environment.urlBackend}`+'client/' + client_id )
     }
 
 
-    ////////////////////// reviews 
-    addReview (profile:any) {
-      return this.http.post(environment.urlBackend+'reviews/',profile) ;
-    }
-    
-    getAllReviews () {
-      return this.http.get(`${environment.urlBackend}`+'reviews/')
-    }
-  
-    getOneReview  (id:any) {    
-      return this.http.get(environment.urlBackend+'reviews/' + id)
-    }
-  
-    deleteReview  (id:any) {
-      return this.http.delete(environment.urlBackend+'reviews/' + id )
-    }
-  
-    updateReview  (id:string,newdata:any) {
-      return this.http.patch(environment.urlBackend+'reviews/' + id , newdata )
-    }
+
 
 //***********************countall api***********************/
     countall(){
@@ -187,4 +159,32 @@ export class UsersService {
     }
 
 
+
+
+
+
+
+
+
+
+        ////////////////////// reviews 
+        addReview (profile:any) {
+          return this.http.post(environment.urlBackend+'reviews/',profile) ;
+        }
+        
+        getAllReviews () {
+          return this.http.get(`${environment.urlBackend}`+'reviews/')
+        }
+      
+        getOneReview  (id:any) {    
+          return this.http.get(environment.urlBackend+'reviews/' + id)
+        }
+      
+        deleteReview  (id:any) {
+          return this.http.delete(environment.urlBackend+'reviews/' + id )
+        }
+      
+        updateReview  (id:string,newdata:any) {
+          return this.http.patch(environment.urlBackend+'reviews/' + id , newdata )
+        }
 }

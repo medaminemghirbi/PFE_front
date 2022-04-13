@@ -15,7 +15,6 @@ export class FindFreelancerComponent implements OnInit {
   messageErr ='';
   produits: any;
   constructor(private usersService:UsersService,) { 
-    this.produits = usersService.listeProduits();
     this.usersService.getallfreelancers().subscribe(data=>{
       console.log(data)
       this.dataArray=data , (err:HttpErrorResponse)=>{

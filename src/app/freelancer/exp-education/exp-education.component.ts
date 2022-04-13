@@ -20,17 +20,18 @@ export class ExpEducationComponent implements OnInit {
   addeducation! :  FormGroup;
   constructor(public router:Router,public usersService:UsersService) {
     this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
+    
     this.addeducation = new FormGroup({
       ecole: new FormControl('', [Validators.required]),
       dateDebut: new FormControl('', [Validators.required]),
       dateFin: new FormControl('', [Validators.required]),
+      
     });
-  //  console.log(this.freelancerdata)
    }
 
   ngOnInit(): void {
-    this.getfreelancereducation(this.id);
-
+    this.getfreelancereducation(this.freelancerdata.id);
+    console.log(this.freelancerdata.id) ;
   }
     click(){
     
@@ -47,32 +48,29 @@ export class ExpEducationComponent implements OnInit {
       this.clickedd =false
     }
 
-
-
-
-addschool (f:any){
-  const formData = new FormData();
-  formData.append('ecole', this.addeducation.value.ecole);
-  formData.append('dateDebut', this.addeducation.value.dateDebut);
-  formData.append('dateFin', this.addeducation.value.dateFin);
-  formData.append('freelancer_id',this.freelancerdata.id);
-  
-  let data=f.value
-  
-  console.log(data)
-  
-  this.usersService.addschool(formData).subscribe( ()=>{
+    addschool (f:any){
+      const formData = new FormData();
+      formData.append('ecole', this.addeducation.value.ecole);
+      formData.append('dateDebut', this.addeducation.value.dateDebut);
+      formData.append('dateFin', this.addeducation.value.dateFin);
+      formData.append('freelancer_id',this.freelancerdata.id);
+      
+      let data=f.value
+      
       console.log(data)
-    
-    window.location.reload();
+      console.log(formData)
+      this.usersService.addschool(formData).subscribe( ()=>{
+          console.log(data)
+          console.log(formData)
+        window.location.reload();
 
-  },(err:HttpErrorResponse)=>{
-    this.messageErr=err.error
-    console.log(err.error)
-     console.log(err.status)
-     
-  }) ;
-}
+      },(err:HttpErrorResponse)=>{
+        this.messageErr=err.error
+        console.log(err.error)
+        console.log(err.status)
+        
+      }) ;
+    }
 
     deleteeducation(id:any){
       Swal.fire({

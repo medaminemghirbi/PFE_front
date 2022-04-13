@@ -24,10 +24,11 @@
                   <tr >
                     <th scope="col" (click)="sort('id')" ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
                     <th scope="col"(click)="sort('title')" >title &nbsp;<i class="fa fa-sort"> </i> </th>
-                    <th scope="col"> Languages </th>
-                    <th scope="col"> completed</th>
-                    <th scope="col"> filepath </th>                 
-                    <th scope="col"> category</th>                   
+                   <!-- <th scope="col"> Languages </th>  --> 
+                    <th scope="col"> description </th>
+                    <th scope="col"> duration </th>                 
+                    <th scope="col"> beginingDate</th>   
+                    <th scope="col"> category </th>                
                    <!--
                     <th scope="col"> created_at</th>
                     <th scope="col"> updated_at</th>
@@ -39,9 +40,11 @@
                     <tr *ngFor="let item of dataArray  ; index as i" >
                       <th scope="row" > {{item.id}} </th>
                         <td> {{item.title}} </td>
-                        <td>{{item.language.name}}</td>
-                        <td>{{item.completed}}</td>
-                        <td> {{item.filepath}}</td>                  
+                       <!--   <td>{{item.language.name}}</td> -->
+                        <td>{{item.description}}</td>
+                        <td> {{item.duration}}</td> 
+                        <td> {{item.beginingDate}}</td> 
+                        
                         <td> {{item.category.name}}  </td>
                        <!--
                            <td> {{item.created_at | date:'medium'}}  </td>
