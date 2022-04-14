@@ -7,7 +7,7 @@
    
              <!-- Topbar -->
  
-             <app-nav-barr></app-nav-barr>
+             <app-freelancernavbar></app-freelancernavbar>
              <!-- End of Topbar -->
    
              <!-- Begin Page Content -->
@@ -84,7 +84,7 @@
                               </div>
                               <div align="right" >
                                 <button   (click)="deleteeducation(data.id )" type="button"  class="btn btn-outline-danger btn-sm"> Delete  School/University   </button> &nbsp; &nbsp;
-                                <button  (click)="clicker()" type="button" data-toggle="modal" data-target="#exampleModal1" class="btn btn-outline-success btn-sm">Update  School/University   </button>
+                                <button (click)="getdata(data.ecole,data.dateDebut,data.dateFin,data.id)" type="button" data-toggle="modal" data-target="#exampleModal1" class="btn btn-outline-success btn-sm">Update  School/University   </button>
                               </div>
                           
                           </div>
@@ -150,20 +150,20 @@
                                   </div>
                                   <div class="modal-body">
                                     <!-- form update start here -->
-                                    <form [formGroup]="addeducation" #f="ngForm" (ngSubmit)="addschool (f); f.reset()" >
+                                    <form [formGroup]="addeducation" #f="ngForm" (ngSubmit)="updateschool (f); f.reset()" >
                                
                                       <div class="form-group">
                                         <label for="exampleFormControlInput1">School/University  </label>
-                                        <input type="text"  class="form-control"  formControlName="ecole"  placeholder="your School/University is ?"  ngModel>
+                                        <input type="text"  class="form-control"  formControlName="ecole" [(ngModel)]="dataeducation.ecole"  placeholder="your School/University is ?"  ngModel>
                                       </div>
                      
                                       <div class="form-group">
                                         <label for="fullName">Start Date</label>
-                                        <input type="date" class="form-control" formControlName="dateDebut" id="dateDebut" placeholder="your Post is ?">
+                                        <input type="date" class="form-control" [(ngModel)]="dataeducation.dateDebut" formControlName="dateDebut" id="dateDebut" placeholder="your Post is ?">
                                       </div>
                                       <div class="form-group">
                                         <label for="fullName">Finish Date</label>
-                                        <input type="date" class="form-control" formControlName="dateFin" id="dateFin" placeholder="your Post is ?">
+                                        <input type="date" class="form-control" formControlName="dateFin"  [(ngModel)]="dataeducation.dateFin" id="dateFin" placeholder="your Post is ?">
                                       </div>
 
                                       <div class="row gutters">

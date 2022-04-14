@@ -3,15 +3,15 @@ import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
-  selector: 'app-nav-barr',
-  templateUrl: './nav-barr.component.html',
-  styleUrls: ['./nav-barr.component.css']
+  selector: 'app-clientnavbar',
+  templateUrl: './clientnavbar.component.html',
+  styleUrls: ['./clientnavbar.component.css']
 })
-export class NavBarrComponent implements OnInit {
-  freelancerdara:any;
+export class ClientnavbarComponent implements OnInit {
+  clientdata:any;
   constructor(private route:Router, private servicesService:UsersService) {
-    this.freelancerdara = JSON.parse( localStorage.getItem('freelancerdata') !);
-      console.log(this.freelancerdara.firstname)
+    this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
+   //   console.log(this.freelancerdara.firstname)
   
   }
     ngOnInit(): void {
@@ -23,4 +23,5 @@ export class NavBarrComponent implements OnInit {
       this.route.navigate(['/login']);
      
     }
-  }
+
+}

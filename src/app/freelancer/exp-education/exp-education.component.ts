@@ -98,7 +98,26 @@ addschool (f:any){
   
       
     }
-
+    dataeducation={
+      id : '',
+      ecole:'',
+      dateDebut:new Date() ,
+      dateFin:new Date()
+     /* averagePayment:0 ,
+      period:0,
+      start_date:'',
+      end_date:'',
+      */
+    }
+    getdata(ecole:string,dateDebut:Date,dateFin:Date,id:any){
+   
+      this.dataeducation.ecole= ecole 
+      this.dataeducation.dateDebut =dateDebut 
+      this.dataeducation.dateFin =dateFin 
+      this.dataeducation.id= id 
+      console.log(this.dataeducation)
+  
+    }
 
     updateschool(f:any){
       const formData = new FormData();
@@ -118,24 +137,28 @@ addschool (f:any){
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          this.usersService.updateschool(this.dataArray.id,formData).subscribe(response=>
+          this.usersService.updateschool(this.dataeducation.id,formData).subscribe(response=>
             {
             console.log(response)
          
               let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataArray.id)
       
               //this.dataArray[indexId].id=data.id
-              this.dataArray[indexId].name=data.name
-              this.dataArray[indexId].avatar=data.avatar           
-              window.location.reload();
+              this.dataArray[indexId].ecole=data.ecole
+              this.dataArray[indexId].dateDebut=data.dateDebut    
+              this.dataArray[indexId].dateFin=data.dateFin       
+             
     
             
             },(err:HttpErrorResponse)=>{
               console.log(err.message)
             
             })
+
           Swal.fire('Saved!', '', 'success')
+           window.location.reload();
         } else if (result.isDenied) {
+          
           Swal.fire('Changes are not saved', '', 'info')
         }
       })

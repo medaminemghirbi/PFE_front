@@ -12,13 +12,22 @@ export class FindFreelancerComponent implements OnInit {
   search = faSearch;
   freelancers:any;
   dataArray:any = [];
+  datacate:any = [];
   messageErr ='';
   produits: any;
   constructor(private usersService:UsersService,) { 
-    this.produits = usersService.listeProduits();
+   // this.produits = usersService.listeProduits();
     this.usersService.getallfreelancers().subscribe(data=>{
       console.log(data)
       this.dataArray=data , (err:HttpErrorResponse)=>{
+        console.log(err)
+      this.messageErr="We dont't found this user in our database"} 
+      //console.log(this.dataArray)
+    }) 
+    this.usersService.getAllcategories().subscribe(data=>{
+
+      console.log(data)
+      this.datacate=data , (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found this user in our database"} 
       //console.log(this.dataArray)

@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
         else if(response.logged_in ==true && response.role =="client")
         {
           localStorage.setItem( 'clientdata', JSON.stringify( response.user ) );
-          this.route.navigate(['/profil-client']);
+          this.route.navigate(['/dashbord-client']);
         }else if(response.logged_in ==true && response.role =="freelancer")
         {
           localStorage.setItem( 'freelancerdata', JSON.stringify( response.user ) );
