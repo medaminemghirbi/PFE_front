@@ -43,6 +43,7 @@ import { AddMissionComponent } from './client/add-mission/add-mission.component'
 import { DashboardClientComponent } from './client/dashboard-client/dashboard-client.component';
 
 import { LanguagesComponent } from './admin/languages/languages.component';
+import { MissionsFreelancerComponent } from './freelancer/missions-freelancer/missions-freelancer.component';
 
 
 
@@ -79,7 +80,8 @@ import { LanguagesComponent } from './admin/languages/languages.component';
     MissionsClientComponent ,
     AddMissionComponent ,
     DashboardClientComponent,
-    LanguagesComponent ,
+    LanguagesComponent,
+    MissionsFreelancerComponent ,
 
   ],
   imports: [

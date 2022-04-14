@@ -19,6 +19,7 @@ import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/da
 import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freelancer.component';
 import { ExpEducationComponent } from './freelancer/exp-education/exp-education.component';
 import { ExperianceComponent } from './freelancer/experiance/experiance.component';
+import { MissionsFreelancerComponent } from './freelancer/missions-freelancer/missions-freelancer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './services/auth.guard';
@@ -58,7 +59,7 @@ const routes: Routes = [
   {path:'edit-freelancer' ,canActivate:[AuthGuard]  ,component:EditFreelancerComponent} ,
   {path:'dashbord-freelancer' ,canActivate:[AuthGuard]  ,component:DashbordFreelancerComponent} ,
   { path:'experiance', canActivate:[AuthGuard]  , component:ExperianceComponent},
-
+  { path:'missions-freelancer', canActivate:[AuthGuard]  , component:MissionsFreelancerComponent},
 
 ];
 

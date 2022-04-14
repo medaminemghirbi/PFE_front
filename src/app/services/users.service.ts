@@ -101,6 +101,11 @@ export class UsersService {
       return this.http.patch(environment.urlBackend+'admin/' + id , newprofile )
     }
 
+    updateprofilclient (id:string,newprofile:any){
+      return this.http.patch(environment.urlBackend+'updateclient/' + id , newprofile )
+    }
+
+    
     ////////////////// missions 
     addMission (profile:any) {
       return this.http.post(environment.urlBackend+'missions/',profile) ;
@@ -126,8 +131,9 @@ export class UsersService {
       return this.http.get(`${environment.urlBackend}`+'client/' + client_id )
     }
 
-
-
+    getmissionbyfreelancer (freelancer_id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getmissionbyfreelancer/' + freelancer_id )
+    }
 
 //***********************countall api***********************/
     countall(){
@@ -135,10 +141,20 @@ export class UsersService {
     }
 
 //***********************experience  call api***********************/
-    getfreelancerexperiance(id:any){
-      return this.http.get(`${environment.urlBackend}`+'getuserexperiance/'+id)
+  getfreelancerexperiance(id:any){
+    return this.http.get(`${environment.urlBackend}`+'getuserexperience/'+id)
 
-    }
+  }
+
+  deleteexperiance  (id:any) {
+    return this.http.delete(environment.urlBackend+'experiences/' + id )
+  }
+  addexperiance(data:any){
+    return this.http.post(environment.urlBackend+'experiences/' , data) ;
+  }
+  updateexperiance(id:string,newdata:any){
+    return this.http.patch(environment.urlBackend+'experiences/' + id , newdata )
+  }
 
 
 //***********************education  call api***********************/
@@ -167,7 +183,7 @@ export class UsersService {
 
 
 
-        ////////////////////// reviews 
+//////////////////**************************  reviews api ************************************//////////////
         addReview (profile:any) {
           return this.http.post(environment.urlBackend+'reviews/',profile) ;
         }

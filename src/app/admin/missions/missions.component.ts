@@ -15,11 +15,7 @@ export class MissionsComponent implements OnInit {
     id : '',
     title:'',
     description:''
-   /* averagePayment:0 ,
-    period:0,
-    start_date:'',
-    end_date:'',
-    */
+
   }
   messageErr =''
   
@@ -27,7 +23,7 @@ export class MissionsComponent implements OnInit {
   title: string ="" ;
   searchedKeyword!:string;
   dataArray: any;
-
+  dataArrayy: any;
   constructor(private usersService:UsersService,private route:Router) {
     
   }
@@ -37,7 +33,9 @@ export class MissionsComponent implements OnInit {
   ngOnInit(): void {
     this.usersService.getAllMissions().subscribe(data=>{
       console.log(data)
-      this.dataArray=data , (err:HttpErrorResponse)=>{
+      this.dataArray=data 
+      this.dataArrayy=data 
+      , (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found this student in our database"} 
       //console.log(this.dataArray)

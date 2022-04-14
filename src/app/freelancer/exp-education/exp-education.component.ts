@@ -20,18 +20,17 @@ export class ExpEducationComponent implements OnInit {
   addeducation! :  FormGroup;
   constructor(public router:Router,public usersService:UsersService) {
     this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
-    
     this.addeducation = new FormGroup({
       ecole: new FormControl('', [Validators.required]),
       dateDebut: new FormControl('', [Validators.required]),
       dateFin: new FormControl('', [Validators.required]),
-      
     });
+  //  console.log(this.freelancerdata)
    }
 
   ngOnInit(): void {
     this.getfreelancereducation(this.freelancerdata.id);
-    console.log(this.freelancerdata.id) ;
+
   }
     click(){
     
@@ -48,29 +47,32 @@ export class ExpEducationComponent implements OnInit {
       this.clickedd =false
     }
 
-    addschool (f:any){
-      const formData = new FormData();
-      formData.append('ecole', this.addeducation.value.ecole);
-      formData.append('dateDebut', this.addeducation.value.dateDebut);
-      formData.append('dateFin', this.addeducation.value.dateFin);
-      formData.append('freelancer_id',this.freelancerdata.id);
-      
-      let data=f.value
-      
-      console.log(data)
-      console.log(formData)
-      this.usersService.addschool(formData).subscribe( ()=>{
-          console.log(data)
-          console.log(formData)
-        window.location.reload();
 
-      },(err:HttpErrorResponse)=>{
-        this.messageErr=err.error
-        console.log(err.error)
-        console.log(err.status)
-        
-      }) ;
-    }
+
+
+addschool (f:any){
+  const formData = new FormData();
+  formData.append('ecole', this.addeducation.value.ecole);
+  formData.append('dateDebut', this.addeducation.value.dateDebut);
+  formData.append('dateFin', this.addeducation.value.dateFin);
+  formData.append('freelancer_id',this.freelancerdata.id);
+  
+  let data=f.value
+  
+  console.log(data)
+  
+  this.usersService.addschool(formData).subscribe( ()=>{
+      console.log(data)
+    
+    window.location.reload();
+
+  },(err:HttpErrorResponse)=>{
+    this.messageErr=err.error
+    console.log(err.error)
+     console.log(err.status)
+     
+  }) ;
+}
 
     deleteeducation(id:any){
       Swal.fire({
@@ -96,7 +98,22 @@ export class ExpEducationComponent implements OnInit {
   
       
     }
+    dataeducation={
+      id : '',
+      ecole:'',
+      dateDebut:new Date() ,
+      dateFin:new Date()
 
+    }
+    getdata(ecole:string,dateDebut:Date,dateFin:Date,id:any){
+   
+      this.dataeducation.ecole= ecole 
+      this.dataeducation.dateDebut =dateDebut 
+      this.dataeducation.dateFin =dateFin 
+      this.dataeducation.id= id 
+      console.log(this.dataeducation)
+  
+    }
 
     updateschool(f:any){
       const formData = new FormData();
@@ -116,24 +133,28 @@ export class ExpEducationComponent implements OnInit {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          this.usersService.updateschool(this.dataArray.id,formData).subscribe(response=>
+          this.usersService.updateschool(this.dataeducation.id,formData).subscribe(response=>
             {
             console.log(response)
          
               let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataArray.id)
       
               //this.dataArray[indexId].id=data.id
-             // this.dataArray[indexId].name=data.name
-              //this.dataArray[indexId].avatar=data.avatar           
-              window.location.reload();
+              this.dataArray[indexId].ecole=data.ecole
+              this.dataArray[indexId].dateDebut=data.dateDebut    
+              this.dataArray[indexId].dateFin=data.dateFin       
+             
     
             
             },(err:HttpErrorResponse)=>{
               console.log(err.message)
             
             })
+
           Swal.fire('Saved!', '', 'success')
+           window.location.reload();
         } else if (result.isDenied) {
+          
           Swal.fire('Changes are not saved', '', 'info')
         }
       })
@@ -146,7 +167,7 @@ export class ExpEducationComponent implements OnInit {
 
 
     getfreelancereducation(id:any){
-      this.usersService.getfreelancereducation(this.freelancerdata.id).subscribe(data=>{
+    this.usersService.getfreelancereducation(this.freelancerdata.id).subscribe(data=>{
 
     console.log(data)
     this.dataArray=data , (err:HttpErrorResponse)=>{
@@ -155,5 +176,4 @@ export class ExpEducationComponent implements OnInit {
     //console.log(this.dataArray)
   }) 
 }
-    
   }

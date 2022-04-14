@@ -30,24 +30,24 @@
                            
                                 <div class="form-group">
                                   <label for="exampleFormControlInput1">Title  </label>
-                                  <input type="text" name="title" class="form-control" ngModel   required>
+                                  <input type="text" name="title" formControlName="title" class="form-control" ngModel   required>
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleFormControlInput1">Description  </label>
-                                  <input type="text" name="description" class="form-control" ngModel   required>
+                                  <input type="text" name="description" formControlName="description" class="form-control" ngModel   required>
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleFormControlInput1">Duration  </label>
-                                  <input type="text" name="duration" class="form-control" ngModel   required>
+                                  <input type="text" name="duration" formControlName="duration" class="form-control" ngModel   required>
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleFormControlInput1">BeginingDate  </label>
-                                  <input type="date" name="beginingDate" class="form-control" ngModel   required>
+                                  <input type="date" name="beginingDate" formControlName="beginingDate" class="form-control" ngModel   required>
                                 </div>
                                 
                                 <div class="form-group">
                                   <label for="exampleFormControlInput1">Budget  </label>
-                                  <input type="text" name="Budget" class="form-control" ngModel   required>
+                                  <input type="text" name="budget" formControlName="budget" class="form-control" ngModel   required>
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleFormControlInput1">Category  </label>
@@ -56,7 +56,12 @@
                                   </select>
                                 </div>
                               
-                      
+                                <div class="form-group">
+                                  <label for="exampleFormControlInput2">Language   </label>
+                                  <select class="form-control" id="exampleFormControlSelect2"   ngModel  >
+                                      <option *ngFor=" let item of dataArrayy "  value="item.id"   >   {{item.name}}   </option>
+                                  </select>
+                                </div>
                                 <div class="form-group">
                       
                                     <button  [hidden]="submitted" class="btn btn-danger" type="submit">save</button>

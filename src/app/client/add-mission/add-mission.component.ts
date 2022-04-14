@@ -19,6 +19,7 @@ export class AddMissionComponent implements OnInit {
   submitted: boolean = false ; 
   clientdata: any;
   addmissionn: any ;
+  dataArrayy: any = [];
 
   constructor(private usersService:UsersService,private route:Router) { 
     this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
@@ -30,6 +31,7 @@ export class AddMissionComponent implements OnInit {
       duration: new FormControl('', [Validators.required]),
       beginingDate: new FormControl('', [Validators.required]),
       budget: new FormControl('', [Validators.required]),
+      idd: new FormControl('', [Validators.required]),
       id: new FormControl('', [Validators.required]),
       
     });
@@ -46,6 +48,16 @@ export class AddMissionComponent implements OnInit {
       this.messageErr="We dont't found this category in our database"} 
       //console.log(this.dataArray)
     }) 
+
+    this.usersService.getAllLanguages().subscribe(data=>{
+      // debugger
+      console.log(data)
+      
+      this.dataArrayy=data , (err:HttpErrorResponse)=>{
+        console.log(err)
+      this.messageErr="We dont't found this category in our database"} 
+      //console.log(this.dataArray)
+    }) 
   }
 
   addmission (f:any){
@@ -56,6 +68,7 @@ export class AddMissionComponent implements OnInit {
       formData.append('duration', this.addmissionn.value.duration);
       formData.append('beginingDate',this.addmissionn.value.beginingDate);
       formData.append('budget', this.addmissionn.value.budget);
+      formData.append('id',this.addmissionn.value.idd);
       formData.append('id',this.addmissionn.value.id);
       formData.append('client_id',this.clientdata.id);
 
