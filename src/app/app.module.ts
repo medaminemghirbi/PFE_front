@@ -46,6 +46,8 @@ import { ClientnavbarComponent } from './client/clientnavbar/clientnavbar.compon
 import { AlllanguagesComponent } from './admin/alllanguages/alllanguages.component';
 import { AddmissionComponent } from './client/addmission/addmission.component';
 import { MissionsClientComponent } from './client/missions-client/missions-client.component';
+import { AllmissionsComponent } from './client/allmissions/allmissions.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 
@@ -90,6 +92,7 @@ import { MissionsClientComponent } from './client/missions-client/missions-clien
      AlllanguagesComponent,
      AddmissionComponent,
      MissionsClientComponent,
+     AllmissionsComponent,
      
 
   ],
@@ -103,6 +106,8 @@ import { MissionsClientComponent } from './client/missions-client/missions-clien
     FormsModule , 
     MDBBootstrapModule,
     ReactiveFormsModule,
+    
+    NgSelectModule
     
     
     

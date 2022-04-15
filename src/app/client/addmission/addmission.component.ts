@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
 
@@ -11,8 +12,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./addmission.component.css']
 })
 export class AddmissionComponent implements OnInit {
-
+  languages: { "id": number, "name": string }[] = []
+  selectedDefaultLanguage:any
   dataArray:any = []
+  languagedata:any = []
+  liste:string[] = []
   p:number = 1 ;
   messageErr =''
   messageSuccess = '' ;
@@ -25,7 +29,7 @@ export class AddmissionComponent implements OnInit {
   constructor(private usersService:UsersService,private route:Router) { 
     this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
     console.log(this.clientdata.firstname)  
-    
+
     this.addmissionn = new FormGroup({
       title: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
@@ -33,21 +37,33 @@ export class AddmissionComponent implements OnInit {
       beginingDate: new FormControl('', [Validators.required]),
       budget: new FormControl('', [Validators.required]),
       category_id: new FormControl('', [Validators.required]),
-      
+      language_id: new FormControl('', [Validators.required]),
     });
 
   }
 
   ngOnInit(): void {
     this.usersService.getAllcategories().subscribe(data=>{
-      // debugger
-      console.log(data)
-      
-      this.dataArray=data , (err:HttpErrorResponse)=>{
+      console.log(data)   
+      this.dataArray=data,
+      (err:HttpErrorResponse)=>{
         console.log(err)
-      this.messageErr="We dont't found this category in our database"} 
-      //console.log(this.dataArray)
+      this.messageErr="We dont't found this category in our database"}
     }) 
+              
+    
+  /*-----Load Langugage---*/
+  this.usersService.getAllLanguages().subscribe(language=>{ 
+    debugger
+    language.forEach((l: { [x: string]: any; }) => this.languages.push({ "id": l["id"], "name": l["name"] }));
+  this.languagedata=language
+  this.languagedata.forEach((element: any) => {
+ console.log(element)
+  });
+  (err:HttpErrorResponse)=>{
+  console.log(err)
+  this.messageErr="We dont't found this langugae in our database"}
+  }) 
   }
 
   addmission (f:any){
@@ -60,12 +76,13 @@ export class AddmissionComponent implements OnInit {
       formData.append('budget', this.addmissionn.value.budget);
       formData.append('category_id',this.addmissionn.value.category_id);
       formData.append('client_id',this.clientdata.id);
+      formData.append('language_id',this.addmissionn.value.language_id);
       
 
     let data=f.value   
     console.log(data)
     this.usersService.addMission(formData).subscribe( ()=>{
-      debugger
+      
         console.log(data)
        // console.log(formData)
         this.submitted = true ;

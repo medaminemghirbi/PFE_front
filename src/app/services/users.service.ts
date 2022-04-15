@@ -194,7 +194,7 @@ export class UsersService {
         }
         
         getAllLanguages () {
-          return this.http.get(`${environment.urlBackend}`+'languages/')
+          return this.http.get<any>(`${environment.urlBackend}`+'languages/')
         }
       
         getOneLanguage (id:any) {    

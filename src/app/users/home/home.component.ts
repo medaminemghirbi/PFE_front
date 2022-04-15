@@ -22,11 +22,12 @@ export class HomeComponent implements OnInit {
   job:any = "./assets/men.jpg";
   cate9:any = "./assets/apply.png";
 
+  logged_in:any;
   constructor(public usersService:UsersService) { }
 
   ngOnInit(): void {
     this.usersService.getAllcategories().subscribe(data=>{
-
+      this.connecter();
       console.log(data)
       this.dataArray=data , (err:HttpErrorResponse)=>{
         console.log(err)
@@ -34,5 +35,8 @@ export class HomeComponent implements OnInit {
       //console.log(this.dataArray)
     }) 
   }
-
+  connecter(){
+    if(this.usersService.connecte ==true)
+    this.logged_in =true
+  }
 }

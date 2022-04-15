@@ -9,6 +9,7 @@ import { MissionsComponent } from './admin/missions/missions.component';
 import { ProfileAdminComponent } from './admin/profile-admin/profile-admin.component';
 import { ReviewsComponent } from './admin/reviews/reviews.component';
 import { AddmissionComponent } from './client/addmission/addmission.component';
+import { AllmissionsComponent } from './client/allmissions/allmissions.component';
 import { DashbordClientComponent } from './client/dashbord-client/dashbord-client.component';
 import { EditProfilClientComponent } from './client/edit-profil-client/edit-profil-client.component';
 import { MissionsClientComponent } from './client/missions-client/missions-client.component';
@@ -53,7 +54,8 @@ const routes: Routes = [
   {path:'dashbord-client',canActivate:[AuthGuard]  ,component:DashbordClientComponent},
   {path:"alllanguages",canActivate:[AuthGuard] ,component:AlllanguagesComponent},
   {path:"addmission",canActivate:[AuthGuard],component:AddmissionComponent},
-  {path:"missions-client",canActivate:[AuthGuard],component:MissionsClientComponent}
+  {path:"missions-client",canActivate:[AuthGuard],component:MissionsClientComponent},
+  {path:"allmissions",canActivate:[AuthGuard],component:AllmissionsComponent}
 ];
 
 @NgModule({

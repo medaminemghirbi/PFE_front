@@ -27,7 +27,7 @@
                     
                     <th scope="col"> completed</th>
                     <th scope="col"> filepath </th>
-                    <th scope="col"> user </th>
+                    <th scope="col"> category_id </th>
                    
                     <th scope="col"> category</th>
                     <th scope="col"> created_at</th>
@@ -45,7 +45,7 @@
                         <td>{{item.completed}}</td>
                         <td> {{item.filepath}}</td>
                         <td > {{item.user_id}}  </td>
-                       
+                        <td> {{item.category.name}}  </td>
                         <td> {{item.category_id}}  </td>
                         <td> {{item.created_at | date:'medium'}}  </td>
                         <td> {{item.updated_at | date:'medium'}}  </td>

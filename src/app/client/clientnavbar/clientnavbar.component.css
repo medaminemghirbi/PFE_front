@@ -1,0 +1,17 @@
+.btn1{
+  height: 52px;
+  width: 150px;
+  background-color: transparent;
+  color: rgb(38, 8,158);
+  outline: none;
+  border: 2px solid rgb(38, 8,158);
+
+
+}
+.btn1:hover{
+  background-color: rgb(38, 8,158);
+transition: all 0.4s;
+color: wheat;
+border: none;
+outline: none;
+}
