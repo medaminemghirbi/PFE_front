@@ -1,16 +1,23 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { UsersService } from 'src/app/services/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-add-mission',
+  selector: 'app-addmission',
   templateUrl: './add-mission.component.html',
   styleUrls: ['./add-mission.component.css']
 })
 export class AddMissionComponent implements OnInit {
+
+  languages: { "id": number, "name": string }[] = []
+  selectedDefaultLanguage:any
   dataArray:any = []
+  languagedata:any = []
+
   p:number = 1 ;
   messageErr =''
   messageSuccess = '' ;
@@ -19,45 +26,45 @@ export class AddMissionComponent implements OnInit {
   submitted: boolean = false ; 
   clientdata: any;
   addmissionn: any ;
-  dataArrayy: any = [];
 
   constructor(private usersService:UsersService,private route:Router) { 
     this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
     console.log(this.clientdata.firstname)  
-    
+
     this.addmissionn = new FormGroup({
       title: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
       duration: new FormControl('', [Validators.required]),
       beginingDate: new FormControl('', [Validators.required]),
       budget: new FormControl('', [Validators.required]),
-      idd: new FormControl('', [Validators.required]),
-      id: new FormControl('', [Validators.required]),
-      
+      category_id: new FormControl('', [Validators.required]),
+      language_id: new FormControl('', [Validators.required]),
     });
 
   }
 
   ngOnInit(): void {
     this.usersService.getAllcategories().subscribe(data=>{
-      // debugger
-      console.log(data)
-      
-      this.dataArray=data , (err:HttpErrorResponse)=>{
+      console.log(data)   
+      this.dataArray=data,
+      (err:HttpErrorResponse)=>{
         console.log(err)
-      this.messageErr="We dont't found this category in our database"} 
-      //console.log(this.dataArray)
+      this.messageErr="We dont't found this category in our database"}
     }) 
-
-    this.usersService.getAllLanguages().subscribe(data=>{
-      // debugger
-      console.log(data)
-      
-      this.dataArrayy=data , (err:HttpErrorResponse)=>{
-        console.log(err)
-      this.messageErr="We dont't found this category in our database"} 
-      //console.log(this.dataArray)
-    }) 
+              
+    
+  /*-----Load Langugage---*/
+  this.usersService.getAllLanguages().subscribe(language=>{ 
+    //debugger
+    language.forEach((l: { [x: string]: any; }) => this.languages.push({ "id": l["id"], "name": l["name"] }));
+  this.languagedata=language
+  this.languagedata.forEach((element: any) => {
+ console.log(element)
+  });
+  (err:HttpErrorResponse)=>{
+  console.log(err)
+  this.messageErr="We dont't found this langugae in our database"}
+  }) 
   }
 
   addmission (f:any){
@@ -68,17 +75,21 @@ export class AddMissionComponent implements OnInit {
       formData.append('duration', this.addmissionn.value.duration);
       formData.append('beginingDate',this.addmissionn.value.beginingDate);
       formData.append('budget', this.addmissionn.value.budget);
-      formData.append('id',this.addmissionn.value.idd);
-      formData.append('id',this.addmissionn.value.id);
+      formData.append('category_id',this.addmissionn.value.category_id);
       formData.append('client_id',this.clientdata.id);
+      formData.append('language_id',this.addmissionn.value.language_id);
+      
 
     let data=f.value   
     console.log(data)
     this.usersService.addMission(formData).subscribe( ()=>{
+      
         console.log(data)
-        console.log(formData)
+       // console.log(formData)
         this.submitted = true ;
-      //this.router.navigate(['/missions-client'])
+        Swal.fire('Saved!', '', 'success')
+       // window.location.reload();
+      this.route.navigate(['/missions-client'])
 
     },(err:HttpErrorResponse)=>{
       this.messageErr=err.error

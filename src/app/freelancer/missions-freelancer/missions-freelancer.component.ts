@@ -26,7 +26,7 @@ export class MissionsFreelancerComponent implements OnInit {
     description:''
   }
   ngOnInit(): void {
-    this.usersService.getmissionbyfreelancer(this.freelancerdata.id).subscribe(data=>{
+    this.usersService.getrequestbyfreelancer(this.freelancerdata.id).subscribe(data=>{
       console.log(data)
       this.dataArray = data , (err:HttpErrorResponse)=>{
         console.log(err)
@@ -58,7 +58,7 @@ export class MissionsFreelancerComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.usersService.deleteMission(id).subscribe(response=>{
+        this.usersService.deleteRequest(id).subscribe(response=>{
           console.log(response)
           this.dataArray.splice(i,1)   
         })
@@ -80,34 +80,6 @@ export class MissionsFreelancerComponent implements OnInit {
       this.dataMission.id=id
       console.log(this.dataMission)
   
-    }
-    updatemission(f:any){
-
-      let data=f.value
-   // const formData = new FormData();
-    //formData.append('avatar', this.image );
-    //formData.append('name', this.update.value.name);
-    Swal.fire('Whooa!', 'Mission Succeffulfy updated !', 'success')
-    this.usersService.updateMission(this.dataMission.id,data).subscribe(response=>
-      {
-      console.log(response)
-      this.submitted = true ;
-        let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataMission.id)
-
-        //this.dataArray[indexId].id=data.id
-        this.dataArray[indexId].name=data.name
-        this.dataArray[indexId].avatar=data.avatar
-        this.messageSuccess=`this title : ${this.dataArray[indexId].title} is updated`
-        window.location.reload();
-       this.route.navigate(['/missions-client']);
-      
-      },(err:HttpErrorResponse)=>{
-        console.log(err.message)
-      
-      })
-
-      
-      
     }
 
 }

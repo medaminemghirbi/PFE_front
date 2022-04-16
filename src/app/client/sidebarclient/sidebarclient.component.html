@@ -26,12 +26,22 @@
             <a class="nav-link" routerLink="/addMission">
                 <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                 <span>Add Mission  </span></a>
+                
         </li>
       
         <li class="nav-item active">
-            <a class="nav-link" routerLink="/missions-client">
+            <a class="nav-link collapsed" data-toggle="collapse" class="nav-link"  data-target="#collapseTwo2"
+            aria-expanded="true" aria-controls="collapseTwo2">
                 <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                <span>All Missions </span></a>
+                <span>My Missions list  </span></a>
+
+                <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">       
+                        <a class="collapse-item" routerLink="/postulated-missions-client" >Postulated Missions</a>  
+                        <a class="collapse-item" routerLink="/missions-client" >Current Missions</a>
+                        <a class="collapse-item" routerLink="/missions-client" >Ended Missions   </a>
+                    </div>
+                </div>
         </li>
   
         <!-- Divider -->

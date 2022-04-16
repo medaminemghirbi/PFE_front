@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   logo:any = "./assets/lg.png";
-  constructor() { }
+  logged_in:any;
+  constructor( public userService :UsersService) { }
 
   ngOnInit(): void {
+    this.connecter();
   }
-
+    connecter(){
+      if(this.userService.connecte ==true)
+      this.logged_in =true
+    }
 }

@@ -44,8 +44,10 @@ import { DashboardClientComponent } from './client/dashboard-client/dashboard-cl
 
 import { LanguagesComponent } from './admin/languages/languages.component';
 import { MissionsFreelancerComponent } from './freelancer/missions-freelancer/missions-freelancer.component';
+import { DetailFreelancerComponent } from './users/detail-freelancer/detail-freelancer.component';
 
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import { PostulatedMissionsClientComponent } from './client/postulated-missions-client/postulated-missions-client.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +83,9 @@ import { MissionsFreelancerComponent } from './freelancer/missions-freelancer/mi
     AddMissionComponent ,
     DashboardClientComponent,
     LanguagesComponent,
-    MissionsFreelancerComponent ,
+    MissionsFreelancerComponent,
+    DetailFreelancerComponent,
+    PostulatedMissionsClientComponent ,
 
   ],
   imports: [
@@ -93,8 +97,9 @@ import { MissionsFreelancerComponent } from './freelancer/missions-freelancer/mi
     ButtonModule ,
     FormsModule , 
     MDBBootstrapModule,
-    ReactiveFormsModule
+    ReactiveFormsModule ,
     
+    NgSelectModule ,
     
   ],
   providers: [CookieService],

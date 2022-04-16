@@ -13,6 +13,7 @@ import { AddMissionComponent } from './client/add-mission/add-mission.component'
 
 import { DashboardClientComponent } from './client/dashboard-client/dashboard-client.component';
 import { MissionsClientComponent } from './client/missions-client/missions-client.component';
+import { PostulatedMissionsClientComponent } from './client/postulated-missions-client/postulated-missions-client.component';
 import { ProfilClientComponent } from './client/profil-client/profil-client.component';
 
 import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/dashbord-freelancer.component';
@@ -26,6 +27,7 @@ import { AuthGuard } from './services/auth.guard';
 
 import { AboutComponent } from './users/about/about.component';
 import { ContactComponent } from './users/contact/contact.component';
+import { DetailFreelancerComponent } from './users/detail-freelancer/detail-freelancer.component';
 import { FindFreelancerComponent } from './users/find-freelancer/find-freelancer.component';
 import { FindProjectComponent } from './users/find-project/find-project.component';
 import { HomeComponent } from './users/home/home.component';
@@ -33,7 +35,7 @@ import { HomeComponent } from './users/home/home.component';
 const routes: Routes = [
   {path:'',  component : HomeComponent},
   {path:'freelancer' , component:FindFreelancerComponent},
-  {path:'project' , component:FindProjectComponent},
+  {path:'project' /*,canActivate:[AuthGuard] */ , component:FindProjectComponent},
   {path:'about' , component:AboutComponent},
   {path:'contact' , component:ContactComponent} ,
 
@@ -54,12 +56,14 @@ const routes: Routes = [
   { path : 'profil-client' ,canActivate:[AuthGuard]  , component:ProfilClientComponent  },
   { path : 'missions-client' ,canActivate:[AuthGuard]  , component:MissionsClientComponent  },
   { path : 'addMission' ,canActivate:[AuthGuard]  , component:AddMissionComponent  },
+  { path : 'postulated-missions-client' ,canActivate:[AuthGuard]  , component:PostulatedMissionsClientComponent  },
 
   { path:'Education' , canActivate:[AuthGuard]  ,  component:ExpEducationComponent},
   {path:'edit-freelancer' ,canActivate:[AuthGuard]  ,component:EditFreelancerComponent} ,
   {path:'dashbord-freelancer' ,canActivate:[AuthGuard]  ,component:DashbordFreelancerComponent} ,
   { path:'experiance', canActivate:[AuthGuard]  , component:ExperianceComponent},
   { path:'missions-freelancer', canActivate:[AuthGuard]  , component:MissionsFreelancerComponent},
+  { path:'detail-freelancer/:id', canActivate:[AuthGuard]  , component:DetailFreelancerComponent },
 
 ];
 

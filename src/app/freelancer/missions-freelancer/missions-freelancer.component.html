@@ -33,7 +33,7 @@
                                     <th scope="col"> description </th>
                                     <th scope="col"> duration </th>                 
                                     <th scope="col"> beginingDate</th>   
-                                    <th scope="col"> category </th>                
+                                                  
                                    <!--
                                     <th scope="col"> created_at</th>
                                     <th scope="col"> updated_at</th>
@@ -43,14 +43,14 @@
                                 </thead>
                                 <tbody>         
                                     <tr *ngFor="let item of dataArray  ; index as i" >
-                                      <th scope="row" > {{item.id}} </th>
-                                        <td> {{item.title}} </td>
+                                      <th scope="row" > {{item.mission.id}} </th>
+                                        <td> {{item.mission.title}} </td>
                                        <!--   <td>{{item.languages.name}}</td> -->
-                                        <td>{{item.description}}</td>
-                                        <td> {{item.duration}}</td> 
-                                        <td> {{item.beginingDate}}</td> 
+                                        <td>{{item.mission.description}}</td>
+                                        <td> {{item.mission.duration}}</td> 
+                                        <td> {{item.mission.beginingDate}}</td> 
                                         
-                                        <td> {{item.category.name}}  </td>
+                                        
                                        <!--
                                            <td> {{item.created_at | date:'medium'}}  </td>
                                         <td> {{item.updated_at | date:'medium'}}  </td>
@@ -58,9 +58,8 @@
                                         <td>  
                                             <button  class="btn btn-outline-success" (click)="details(item.id)" > Show </button> &nbsp;&nbsp;
                                            
-                                            <button  (click)="getdata(item.title,item.description,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > Update </button>&nbsp;&nbsp;
-                                            <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
-                                          
+                                            <button  (click)="delete(item.id , i)" type="button"  class="btn btn-outline-danger"> Delete    </button> &nbsp; &nbsp;
+                                           
                                         </td>
                 
                                        
@@ -74,59 +73,7 @@
                 
                     </div>
                   </div>
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Update </h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <!-- form update start here -->
-                          <form #f="ngForm" (ngSubmit)="updatemission(f)">
-                            <!-- firstName validation start here -->
-                                <div class="form-group">
-                            
-                                  <label for="exampleFormControlInput1">Title</label>
-                                  <input type="text" class="form-control" placeholder="title" [(ngModel)]="dataMission.title" required name="title" #title="ngModel" ngModel minlength="2" maxlength="20">
-                                </div>
-                                <!--  
-                                   <div class="alert alert-danger" *ngIf="title.touched">
-                                  title is required
-                                </div>
-                                 -->
-                               
-                             
-                            <!-- lastName validation end here -->
-                            
-                            <!-- lastName validation start here -->
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Description</label>
-                                    <input type="text" class="form-control" placeholder="description" [(ngModel)]="dataMission.description" required name="description" #description="ngModel" minlength="2" maxlength="20" ngModel>
-                                  </div>
-                                
-                            <!-- lastName validation end here -->
-                            
-                             
-                                <div class="alert alert-success" *ngIf="messageSuccess">
-                                    {{messageSuccess}}
-                                </div>      
-                
-                               <button class="btn btn-primary" >Update student</button>
-                              </form>
-                
-                
-                
-                          <!-- form update end here -->
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+               
                    <!-- End of Content Wrapper -->
                  
                  </div>
