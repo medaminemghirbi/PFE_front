@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class UsersService {
 
   public connecte : boolean = false ; 
-  logged_in : boolean = true ; 
+  logged_in : boolean = false ; 
   
   constructor(private http : HttpClient , public router: Router ) {
 
@@ -20,6 +20,7 @@ export class UsersService {
 
 
   login(data:any): Observable<any> {
+    this.logged_in = true ;
     this.connecte = true;
     return this.http.post(environment.urlBackend + 'sessions/', data);
   }

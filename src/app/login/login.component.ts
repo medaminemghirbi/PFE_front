@@ -50,16 +50,22 @@ export class LoginComponent implements OnInit {
        if(response.user.email_confirmed==true) {
           if(response.logged_in ==true && response.role =="admin"  ){
             localStorage.setItem( 'admindata', JSON.stringify( response.user ) );
+            localStorage.setItem( 'logged_in', JSON.stringify( response.logged_in ) );
+            localStorage.setItem( 'role', JSON.stringify( response.role ) );
             console.log(response);
             this.route.navigate(['/dashboard']);
           }
           else if(response.logged_in ==true && response.role =="client")
           {
             localStorage.setItem( 'clientdata', JSON.stringify( response.user ) );
+            localStorage.setItem( 'logged_in', JSON.stringify( response.logged_in ) );
+            localStorage.setItem( 'role', JSON.stringify( response.role ) );
             this.route.navigate(['/profil-client']);
           }else if(response.logged_in ==true && response.role =="freelancer")
           {
             localStorage.setItem( 'freelancerdata', JSON.stringify( response.user ) );
+            localStorage.setItem( 'logged_in', JSON.stringify( response.logged_in ) );
+            localStorage.setItem( 'role', JSON.stringify( response.role ) );
             this.route.navigate(['/dashbord-freelancer']);
           }
           else{

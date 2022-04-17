@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 * {
   box-sizing: border-box
 }
@@ -64,6 +72,7 @@ h6 {
   border: 1px solid orange;
   border-radius: 10px;
   background-color: #fff
+  
 }
 
 .btn:hover {
@@ -71,9 +80,7 @@ h6 {
   background-color: orange
 }
 
-.card-body {
-  padding: 8px
-}
+
 
 .sign {
   width: 25px;
@@ -127,17 +134,8 @@ h6 {
       float: right
   }
 
-  .card {
-      width: 300px;
-      height: 330px;
-      border: none
-  }
 
-  .card-img-top {
-      width: 295px;
-      height: 200px;
-      border-radius: 10px
-  }
+
 
   del {
       padding-right: 2px
@@ -182,17 +180,6 @@ h6 {
       float: right
   }
 
-  .card {
-      width: 200px;
-      height: 330px;
-      border: none
-  }
-
-  .card-img-top {
-      width: 200px;
-      height: 200px;
-      border-radius: 10px
-  }
 
   .fa-plus,
   .fa-minus {
@@ -246,9 +233,6 @@ h6 {
       float: right
   }
 
-  .card {
-      border: none
-  }
 
   .filter,
   #mobile-filter {
@@ -290,9 +274,7 @@ h6 {
       float: right
   }
 
-  .card {
-      border: none
-  }
+
 
   #off {
       padding-left: 2px
@@ -466,4 +448,31 @@ h6 {
 }
 .rating .tick input:checked~.check {
   background-color: #61b15a
+}
+
+/*******/
+.card {
+    border-radius:0;
+    margin:10px ;
+    
+}
+.card-title {
+	text-transform: uppercase;
+	color: #340bc9;
+}
+
+.card-text {
+	margin-top:10px;
+	margin-bottom: 10px;
+	background-color:#FFFFFF;
+	color:#000000;
+}
+a.btn, a.btn:visited {
+    color:#333333;
+}
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
