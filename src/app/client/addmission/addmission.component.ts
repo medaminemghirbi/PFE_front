@@ -16,7 +16,7 @@ export class AddmissionComponent implements OnInit {
   selectedDefaultLanguage:any
   dataArray:any = []
   languagedata:any = []
-  liste:string[] = []
+
   p:number = 1 ;
   messageErr =''
   messageSuccess = '' ;
@@ -54,7 +54,7 @@ export class AddmissionComponent implements OnInit {
     
   /*-----Load Langugage---*/
   this.usersService.getAllLanguages().subscribe(language=>{ 
-    debugger
+    
     language.forEach((l: { [x: string]: any; }) => this.languages.push({ "id": l["id"], "name": l["name"] }));
   this.languagedata=language
   this.languagedata.forEach((element: any) => {
@@ -80,6 +80,7 @@ export class AddmissionComponent implements OnInit {
       
 
     let data=f.value   
+    debugger
     console.log(data)
     this.usersService.addMission(formData).subscribe( ()=>{
       

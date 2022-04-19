@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 
+
 @Component({
   selector: 'app-side-barr',
   templateUrl: './side-barr.component.html',
@@ -16,6 +17,7 @@ export class SideBarrComponent implements OnInit {
     console.log(this.freelancerdata.id)
   
   }
+
   logout(){
   
     this.UsersService.logout();

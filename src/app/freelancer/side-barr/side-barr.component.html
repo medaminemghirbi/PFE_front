@@ -21,6 +21,12 @@
             <i class="fas fa-home fa-2x text-gray-300"></i>
             <span>Dashboard </span></a>
     </li>
+
+  <li class="nav-item active">
+    <a class="nav-link" routerLink="/missions-freelancer">
+        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+        <span>Requested Missions </span></a>
+</li>
     <li class="nav-item active">
       <a class="nav-link" routerLink="/message-freelancer">
           <i class="fas fa-sms fa-2x text-gray-300"></i>
@@ -53,8 +59,8 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" routerLink="/dashbord-freelancer">Active Projects </a>
-                <a class="collapse-item" routerLink="/dashbord-freelancer" >ended Project   </a>
+                <a class="collapse-item" routerLink="/dashbord-freelancer">Active Missions </a>
+                <a class="collapse-item" routerLink="/dashbord-freelancer" >ended Missions   </a>
             </div>
         </div>
     </li>
@@ -73,9 +79,8 @@
       </div>
   </li>-->
 
-
-    <li class="nav-item active">
-      <a class="nav-link" routerLink="/allusers">
+    <li class="nav-item active" >
+      <a [routerLink]="['/detailfreelancer',freelancerdata.id]"  class="nav-link" routerLink="/cv">
           <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
           <span>Generate CV</span></a>
   </li>

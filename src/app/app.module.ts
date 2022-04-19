@@ -18,7 +18,7 @@ import { LoginComponent } from './login/login.component';
 
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ChartsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
 import { ProfileAdminComponent } from './admin/profile-admin/profile-admin.component';
 import { SideBarComponent } from './admin/side-bar/side-bar.component';
@@ -48,6 +48,9 @@ import { AddmissionComponent } from './client/addmission/addmission.component';
 import { MissionsClientComponent } from './client/missions-client/missions-client.component';
 import { AllmissionsComponent } from './client/allmissions/allmissions.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { MissionsFreelancerComponent } from './freelancer/missions-freelancer/missions-freelancer.component';
+import { PostulatedMissionsClientComponent } from './client/postulated-missions-client/postulated-missions-client.component';
+import { CvComponent } from './freelancer/cv/cv.component';
 
 
 
@@ -93,6 +96,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
      AddmissionComponent,
      MissionsClientComponent,
      AllmissionsComponent,
+     MissionsFreelancerComponent,
+     PostulatedMissionsClientComponent,
+     CvComponent,
      
 
   ],
@@ -106,7 +112,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule , 
     MDBBootstrapModule,
     ReactiveFormsModule,
-    
+    ChartsModule,
     NgSelectModule
     
     

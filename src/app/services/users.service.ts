@@ -12,23 +12,15 @@ import { Observable } from 'rxjs';
 export class UsersService {
 
   public connecte : boolean = false ; 
-  logged_in : boolean = true ; 
-
+  logged_in : boolean = false ; 
+  
   constructor(private http : HttpClient , public router: Router ) {
 
-   }
-
-
-
-  getallcategories(){
-    return this.http.get(`${environment.urlBackend}`+'categories/')
   }
 
-  updateprofilclient (id:string,newprofile:any){
-    return this.http.patch(environment.urlBackend+'updateclient/' + id , newprofile )
-  }
 
   login(data:any): Observable<any> {
+    this.logged_in = true ;
     this.connecte = true;
     return this.http.post(environment.urlBackend + 'sessions/', data);
   }
@@ -40,15 +32,13 @@ export class UsersService {
   register(data:any){
     return this.http.post(environment.urlBackend + 'registrations/' , data)
   }
+
   getallfreelancers(){
     return this.http.get(`${environment.urlBackend}`+'freelancers/')
   }
+
   updateProfileFreelancer (id:string,newprofile:any){
     return this.http.patch(environment.urlBackend+'upadateFreelancer/' + id , newprofile )
-  }
-
-  updateimagefreelancer (id:string,image:any){
-    return this.http.patch(environment.urlBackend+'upadateFreelancer/' + id , image )
   }
 
   logout(){
@@ -62,7 +52,6 @@ export class UsersService {
       return this.http.get(`${environment.urlBackend}`+'categories/')
     }
 
-
     addcategory(data:any){
       return this.http.post(environment.urlBackend+'categories/' , data) ;
     }
@@ -73,6 +62,27 @@ export class UsersService {
   
     updateCat(id:string,newdata:any){
       return this.http.patch(environment.urlBackend+'categories/' + id , newdata )
+    }
+    
+    ////////////////// languages 
+    addLanguage (profile:any) {
+      return this.http.post(environment.urlBackend+'languages/',profile) ;
+    }
+    
+    getAllLanguages () {
+      return this.http.get<any>(`${environment.urlBackend}`+'languages/')
+    }
+  
+    getOneLanguage (id:any) {    
+      return this.http.get(environment.urlBackend+'languages/' + id)
+    }
+  
+    deleteLanguage (id:any) {
+      return this.http.delete(environment.urlBackend+'languages/' + id )
+    }
+  
+    updateLanguage (id:string,newdata:any) {
+      return this.http.patch(environment.urlBackend+'languages/' + id , newdata )
     }
 
     /////////////// users 
@@ -92,8 +102,14 @@ export class UsersService {
       return this.http.patch(environment.urlBackend+'admin/' + id , newprofile )
     }
 
-
-
+    updateprofilclient (id:string,newprofile:any){
+      return this.http.patch(environment.urlBackend+'updateclient/' + id , newprofile )
+    }
+    
+    freelancerhomedata(id:any){
+      return this.http.get(`${environment.urlBackend}`+'freelancerdata/' + id)
+    }
+    
     ////////////////// missions 
     addMission (profile:any) {
       return this.http.post(environment.urlBackend+'missions/',profile) ;
@@ -119,93 +135,110 @@ export class UsersService {
       return this.http.get(`${environment.urlBackend}`+'client/' + client_id )
     }
 
+    getmissionbyfreelancer (freelancer_id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getmissionbyfreelancer/' + freelancer_id )
+    }
 
-    ////////////////////// reviews 
-    addReview (profile:any) {
-      return this.http.post(environment.urlBackend+'reviews/',profile) ;
+    getmissionbycategory (category_id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getmissionbycategory/' + category_id )
+    }
+
+    getmissionbylanguage (language_id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getmissionbylanguage/' + language_id )
+    }
+
+    getmissionbybudget (budget : any) {
+      return this.http.get(`${environment.urlBackend}`+'getmissionbybudget/' + budget )
+    }
+
+    getrequestbyfreelancer (freelancer_id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getrequestbyfreelancer/' + freelancer_id )
     }
     
-    getAllReviews () {
-      return this.http.get(`${environment.urlBackend}`+'reviews/')
-    }
-  
-    getOneReview  (id:any) {    
-      return this.http.get(environment.urlBackend+'reviews/' + id)
-    }
-  
-    deleteReview  (id:any) {
-      return this.http.delete(environment.urlBackend+'reviews/' + id )
-    }
-  
-    updateReview  (id:string,newdata:any) {
-      return this.http.patch(environment.urlBackend+'reviews/' + id , newdata )
+    getrequestbyclient (client_id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getrequestbyclient/' + client_id )
     }
 
-       countall(){
+    deleteRequest(id:any) {
+      return this.http.delete(environment.urlBackend+'requests/' + id )
+    }
+
+      
+    updateRequest (id:string,newdata:any) {
+      return this.http.patch(environment.urlBackend+'requests/' + id , newdata )
+    }
+
+//***********************countall api***********************/
+    countall(){
       return this.http.get(`${environment.urlBackend}`+'countall/')
     }
-//***********************experiance  call api***********************/
-    getfreelancerexperiance(id:any){
-      return this.http.get(`${environment.urlBackend}`+'getuserexperiance/'+id)
 
-    }
+//***********************experience  call api***********************/
+  getfreelancerexperiance(id:any){
+    return this.http.get(`${environment.urlBackend}`+'getuserexperiance/'+id)
 
-    deleteexperiance  (id:any) {
-      return this.http.delete(environment.urlBackend+'experiences/' + id )
-    }
-    addexperiance(data:any){
-      return this.http.post(environment.urlBackend+'experiences/' , data) ;
-    }
-    updateexperiance(id:string,newdata:any){
-      return this.http.patch(environment.urlBackend+'experiences/' + id , newdata )
-    }
-    //***********************education  call api***********************/
+  }
+
+  deleteexperiance  (id:any) {
+    return this.http.delete(environment.urlBackend+'experiences/' + id )
+  }
+  addexperiance(data:any){
+    return this.http.post(environment.urlBackend+'experiences/' , data) ;
+  }
+  updateexperiance(id:string,newdata:any){
+    return this.http.patch(environment.urlBackend+'experiences/' + id , newdata )
+  }
+
+
+//***********************education  call api***********************/
     getfreelancereducation(id:any){
       return this.http.get(`${environment.urlBackend}`+'getusereducation/'+id)
-
     }
 
     addschool(data:any){
       return this.http.post(environment.urlBackend+'educations/' , data) ;
     }
+
     deleteeducation  (id:any) {
       return this.http.delete(environment.urlBackend+'educations/' + id )
     }
+    
     updateschool(id:string,newdata:any){
       return this.http.patch(environment.urlBackend+'educations/' + id , newdata )
     }
 
-
-
-
-
-
-
-
-
-    freelancerhomedata(id:any){
-      return this.http.get(`${environment.urlBackend}`+'freelancerdata/' + id)
+//////////////////**************************  requests api ************************************//////////////
+    addRequest(data:any){
+      return this.http.post(environment.urlBackend+'requests/' , data) ;
+    }
+    countrequest (id:any) {
+      return this.http.get(environment.urlBackend+'countrequest/') ;
     }
 
 
-        ////////////////// languages 
-        addLanguage (profile:any) {
-          return this.http.post(environment.urlBackend+'languages/',profile) ;
+
+
+
+
+
+//////////////////**************************  reviews api ************************************//////////////
+        addReview (profile:any) {
+          return this.http.post(environment.urlBackend+'reviews/',profile) ;
         }
         
-        getAllLanguages () {
-          return this.http.get<any>(`${environment.urlBackend}`+'languages/')
+        getAllReviews () {
+          return this.http.get(`${environment.urlBackend}`+'reviews/')
         }
       
-        getOneLanguage (id:any) {    
-          return this.http.get(environment.urlBackend+'languages/' + id)
+        getOneReview  (id:any) {    
+          return this.http.get(environment.urlBackend+'reviews/' + id)
         }
       
-        deleteLanguage (id:any) {
-          return this.http.delete(environment.urlBackend+'languages/' + id )
+        deleteReview  (id:any) {
+          return this.http.delete(environment.urlBackend+'reviews/' + id )
         }
       
-        updateLanguage (id:string,newdata:any) {
-          return this.http.patch(environment.urlBackend+'languages/' + id , newdata )
+        updateReview  (id:string,newdata:any) {
+          return this.http.patch(environment.urlBackend+'reviews/' + id , newdata )
         }
 }

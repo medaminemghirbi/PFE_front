@@ -16,6 +16,7 @@ export class SideebarrComponent implements OnInit {
     console.log(this.clientdata.id)
   
   }
+
   logout(){
   
     this.UsersService.logout();

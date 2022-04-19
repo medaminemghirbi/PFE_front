@@ -30,6 +30,7 @@
                     <th scope="col"> category_id </th>
                    
                     <th scope="col"> category</th>
+                    <th scope="col"> User_id</th>
                     <th scope="col"> created_at</th>
                     <th scope="col"> updated_at</th>
                     <th scope="col">Actions</th>
@@ -46,13 +47,12 @@
                         <td> {{item.filepath}}</td>
                         <td > {{item.user_id}}  </td>
                         <td> {{item.category.name}}  </td>
+                        
                         <td> {{item.category_id}}  </td>
                         <td> {{item.created_at | date:'medium'}}  </td>
                         <td> {{item.updated_at | date:'medium'}}  </td>
                         <td>  
                             <button  class="btn btn-outline-success" (click)="details(item.id)" > Show </button> &nbsp;&nbsp;
-                           
-                            <button  (click)="getdata(item.title,item.description,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > Update </button>&nbsp;&nbsp;
                             <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
                           
                         </td>
