@@ -30,7 +30,8 @@
                   <th scope="col"> created_at</th>
                   <th scope="col"> updated_at</th>
                   --> 
-                  <th scope="col">Actions</th>
+                  <th scope="col">Update</th>
+                  <th scope="col">Delete</th>
                 </tr>
               </thead>
               <tbody>         
@@ -47,13 +48,12 @@
                          <td> {{item.created_at | date:'medium'}}  </td>
                       <td> {{item.updated_at | date:'medium'}}  </td>
                       --> 
-                      <td>  
-                          <button  class="btn btn-outline-success" (click)="details(item.id)" > Show </button> &nbsp;&nbsp;
-                         
-                          <button  (click)="getdata(item.title,item.description,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > Update </button>&nbsp;&nbsp;
-                          <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
+                      <td>  <a  (click)="getdata(item.title,item.description,item.id)"  data-toggle="modal" data-target="#exampleModal"  ><i style="color:chartreuse" class="fas fa-2x fa-edit"></i> </a> </td>
+                      <td> <a (click)="delete(item.id , i)" ><i style="color:red" class="fas  fa-2x fa-trash-alt"></i> </a></td>      
+
+    
                         
-                      </td>
+                     
 
                      
                     </tr>

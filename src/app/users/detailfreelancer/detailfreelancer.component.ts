@@ -12,7 +12,16 @@ import { UsersService } from 'src/app/services/users.service';
 export class DetailfreelancerComponent implements OnInit {
   messageErr =''
   dataArray:any = [];
-  constructor(private activatedRoute: ActivatedRoute,private usersservice :UsersService) { }
+  logged_in:boolean = false ;
+  role: string = '';
+  constructor(private activatedRoute: ActivatedRoute,private usersservice :UsersService) { 
+    this.logged_in = JSON.parse( localStorage.getItem('logged_in') !);
+    console.log(this.logged_in)
+
+    this.role = JSON.parse( localStorage.getItem('role') !);
+    console.log(this.role)
+
+  }
 
   ngOnInit(): void {
     this.usersservice.freelancerhomedata(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
@@ -23,6 +32,9 @@ export class DetailfreelancerComponent implements OnInit {
       this.messageErr="We dont't found this user in our database"} 
       //console.log(this.dataArray)
     }) 
+  }
+  printPage() {
+    window.print();
   }
 
 }
