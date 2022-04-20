@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { Router } from '@angular/router';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-list-users',
@@ -20,12 +20,9 @@ export class ListUsersComponent implements OnInit {
   
   }
   messageErr =''
-  
-  messageSuccess = '' ;
-  // email : string ="" ;
-  
-  role: string ="" ;
   searchedKeyword!:string;
+  messageSuccess = '' ;
+  role: string ="" ;
 
   constructor(private usersService:UsersService,private route:Router) {
     

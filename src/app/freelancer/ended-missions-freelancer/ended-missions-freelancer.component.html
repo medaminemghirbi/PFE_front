@@ -1,0 +1,83 @@
+<div id="wrapper">
+    <app-side-barr></app-side-barr>
+       <div id="content-wrapper" class="d-flex flex-column">
+     
+           <!-- Main Content -->
+           <div id="content">
+     
+               <!-- Topbar -->
+   
+               <app-nav-barr></app-nav-barr>
+
+<div class="container">
+  
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Missions | Ended </h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive" >
+            <table class="table table-bordered"  width="100%" >
+                <thead >
+                  <tr >
+                    <th scope="col"  ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
+                   
+                    <th scope="col"> completed </th> 
+                    <th scope="col"> Title Mission </th>  
+                    <th scope="col" >Description  &nbsp;<i class="fa fa-sort"> </i> </th>
+                    <th scope="col"> Email Freelancer </th>               
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>         
+                    <tr *ngFor="let item of dataArray  ; index as i" >
+                      <th scope="row" > {{item.id}} </th>
+                        
+                      <td> <button *ngIf="item.completed==true " class="btn btn-success"> {{item.completed}} </button> 
+                        <button *ngIf="item.completed==false " class="btn btn-danger"> {{item.completed}} </button> 
+                      </td>
+                       
+                        <td>{{item.title}}</td>
+                        <td>{{item.description}}</td> 
+                        <td > <a [routerLink]="['/detail-freelancer',item.freelancer_id]" >  {{item.freelancer.email }} </a></td> 
+    
+                        <td>  
+                          
+                         <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
+                        
+                      </td>
+
+                       
+                      </tr>
+                </tbody>
+               
+              </table>
+
+
+            </div>
+
+    </div>
+  </div>
+
+            </div>
+            <!-- End of Main Content -->
+            
+            <!-- Footer -->
+            
+            <!-- End of Footer -->
+            
+            </div>
+            <!-- End of Content Wrapper -->
+            
+            </div>
+
+
+            
+            
+            
+            
+            
+
+
+
+

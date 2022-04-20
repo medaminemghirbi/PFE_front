@@ -33,13 +33,15 @@
 <!-- products section -->
 <div class="container">
   <div class="row">
-    <div class="card col-md-12 p-3" *ngFor="let produit of dataArray">
+    <div class="card col-md-12 p-3" *ngFor="let produit of dataArray  ">
       <div class="row ">
 
         <div class="col-md-12" >
           <div class="card-block">
             <a style="text-decoration: none;" [routerLink]="['/detailfreelancer',produit.id]">     <h6 class="card-title">{{produit.title}}</h6></a>
-            <i class="fas fa-clock">&nbsp; {{produit.beginingDate}}</i> Budget&nbsp;{{produit.budget}} DT   <i class="fas fa-book">{{produit.Proposition}} 0 Proposition</i>
+            <i class="fas fa-clock">&nbsp; {{produit.beginingDate}}</i>
+             Budget&nbsp;{{produit.budget}} DT 
+             <i class="fas fa-book">  {{produit.requests_count}} Proposition</i> 
             <p class="card-text text-justify">{{produit.description}} .<br></p>
            
             <a style="display: inline;" class="btn btn-primary" *ngFor="let x of produit.languages">{{x.name}}</a>
@@ -50,7 +52,7 @@
           </div>
           <div class="form-group">
                      
-            <button class="btn btn-danger" type="submit" (click)="addrequest(produit.id,freelancerdata.id)" > Postuler  </button>
+            <button *ngIf="role!=='client' && role!=='admin' " class="btn btn-danger"  type="submit" (click)="addrequest(produit.id,freelancerdata.id)" > Postuler  </button>
         </div>
         </div>
       </div>

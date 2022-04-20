@@ -13,6 +13,7 @@ export class UsersService {
 
   public connecte : boolean = false ; 
   logged_in : boolean = false ; 
+  count: any = [] ;
   
   constructor(private http : HttpClient , public router: Router ) {
 
@@ -158,7 +159,26 @@ export class UsersService {
     getrequestbyclient (client_id : any) {
       return this.http.get(`${environment.urlBackend}`+'getrequestbyclient/' + client_id )
     }
+    /********************** client : status accepted *****************************************/
+    getrequestacceptedbyclient (client_id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getrequestacceptedbyclient/' + client_id )
+    }
+    
+    getendedmissionbyclient (client_id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getendedmission/' + client_id )
+    }
+    
+  /********************** freelancer : status accepted *****************************************/
+  getrequestacceptedbyfreelancer (freelancer_id : any) {
+    return this.http.get(`${environment.urlBackend}`+'getrequestacceptedbyfreelancer/' + freelancer_id )
+  }
 
+  getendedmissionbyfreelancer (freelancer_id : any) {
+    return this.http.get(`${environment.urlBackend}`+'getendedmissionbyfreelancer/' + freelancer_id )
+  }
+
+
+    /*******    !!!!  lzm nsalah delete lel client o freelancer          *********/
     deleteRequest(id:any) {
       return this.http.delete(environment.urlBackend+'requests/' + id )
     }
@@ -166,6 +186,11 @@ export class UsersService {
       
     updateRequest (id:string,newdata:any) {
       return this.http.patch(environment.urlBackend+'requests/' + id , newdata )
+    }
+  
+    countproposition (mission_id : any) {
+      //this.count  ;   
+      return this.http.get(`${environment.urlBackend}`+'countproposition/' + mission_id )
     }
 
 //***********************countall api***********************/

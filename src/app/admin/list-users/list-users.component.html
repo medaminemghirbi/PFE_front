@@ -26,6 +26,13 @@
   <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Users  </h6>
+        <form
+        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+            <input type="text" name="role" class="form-control bg-light border-0 small" [(ngModel)]="searchedKeyword"  placeholder="Search for..." >
+            <input class="btn btn-primary" type="submit" name="" value="Search">
+        </div>
+    </form>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -43,7 +50,7 @@
                 <tbody>
                    
                   
-                    <tr *ngFor="let item of dataArray  ; index as i" >
+                    <tr *ngFor="let item of dataArray | filter:searchedKeyword ; index as i" >
                       <th scope="row" > {{item.id}} </th>
                         <td> {{item.email}} </td>
                         <td> {{item.lastname}}</td>

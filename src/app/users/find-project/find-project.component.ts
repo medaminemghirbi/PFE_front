@@ -25,10 +25,32 @@ export class FindProjectComponent implements OnInit {
   messageErr ='';
   produits: any;
   freelancerdata: any;
+  //dataArrayy: any = 1 ;
+  count: any;
+  data: any =[];
+  logged_in:boolean = false ;
+  role: string = '';
   constructor(private usersService:UsersService , private route : Router ) {
     this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
+
+    this.logged_in = JSON.parse( localStorage.getItem('logged_in') !);
+    console.log(this.logged_in)
+
+    this.role = JSON.parse( localStorage.getItem('role') !);
+    console.log(this.role)
+
    }
-  ngOnInit(): void {
+  ngOnInit(): void { 
+
+    this.usersService.getAllcategories().subscribe(data=>{
+
+      console.log(data)
+      this.datacate=data , (err:HttpErrorResponse)=>{
+        console.log(err)
+      this.messageErr="We dont't found this user in our database"} 
+      //console.log(this.dataArray)
+    })
+
     this.usersService.getAllMissions().subscribe(data=>{
       console.log(data)
       this.dataArray=data , (err:HttpErrorResponse)=>{
@@ -57,6 +79,18 @@ export class FindProjectComponent implements OnInit {
     }) 
     this.getallmiss()
   }
+  /*****************************************count propositions  ************************************ */
+  countproposition ( id : any ) {
+  this.usersService.countproposition(id).subscribe(data=>{
+    localStorage.setItem( 'count', JSON.stringify( data ) );
+    
+    console.log(this.data)
+    this.count=data , (err:HttpErrorResponse)=>{
+      console.log(err)
+    this.messageErr="We dont't found this user in our database"} 
+    //console.log(this.dataArray)
+  }) 
+}
   getallmiss () {
     this.usersService.getAllMissions().subscribe(data=>{
       console.log(data)
@@ -82,7 +116,7 @@ export class FindProjectComponent implements OnInit {
  // let data=f.value   
   console.log(formData)
   this.usersService.addRequest(formData).subscribe( ()=>{
-    
+      
       //console.log(data)
       console.log(formData)
       //this.submitted = true ;
@@ -92,10 +126,15 @@ export class FindProjectComponent implements OnInit {
 
   },(err:HttpErrorResponse)=>{
     this.messageErr=err.error
-    console.log(err.error)
-     console.log(err.status)
+     
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'You cant postulate twice '
+    })
      
   }) ;
 }
+
 
 }

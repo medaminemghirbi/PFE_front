@@ -48,7 +48,11 @@ import { DetailFreelancerComponent } from './users/detail-freelancer/detail-free
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PostulatedMissionsClientComponent } from './client/postulated-missions-client/postulated-missions-client.component';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ActiveMissionsClientComponent } from './client/active-missions-client/active-missions-client.component';
+import { EndedMissionsClientComponent } from './client/ended-missions-client/ended-missions-client.component';
+import { ActiveMissionsFreelancerComponent } from './freelancer/active-missions-freelancer/active-missions-freelancer.component';
+import { EndedMissionsFreelancerComponent } from './freelancer/ended-missions-freelancer/ended-missions-freelancer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,8 +89,12 @@ import { PostulatedMissionsClientComponent } from './client/postulated-missions-
     LanguagesComponent,
     MissionsFreelancerComponent,
     DetailFreelancerComponent,
-    PostulatedMissionsClientComponent ,
-
+    PostulatedMissionsClientComponent,
+    ActiveMissionsClientComponent,
+    EndedMissionsClientComponent,
+    ActiveMissionsFreelancerComponent,
+    EndedMissionsFreelancerComponent ,
+ 
   ],
   imports: [
     BrowserModule,
@@ -98,7 +106,7 @@ import { PostulatedMissionsClientComponent } from './client/postulated-missions-
     FormsModule , 
     MDBBootstrapModule,
     ReactiveFormsModule ,
-    
+    Ng2SearchPipeModule ,
     NgSelectModule ,
     
   ],

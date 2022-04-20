@@ -12,7 +12,7 @@ export class NavBarrComponent implements OnInit {
   constructor(private route:Router, private servicesService:UsersService) {
     this.freelancerdara = JSON.parse( localStorage.getItem('freelancerdata') !);
       console.log(this.freelancerdara.firstname)
-  
+      console.log(this.freelancerdara.id)
   }
     ngOnInit(): void {
     

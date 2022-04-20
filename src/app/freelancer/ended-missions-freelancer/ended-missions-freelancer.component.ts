@@ -1,16 +1,16 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-postulated-missions-client',
-  templateUrl: './postulated-missions-client.component.html',
-  styleUrls: ['./postulated-missions-client.component.css']
+  selector: 'app-ended-missions-freelancer',
+  templateUrl: './ended-missions-freelancer.component.html',
+  styleUrls: ['./ended-missions-freelancer.component.css']
 })
-export class PostulatedMissionsClientComponent implements OnInit {
+export class EndedMissionsFreelancerComponent implements OnInit {
 
   p:number = 1 ;
   dataMission = {
@@ -25,15 +25,15 @@ export class PostulatedMissionsClientComponent implements OnInit {
   title: string ="" ;
   searchedKeyword!:string;
   dataArray: any;
-  clientdata: any;
+  freelancerdata: any;
   submitted: boolean = false ;
   dataArrayy:any ;
   dataArrayyy:any ;
   update: FormGroup;
 
-  constructor(private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute ) {
-    this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
-    console.log(this.clientdata)
+  constructor(private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute, ) {
+    this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
+    console.log(this.freelancerdata)
 
     this.update = new FormGroup({
       status: new FormControl(''),
@@ -45,14 +45,23 @@ export class PostulatedMissionsClientComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.usersService.getrequestbyclient(this.clientdata.id).subscribe(data=>{
+    this.usersService.getendedmissionbyfreelancer(this.freelancerdata.id).subscribe(data=>{
       console.log(data)
       this.dataArray = data , (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found this mission in our database"} 
       //console.log(this.dataArray)
     }) 
-    
+    this.usersService.freelancerhomedata(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
+
+      console.log(data)
+      this.dataArrayy = data ,
+       (err:HttpErrorResponse)=>{
+        console.log(err)
+      this.messageErr="We dont't found this user in our database"} 
+      //console.log(this.dataArray)
+    }) 
+
 
   }
 
@@ -125,5 +134,7 @@ export class PostulatedMissionsClientComponent implements OnInit {
       
       
     }
-  
+
+
+
 }

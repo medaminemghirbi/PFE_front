@@ -33,7 +33,7 @@
                                     <th scope="col"> description </th>
                                     <th scope="col"> duration </th>                 
                                     <th scope="col"> beginingDate</th>   
-                                                  
+                                    <th scope="col"> Status</th> 
                                    <!--
                                     <th scope="col"> created_at</th>
                                     <th scope="col"> updated_at</th>
@@ -49,6 +49,11 @@
                                         <td>{{item.mission.description}}</td>
                                         <td> {{item.mission.duration}}</td> 
                                         <td> {{item.mission.beginingDate}}</td> 
+                                        <td>
+                                          <button *ngIf="item.status==='encours' " class="btn btn-warning">{{item.status}}</button> 
+                                          <button *ngIf="item.status==='refus' " class="btn btn-danger">{{item.status}}</button> 
+                                           <button *ngIf="item.status==='accepted' " class="btn btn-success">{{item.status}}</button> 
+                                     </td>
                                         
                                         
                                        <!--
