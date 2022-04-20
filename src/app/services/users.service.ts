@@ -170,7 +170,7 @@ export class UsersService {
 
 //***********************countall api***********************/
     countall(){
-      return this.http.get(`${environment.urlBackend}`+'countall/')
+      return this.http.get<any>(`${environment.urlBackend}`+'countall/')
     }
 
 //***********************experience  call api***********************/
