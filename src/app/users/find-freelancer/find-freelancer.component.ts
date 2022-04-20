@@ -50,11 +50,11 @@ export class FindFreelancerComponent implements OnInit {
   ngOnInit(): void {
   }
   ///****************************************************  missionbylanguages  ************************************///
-  missionbylanguages ( language_id : any ) {
-    this.usersService.getmissionbylanguage(language_id).subscribe(response=>{
+  /*missionbylanguages ( language_id : any ) {
+    //this.usersService.getmissionbylanguage(language_id).subscribe(response=>{
       console.log(response)
        this.dataArray = response ;
     })
-  }
+  }*/
 
 }

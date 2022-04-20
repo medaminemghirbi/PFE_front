@@ -15,8 +15,17 @@ export class DetailFreelancerComponent implements OnInit {
   dataArrayy:any ;
   dataArrayyy:any ;
   id: any;
-  constructor(private activatedRoute: ActivatedRoute,private usersService :UsersService) { }
+  logged_in:boolean = false ;
+  role: string = '';
 
+  constructor(private activatedRoute: ActivatedRoute,private usersService :UsersService) { 
+    this.logged_in = JSON.parse( localStorage.getItem('logged_in') !);
+    console.log(this.logged_in)
+
+    this.role = JSON.parse( localStorage.getItem('role') !);
+    console.log(this.role)
+
+  }
   ngOnInit(): void {
     this.usersService.freelancerhomedata(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
 
@@ -48,5 +57,9 @@ export class DetailFreelancerComponent implements OnInit {
       //console.log(this.dataArray)
     }) 
 
+  }
+
+  printPage() {
+    window.print();
   }
 }

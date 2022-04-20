@@ -30,7 +30,7 @@
                  
                    
                     <th scope="col"> Email Freelancer </th>               
-                    <th scope="col">Actions</th>
+
                   </tr>
                 </thead>
                 <tbody>         
@@ -39,14 +39,10 @@
                         
                         <td>{{item.mission.id}}</td> 
                         <td>{{item.mission.title}}</td>
-                        <td> <button *ngIf="item.status==='accepted' " class="btn btn-success">{{item.status}}</button> </td>
+                        <td> <button class="btn btn-success">{{item.status}}</button> </td>
                         <td > <a [routerLink]="['/detail-freelancer',item.freelancer_id]" >  {{item.freelancer.email }} </a></td> 
     
-                        <td>  
-                          
-                         <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
-                        
-                      </td>
+                       
 
                        
                       </tr>

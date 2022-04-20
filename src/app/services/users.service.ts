@@ -15,6 +15,7 @@ export class UsersService {
   logged_in : boolean = false ; 
   count: any = [] ;
   
+  
   constructor(private http : HttpClient , public router: Router ) {
 
   }
@@ -144,8 +145,8 @@ export class UsersService {
       return this.http.get(`${environment.urlBackend}`+'getmissionbycategory/' + category_id )
     }
 
-    getmissionbylanguage (language_id : any) {
-      return this.http.get(`${environment.urlBackend}`+'getmissionbylanguage/' + language_id )
+    getmissionbylanguage (id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getmissionbylanguage/' + id )
     }
 
     getmissionbybudget (budget : any) {

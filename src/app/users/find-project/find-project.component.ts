@@ -79,6 +79,29 @@ export class FindProjectComponent implements OnInit {
     }) 
     this.getallmiss()
   }
+  ///****************************************************  missionbycategory  ************************************///
+  missionbycategory ( category_id : any ) {
+    this.usersService.getmissionbycategory(category_id).subscribe(response=>{
+      console.log(response)
+       this.dataArray = response ;
+    })
+  }
+///****************************************************  missionbylanguages  ************************************///
+  missionbylanguages ( ) {
+    debugger
+    this.usersService.getmissionbylanguage(this.selectedDefaultLanguage).subscribe(response=>{
+      console.log(response)
+      
+       this.dataArray = response ;
+    })
+  }
+///****************************************************  missionbybudget  ************************************///
+  missionbybudget( budget : any ) {
+    this.usersService.getmissionbybudget(budget).subscribe(response=>{
+      console.log(response)
+       this.dataArray = response ;
+    })
+  }
   /*****************************************count propositions  ************************************ */
   countproposition ( id : any ) {
   this.usersService.countproposition(id).subscribe(data=>{
@@ -100,12 +123,7 @@ export class FindProjectComponent implements OnInit {
       //console.log(this.dataArray)
     }) 
   }
-  missionbycategory ( category_id : any ) {
-    this.usersService.getmissionbycategory(category_id).subscribe(response=>{
-      console.log(response)
-       this.dataArray = response ;
-    })
-}
+
  ///****************************************************  addrequest  ************************************///
  addrequest (id:any , freelancer_id:any){
 

@@ -13,7 +13,11 @@
                 <p class="text-secondary mb-1">{{item.job}}</p>
                 <p class="text-muted font-size-sm">{{item.Address}}</p>
 
-                <button  class="btn btn-outline-primary">Contacter</button>
+                <div  >
+                  <button (click)="printPage()" class="btn btn-outline-primary" *ngIf="logged_in && role==='freelancer' " routerLink="/edit-freelancer"  > Dowload My CV </button>
+                  <button *ngIf="!logged_in" class="btn btn-outline-primary">Contacter</button>
+               </div>
+               
               </div>
             </div>
             <hr class="my-4">

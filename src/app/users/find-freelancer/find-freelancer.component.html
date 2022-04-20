@@ -6,27 +6,8 @@
   <div class="border-bottom pb-2 ml-2">
       <h4 id="burgundy"> Filters  </h4>
   </div>
-  <div class="border-bottom pb-2 ml-2">
-    <div class="form-group">
-      <h6 class="font-weight-bold">Language</h6>
-      <div id="orange"><span class="fa fa-minus"></span></div>
-      <ng-select 
-      appendTo="body"
-      [multiple]="true"
-       appendTo="body" 
-       placeholder="Select Language"
-          formControlName="language_id"
-            [(ngModel)]="selectedDefaultLanguage" 
-              >
-        <ng-option *ngFor="let l of languages" [value]="l.id" (click)="missionbylanguages(l.id)" >{{l.name}} 
-           
-        </ng-option>
-        
-     </ng-select>
-     
-                      
-    </div>
-    </div>
+ 
+  
   <br>
   <div class="py-3">
     <h5 class="font-weight-bold">Rating</h5>
