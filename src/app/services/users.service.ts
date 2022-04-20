@@ -145,8 +145,8 @@ export class UsersService {
       return this.http.get(`${environment.urlBackend}`+'getmissionbycategory/' + category_id )
     }
 
-    getmissionbylanguage (id : any) {
-      return this.http.get(`${environment.urlBackend}`+'getmissionbylanguage/' + id )
+    getmissionbylanguage (language_id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getmissionbylanguage/' + language_id )
     }
 
     getmissionbybudget (budget : any) {
@@ -195,9 +195,9 @@ export class UsersService {
     }
 
 //***********************countall api***********************/
-    countall(){
-      return this.http.get(`${environment.urlBackend}`+'countall/')
-    }
+  countall(){
+    return this.http.get<any>(`${environment.urlBackend}`+'countall/')
+  }
 
 //***********************experience  call api***********************/
   getfreelancerexperiance(id:any){
@@ -238,7 +238,9 @@ export class UsersService {
       return this.http.post(environment.urlBackend+'requests/' , data) ;
     }
 
-
+    countrequest (id:any) {
+      return this.http.get(environment.urlBackend+'countrequest/') ;
+    }
 
 
 
