@@ -51,6 +51,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { MissionsFreelancerComponent } from './freelancer/missions-freelancer/missions-freelancer.component';
 import { PostulatedMissionsClientComponent } from './client/postulated-missions-client/postulated-missions-client.component';
 import { CvComponent } from './freelancer/cv/cv.component';
+import { ActiveMissionsFreelancerComponent } from './freelancer/active-missions-freelancer/active-missions-freelancer.component';
+import { EndedMissionsFreelancerComponent } from './freelancer/ended-missions-freelancer/ended-missions-freelancer.component';
+import { ActiveMissionsClientComponent } from './client/active-missions-client/active-missions-client.component';
+import { EndedMissionsClientComponent } from './client/ended-missions-client/ended-missions-client.component';
 
 
 
@@ -99,6 +103,10 @@ import { CvComponent } from './freelancer/cv/cv.component';
      MissionsFreelancerComponent,
      PostulatedMissionsClientComponent,
      CvComponent,
+     ActiveMissionsFreelancerComponent,
+     EndedMissionsFreelancerComponent,
+     ActiveMissionsClientComponent,
+     EndedMissionsClientComponent,
      
 
   ],

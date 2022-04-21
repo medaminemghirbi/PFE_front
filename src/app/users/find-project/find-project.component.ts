@@ -5,7 +5,7 @@ import { UsersService } from 'src/app/services/users.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-find-project',
   templateUrl: './find-project.component.html',
@@ -25,9 +25,32 @@ export class FindProjectComponent implements OnInit {
   messageErr ='';
   produits: any;
   freelancerdata: any;
+  logged_in:boolean = false ;
+  role: string = '';
+  languagefiltre!: any;
+  languageids:any= [];
   constructor(private usersService:UsersService , private route : Router ) {
     this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
+    this.logged_in = JSON.parse( localStorage.getItem('logged_in') !);
+    this.selectedDefaultLanguage= null
+    console.log(this.logged_in)
+
+    this.role = JSON.parse( localStorage.getItem('role') !);
+    console.log(this.role)
+
+    this.languagefiltre = new FormGroup({
+      language_id: new FormControl('', [Validators.required]),
+    });
    }
+
+
+
+
+
+
+
+
+
   ngOnInit(): void {
     this.usersService.getAllMissions().subscribe(data=>{
       console.log(data)
@@ -73,8 +96,20 @@ export class FindProjectComponent implements OnInit {
     })
 }
 
-
-
+missionbylanguages (  ) {
+  this.languageids.push(this.selectedDefaultLanguage)
+  this.usersService.getmissionbylanguage(this.languageids).subscribe(response=>{
+    console.log(response)
+    
+     this.dataArray = response ;
+  })
+}
+missionbybudget( budget : any ) {
+  this.usersService.getmissionbybudget(budget).subscribe(response=>{
+    console.log(response)
+     this.dataArray = response ;
+  })
+}
 
  ///****************************************************  addrequest  ************************************///
  addrequest (id:any , freelancer_id:any){

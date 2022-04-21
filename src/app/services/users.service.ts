@@ -216,11 +216,27 @@ export class UsersService {
     }
 
 
+  /********************** freelancer : status accepted *****************************************/
+  getrequestacceptedbyfreelancer (freelancer_id : any) {
+    return this.http.get(`${environment.urlBackend}`+'getrequestacceptedbyfreelancer/' + freelancer_id )
+  }
 
+  getendedmissionbyfreelancer (freelancer_id : any) {
+    return this.http.get(`${environment.urlBackend}`+'getendedmissionbyfreelancer/' + freelancer_id )
+  }
 
+  updatecompleted (id:string,newdata:any) {
+    return this.http.patch(environment.urlBackend+'updatecompleted/' + id , newdata )
+  }
 
-
-
+  /********************** client : status accepted *****************************************/
+  getrequestacceptedbyclient (client_id : any) {
+    return this.http.get(`${environment.urlBackend}`+'getrequestacceptedbyclient/' + client_id )
+  }
+  
+  getendedmissionbyclient (client_id : any) {
+    return this.http.get(`${environment.urlBackend}`+'getendedmissionbyclient/' + client_id )
+  }
 //////////////////**************************  reviews api ************************************//////////////
         addReview (profile:any) {
           return this.http.post(environment.urlBackend+'reviews/',profile) ;

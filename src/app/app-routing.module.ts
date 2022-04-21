@@ -8,15 +8,19 @@ import { ListUsersComponent } from './admin/list-users/list-users.component';
 import { MissionsComponent } from './admin/missions/missions.component';
 import { ProfileAdminComponent } from './admin/profile-admin/profile-admin.component';
 import { ReviewsComponent } from './admin/reviews/reviews.component';
+import { ActiveMissionsClientComponent } from './client/active-missions-client/active-missions-client.component';
 import { AddmissionComponent } from './client/addmission/addmission.component';
 import { AllmissionsComponent } from './client/allmissions/allmissions.component';
 import { DashbordClientComponent } from './client/dashbord-client/dashbord-client.component';
 import { EditProfilClientComponent } from './client/edit-profil-client/edit-profil-client.component';
+import { EndedMissionsClientComponent } from './client/ended-missions-client/ended-missions-client.component';
 import { MissionsClientComponent } from './client/missions-client/missions-client.component';
 import { PostulatedMissionsClientComponent } from './client/postulated-missions-client/postulated-missions-client.component';
+import { ActiveMissionsFreelancerComponent } from './freelancer/active-missions-freelancer/active-missions-freelancer.component';
 import { CvComponent } from './freelancer/cv/cv.component';
 import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/dashbord-freelancer.component';
 import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freelancer.component';
+import { EndedMissionsFreelancerComponent } from './freelancer/ended-missions-freelancer/ended-missions-freelancer.component';
 import { ExpEducationComponent } from './freelancer/exp-education/exp-education.component';
 import { ExperianceComponent } from './freelancer/experiance/experiance.component';
 import { MissionsFreelancerComponent } from './freelancer/missions-freelancer/missions-freelancer.component';
@@ -61,6 +65,10 @@ const routes: Routes = [
   {path:"allmissions",canActivate:[AuthGuard],component:AllmissionsComponent},
   { path : 'postulated-missions-client' ,canActivate:[AuthGuard]  , component:PostulatedMissionsClientComponent  },
   { path:'missions-freelancer', canActivate:[AuthGuard]  , component:MissionsFreelancerComponent},
+  { path : 'active-missions-freelancer' ,canActivate:[AuthGuard]  , component:ActiveMissionsFreelancerComponent},
+  { path : 'ended-missions-freelancer' ,canActivate:[AuthGuard]  , component:EndedMissionsFreelancerComponent},
+  { path : 'active-missions-client' ,canActivate:[AuthGuard]  , component:ActiveMissionsClientComponent},
+  { path : 'ended-missions-client' ,canActivate:[AuthGuard]  , component:EndedMissionsClientComponent},
   {path:'cv/:id', canActivate:[AuthGuard]  ,component:CvComponent}
 ];
 

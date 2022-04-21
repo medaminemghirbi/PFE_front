@@ -48,7 +48,8 @@
                                      <td> {{item.mission.beginingDate}}</td> 
                                     
                                      <td>  
-                                       <button  (click)="delete(item.id , i)" type="button"  class="btn btn-outline-danger"> Delete   My Request  </button> &nbsp; &nbsp;                                       
+                                      <button readonly style="cursor: not-allowed;" disabled *ngIf="item.status==='accepted' " (click)="delete(item.id , i)" type="button"  class="btn btn-outline-danger"> Delete   My Request     </button> 
+                                      <button  *ngIf="item.status!=='accepted' " (click)="delete(item.id , i)" type="button"  class="btn btn-outline-danger"> Delete   My Request    </button> &nbsp; &nbsp;
                                       </td>
              
                                     
