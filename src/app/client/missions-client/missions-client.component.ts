@@ -16,6 +16,7 @@ export class MissionsClientComponent implements OnInit {
     title:'',
     description:''
   }
+
   messageErr =''
   
   messageSuccess = '' ;
@@ -102,7 +103,7 @@ export class MissionsClientComponent implements OnInit {
 
         //this.dataArray[indexId].id=data.id
         this.dataArray[indexId].name=data.name
-        this.dataArray[indexId].avatar=data.avatar
+       
         this.messageSuccess=`this title : ${this.dataArray[indexId].title} is updated`
         window.location.reload();
        this.route.navigate(['/missions-client']);

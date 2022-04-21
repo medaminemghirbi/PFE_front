@@ -25,6 +25,8 @@
                     <th scope="col"  ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
                     <th scope="col"> Mission_id </th> 
                     <th scope="col"> Completed </th> 
+                    
+                    <th scope="col"> Filepath </th> 
                     <th scope="col"> Title Mission </th>  
                     <th scope="col" >Status  &nbsp;<i class="fa fa-sort"> </i> </th>
                    
@@ -39,14 +41,18 @@
                       <th scope="row" > {{item.id}} </th>
                         
                         <td>{{item.mission.id}}</td> 
-                        <td>{{item.mission.completed}}</td> 
+                        <td> 
+                          <button *ngIf="item.mission.completed===true " class="btn btn-success">{{item.mission.completed}} </button> 
+                          <button *ngIf="item.mission.completed===false " class="btn btn-danger">{{item.mission.completed}} </button> 
+                        </td> 
+                        <td>{{item.mission.filepath}}</td> 
                         <td>{{item.mission.title}}</td>
                         <td> <button class="btn btn-success">{{item.status}}</button> </td>
                         <td > <a [routerLink]="['/detail-freelancer',item.freelancer_id]" >  {{item.freelancer.email }} </a></td> 
     
                         <td>  
                          
-                          <button  (click)="getdata(item.status,item.freelancer_id,item.mission_id , item.id)"
+                          <button  (click)="getdata(item.status,item.freelancer_id,item.mission_id , item.id , item.mission.completed)"
                             class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  >
                              Update </button>  &nbsp;&nbsp;
                           
@@ -86,11 +92,17 @@
                   </div>
                   <div class="modal-body">
                     <!-- form update start here -->
-                    <form [formGroup]="update" #f="ngForm" (ngSubmit)="updaterequest (f) ">
+                    <form [formGroup]="update" #f="ngForm" (ngSubmit)="updatemissioncompleted (f) ">
   
                             <div class="form-group">
-                              <label for="exampleFormControlInput1">Mission </label>
-                               </div>
+                              <label for="exampleFormControlInput1">Completed  </label>
+                              <select [(ngModel)]="dataMission.completed" formControlName="completed" class="form-control"  required>
+                                <option value="true"> True </option>
+                                <option value="false"> False  </option>
+                               
+                              </select>
+                            
+                                </div>
                      
                           <div class="alert alert-success" *ngIf="messageSuccess">
                               {{messageSuccess}}

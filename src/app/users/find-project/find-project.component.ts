@@ -5,6 +5,7 @@ import { UsersService } from 'src/app/services/users.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-find-project',
@@ -30,6 +31,8 @@ export class FindProjectComponent implements OnInit {
   data: any =[];
   logged_in:boolean = false ;
   role: string = '';
+  stepOneOfOneForm : any ;
+
   constructor(private usersService:UsersService , private route : Router ) {
     this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
 
@@ -38,6 +41,11 @@ export class FindProjectComponent implements OnInit {
 
     this.role = JSON.parse( localStorage.getItem('role') !);
     console.log(this.role)
+
+   // this.selectedDefaultLanguage = null
+   this.stepOneOfOneForm = new FormGroup({
+    language_id: new FormControl('', [Validators.required]),
+  });
 
    }
   ngOnInit(): void { 
@@ -88,7 +96,7 @@ export class FindProjectComponent implements OnInit {
   }
 ///****************************************************  missionbylanguages  ************************************///
   missionbylanguages (  ) {
-    debugger
+    
     this.usersService.getmissionbylanguage(this.selectedDefaultLanguage).subscribe(response=>{
       console.log(response)
       

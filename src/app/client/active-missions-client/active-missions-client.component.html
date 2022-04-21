@@ -26,7 +26,7 @@
                     <th scope="col"> Mission_id </th> 
                     <th scope="col"> Title Mission </th>  
                     <th scope="col" >Status  &nbsp;<i class="fa fa-sort"> </i> </th>
-                   
+                    <th scope="col"> Completed </th>  
                  
                    
                     <th scope="col"> Email Freelancer </th>               
@@ -40,6 +40,7 @@
                         <td>{{item.mission.id}}</td> 
                         <td>{{item.mission.title}}</td>
                         <td> <button *ngIf="item.status==='accepted' " class="btn btn-success">{{item.status}}</button> </td>
+                        <td>{{item.mission.completed}}</td>
                         <td > <a [routerLink]="['/detail-freelancer',item.freelancer_id]" >  {{item.freelancer.email }} </a></td> 
     
                         <td>  

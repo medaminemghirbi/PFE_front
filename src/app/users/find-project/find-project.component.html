@@ -56,6 +56,8 @@
   <div class="form-group">
     <h6 class="font-weight-bold">Language</h6>
     <div id="orange"><span class="fa fa-minus"></span></div>
+   
+ <form class="formSteps" [formGroup]="stepOneOfOneForm" >
     <ng-select 
     [multiple]="true"
      placeholder="Select Language"
@@ -70,7 +72,7 @@
       </ng-option>
       
    </ng-select>
-   
+    </form>
                     
   </div>
   </div>
@@ -84,7 +86,7 @@
 <div class="container">
   <div class="row">
     <div class="card col-md-12 p-3" *ngFor="let produit of dataArray  ">
-      <div class="row ">
+      <div class="row " *ngIf="dataArray != null "> 
 
         <div class="col-md-12" >
           <div class="card-block">

@@ -166,7 +166,7 @@ export class UsersService {
     }
     
     getendedmissionbyclient (client_id : any) {
-      return this.http.get(`${environment.urlBackend}`+'getendedmission/' + client_id )
+      return this.http.get(`${environment.urlBackend}`+'getendedmissionbyclient/' + client_id )
     }
     
   /********************** freelancer : status accepted *****************************************/
@@ -188,7 +188,11 @@ export class UsersService {
     updateRequest (id:string,newdata:any) {
       return this.http.patch(environment.urlBackend+'requests/' + id , newdata )
     }
-  
+    
+    updatecompleted (id:string,newdata:any) {
+      return this.http.patch(environment.urlBackend+'updatecompleted/' + id , newdata )
+    }
+
     countproposition (mission_id : any) {
       //this.count  ;   
       return this.http.get(`${environment.urlBackend}`+'countproposition/' + mission_id )
