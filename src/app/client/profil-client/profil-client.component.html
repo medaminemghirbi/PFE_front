@@ -91,7 +91,7 @@
                       
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="Street">Adress</label>
+                                            <label for="Street"> Address </label>
                                             <input type="text" class="form-control" [defaultValue]="" formControlName="adresse"  placeholder="adresse" [(ngModel)]="clientdata.adresse" required  ngModel >
                                         </div>
                                     </div>
@@ -102,7 +102,30 @@
                                         </div>
                                     </div>
                                     
-                        
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="sTate">Github </label>
+                                            <input type="text"  class="form-control" [defaultValue]="" formControlName="github"  placeholder="github " oninput="validity.valid||(value='');" [(ngModel)]="clientdata.github" required  ngModel >
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="zIp">Facebook </label>
+                                            <input type="text" class="form-control" [defaultValue]="" formControlName="facebook"  placeholder="facebook " [(ngModel)]="clientdata.facebook" required  ngModel >
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="sTate">Instagram  </label>
+                                            <input type="text"  class="form-control" [defaultValue]="" formControlName="instagram"  placeholder="instagram" oninput="validity.valid||(value='');" [(ngModel)]="clientdata.instagram" required  ngModel >
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label for="zIp">Linkedin  </label>
+                                            <input type="text" class="form-control" [defaultValue]="" formControlName="linkedin"  placeholder="linkedin" [(ngModel)]="clientdata.linkedin" required  ngModel >
+                                        </div>
+                                    </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label for="zIp">Password</label>

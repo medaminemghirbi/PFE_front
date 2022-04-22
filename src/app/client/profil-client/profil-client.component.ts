@@ -32,8 +32,11 @@ export class ProfilClientComponent implements OnInit {
       description : new FormControl('', [Validators.required]),
       birthday: new FormControl('', [Validators.required]),
       adresse: new FormControl('', [Validators.required]),
-
-      password: new FormControl('', [Validators.required]),
+      github: new FormControl('', [Validators.required]),
+      facebook: new FormControl('', [Validators.required]),
+      instagram : new FormControl('', [Validators.required]),
+      linkedin: new FormControl('', [Validators.required]),
+     // password: new FormControl('', [Validators.required]),
     //  password_confirmation: new FormControl('', [Validators.required]),
     });
   }
@@ -88,8 +91,12 @@ export class ProfilClientComponent implements OnInit {
     formData.append('job', this.upadate.value.job);
     formData.append('description', this.upadate.value.description);
     formData.append('birthday', this.upadate.value.birthday);
-
-    formData.append('password', this.upadate.value.password);
+    formData.append('github', this.upadate.value.github);
+    formData.append('facebook', this.upadate.value.facebook);
+    formData.append('instagram', this.upadate.value.instagram);
+    formData.append('linkedin', this.upadate.value.linkedin);
+   // formData.append('password', this.upadate.value.password);
+    
   // formData.append('password_confirmation', this.upadate.value.password_confirmation);
     Swal.fire({
       title: 'Do you want to save the changes?',
@@ -119,8 +126,8 @@ export class ProfilClientComponent implements OnInit {
             this.clientdata[indexId].description=data.description
             this.clientdata[indexId].birthday=data.birthday
     
-            this.clientdata[indexId].password=data.password
-            this.clientdata[indexId].password_confirmation=data.password_confirmation
+           // this.clientdata[indexId].password=data.password
+            //this.clientdata[indexId].password_confirmation=data.password_confirmation
     
             this.messageSuccess=`this email : ${this.clientdata[indexId].email} is updated`
     

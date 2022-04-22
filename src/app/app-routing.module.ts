@@ -68,7 +68,7 @@ const routes: Routes = [
 
   { path:'Education' , canActivate:[AuthGuard]  ,  component:ExpEducationComponent},
   {path:'edit-freelancer' ,canActivate:[AuthGuard]  ,component:EditFreelancerComponent} ,
-  {path:'dashbord-freelancer' ,canActivate:[AuthGuard]  ,component:DashbordFreelancerComponent} ,
+  {path:'dashboard-freelancer' ,canActivate:[AuthGuard]  ,component:DashbordFreelancerComponent} ,
   { path:'experiance', canActivate:[AuthGuard]  , component:ExperianceComponent},
   { path:'missions-freelancer', canActivate:[AuthGuard]  , component:MissionsFreelancerComponent},
   { path:'detail-freelancer/:id', canActivate:[AuthGuard]  , component:DetailFreelancerComponent },

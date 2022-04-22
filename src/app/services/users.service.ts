@@ -40,7 +40,7 @@ export class UsersService {
   }
 
   updateProfileFreelancer (id:string,newprofile:any){
-    return this.http.patch(environment.urlBackend+'upadateFreelancer/' + id , newprofile )
+    return this.http.patch(environment.urlBackend+'updateFreelancer/' + id , newprofile )
   }
 
   logout(){

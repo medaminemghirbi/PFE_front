@@ -78,7 +78,7 @@ export class EndedMissionsClientComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.usersService.deleteRequest(id).subscribe(response=>{
+        this.usersService.deleteMission(id).subscribe(response=>{
           console.log(response)
           this.dataArray.splice(i,1)   
         })

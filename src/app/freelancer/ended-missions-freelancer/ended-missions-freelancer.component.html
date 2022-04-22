@@ -25,10 +25,11 @@
                     <th scope="col"> completed </th> 
                     <th scope="col"> Title Mission </th>  
                     <th scope="col" >Description  &nbsp;<i class="fa fa-sort"> </i> </th>
-                    <th scope="col"> Email Freelancer </th>               
+                    <th scope="col"> Email Client </th>               
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
+
                 <tbody>         
                     <tr *ngFor="let item of dataArray  ; index as i" >
                       <th scope="row" > {{item.id}} </th>
@@ -39,12 +40,11 @@
                        
                         <td>{{item.title}}</td>
                         <td>{{item.description}}</td> 
-                        <td > <a [routerLink]="['/detail-freelancer',item.freelancer_id]" >  {{item.freelancer.email }} </a></td> 
+                        <td > <a  >  {{item.client.email }} </a> </td> 
     
                         <td>  
                           
-                         <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> &nbsp;
-                         <button  class="btn btn-outline-success"> Get Facture </button>  &nbsp;
+                          <button  class="btn btn-outline-success"> Get Facture </button>  &nbsp;
                          <button  class="btn btn-outline-secondary"> Rating (client) </button>
                       </td>
 
