@@ -25,6 +25,7 @@
                     <th scope="col"  ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
                    
                     <th scope="col"> completed </th> 
+                    <th scope="col"> Filepath </th> 
                     <th scope="col"> Title Mission </th>  
                     <th scope="col" >Description  &nbsp;<i class="fa fa-sort"> </i> </th>
                     <th scope="col"> Email Freelancer </th>               
@@ -40,7 +41,7 @@
                       <td> <button *ngIf="item.completed==true " class="btn btn-success"> {{item.completed}} </button> 
                         <button *ngIf="item.completed==false " class="btn btn-danger"> {{item.completed}} </button> 
                       </td>
-                       
+                      <td>{{item.filepath}}</td> 
                         <td>{{item.title}}</td>
                         <td>{{item.description}}</td> 
                         <td > <a [routerLink]="['/detail-freelancer',item.freelancer_id]" >  {{item.freelancer.email }} </a></td> 

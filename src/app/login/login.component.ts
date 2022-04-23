@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder ,FormGroup,FormControl,Validators } from '@angular/forms';
 import { UsersService } from '../services/users.service';
 import Swal from 'sweetalert2';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     password:'',
   }
 
-  constructor(private usersService:UsersService,private route:Router) { }
+  constructor(private http : HttpClient  , private usersService:UsersService,private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -42,9 +42,10 @@ export class LoginComponent implements OnInit {
       password:this.user.password,
 
     };
-
+   
     this.usersService.login(data).subscribe(
       response => {
+        //this.http.get(environment.urlBackend + '/registrations/:user_id/confirm_email/');
         console.log(response);
         if(response.status==401){
      
@@ -54,7 +55,8 @@ export class LoginComponent implements OnInit {
             text: 'User Not Found Or invalide Credentialns'
           })
         }else{
-
+          
+         // this.route.navigate(['/registrations/:id/confirm_email']);
 
        if(response.user.email_confirmed==true) {
         if(response.logged_in ==true && response.role =="admin"  ){

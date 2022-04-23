@@ -27,8 +27,8 @@
                             <table class="table table-bordered"  width="100%" >
                                 <thead >
                                   <tr >
-                                    <th scope="col" (click)="sort('id')" ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
-                                    <th scope="col"(click)="sort('title')" >title &nbsp;<i class="fa fa-sort"> </i> </th>
+                                 <th scope="col"(click)="sort('title')" >title &nbsp;
+                                   <i class="fa fa-sort"> </i> </th>
                                    <!-- <th scope="col"> Languages </th>  --> 
                                     <th scope="col"> description </th>
                                     <th scope="col"> duration </th>                 
@@ -43,8 +43,8 @@
                                 </thead>
                                 <tbody>         
                                     <tr *ngFor="let item of dataArray  ; index as i" >
-                                      <th scope="row" > {{item.mission.id}} </th>
-                                        <td> {{item.mission.title}} </td>
+                                     
+                                        <td > <a [routerLink]="['/detail-mission',item.mission.id]"  > {{item.mission.title}}  </a></td>
                                        <!--   <td>{{item.languages.name}}</td> -->
                                         <td>{{item.mission.description}}</td>
                                         <td> {{item.mission.duration}}</td> 
@@ -61,11 +61,12 @@
                                         <td> {{item.updated_at | date:'medium'}}  </td>
                                         --> 
                                         <td>  
-                                            <button  class="btn btn-outline-success" (click)="details(item.id)" > Show </button> &nbsp;&nbsp;
                                            
-                                            <button readonly style="cursor: not-allowed;" disabled *ngIf="item.status==='accepted' " (click)="delete(item.id , i)" type="button"  class="btn btn-outline-danger"> Delete    </button> 
-                                            <button  *ngIf="item.status!=='accepted' " (click)="delete(item.id , i)" type="button"  class="btn btn-outline-danger"> Delete    </button> &nbsp; &nbsp;
-                                           
+  
+<button  *ngIf="item.status==='accepted' " (click)="delete(item.id , i)" type="button"  class="btn btn-outline-danger"> Delete   My Request     </button> 
+<button  *ngIf="item.status!=='accepted' " (click)="delete(item.id , i)" type="button"  class="btn btn-outline-danger"> Delete   This Request    </button> &nbsp; &nbsp;
+
+
                                         </td>
                 
                                        

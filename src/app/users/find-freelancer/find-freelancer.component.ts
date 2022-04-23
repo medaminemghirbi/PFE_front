@@ -15,6 +15,7 @@ export class FindFreelancerComponent implements OnInit {
   dataArray:any = [];
   datacate:any = [];
   messageErr ='';
+  stepOneOfOneForm : any ;
 
   languages: { "id": number, "name": string }[] = []
 
@@ -45,6 +46,15 @@ export class FindFreelancerComponent implements OnInit {
         }) 
 
     //this.freelancers = user.listefreelancers();
+  }
+
+  getfreelancerbylanguage (  ) {
+    
+    this.usersService.getfreelancerbylanguage(this.selectedDefaultLanguage).subscribe(response=>{
+      console.log(response)
+      
+       this.dataArray = response ;
+    })
   }
 
   ngOnInit(): void {

@@ -63,7 +63,9 @@ export class LanguagesComponent implements OnInit {
     let data=f.value
     
     console.log(data)
-    
+    Swal.fire('Whooa!', 'Language Succeffully created !', 'success').then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
     this.usersService.addLanguage(data).subscribe( ()=>{
         console.log(data)
         this.submitted = true ;
@@ -75,6 +77,12 @@ export class LanguagesComponent implements OnInit {
        console.log(err.status)
        
     }) ;
+    Swal.fire('Saved!', '', 'success')
+      window.location.reload();
+    } else if (result.isDenied) {
+      Swal.fire('Changes are not saved', '', 'info')
+    }
+  })
   }
 
   key = 'id' ;

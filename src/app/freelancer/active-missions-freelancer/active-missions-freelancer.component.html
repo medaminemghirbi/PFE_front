@@ -22,8 +22,8 @@
             <table class="table table-bordered"  width="100%" >
                 <thead >
                   <tr >
-                    <th scope="col"  ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
-                    <th scope="col"> Mission_id </th> 
+                    
+                    
                     <th scope="col"> Completed </th> 
                     
                     <th scope="col"> Filepath </th> 
@@ -38,15 +38,14 @@
                 </thead>
                 <tbody>         
                     <tr *ngFor="let item of dataArray  ; index as i" >
-                      <th scope="row" > {{item.id}} </th>
-                        
-                        <td>{{item.mission.id}}</td> 
+                       
                         <td> 
                           <button *ngIf="item.mission.completed===true " class="btn btn-success">{{item.mission.completed}} </button> 
                           <button *ngIf="item.mission.completed===false " class="btn btn-danger">{{item.mission.completed}} </button> 
                         </td> 
                         <td>{{item.mission.filepath}}</td> 
-                        <td>{{item.mission.title}}</td>
+                        <td > <a [routerLink]="['/detail-mission',item.mission.id]"  > {{item.mission.title}}  </a></td>
+                                     
                         <td> <button class="btn btn-success">{{item.status}}</button> </td>
                         <td > <a [routerLink]="['/detail-freelancer',item.freelancer_id]" >  {{item.freelancer.email }} </a></td> 
     

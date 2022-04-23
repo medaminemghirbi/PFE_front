@@ -55,7 +55,7 @@ addschool (f:any){
   formData.append('ecole', this.addeducation.value.ecole);
   formData.append('dateDebut', this.addeducation.value.dateDebut);
   formData.append('dateFin', this.addeducation.value.dateFin);
-  formData.append('freelancer_id',this.freelancerdata.id);
+  formData.append('user_id',this.freelancerdata.id);
   
   let data=f.value
   

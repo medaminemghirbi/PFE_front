@@ -53,6 +53,7 @@ import { ActiveMissionsClientComponent } from './client/active-missions-client/a
 import { EndedMissionsClientComponent } from './client/ended-missions-client/ended-missions-client.component';
 import { ActiveMissionsFreelancerComponent } from './freelancer/active-missions-freelancer/active-missions-freelancer.component';
 import { EndedMissionsFreelancerComponent } from './freelancer/ended-missions-freelancer/ended-missions-freelancer.component';
+import { DetailMissionComponent } from './users/detail-mission/detail-mission.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +94,8 @@ import { EndedMissionsFreelancerComponent } from './freelancer/ended-missions-fr
     ActiveMissionsClientComponent,
     EndedMissionsClientComponent,
     ActiveMissionsFreelancerComponent,
-    EndedMissionsFreelancerComponent ,
+    EndedMissionsFreelancerComponent,
+    DetailMissionComponent ,
  
   ],
   imports: [

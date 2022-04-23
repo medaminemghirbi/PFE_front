@@ -97,7 +97,7 @@ addexperiance (f:any){
   formData.append('dateFin', this.addexper.value.dateFin);
   formData.append('langugage', this.addexper.value.langugage);
   formData.append('languagerating', this.addexper.value.languagerating);
-  formData.append('freelancer_id',this.freelancerdata.id);
+  formData.append('user_id',this.freelancerdata.id);
   
   
   let data=f.value

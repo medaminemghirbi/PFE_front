@@ -51,7 +51,7 @@
                         <td> {{item.updated_at | date:'medium'}}  </td>
                         --> 
                         <td>  
-                            <button  class="btn btn-outline-success" (click)="details(item.id)" > Show </button> &nbsp;&nbsp;
+                            <button  class="btn btn-outline-success" [routerLink]="['/detail-mission',item.id]" > Show </button> &nbsp;&nbsp;
                            
                             <button  (click)="getdata(item.title,item.description,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > Update </button>&nbsp;&nbsp;
                             <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
@@ -109,7 +109,7 @@
                     {{messageSuccess}}
                 </div>      
 
-               <button class="btn btn-primary" >Update student</button>
+               <button class="btn btn-primary" >Update</button>
               </form>
 
 

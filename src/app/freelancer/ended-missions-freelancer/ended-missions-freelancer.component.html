@@ -20,9 +20,10 @@
             <table class="table table-bordered"  width="100%" >
                 <thead >
                   <tr >
-                    <th scope="col"  ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
+                    
                    
                     <th scope="col"> completed </th> 
+                    <th scope="col"> Filepath </th> 
                     <th scope="col"> Title Mission </th>  
                     <th scope="col" >Description  &nbsp;<i class="fa fa-sort"> </i> </th>
                     <th scope="col"> Email Client </th>               
@@ -32,13 +33,14 @@
 
                 <tbody>         
                     <tr *ngFor="let item of dataArray  ; index as i" >
-                      <th scope="row" > {{item.id}} </th>
+                      
                         
                       <td> <button *ngIf="item.completed==true " class="btn btn-success"> {{item.completed}} </button> 
                         <button *ngIf="item.completed==false " class="btn btn-danger"> {{item.completed}} </button> 
                       </td>
-                       
-                        <td>{{item.title}}</td>
+                      <td>{{item.filepath}}</td> 
+                      <td > <a [routerLink]="['/detail-mission',item.id]"  > {{item.title}}  </a></td>
+                         
                         <td>{{item.description}}</td> 
                         <td > <a  >  {{item.client.email }} </a> </td> 
     

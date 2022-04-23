@@ -125,7 +125,12 @@ export class ProfilClientComponent implements OnInit {
             this.clientdata[indexId].job=data.job
             this.clientdata[indexId].description=data.description
             this.clientdata[indexId].birthday=data.birthday
-    
+
+            this.clientdata[indexId].github=data.github
+            this.clientdata[indexId].facebook=data.facebook
+            this.clientdata[indexId].instagram=data.instagram
+            this.clientdata[indexId].linkedin=data.linkedin
+
            // this.clientdata[indexId].password=data.password
             //this.clientdata[indexId].password_confirmation=data.password_confirmation
     
@@ -135,7 +140,7 @@ export class ProfilClientComponent implements OnInit {
             console.log(err.message)
           
           })
-        this.route.navigate(['/dashbord-client']);
+        this.route.navigate(['/dashbaord-client']);
         Swal.fire('Saved!', '', 'success')
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')

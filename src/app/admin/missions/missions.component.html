@@ -51,7 +51,7 @@
                       <td> {{item.updated_at | date:'medium'}}  </td>
                       --> 
                       <td>  
-                          <button  class="btn btn-outline-success" (click)="details(item.id)" > Show </button> &nbsp;&nbsp;
+                          <button  class="btn btn-outline-success" [routerLink]="['/detail-mission',item.id]" > Show </button> &nbsp;&nbsp;
                          
                       </td>
 

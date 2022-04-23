@@ -99,6 +99,10 @@ export class UsersService {
     deleteuser(id:any){
       return this.http.delete(environment.urlBackend+'admin/' + id )
     }
+    
+    deleteclient(id:any){
+      return this.http.delete(environment.urlBackend+'deleteclient/' + id )
+    }
 
     updateProfileUser(id:string,newprofile:any){
       return this.http.patch(environment.urlBackend+'admin/' + id , newprofile )
@@ -110,6 +114,9 @@ export class UsersService {
     
     freelancerhomedata(id:any){
       return this.http.get(`${environment.urlBackend}`+'freelancerdata/' + id)
+    }
+    missionhomedata(id:any){
+      return this.http.get(`${environment.urlBackend}`+'missiondata/' + id)
     }
     
     ////////////////// missions 
@@ -205,7 +212,7 @@ export class UsersService {
 
 //***********************experience  call api***********************/
   getfreelancerexperiance(id:any){
-    return this.http.get(`${environment.urlBackend}`+'getuserexperience/'+id)
+    return this.http.get(`${environment.urlBackend}`+'getuserexperiance/'+id)
 
   }
 
@@ -219,6 +226,11 @@ export class UsersService {
     return this.http.patch(environment.urlBackend+'experiences/' + id , newdata )
   }
 
+  
+  getfreelancerbylanguage (id:any){
+    return this.http.get(`${environment.urlBackend}`+'getfreelancerbylanguage/'+id)
+
+  }
 
 //***********************education  call api***********************/
     getfreelancereducation(id:any){

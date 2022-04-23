@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile-admin',
@@ -32,8 +33,12 @@ export class ProfileAdminComponent implements OnInit {
       adresse: new FormControl('', [Validators.required]),
       // rating: new FormControl('', [Validators.required]),
       earning : new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      password_confirmation: new FormControl('', [Validators.required]),
+      github: new FormControl('', [Validators.required]),
+      facebook: new FormControl('', [Validators.required]),
+      instagram : new FormControl('', [Validators.required]),
+      linkedin: new FormControl('', [Validators.required]),
+     // password: new FormControl('', [Validators.required]),
+     // password_confirmation: new FormControl('', [Validators.required]),
     });
 
   }
@@ -54,7 +59,7 @@ export class ProfileAdminComponent implements OnInit {
   updatenewuser (f:any){
     let data=f.value
     const formData = new FormData();
-   // formData.append('photo', this.image );
+    formData.append('avatar', this.image );
     formData.append('firstname', this.upadate.value.firstname);
     formData.append('lastname', this.upadate.value.lastname);
     formData.append('email', this.upadate.value.email);
@@ -64,9 +69,21 @@ export class ProfileAdminComponent implements OnInit {
     formData.append('description', this.upadate.value.description);
     formData.append('birthday', this.upadate.value.birthday);
     formData.append('earning', this.upadate.value.earning);
-    formData.append('password', this.upadate.value.password);
-    formData.append('password_confirmation', this.upadate.value.password_confirmation);
-
+    formData.append('github', this.upadate.value.github);
+    formData.append('facebook', this.upadate.value.facebook);
+    formData.append('instagram', this.upadate.value.instagram);
+    formData.append('linkedin', this.upadate.value.linkedin);
+    //formData.append('password', this.upadate.value.password);
+    //formData.append('password_confirmation', this.upadate.value.password_confirmation);
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
     this.usersService.updateProfileUser(this.admindata.id,formData).subscribe(response=>
       {
       console.log(response)
@@ -82,15 +99,24 @@ export class ProfileAdminComponent implements OnInit {
         this.admindata[indexId].description=data.description
         this.admindata[indexId].birthday=data.birthday
         this.admindata[indexId].earning=data.earning
-        this.admindata[indexId].password=data.password
-        this.admindata[indexId].password_confirmation=data.password_confirmation
+        this.admindata[indexId].github=data.github
+        this.admindata[indexId].facebook=data.facebook
+        this.admindata[indexId].instagram=data.instagram
+        this.admindata[indexId].linkedin=data.linkedin
+       // this.admindata[indexId].password=data.password
+       // this.admindata[indexId].password_confirmation=data.password_confirmation
 
         this.messageSuccess=`this email : ${this.admindata[indexId].email} is updated`
 
       },(err:HttpErrorResponse)=>{
         console.log(err.message)
-      
       })
+      this.route.navigate(['/dashboard']);
+        Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
   }
 
   ngOnInit(): void {

@@ -10,6 +10,7 @@
              <app-navbarr></app-navbarr>
 
 <!-- DataTales Example -->
+<div class="container">
 <div class="card shadow mb-4">
   <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Categories </h6>
@@ -40,9 +41,11 @@
                       <td> {{item.created_at | date:'medium'}}  </td>
                       <td> {{item.updated_at | date:'medium'}}  </td>
                       <td>  
-                         <button  (click)="getdata(item.name,item.image_url,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > update </button>&nbsp;&nbsp;
-                         <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> delete </button> 
-                      
+                         <a  class="text-success" 
+                         (click)="getdata(item.name,item.image_url,item.id)" data-toggle="modal" data-target="#exampleModal" > <i  class="fas  fa-2x fa-edit" ></i> </a>
+                           &nbsp; 
+                           <a  class="text-danger" 
+                           (click)="delete(item.id , i)"> <i  class="fas  fa-2x fa-trash" ></i> </a>
                       </td>
                   </tr>
                   
@@ -52,7 +55,7 @@
   </div>
 </div>
 
-
+</div>
 </div>
 <!-- End of Main Content -->
 
@@ -67,7 +70,7 @@
 <!-- End of Page Wrapper -->
 
 <!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
+<a class="scroll-to-top rounded" href="categories">
 <i class="fas fa-angle-up"></i>
 </a>
 
@@ -107,7 +110,7 @@ aria-hidden="true">
    
           <div class="form-group">
             <label for="exampleFormControlInput1">Name  </label>
-            <input type="text"  class="form-control"  formControlName="name" [(ngModel)]="dataCat.name"  ngModel>
+            <input type="text"  class="form-control" [defaultValue]="" formControlName="name" [(ngModel)]="dataCat.name"  ngModel>
           </div>
          <!-- <div [hidden]='name.valid || name.pristine' class="alert alert-danger" role="alert" >
               name is required

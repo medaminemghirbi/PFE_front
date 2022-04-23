@@ -26,14 +26,15 @@
   <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Users  </h6>
-        <form
-        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        <div class="input-group">
-            <input type="text" name="role" class="form-control bg-light border-0 small" [(ngModel)]="searchedKeyword"  placeholder="Search for..." >
-            <input class="btn btn-primary" type="submit" name="" value="Search">
-        </div>
-    </form>
+       
     </div>
+    <form
+    class="card-header py-3" >
+    <div class="input-group">
+        <input type="text" name="role" class="form-control" [(ngModel)]="searchedKeyword"  placeholder="Search for..." >
+      
+    </div>
+    </form>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" width="100%" *ngIf="dataArray">
@@ -44,6 +45,7 @@
                     <th scope="col" (click)="sort('lastname')" >Last name &nbsp;<i class="fa fa-sort"> </i> </th>
                     <th scope="col" (click)="sort('firstname')" >First name &nbsp;<i class="fa fa-sort"> </i> </th>
                     <th scope="col" (click)="sort('role')" >Role  &nbsp;<i class="fa fa-sort"> </i> </th>
+                    <th scope="col" (click)="sort('role')" >Email Confirmed  &nbsp;<i class="fa fa-sort"> </i> </th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -56,13 +58,22 @@
                         <td> {{item.lastname}}</td>
                         <td> {{item.firstname}}</td>
                         <td> {{item.role}} </td>
+                        <td  > &nbsp; &nbsp;
+                         
+                          <button *ngIf="item.email_confirmed===null " mdbBtn  color="danger" mdbWavesEffect> false </button>
+                           
                         
+                          <button *ngIf="item.email_confirmed===true " mdbBtn  color="success" mdbWavesEffect > {{item.email_confirmed}} </button>
+                        </td>
                         <td>
-                          <a  class="text-success" (click)="details(item.id)" > <i class="fas  fa-2x fa-eye"></i> </a>
+                          <a *ngIf="item.role==='freelancer' " class="text-success"  [routerLink]="['/detail-freelancer',item.id]"  >
+                             <i  class="fas  fa-2x fa-eye"></i> </a>
                            
                             
                             &nbsp;&nbsp;
-                          <button class="text-danger" (click)="delete(item.id , i)" > <i class="fas  fa-2x fa-trash-alt"></i> </button>
+                          <a *ngIf="item.role==='freelancer' " class="text-danger" (click)="deleteuser(item.id , i)" > <i class="fas  fa-2x fa-trash-alt"></i> </a>
+                          &nbsp;&nbsp;
+                          <a *ngIf="item.role==='client' " class="text-danger" (click)="deleteclient(item.id , i)" > <i class="fas  fa-2x fa-trash-alt"></i> </a>
                            
 
                         </td>
