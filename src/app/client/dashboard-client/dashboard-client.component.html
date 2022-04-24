@@ -82,14 +82,14 @@
                                                                 {{clientdata.email  }}    
                                                             </td>
                                                         </tr>
-                                                        <tr>        
+                                                        <tr *ngIf="clientdata.reviews_count && clientdata.reviews_count !== 'null' " >        
                                                             <td>
                                                                 <strong>
                                                                     <span class="glyphicon glyphicon-envelope text-primary"></span> 
                                                                     reviews_count                                                
                                                                 </strong>
                                                             </td>
-                                                            <td class="text-primary">
+                                                            <td class="text-primary" >
                                                                 {{clientdata.reviews_count  }}  Stars
                                                             </td>
                                                         </tr>

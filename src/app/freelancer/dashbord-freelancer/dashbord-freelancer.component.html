@@ -82,7 +82,7 @@
                                                     {{freelancerdata.email  }}    
                                                 </td>
                                             </tr>
-                                            <tr>        
+                                            <tr *ngIf="freelancerdata.reviews_count && freelancerdata.reviews_count !== 'null' " >         
                                                 <td>
                                                     <strong>
                                                         <span class="glyphicon glyphicon-envelope text-primary"></span> 
