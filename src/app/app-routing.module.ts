@@ -31,6 +31,7 @@ import { AuthGuard } from './services/auth.guard';
 
 import { AboutComponent } from './users/about/about.component';
 import { ContactComponent } from './users/contact/contact.component';
+import { DetailClientComponent } from './users/detail-client/detail-client.component';
 import { DetailFreelancerComponent } from './users/detail-freelancer/detail-freelancer.component';
 import { DetailMissionComponent } from './users/detail-mission/detail-mission.component';
 import { FindFreelancerComponent } from './users/find-freelancer/find-freelancer.component';
@@ -64,6 +65,8 @@ const routes: Routes = [
   { path : 'postulated-missions-client' ,canActivate:[AuthGuard]  , component:PostulatedMissionsClientComponent  },
   { path : 'active-missions-client' ,canActivate:[AuthGuard]  , component:ActiveMissionsClientComponent},
   { path : 'ended-missions-client' ,canActivate:[AuthGuard]  , component:EndedMissionsClientComponent},
+  { path:'detail-client/:id', canActivate:[AuthGuard]  , component:DetailClientComponent },
+
   { path:'detail-mission/:id', canActivate:[AuthGuard]  , component:DetailMissionComponent },
 
 

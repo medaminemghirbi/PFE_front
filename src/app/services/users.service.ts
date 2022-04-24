@@ -115,6 +115,10 @@ export class UsersService {
     freelancerhomedata(id:any){
       return this.http.get(`${environment.urlBackend}`+'freelancerdata/' + id)
     }
+    clienthomedata(id:any){
+      return this.http.get(`${environment.urlBackend}`+'clientdata/' + id)
+    }
+
     missionhomedata(id:any){
       return this.http.get(`${environment.urlBackend}`+'missiondata/' + id)
     }
@@ -158,6 +162,10 @@ export class UsersService {
 
     getmissionbybudget (budget : any) {
       return this.http.get(`${environment.urlBackend}`+'getmissionbybudget/' + budget )
+    }
+    
+    freelancersbyrating (budget : any) {
+      return this.http.get(`${environment.urlBackend}`+'freelancersbyrating/' + budget )
     }
 
     getrequestbyfreelancer (freelancer_id : any) {

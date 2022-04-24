@@ -14,7 +14,8 @@
         <div class="col-md-12" >
           <div class="card-block">
             <img [src]="missions"  style="width: 168px; align-content:center;" /> <br><br> 
-            <h4  >Email Client : {{produit.client.email}}</h4>
+            <h4  ><a style="text-decoration: none;" [routerLink]="['/detail-client',produit.client_id]">  
+              Email Client : {{produit.client.email}} </a> </h4>
 
             <a style="text-decoration: none;" >
                 <h5 class="card-title">{{produit.title}}</h5></a> 
@@ -29,8 +30,8 @@
             <button class="btn btn-primary" >Category : {{produit.category.name}} <br></button>
             &nbsp;
 
-              <button  class="btn btn-primary" *ngFor="let x of produit.languages">Languages : {{x.name}}</button>
-              
+              <button  class="btn btn-primary" *ngFor="let x of produit.languages">Languages : {{x.name}}</button> 
+              &nbsp;
               <br><br>
           </div>
          

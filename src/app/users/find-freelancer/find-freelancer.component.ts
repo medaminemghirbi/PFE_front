@@ -48,13 +48,28 @@ export class FindFreelancerComponent implements OnInit {
     //this.freelancers = user.listefreelancers();
   }
 
-  getfreelancerbylanguage (  ) {
-    
+  getfreelancerbylanguage (  ) {    
     this.usersService.getfreelancerbylanguage(this.selectedDefaultLanguage).subscribe(response=>{
       console.log(response)
       
        this.dataArray = response ;
     })
+  }
+/**************************** getfreelancerbyrating   *****************************/
+  freelancersbyrating( rating : any ) {
+    this.usersService.freelancersbyrating(rating).subscribe(response=>{
+      console.log(response)
+      this.dataArray = response ;
+    })
+  }
+  getallfreelancers (  ) {  
+  this.usersService.getallfreelancers().subscribe(data=>{
+    console.log(data)
+    this.dataArray=data , (err:HttpErrorResponse)=>{
+      console.log(err)
+    this.messageErr="We dont't found this user in our database"} 
+    //console.log(this.dataArray)
+  }) 
   }
 
   ngOnInit(): void {
