@@ -205,6 +205,16 @@ export class UsersService {
       return this.http.get(`${environment.urlBackend}`+'countproposition/' + mission_id )
     }
 
+
+    ratingfreelancer (freelancer_id : any) {
+      //this.count  ;   
+      return this.http.get(`${environment.urlBackend}`+'ratingfreelancer/' + freelancer_id )
+    }
+    ratingclient (client_id : any) {
+      //this.count  ;   
+      return this.http.get(`${environment.urlBackend}`+'ratingclient/' + client_id )
+    }
+
 //***********************countall api***********************/
   countall(){
     return this.http.get<any>(`${environment.urlBackend}`+'countall/')
@@ -257,11 +267,6 @@ export class UsersService {
     countrequest (id:any) {
       return this.http.get(environment.urlBackend+'countrequest/') ;
     }
-
-
-
-
-
 
 //////////////////**************************  reviews api ************************************//////////////
         addReview (profile:any) {

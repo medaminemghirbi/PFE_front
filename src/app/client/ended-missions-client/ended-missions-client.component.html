@@ -28,10 +28,11 @@
                     <th scope="col"> Filepath </th> 
                     <th scope="col"> Title Mission </th>  
                     <th scope="col" >Description  &nbsp;<i class="fa fa-sort"> </i> </th>
-                    <th scope="col"> Email Freelancer </th>               
+                    <th scope="col"> Email Freelancer </th> 
+                    <th scope="col"> Rating Freelancer</th>                
                     <th scope="col">Delete </th>
-                    <th scope="col">Facture </th>
-                    <th scope="col">Rating </th>
+                   
+                    <th scope="col">Actions  </th>
                   </tr>
                 </thead>
                 <tbody>         
@@ -45,14 +46,14 @@
                         <td>{{item.title}}</td>
                         <td>{{item.description}}</td> 
                         <td > <a [routerLink]="['/detail-freelancer',item.freelancer_id]" >  {{item.freelancer.email }} </a></td> 
-    
+                        <td> {{item.freelancer.reviews_count}}  </td>
                         <td>     
                             <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
                          </td>
-                         <td> <button  class="btn btn-outline-success"> Generate Facture </button> </td>
+                         <td> <button  class="btn btn-outline-success"> Generate Facture </button>
                           
-                          <td>
-                          <button  class="btn btn-outline-secondary"> Rating (freelancer) </button>
+                     
+                          <button  class="btn btn-outline-secondary" (click)="addreview(item.id , item.freelancer.id)"  > Rating (freelancer) </button>
                          </td>
 
                        

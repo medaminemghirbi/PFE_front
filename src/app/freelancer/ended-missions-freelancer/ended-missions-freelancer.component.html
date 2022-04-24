@@ -26,7 +26,8 @@
                     <th scope="col"> Filepath </th> 
                     <th scope="col"> Title Mission </th>  
                     <th scope="col" >Description  &nbsp;<i class="fa fa-sort"> </i> </th>
-                    <th scope="col"> Email Client </th>               
+                    <th scope="col"> Email Client </th>     
+                    <th scope="col"> Rating Client</th>  
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -39,15 +40,15 @@
                         <button *ngIf="item.completed==false " class="btn btn-danger"> {{item.completed}} </button> 
                       </td>
                       <td>{{item.filepath}}</td> 
-                      <td > <a [routerLink]="['/detail-mission',item.id]"  > {{item.title}}  </a></td>
-                         
+                      <td > <a [routerLink]="['/detail-mission',item.id]"  > {{item.title}}  </a></td>                      
                         <td>{{item.description}}</td> 
                         <td > <a  >  {{item.client.email }} </a> </td> 
-    
-                        <td>  
-                          
+                         <td> {{item.client.reviews_count}}  </td>
+                        <td>                           
                           <button  class="btn btn-outline-success"> Get Facture </button>  &nbsp;
-                         <button  class="btn btn-outline-secondary"> Rating (client) </button>
+
+                         <button  class="btn btn-outline-secondary" (click)="addreview(item.id , item.client.id)"  >    Rating (client) </button>
+
                       </td>
 
                        

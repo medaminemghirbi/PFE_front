@@ -30,15 +30,17 @@ export class EndedMissionsFreelancerComponent implements OnInit {
   dataArrayy:any ;
   dataArrayyy:any ;
   update: FormGroup;
+  count: any;
+  data: any =[];
 
   constructor(private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute, ) {
     this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
     console.log(this.freelancerdata)
 
     this.update = new FormGroup({
-      status: new FormControl(''),
+     // status: new FormControl(''),
       mission_id: new FormControl(''),
-      freelancer_id: new FormControl(''),
+      user_id: new FormControl(''),
     });
     
   }
@@ -107,6 +109,47 @@ export class EndedMissionsFreelancerComponent implements OnInit {
       
     }
 
+    ratingFreelancer ( id : any ) {
+      this.usersService.ratingfreelancer(id).subscribe(data=>{
+        localStorage.setItem( 'count', JSON.stringify( data ) );
+        
+        console.log(this.data)
+        this.count=data , (err:HttpErrorResponse)=>{
+          console.log(err)
+        this.messageErr="We dont't found this user in our database"} 
+        //console.log(this.dataArray)
+      }) 
+    }
+  
+    ///****************************************************  addReview ************************************///
+ addreview (id:any , user_id:any){
 
+  const formData = new FormData();
+    formData.append('user_id',user_id );
+    formData.append('mission_id',id );
+   // formData.append('freelancer_id',this.freelancerdata.id);
+   // formData.append('status',status);
+ // let data=f.value   
+  console.log(formData)
+  this.usersService.addReview(formData).subscribe( ()=>{
+      
+      //console.log(data)
+      console.log(formData)
+      //this.submitted = true ;
+      Swal.fire('Saved!', '', 'success')
+     window.location.reload();
+     this.route.navigate(['/ended-missions-freelancer'])
 
+  },(err:HttpErrorResponse)=>{
+    this.messageErr=err.error
+     
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'You cant postulate twice '
+    })
+     
+  }) ;
 }
+
+  }
