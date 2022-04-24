@@ -95,9 +95,6 @@ export class MissionsClientComponent implements OnInit {
     this.key = key ;
     this.reverse = !this.reverse ;
   }
-  details(id:any){
-    this.route.navigate(['/show-mission-client/'+id])
-  }
 
 
   delete(id:any  , i :number){
@@ -162,9 +159,15 @@ export class MissionsClientComponent implements OnInit {
       this.submitted = true ;
         let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataMission.id)
 
-        //this.dataArray[indexId].id=data.id
-        //this.dataArray[indexId].name=data.name
-       
+        this.dataArray[indexId].id=data.id
+        this.dataArray[indexId].title=data.title
+        this.dataArray[indexId].description=data.description
+        this.dataArray[indexId].duration=data.duration
+        this.dataArray[indexId].beginingDate=data.beginingDate
+        this.dataArray[indexId].budget=data.budget
+        this.dataArray[indexId].category_id=data.category_id
+        this.dataArray[indexId].language_id=data.language_id
+
         this.messageSuccess=`this title : ${this.dataArray[indexId].title} is updated`
         window.location.reload();
        this.route.navigate(['/missions-client']);
