@@ -115,6 +115,7 @@ export class UsersService {
     freelancerhomedata(id:any){
       return this.http.get(`${environment.urlBackend}`+'freelancerdata/' + id)
     }
+    
     clienthomedata(id:any){
       return this.http.get(`${environment.urlBackend}`+'clientdata/' + id)
     }
@@ -223,6 +224,8 @@ export class UsersService {
       return this.http.get(`${environment.urlBackend}`+'ratingclient/' + client_id )
     }
 
+
+
 //***********************countall api***********************/
   countall(){
     return this.http.get<any>(`${environment.urlBackend}`+'countall/')
@@ -231,7 +234,6 @@ export class UsersService {
 //***********************experience  call api***********************/
   getfreelancerexperiance(id:any){
     return this.http.get(`${environment.urlBackend}`+'getuserexperiance/'+id)
-
   }
 
   deleteexperiance  (id:any) {

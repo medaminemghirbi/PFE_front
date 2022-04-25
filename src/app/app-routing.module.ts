@@ -9,6 +9,7 @@ import { ListUsersComponent } from './admin/list-users/list-users.component';
 import { MissionsComponent } from './admin/missions/missions.component';
 import { ProfileAdminComponent } from './admin/profile-admin/profile-admin.component';
 import { ReviewsComponent } from './admin/reviews/reviews.component';
+import { ChatComponent } from './chat/chat.component';
 import { ActiveMissionsClientComponent } from './client/active-missions-client/active-missions-client.component';
 import { AddMissionComponent } from './client/add-mission/add-mission.component';
 
@@ -44,6 +45,8 @@ const routes: Routes = [
   {path:'project' /*,canActivate:[AuthGuard] */ , component:FindProjectComponent},
   {path:'about' , component:AboutComponent},
   {path:'contact' , component:ContactComponent} ,
+
+  {path:'chat' , component:ChatComponent } , 
 
   { path : 'register' , component:RegisterComponent } ,
   {path:'login' ,  component:LoginComponent } ,
