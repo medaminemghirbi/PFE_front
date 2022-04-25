@@ -52,7 +52,7 @@ export class ActiveMissionsClientComponent implements OnInit {
       this.messageErr="We dont't found this mission in our database"} 
       //console.log(this.dataArray)
     }) 
-    this.usersService.freelancerhomedata(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
+    this.usersService.freelancerhomedata(+this.activatedRoute.snapshot.params['id']).subscribe(data=>{
 
       console.log(data)
       this.dataArrayy = data ,

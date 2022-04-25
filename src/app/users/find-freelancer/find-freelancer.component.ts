@@ -14,7 +14,14 @@ export class FindFreelancerComponent implements OnInit {
   dataArray:any = [];
   datacate:any = [];
   messageErr ='';
-  produits: any;
+  stepOneOfOneForm : any ;
+
+  languages: { "id": number, "name": string }[] = []
+
+  selectedDefaultLanguage:any
+
+  languagedata:any = []
+
   constructor(private usersService:UsersService,) { 
    // this.produits = usersService.listeProduits();
     this.usersService.getallfreelancers().subscribe(data=>{
@@ -24,18 +31,54 @@ export class FindFreelancerComponent implements OnInit {
       this.messageErr="We dont't found this user in our database"} 
       //console.log(this.dataArray)
     }) 
-    this.usersService.getAllcategories().subscribe(data=>{
-
-      console.log(data)
-      this.datacate=data , (err:HttpErrorResponse)=>{
+        ///****************************************************  languages  ************************************///
+        this.usersService.getAllLanguages().subscribe(language=>{ 
+          //debugger
+        language.forEach((l: { [x: string]: any; }) => this.languages.push({ "id": l["id"], "name": l["name"] }));
+        this.languagedata=language
+        this.languagedata.forEach((element: any) => {
+       console.log(element)
+        });
+        (err:HttpErrorResponse)=>{
         console.log(err)
-      this.messageErr="We dont't found this user in our database"} 
-      //console.log(this.dataArray)
-    }) 
+        this.messageErr="We dont't found this language in our database"}
+        }) 
+
     //this.freelancers = user.listefreelancers();
+  }
+
+  getfreelancerbylanguage (  ) {    
+    this.usersService.getfreelancerbylanguage(this.selectedDefaultLanguage).subscribe(response=>{
+      console.log(response)
+      
+       this.dataArray = response ;
+    })
+  }
+/**************************** getfreelancerbyrating   *****************************/
+  freelancersbyrating( rating : any ) {
+    this.usersService.freelancersbyrating(rating).subscribe(response=>{
+      console.log(response)
+      this.dataArray = response ;
+    })
+  }
+  getallfreelancers (  ) {  
+  this.usersService.getallfreelancers().subscribe(data=>{
+    console.log(data)
+    this.dataArray=data , (err:HttpErrorResponse)=>{
+      console.log(err)
+    this.messageErr="We dont't found this user in our database"} 
+    //console.log(this.dataArray)
+  }) 
   }
 
   ngOnInit(): void {
   }
+  ///****************************************************  missionbylanguages  ************************************///
+  /*missionbylanguages ( language_id : any ) {
+    //this.usersService.getmissionbylanguage(language_id).subscribe(response=>{
+      console.log(response)
+       this.dataArray = response ;
+    })
+  }*/
 
 }

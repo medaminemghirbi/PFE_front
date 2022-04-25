@@ -12,10 +12,10 @@ export class FreelancernavbarComponent implements OnInit {
   
 
   messageErr:any;
-  admindata:any;
+  freelancerdata:any;
   constructor(private route:Router, private servicesService:UsersService) {
-  this.admindata = JSON.parse( localStorage.getItem('freelancerdata') !);
-    console.log(this.admindata.firstname)
+  this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
+    console.log(this.freelancerdata.firstname)
 
 }
   ngOnInit(): void {

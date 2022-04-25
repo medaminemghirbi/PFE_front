@@ -19,6 +19,7 @@ export class ActiveMissionsFreelancerComponent implements OnInit {
     mission_id:'',
     freelancer_id:'' ,
     completed  : false ,
+    filepath : ''
   }
   messageErr =''
   
@@ -34,10 +35,11 @@ export class ActiveMissionsFreelancerComponent implements OnInit {
 
   constructor(private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute, ) {
     this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
-    console.log(this.freelancerdata)
+    console.log(this.freelancerdata.id)
 
     this.update = new FormGroup({
       completed: new FormControl(''),
+      filepath: new FormControl(''),
     });
     
   }
@@ -65,13 +67,12 @@ export class ActiveMissionsFreelancerComponent implements OnInit {
   }
 
   
-    getdata(status:string,mission_id:string,freelancer_id:any , id:any , completed :boolean ){
+    getdata( id:any , completed :boolean, filepath:any ){
       this.messageSuccess=''
       this.dataMission.id=id
       this.dataMission.completed=completed
-      this.dataMission.status=status
-      this.dataMission.mission_id=mission_id
-      this.dataMission.freelancer_id=freelancer_id
+      this.dataMission.filepath=filepath
+
       console.log(this.dataMission)
   
     }
@@ -80,6 +81,7 @@ export class ActiveMissionsFreelancerComponent implements OnInit {
       let data=f.value
     const formData = new FormData();
     formData.append('completed', this.update.value.completed );
+    formData.append('filepath', this.update.value.filepath );
 
     Swal.fire('Whooa!', 'Mission Succeffulfy updated !', 'success')
     this.usersService.updatecompleted(this.dataMission.id,formData).subscribe(response=>
@@ -90,7 +92,8 @@ export class ActiveMissionsFreelancerComponent implements OnInit {
 
         //this.dataArray[indexId].id=data.id
         this.dataArray[indexId].completed=data.completed
-        
+        this.dataArray[indexId].filepath=data.filepath
+
         this.messageSuccess=`this completed : ${this.dataArray[indexId].completed} is updated`
         window.location.reload();
        this.route.navigate(['/postulated-missions-freelancer']);

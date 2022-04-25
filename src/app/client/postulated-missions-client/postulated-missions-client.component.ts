@@ -129,31 +129,53 @@ export class PostulatedMissionsClientComponent implements OnInit {
     formData.append('status', this.update.value.status );
     formData.append('mission_id', this.update.value.mission_id);
     formData.append('freelancer_id', this.update.value.freelancer_id);
+    Swal.fire({
+      title: 'Action Irreversible,Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.usersService.updateRequest(this.dataMission.id,formData).subscribe(response=>
+          {
+           
+          console.log(response)
+          this.submitted = true ;
+            let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataMission.id)
+    
+            //this.dataArray[indexId].id=data.id
+            this.dataArray[indexId].status=data.status
+            this.dataArray[indexId].mission_id=data.mission_id
+            this.dataArray[indexId].freelancer_id=data.freelancer_id
+            
+            this.messageSuccess=`this status : ${this.dataArray[indexId].status} is updated`
+            
+           this.route.navigate(['/postulated-missions-client']);
+          
+          },(err:HttpErrorResponse)=>{
+            console.log(err.message)
+          
+          })
+        Swal.fire('Saved!', '', 'success')
+        window.location.reload();
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
 
-    Swal.fire('Whooa!', 'Request Succeffulfy updated !', 'success')
-    this.usersService.updateRequest(this.dataMission.id,formData).subscribe(response=>
-      {
-       
-      console.log(response)
-      this.submitted = true ;
-        let indexId=this.dataArray.findIndex((obj:any)=>obj.id==this.dataMission.id)
 
-        //this.dataArray[indexId].id=data.id
-        this.dataArray[indexId].status=data.status
-        this.dataArray[indexId].mission_id=data.mission_id
-        this.dataArray[indexId].freelancer_id=data.freelancer_id
-        
-        this.messageSuccess=`this status : ${this.dataArray[indexId].status} is updated`
-        
-       this.route.navigate(['/postulated-missions-client']);
-      
-      },(err:HttpErrorResponse)=>{
-        console.log(err.message)
-      
-      })
-
-      window.location.reload();
+    
       
     }
-  
+    alert(){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You cant update twice!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+      console.log("clicked")
+    }
 }

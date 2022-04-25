@@ -1,8 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-list-users',
@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-users.component.css']
 })
 export class ListUsersComponent implements OnInit {
-
-  dataArray:any = []
+  dataArray:any = [] ;
+  dataArrayy:any = [] ;
   p:number = 1 ;
   dataStudent={
     id : '',
@@ -20,20 +20,26 @@ export class ListUsersComponent implements OnInit {
   
   }
   messageErr =''
-  
-  messageSuccess = '' ;
-  // email : string ="" ;
-  
-  role: string ="" ;
   searchedKeyword!:string;
+  messageSuccess = '' ;
+  role: string ="" ;
 
-  constructor(private usersService:UsersService,private route:Router) {
+  constructor(private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute  ) {
     
   }
   ngOnInit(): void {
     this.usersService.getAllusers().subscribe(data=>{
       console.log(data)
       this.dataArray=data , (err:HttpErrorResponse)=>{
+        console.log(err)
+      this.messageErr="We dont't found this user in our database"} 
+      //console.log(this.dataArray)
+    }) 
+    this.usersService.freelancerhomedata(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
+
+      console.log(data)
+      this.dataArrayy = data ,
+       (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found this user in our database"} 
       //console.log(this.dataArray)
@@ -55,7 +61,7 @@ export class ListUsersComponent implements OnInit {
   }
 
 
-  delete(id:any  , i :number){
+  deleteuser(id:any  , i :number){
     this.usersService.deleteuser(id).subscribe(response=>{
       console.log(response)
       this.dataArray.splice(i,1)
@@ -64,6 +70,15 @@ export class ListUsersComponent implements OnInit {
     
   }
   
+  deleteclient (id:any  , i :number){
+    this.usersService.deleteclient(id).subscribe(response=>{
+      console.log(response)
+      this.dataArray.splice(i,1)
+
+    })
+    
+  }
+
     getdata(email:string, id:any){
       this.messageSuccess=''
       this.dataStudent.id = id 

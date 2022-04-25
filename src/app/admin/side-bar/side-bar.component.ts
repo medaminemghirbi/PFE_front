@@ -9,7 +9,9 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor(public UsersService:UsersService, public router:Router) { }
+  constructor(public UsersService:UsersService, public router:Router) { 
+
+  }
 
   ngOnInit(): void {
   

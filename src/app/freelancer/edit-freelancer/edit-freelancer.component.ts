@@ -35,6 +35,10 @@ export class EditFreelancerComponent implements OnInit {
       // rating: new FormControl('', [Validators.required]),
       earning : new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
+      github: new FormControl('', [Validators.required]),
+      facebook: new FormControl('', [Validators.required]),
+      instagram : new FormControl('', [Validators.required]),
+      linkedin: new FormControl('', [Validators.required]),
     //  password_confirmation: new FormControl('', [Validators.required]),
     });
   }
@@ -91,6 +95,11 @@ export class EditFreelancerComponent implements OnInit {
     formData.append('birthday', this.upadate.value.birthday);
     formData.append('earning', this.upadate.value.earning);
     formData.append('password', this.upadate.value.password);
+    formData.append('github', this.upadate.value.github);
+    formData.append('facebook', this.upadate.value.facebook);
+    formData.append('instagram', this.upadate.value.instagram);
+    formData.append('linkedin', this.upadate.value.linkedin);
+    debugger
   // formData.append('password_confirmation', this.upadate.value.password_confirmation);
     Swal.fire({
       title: 'Do you want to save the changes?',
@@ -103,6 +112,7 @@ export class EditFreelancerComponent implements OnInit {
       if (result.isConfirmed) {
         this.usersService.updateProfileFreelancer(this.freelancerdata.id,formData).subscribe(response=>
           {
+            
             localStorage.clear();
             localStorage.setItem( 'freelancerdata', JSON.stringify( response ) );
             window.location.reload();
@@ -122,14 +132,17 @@ export class EditFreelancerComponent implements OnInit {
             this.freelancerdata[indexId].earning=data.earning
             this.freelancerdata[indexId].password=data.password
             this.freelancerdata[indexId].password_confirmation=data.password_confirmation
-    
+            this.freelancerdata[indexId].github=data.github
+            this.freelancerdata[indexId].facebook=data.facebook
+            this.freelancerdata[indexId].instagram=data.instagram
+            this.freelancerdata[indexId].linkedin=data.linkedin
             this.messageSuccess=`this email : ${this.freelancerdata[indexId].email} is updated`
     
           },(err:HttpErrorResponse)=>{
             console.log(err.message)
           
           })
-        this.route.navigate(['/dashbord-freelancer']);
+       this.route.navigate(['/dashbord-freelancer']);
         Swal.fire('Saved!', '', 'success')
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')

@@ -41,6 +41,9 @@ export class UsersService {
     return this.http.patch(environment.urlBackend+'upadateFreelancer/' + id , newprofile )
   }
 
+  missionhomedata(id:any){
+    return this.http.get(`${environment.urlBackend}`+'missiondata/' + id)
+  }
   logout(){
     this.connecte = false;
     localStorage.clear();
@@ -97,6 +100,10 @@ export class UsersService {
     deleteuser(id:any){
       return this.http.delete(environment.urlBackend+'admin/' + id )
     }
+    
+    deleteclient(id:any){
+      return this.http.delete(environment.urlBackend+'deleteclient/' + id )
+    }
 
     updateProfileUser(id:string,newprofile:any){
       return this.http.patch(environment.urlBackend+'admin/' + id , newprofile )
@@ -109,7 +116,17 @@ export class UsersService {
     freelancerhomedata(id:any){
       return this.http.get(`${environment.urlBackend}`+'freelancerdata/' + id)
     }
-    
+    clienthomedata(id:any){
+      return this.http.get(`${environment.urlBackend}`+'clientdata/' + id)
+    }
+    getfreelancerbylanguage (id:any){
+      return this.http.get(`${environment.urlBackend}`+'getfreelancerbylanguage/'+id)
+  
+    }
+    freelancersbyrating (budget : any) {
+      return this.http.get(`${environment.urlBackend}`+'freelancersbyrating/' + budget )
+    }
+
     ////////////////// missions 
     addMission (profile:any) {
       return this.http.post(environment.urlBackend+'missions/',profile) ;

@@ -55,6 +55,9 @@ import { ActiveMissionsFreelancerComponent } from './freelancer/active-missions-
 import { EndedMissionsFreelancerComponent } from './freelancer/ended-missions-freelancer/ended-missions-freelancer.component';
 import { ActiveMissionsClientComponent } from './client/active-missions-client/active-missions-client.component';
 import { EndedMissionsClientComponent } from './client/ended-missions-client/ended-missions-client.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DetailmissionComponent } from './users/detailmission/detailmission.component';
+import { DetailClientComponent } from './users/detail-client/detail-client.component';
 
 
 
@@ -107,6 +110,8 @@ import { EndedMissionsClientComponent } from './client/ended-missions-client/end
      EndedMissionsFreelancerComponent,
      ActiveMissionsClientComponent,
      EndedMissionsClientComponent,
+     DetailmissionComponent,
+     DetailClientComponent,
      
 
   ],
@@ -121,8 +126,8 @@ import { EndedMissionsClientComponent } from './client/ended-missions-client/end
     MDBBootstrapModule,
     ReactiveFormsModule,
     ChartsModule,
-    NgSelectModule
-    
+    NgSelectModule,
+    Ng2SearchPipeModule 
     
     
   ],

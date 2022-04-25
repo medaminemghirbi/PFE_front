@@ -1,31 +1,71 @@
 <app-usersnavbar></app-usersnavbar><br>
 
 <!-- Sidebar filter section -->
+<!-- Sidebar filter section -->
 <section id="sidebar"> 
-  <p> Home | <b>All Freelancers</b></p>
+  <p> Home | <b> All Freelancers  </b></p>
   <div class="border-bottom pb-2 ml-2">
-      <h4 id="burgundy">Filters</h4>
+      <h4 id="burgundy"> Filters  </h4>
   </div>
-  <div class="py-2 border-bottom ml-3">
-      <h6 class="font-weight-bold">Categories</h6>
+ <br>
+  <div class="border-bottom pb-2 ml-2">
+    <div class="form-group">
+      <h6 class="font-weight-bold">Language</h6>
       <div id="orange"><span class="fa fa-minus"></span></div>
-      <form >
-          <div class="form-group" *ngFor="let produit of datacate "> 
-            <input type="checkbox" id="artisan">
-             <label for="artisan">{{produit.name}}</label> 
-            </div>
-
+     
+   <form class="formSteps" [formGroup]="stepOneOfOneForm" >
+      <ng-select 
+      [multiple]="true"
+       placeholder="Select Language"
+          formControlName="language"
+          name="language"
+            [(ngModel)]="selectedDefaultLanguage"
+            (change)="getfreelancerbylanguage()" 
+              >
+        <ng-option *ngFor="let l of languages" [value]="l.id"   >
+           {{l.name}} 
+    
+        </ng-option>
+        
+     </ng-select>
       </form>
-  </div>
+                      
+    </div>
+    </div>
+
+  <br>
   <div class="py-3">
     <h5 class="font-weight-bold">Rating</h5>
-    <form class="rating">
-        <div class="form-inline d-flex align-items-center py-2"> <label class="tick"><span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <input type="checkbox"> <span class="check"></span> </label> </div>
-        <div class="form-inline d-flex align-items-center py-2"> <label class="tick"> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span class="check"></span> </label> </div>
-        <div class="form-inline d-flex align-items-center py-2"> <label class="tick"><span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="far fa-star px-1 text-muted"></span> <span class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span class="check"></span> </label> </div>
-        <div class="form-inline d-flex align-items-center py-2"> <label class="tick"><span class="fas fa-star"></span> <span class="fas fa-star"></span> <span class="far fa-star px-1 text-muted"></span> <span class="far fa-star px-1 text-muted"></span> <span class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span class="check"></span> </label> </div>
-        <div class="form-inline d-flex align-items-center py-2"> <label class="tick"> <span class="fas fa-star"></span> <span class="far fa-star px-1 text-muted"></span> <span class="far fa-star px-1 text-muted"></span> <span class="far fa-star px-1 text-muted"></span> <span class="far fa-star px-1 text-muted"></span> <input type="checkbox"> <span class="check"></span> </label> </div>
-    </form>
+   <form >
+    <div class="form-group"   >  
+      <input (click)="this.getallfreelancers()" type="radio" value="100" name="1" id="exampleCheck1" >  &nbsp;
+      <label for="artisan">All </label>      
+  </div>
+    <div class="form-group"   >  
+        <input (click)="freelancersbyrating (10)" type="radio" value="100" name="1" id="exampleCheck1" >  &nbsp;
+        <label for="artisan">moins de 10 </label>      
+    </div>
+    <div class="form-group"   >  
+        <input (click)="freelancersbyrating (50)" type="radio" value="500" name="1" id="exampleCheck1" >  &nbsp;
+        <label for="artisan">moins de 50 </label>      
+    </div>
+  <div class="form-group"   >  
+      <input (click)="freelancersbyrating (100)" type="radio" value="1000" name="1" id="exampleCheck1" >  &nbsp;
+      <label for="artisan">moins de 100 </label>      
+  </div>
+  <div class="form-group"   >  
+    <input (click)="freelancersbyrating (500)" type="radio" value="3000" name="1" id="exampleCheck1" >  &nbsp;
+    <label for="artisan">moins de 500 </label>      
+</div>   
+<div class="form-group"   >  
+    <input (click)="freelancersbyrating (1000)" type="radio" value="5000" name="1" id="exampleCheck1" >  &nbsp;
+    <label for="artisan">moins de 1000 </label>      
+</div>   
+<div class="form-group"   >  
+    <input (click)="freelancersbyrating (10000)" type="radio" value="10000" name="1" id="exampleCheck1" >  &nbsp;
+    <label for="artisan">moins de 10000 </label>      
+</div>       
+</form>
 </div>
 
   
@@ -33,15 +73,15 @@
 <!-- products section -->
 <div class="container">
   <div class="row">
-    <div class="col-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let produit of dataArray">
+    <div class="col-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let data of dataArray">
       <div class="our-team">
         <div class="picture">
-          <a [routerLink]="['/detailfreelancer',produit.id]">  <img class="img-fluid" [src]="produit.user_image_url"></a>
-        </div>
+          <a [routerLink]="['/detailfreelancer',data.id]">  <img class="img-fluid" [src]="data.user_image_url"></a>
+        </div> 
         <div class="team-content">
-          <h4 class="name">{{produit.lastname}} {{produit.firstname}} </h4>
-          <h4 class="title"> {{produit.description}}</h4>
-          <h4 class="title"> {{produit.earning}} DT / jour</h4>
+          <h4 class="name">{{data.lastname}} {{data.firstname}} </h4>
+          <h4 class="title"> {{data.description}}</h4>
+          <h4 class="title"> {{data.earning}} DT / jour</h4>
         </div>
         <ul class="social">
           <li><a href="https://codepen.io/collection/XdWJOQ/" class="fa fa-facebook" aria-hidden="true"></a></li>

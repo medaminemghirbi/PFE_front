@@ -1,108 +1,41 @@
- <!-- Page Wrapper -->
- <div id="wrapper">
+<div class="dashboard" id="accordionSidebar" >
+    <div class="dashboard-nav"  style="background-color: rgb(38, 8,158);">
+        <header>
+            <a class="menu-toggle"><i class="fas fa-bars"></i></a><a href="#" class="brand-logo">    <i class="fas fa-laugh-wink" style="color: white;" ></i> <span>CLIENT</span></a>
+            <div class="nav-item-divider"></div>
+        </header>
+        <nav class="dashboard-nav-list">
+            <a routerLink="/dashbord-client" class="dashboard-nav-item "><i class="fas fa-tachometer-alt"></i> dashboard </a>
 
-  <!-- Sidebar -->
-  <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: rgb(0, 18, 70);" id="accordionSidebar">
+            <a  routerLink="/postulated-missions-client" class="dashboard-nav-item " ><i  class="fas fa-envelope"></i>postulated missions </a>  
+            <a class="dashboard-nav-item dashboard-nav-dropdown-toggle" data-toggle="collapse" data-target="#settingscolaps"
+            aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-briefcase"></i>  My Mission List  </a>  
+            <div id="settingscolaps" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-black py-2 collapse-inner rounded">              
+                    <a  routerLink="/missions-client" class="dashboard-nav-item"><i class="fas fa-laptop"></i> Current Mission </a>              
+                    <a routerLink="/active-missions-client" class="dashboard-nav-item"><i class="fas fa-chart-line"></i> Active Mission </a>   
+                    <a  routerLink="/ended-missions-client" class="dashboard-nav-item"><i class="fas fa-clipboard-list" ></i> Ended Mission </a>   
+                </div>
+            </div>
 
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" >
-          <div class="sidebar-brand-icon ">
-              <i class="fas fa-laugh" style="color: rgb(255, 255, 255);" ></i>
-          </div>
-          <div class="sidebar-brand-text mx-3" style="color: rgb(255, 255, 255);"> Client </div>
-      </a>
+     
+            <a class="dashboard-nav-item dashboard-nav-dropdown-toggle" data-toggle="collapse" data-target="#profilcolapse"
+            aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-cogs"></i>  Settings  </a>  
+            <div id="profilcolapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-black py-2 collapse-inner rounded">              
+                    <a  routerLink="/edit-client" class="dashboard-nav-item"><i class="fas fa-user"></i> Profil </a>              
+             
+                </div>
+            </div>
+            
+            <a  routerLink="/addmission" class="dashboard-nav-item "><i class="fas fa-tachometer-alt"></i> Post New Mission </a>
+           
+ 
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/dashbord-client">
-            <i class="fas fa-home fa-2x text-gray-300"></i>
-            <span>Dashboard </span></a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" routerLink="/postulated-missions-client">
-            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-            <span>Postulated For  Mission </span></a>
-    </li>
+            <div class="nav-item-divider"></div>
+            <a (click)="logout()" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
+        </nav>
+    </div>
+    <div class="dashboard-app"></div>
+  </div>
   
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-        aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-        <span> My Missions list </span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">         
-            <a class="collapse-item" routerLink="/missions-client" >Current Missions</a>
-            <a class="collapse-item" routerLink="/active-missions-client" >Active Missions</a>
-            <a class="collapse-item" routerLink="/ended-missions-client" >Ended Missions   </a>
-         
-
-        </div>
-    </div>
-</li>
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoa"
-        aria-expanded="true" aria-controls="collapseTwo">
-
-        <i class="fas fa-user-edit fa-2x text-gray-300"></i>
-        <span>Maintain Profil </span>
-    </a>
-    <div id="collapseTwoa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" routerLink="/edit-client">Update Profil </a>
-    
-        </div>
-    </div>
-</li>
-
-
-
-    
-   <!-- <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-          aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-          <span>Display Profil </span>
-      </a>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" routerLink="/profil-freelancer">See Profil </a>
-              <a class="collapse-item" routerLink="/edit-freelancer" >Edit Profil  </a>
-          </div>
-      </div>
-  </li>-->
-
-
-
-  <li class="nav-item active">
-    <a class="nav-link" routerLink="/addmission">
-        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-        <span>Post a New Mission</span></a>
-</li>
-
-
-    
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Addons
-    </div>
-
-    
-    <!-- Nav Item - Charts -->
-    <li class="nav-item"   >
-        <a class="nav-link"  (click)="logout()"  >
-            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-            <span>Logout </span></a>
-    </li>
-
-
-</ul>

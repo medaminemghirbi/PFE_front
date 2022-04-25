@@ -29,7 +29,9 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './services/auth.guard';
 import { AboutComponent } from './users/about/about.component';
 import { ContactComponent } from './users/contact/contact.component';
+import { DetailClientComponent } from './users/detail-client/detail-client.component';
 import { DetailfreelancerComponent } from './users/detailfreelancer/detailfreelancer.component';
+import { DetailmissionComponent } from './users/detailmission/detailmission.component';
 import { FindFreelancerComponent } from './users/find-freelancer/find-freelancer.component';
 import { FindProjectComponent } from './users/find-project/find-project.component';
 import { HomeComponent } from './users/home/home.component';
@@ -69,7 +71,9 @@ const routes: Routes = [
   { path : 'ended-missions-freelancer' ,canActivate:[AuthGuard]  , component:EndedMissionsFreelancerComponent},
   { path : 'active-missions-client' ,canActivate:[AuthGuard]  , component:ActiveMissionsClientComponent},
   { path : 'ended-missions-client' ,canActivate:[AuthGuard]  , component:EndedMissionsClientComponent},
-  {path:'cv/:id', canActivate:[AuthGuard]  ,component:CvComponent}
+  {path:'cv/:id', canActivate:[AuthGuard]  ,component:CvComponent},
+  { path:'detail-client/:id', canActivate:[AuthGuard]  , component:DetailClientComponent },
+  { path:'detail-mission/:id', canActivate:[AuthGuard]  , component:DetailmissionComponent },
 ];
 
 @NgModule({

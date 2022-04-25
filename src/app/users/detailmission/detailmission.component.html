@@ -1,0 +1,39 @@
+<app-usersnavbar></app-usersnavbar>
+<div class="container">
+  <p> Home | <b> Mission Details </b></p>
+ 
+
+<div class="row">
+  <div class="card col-md-12 p-3" *ngFor="let produit of dataArray  ">
+    <div class="row " *ngIf="produit != null " > 
+
+      <div class="col-md-12" >
+        <div class="card-block">
+          <img [src]="missions"  style="width: 168px; align-content:center;" /> <br><br> 
+          <h4  ><a style="text-decoration: none;" [routerLink]="['/detail-client',produit.client_id]">  
+            Email Client : {{produit.client.email}} </a> </h4>
+
+          <a style="text-decoration: none;" >
+              <h5 class="card-title">{{produit.title}}</h5></a> 
+
+          <i class="fas fa-book">  {{produit.requests_count}} Proposition</i> &nbsp;
+          <i class="fas fa-clock"> &nbsp; {{produit.beginingDate}}</i> <br> 
+          
+           <p class="card-text text-justify">Budget : {{produit.budget}} DT <br></p>
+           <p class="card-text text-justify">Duration : {{produit.duration}} Month <br></p>
+
+          <p class="card-text text-justify">{{produit.description}} .<br></p> 
+          <button class="btn btn-primary" >Category : {{produit.category.name}} <br></button>
+          &nbsp;
+
+            <button  class="btn btn-primary" *ngFor="let x of produit.languages">Languages : {{x.name}}</button> 
+            &nbsp;
+            <br><br>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+ 
+  </div>
+</div>
