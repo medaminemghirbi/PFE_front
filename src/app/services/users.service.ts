@@ -286,4 +286,7 @@ export class UsersService {
         sendresetlink (email:any)  {
           return this.http.post(environment.urlBackend+'password_resets/',email) ;
         }
+        resetpassword(token:string,email:any){
+          return this.http.put(environment.urlBackend+'password_resets/'+token,email);
+        }
 }
