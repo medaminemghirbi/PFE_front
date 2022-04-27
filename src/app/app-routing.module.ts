@@ -34,7 +34,9 @@ import { DetailfreelancerComponent } from './users/detailfreelancer/detailfreela
 import { DetailmissionComponent } from './users/detailmission/detailmission.component';
 import { FindFreelancerComponent } from './users/find-freelancer/find-freelancer.component';
 import { FindProjectComponent } from './users/find-project/find-project.component';
+import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 import { HomeComponent } from './users/home/home.component';
+import { ResetPasswordComponent } from './users/reset-password/reset-password.component';
 
 const routes: Routes = [
   {path:'',  component : HomeComponent},
@@ -74,6 +76,8 @@ const routes: Routes = [
   {path:'cv/:id', canActivate:[AuthGuard]  ,component:CvComponent},
   { path:'detail-client/:id', canActivate:[AuthGuard]  , component:DetailClientComponent },
   { path:'detail-mission/:id', canActivate:[AuthGuard]  , component:DetailmissionComponent },
+  {path:'reset/:token', component: ResetPasswordComponent},
+  {path:'forgot-password',component:ForgotPasswordComponent}
 ];
 
 @NgModule({

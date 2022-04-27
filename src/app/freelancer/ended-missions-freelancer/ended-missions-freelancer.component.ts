@@ -46,6 +46,7 @@ export class EndedMissionsFreelancerComponent implements OnInit {
 
   ngOnInit(): void {
     this.usersService.getendedmissionbyfreelancer(this.freelancerdata.id).subscribe(data=>{
+      
       console.log(data)
       this.dataArray = data , (err:HttpErrorResponse)=>{
         console.log(err)
@@ -116,7 +117,8 @@ export class EndedMissionsFreelancerComponent implements OnInit {
 
     ///****************************************************  addReview ************************************///
     addreview (id:any , user_id:any){
-
+   
+      //console.log(this.clicked)
       const formData = new FormData();
         formData.append('user_id',user_id );
         formData.append('mission_id',id );
@@ -131,7 +133,7 @@ export class EndedMissionsFreelancerComponent implements OnInit {
           //this.submitted = true ;
           Swal.fire('Saved!', '', 'success')
          window.location.reload();
-         this.route.navigate(['/ended-missions-freelancer'])
+        this.route.navigate(['/ended-missions-client'])
     
       },(err:HttpErrorResponse)=>{
         this.messageErr=err.error
@@ -139,10 +141,11 @@ export class EndedMissionsFreelancerComponent implements OnInit {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'You cant postulate twice '
+          text: 'You cant rate  twice '
         })
          
       }) ;
+
     }
     
       }

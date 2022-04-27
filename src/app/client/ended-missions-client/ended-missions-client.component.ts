@@ -30,7 +30,7 @@ export class EndedMissionsClientComponent implements OnInit {
   dataArrayy:any ;
   dataArrayyy:any ;
   update: FormGroup;
-
+clicked:boolean = false;
   constructor(private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute, ) {
     this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
     console.log(this.clientdata)
@@ -136,7 +136,8 @@ export class EndedMissionsClientComponent implements OnInit {
     }
     ///****************************************************  addReview ************************************///
     addreview (id:any , user_id:any){
-
+   
+      console.log(this.clicked)
       const formData = new FormData();
         formData.append('user_id',user_id );
         formData.append('mission_id',id );
@@ -159,10 +160,11 @@ export class EndedMissionsClientComponent implements OnInit {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'You cant postulate twice '
+          text: 'You cant rate  twice '
         })
          
       }) ;
+
     }
     
     }

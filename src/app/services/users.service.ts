@@ -126,7 +126,14 @@ export class UsersService {
     freelancersbyrating (budget : any) {
       return this.http.get(`${environment.urlBackend}`+'freelancersbyrating/' + budget )
     }
-
+    ratingfreelancer (freelancer_id : any) {
+      //this.count  ;   
+      return this.http.get(`${environment.urlBackend}`+'ratingfreelancer/' + freelancer_id )
+    }
+    ratingclient (client_id : any) {
+      //this.count  ;   
+      return this.http.get(`${environment.urlBackend}`+'ratingclient/' + client_id )
+    }
     ////////////////// missions 
     addMission (profile:any) {
       return this.http.post(environment.urlBackend+'missions/',profile) ;
@@ -273,5 +280,10 @@ export class UsersService {
       
         updateReview  (id:string,newdata:any) {
           return this.http.patch(environment.urlBackend+'reviews/' + id , newdata )
+        }
+
+        /*****************reset password +forgot */
+        sendresetlink (email:any)  {
+          return this.http.post(environment.urlBackend+'password_resets/',email) ;
         }
 }

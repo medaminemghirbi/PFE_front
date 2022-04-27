@@ -113,7 +113,13 @@ missionbybudget( budget : any ) {
 
  ///****************************************************  addrequest  ************************************///
  addrequest (id:any , freelancer_id:any){
-
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong!',
+    footer: '<a href="">Why do I have this issue?</a>'
+  })
+  
   const formData = new FormData();
     formData.append('mission_id',id );
     formData.append('freelancer_id',this.freelancerdata.id);

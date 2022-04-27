@@ -39,7 +39,9 @@
                                 <td>  
                                   
                                   <button  (click)="getdata(item.status,item.mission_id,item.freelancer_id, item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > Update Request </button>&nbsp;&nbsp;
-                                  <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
+                              
+                                 <!-- <button readonly style="cursor: not-allowed;" disabled  *ngIf="item.status=='accepted' " (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
+                                  <button *ngIf="item.status=='encours' || item.status=='refus'" (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> -->
                                 
                               </td>
         

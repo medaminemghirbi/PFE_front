@@ -58,6 +58,8 @@ import { EndedMissionsClientComponent } from './client/ended-missions-client/end
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DetailmissionComponent } from './users/detailmission/detailmission.component';
 import { DetailClientComponent } from './users/detail-client/detail-client.component';
+import { ResetPasswordComponent } from './users/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 
 
 
@@ -112,6 +114,8 @@ import { DetailClientComponent } from './users/detail-client/detail-client.compo
      EndedMissionsClientComponent,
      DetailmissionComponent,
      DetailClientComponent,
+     ResetPasswordComponent,
+     ForgotPasswordComponent,
      
 
   ],

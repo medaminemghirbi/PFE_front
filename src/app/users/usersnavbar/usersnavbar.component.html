@@ -39,11 +39,11 @@
             <div  >
               <button *ngIf="logged_in && role==='admin' " routerLink="/profil-admin" class="btn1 mx-2" > Profil Admin </button>
               <button *ngIf="logged_in && role==='freelancer' " routerLink="/edit-freelancer" class="btn1 mx-2" > Profil Freelancer </button>
-              <button *ngIf="logged_in && role==='client' " routerLink="/dashbord-freelancer" class="btn1 mx-2" > Profil Client</button>
+              <button *ngIf="logged_in && role==='client' " routerLink="/dashbord-client" class="btn1 mx-2" > Profil Client</button>
               <button *ngIf="!logged_in"  routerLink="/register" class="btn1 mx-2">register</button>
               <button   *ngIf="!logged_in"  routerLink="/login" class="btn0">Login</button>
            </div>
-
+<!--&& !admindata && !freelancerdata && !clientdata -->
            </div>
         </div>
       </nav>
