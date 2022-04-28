@@ -28,18 +28,19 @@
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <div class="account-settings">
-                                                    <form [formGroup]="upadate" #f="ngForm" (ngSubmit)="updatenewuser(f)">
-                                                    <div class="user-profile">
-                                                        <div class="user-avatar">
-                                      
-                                                         <img  height="180"   (change)="fileChange($event)"  [src]="admindata.user_image_url" alt="" class="card-img-top">
-                                                      
+                                                    <form [formGroup]="imageupdate" #f="ngForm" (ngSubmit)="updateimage(f)">
+                                                        <div class="user-profile">
+                                                            <div class="user-avatar">
+                                                                <img height="180" [src]="admindata.user_image_url" alt="" class="card-img-top" />
+                                                            </div>
+                                                            <h5 class="user-name">{{ admindata.firstname }} {{ admindata.lastname }}</h5>
+                                                            <h6 class="user-email">{{ admindata.email }}</h6>
+                                                            <br />
+                                                            <input type="file" (change)="fileChange($event)" [defaultValue]="" class="form-control" formControlName="avatar" rows="3" width="110" required />
                                                         </div>
-                                                        <h5 class="user-name">{{ admindata.firstname }} {{ admindata.lastname }}</h5>
-                                                        <h6 class="user-email">{{ admindata.email }} </h6>
-                                                    <br>    <input type="file"  (change)="fileChange($event)" [defaultValue]="" class="form-control"   formControlName="avatar"   rows="3"  width="110" required />   
-                                                    </div>
+                                                        <button type="submit" class="btn btn-primary px-4" style="background-color: rgb(38, 8, 158);">Update Image</button>
                                                     </form>
+                                                    
                                                     <div class="about">
                                                         <h5>About</h5>
                                                         <p>{{ admindata.description }}  </p>
@@ -76,7 +77,7 @@
                                                             
                                                             <label for="eMail">Email</label>
                                                             <input readonly style="cursor: not-allowed;" type="email" class="form-control" formControlName="email" id="eMail"[(ngModel)]="admindata.email" placeholder="Enter email ID">
-                                                        </div>admindata
+                                                        </div>
                                                     </div>
                                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                         <div class="form-group">

@@ -15,13 +15,14 @@ export class EditProfilClientComponent implements OnInit {
   clientdata:any;
   admindata:any;
   upadate!: any;
+  imageupdate!:any;
   image:any;
   messageSuccess: any;
 
   constructor(private route:Router, private usersService:UsersService) {
     this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
     console.log(this.clientdata)
-
+    this.imageupdate = new FormGroup({ avatar: new FormControl('', [Validators.required]), });
     this.upadate = new FormGroup({
      // avatar: new FormControl('', [Validators.required]),
       firstname: new FormControl('', [Validators.required]),
@@ -75,11 +76,44 @@ export class EditProfilClientComponent implements OnInit {
     })
     
   }*/
-
+  updateimage(f:any){
+    let data=f.value
+    const imageformadata = new FormData();
+    imageformadata.append('avatar', this.image );
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        
+        this.usersService.updateimageuser(this.clientdata.id,imageformadata).subscribe(response=>
+          {
+            
+            localStorage.clear();
+            localStorage.setItem( 'clientdata', JSON.stringify( response ) );
+            window.location.reload();
+         
+    
+          },(err:HttpErrorResponse)=>{
+            console.log(err.message)
+          
+          })
+    //   this.route.navigate(['/dashbord-freelancer']);
+        Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+    
+  }
   updatenewuser (f:any){
     let data=f.value
     const formData = new FormData();
-    formData.append('avatar', this.image );
+    //formData.append('avatar', this.image );
     formData.append('firstname', this.upadate.value.firstname);
     formData.append('lastname', this.upadate.value.lastname);
     formData.append('email', this.upadate.value.email);

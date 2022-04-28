@@ -32,12 +32,11 @@ export class ResetPasswordComponent implements OnInit {
 
      
     this.usersService.resetpassword(this.activatedRoute.snapshot.params['token'],formData).subscribe( ()=>{
-      
+      console.log(formData)
     
      // console.log(formData)
      
-      Swal.fire('Password Updated Avec Succes !', '', 'success')
-      this.route.navigate(['/login']);
+
 
 
   },(err:HttpErrorResponse)=>{
@@ -46,5 +45,7 @@ export class ResetPasswordComponent implements OnInit {
      console.log(err.status)
      
   }) ;
+  Swal.fire('Password Updated Avec Succes !', '', 'success')
+  this.route.navigate(['/login']);
   }
 }

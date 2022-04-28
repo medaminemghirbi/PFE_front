@@ -40,6 +40,9 @@ export class UsersService {
   updateProfileFreelancer (id:string,newprofile:any){
     return this.http.patch(environment.urlBackend+'upadateFreelancer/' + id , newprofile )
   }
+  updateimageuser (id:string,newprofile:any){
+    return this.http.patch(environment.urlBackend+'updateimagefreelancer/' + id , newprofile )
+  }
 
   missionhomedata(id:any){
     return this.http.get(`${environment.urlBackend}`+'missiondata/' + id)
