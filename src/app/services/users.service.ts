@@ -111,6 +111,10 @@ export class UsersService {
     updateprofilclient (id:string,newprofile:any){
       return this.http.patch(environment.urlBackend+'updateclient/' + id , newprofile )
     }
+
+    updateimageuser (id:string,newprofile:any){
+      return this.http.patch(environment.urlBackend+'updateimagefreelancer/' + id , newprofile )
+    }
     
     freelancerhomedata(id:any){
       return this.http.get(`${environment.urlBackend}`+'freelancerdata/' + id)
@@ -159,6 +163,10 @@ export class UsersService {
 
     getmissionbylanguage (language_id : any) {
       return this.http.get(`${environment.urlBackend}`+'getmissionbylanguage/' + language_id )
+    }
+    getfreelancerbylanguage (id:any){
+      return this.http.get(`${environment.urlBackend}`+'getfreelancerbylanguage/'+id)
+  
     }
 
     getmissionbybudget (budget : any) {
@@ -246,11 +254,22 @@ export class UsersService {
     return this.http.patch(environment.urlBackend+'experiences/' + id , newdata )
   }
 
-  
-  getfreelancerbylanguage (id:any){
-    return this.http.get(`${environment.urlBackend}`+'getfreelancerbylanguage/'+id)
+  updatelanguage (id:string,newdata:any){
+    return this.http.patch(environment.urlBackend+'updatelanguage/' + id , newdata )
+  }
+  getfreelancerlanguage (id:any){
+    return this.http.get(`${environment.urlBackend}`+'getfreelancerlanguage/'+id)
 
   }
+  
+  destroylanguagefreelancer  (id:any) {
+    return this.http.delete(environment.urlBackend+'destroylanguagefreelancer/' + id )
+  }
+  
+  updatefreelancerlanguages (id:string,newdata:any){
+    return this.http.patch(environment.urlBackend+'updatefreelancerlanguages/' + id , newdata )
+  }
+
 
 //***********************education  call api***********************/
     getfreelancereducation(id:any){
@@ -297,5 +316,18 @@ export class UsersService {
       
         updateReview  (id:string,newdata:any) {
           return this.http.patch(environment.urlBackend+'reviews/' + id , newdata )
+        }
+
+         /*****************reset password +forgot */
+         sendresetlink (email:any)  {
+          return this.http.post(environment.urlBackend+'password_resets/',email) ;
+        }
+        resetpassword(token:string,email:any){
+          return this.http.put(environment.urlBackend+'password_resets/'+token,email);
+        }
+
+        /************************************* Chat *****************************/
+        chat  (id:any) {    
+          return this.http.get(environment.urlBackend+'getroom/' + id)
         }
 }

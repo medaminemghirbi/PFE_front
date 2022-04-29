@@ -1,110 +1,44 @@
- <!-- Page Wrapper -->
- <div id="wrapper">
+<div class="dashboard" id="accordionSidebar" >
+    <div class="dashboard-nav"  style="background-color: rgb(38, 8,158);">
+        <header>
+            <a class="menu-toggle"><i class="fas fa-bars"></i></a><a href="#" class="brand-logo">    <i class="fas fa-laugh" style="color: white;" ></i> <span>FREELANCER</span></a>
+        </header>
+        <nav class="dashboard-nav-list">
+            <a routerLink="/dashboard-freelancer" class="dashboard-nav-item "><i class="fas fa-tachometer-alt"></i> dashboard </a>
 
-  <!-- Sidebar -->
-  <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: rgb(0, 18, 70);" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" >
-          <div class="sidebar-brand-icon ">
-              <i class="fas fa-laugh" style="color: rgb(255, 255, 255);" ></i>
-          </div>
-          <div class="sidebar-brand-text mx-3" style="color: rgb(255, 255, 255);"> Freelancer </div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/dashboard-freelancer">
-            <i class="fas fa-home fa-2x text-gray-300"></i>
-            <span>Dashboard </span></a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" routerLink="/chat">
-            <i class="fas fa-sms fa-2x text-gray-300"></i>
-            <span>Chat  </span></a>
-      </li>
-    <li class="nav-item active">
-    <a class="nav-link" routerLink="/project">
-        <i class="fas fa-list fa-2x text-gray-300"></i>
-        <span>Find Projects  </span></a>
-    </li>
-
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoa"
-        aria-expanded="true" aria-controls="collapseTwo">
-
-        <i class="fas fa-user-edit fa-2x text-gray-300"></i>
-        <span>Update Profil </span>
-    </a>
-    <div id="collapseTwoa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" routerLink="/edit-freelancer">Profil Details </a>
-            <a class="collapse-item" routerLink="/Education" >Education  </a>
-            <a class="collapse-item" routerLink="/experiance" >Experience  </a>
-        </div>
-    </div>
-</li>
-
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-            <span>Missions list </span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" routerLink="/missions-freelancer">Postulated Missions </a>
-                <a class="collapse-item" routerLink="/active-missions-freelancer" >Active Missions   </a>
-                <a class="collapse-item" routerLink="/ended-missions-freelancer" >Ended Missions   </a>
+            <a   routerLink="/missions-freelancer" class="dashboard-nav-item " ><i  class="fas fa-envelope"></i>Requested missions </a>  
+            <a  routerLink="/chat" class="dashboard-nav-item " ><i class="fas fa-sms" ></i>Message  </a>
+              <a class="dashboard-nav-item dashboard-nav-dropdown-toggle" data-toggle="collapse" data-target="#settingscolaps"
+            aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-briefcase"></i>  My Mission List  </a>  
+            <div id="settingscolaps" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-black py-2 collapse-inner rounded">              
+            
+                    <a routerLink="/active-missions-freelancer" class="dashboard-nav-item"><i class="fas fa-chart-line"></i> Active Mission </a>   
+                    <a   routerLink="/ended-missions-freelancer" class="dashboard-nav-item"><i class="fas fa-clipboard-list" ></i> Ended Mission </a>   
+                </div>
             </div>
-        </div>
-    </li>
-    
-   <!-- <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-          aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-          <span>Display Profil </span>
-      </a>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" routerLink="/profil-freelancer">See Profil </a>
-              <a class="collapse-item" routerLink="/edit-freelancer" >Edit Profil  </a>
-          </div>
-      </div>
-  </li>-->
 
-
-    <li class="nav-item active">
-      <a class="nav-link" [routerLink]="['/detail-freelancer',freelancerdata.id]" >
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-          <span>Generate CV</span></a>
-  </li>
-
-
-      
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-          Addons
-      </div>
+     
+            <a class="dashboard-nav-item dashboard-nav-dropdown-toggle" data-toggle="collapse" data-target="#profilcolapse"
+            aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-cogs"></i>  Settings  </a>  
+            <div id="profilcolapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-black py-2 collapse-inner rounded">              
+                    <a routerLink="/edit-freelancer" class="dashboard-nav-item"><i class="fas fa-user"></i> Profil Details </a>              
+                    <a routerLink="/Education" class="dashboard-nav-item"><i class="fas fa-school"></i> Education  </a>    
+                    <a   routerLink="/experiance" class="dashboard-nav-item"><i class="fas fa-building"></i> Experiance </a>  
+                       
+                    <a   routerLink="/languages" class="dashboard-nav-item"><i class="fas fa-building"></i> Language </a> 
+                </div>
+            </div>
+            
+            <a  [routerLink]="['/detail-freelancer',freelancerdata.id]"   class="dashboard-nav-item "><i class="fas fa-id-card"></i> Generate My CV </a>
+           
  
-      
-      <!-- Nav Item - Charts -->
-      <li class="nav-item"   >
-          <a class="nav-link"  (click)="logout()"  >
-              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-              <span>Logout </span></a>
-      </li>
 
-
-  </ul>
+            <div class="nav-item-divider"></div>
+            <a (click)="logout()" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
+        </nav>
+    </div>
+    <div class="dashboard-app"></div>
+  </div>
+  

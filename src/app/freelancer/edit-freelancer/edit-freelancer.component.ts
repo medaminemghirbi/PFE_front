@@ -15,13 +15,16 @@ export class EditFreelancerComponent implements OnInit {
   freelancerdata:any;
   admindata:any;
   upadate!: any;
+  imageupdate!: any;
   image:any;
   messageSuccess: any;
 
   constructor(private route:Router, private usersService:UsersService) {
     this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
     console.log(this.freelancerdata)
-
+    this.imageupdate = new FormGroup({
+      avatar: new FormControl('', [Validators.required]),
+    });
     this.upadate = new FormGroup({
      // avatar: new FormControl('', [Validators.required]),
       firstname: new FormControl('', [Validators.required]),
@@ -34,8 +37,7 @@ export class EditFreelancerComponent implements OnInit {
       adresse: new FormControl('', [Validators.required]),
       // rating: new FormControl('', [Validators.required]),
       earning : new FormControl('', [Validators.required]),
-    //  password: new FormControl('', [Validators.required]),
-
+      password: new FormControl('', [Validators.required]),
       github: new FormControl('', [Validators.required]),
       facebook: new FormControl('', [Validators.required]),
       instagram : new FormControl('', [Validators.required]),
@@ -59,7 +61,6 @@ export class EditFreelancerComponent implements OnInit {
     let data=f.value
     const formData = new FormData();
    formData.append('avatar', this.image );
-
    this.usersService.updateimagefreelancer(this.freelancerdata.id,formData).subscribe(response=>
     {
       debugger
@@ -69,12 +70,8 @@ export class EditFreelancerComponent implements OnInit {
    
     console.log(response)
       let indexId=this.freelancerdata.findIndex((obj:any)=>obj.id==this.freelancerdata.id)
-
       this.freelancerdata[indexId].user_image_url=data.user_image_url
-
-
       this.messageSuccess=`this email : ${this.freelancerdata[indexId].email} is updated`
-
     },(err:HttpErrorResponse)=>{
       console.log(err.message)
     
@@ -82,10 +79,53 @@ export class EditFreelancerComponent implements OnInit {
     
   }*/
 
+
+  updateimage(f:any){
+    let data=f.value
+    const imageformadata = new FormData();
+    imageformadata.append('avatar', this.image );
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        
+        this.usersService.updateimageuser(this.freelancerdata.id,imageformadata).subscribe(response=>
+          {
+            
+            localStorage.clear();
+            localStorage.setItem( 'freelancerdata', JSON.stringify( response ) );
+            window.location.reload();
+         
+    
+          },(err:HttpErrorResponse)=>{
+            console.log(err.message)
+          
+          })
+    //   this.route.navigate(['/dashbord-freelancer']);
+        Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+    
+  }
+
+
+
+
+
+
+
+
   updatenewuser (f:any){
     let data=f.value
     const formData = new FormData();
-    formData.append('avatar', this.image );
+   // formData.append('avatar', this.image );
     formData.append('firstname', this.upadate.value.firstname);
     formData.append('lastname', this.upadate.value.lastname);
     formData.append('email', this.upadate.value.email);
@@ -95,12 +135,12 @@ export class EditFreelancerComponent implements OnInit {
     formData.append('description', this.upadate.value.description);
     formData.append('birthday', this.upadate.value.birthday);
     formData.append('earning', this.upadate.value.earning);
-  //  formData.append('password', this.upadate.value.password);
-
+    formData.append('password', this.upadate.value.password);
     formData.append('github', this.upadate.value.github);
     formData.append('facebook', this.upadate.value.facebook);
     formData.append('instagram', this.upadate.value.instagram);
     formData.append('linkedin', this.upadate.value.linkedin);
+    
   // formData.append('password_confirmation', this.upadate.value.password_confirmation);
     Swal.fire({
       title: 'Do you want to save the changes?',
@@ -113,6 +153,7 @@ export class EditFreelancerComponent implements OnInit {
       if (result.isConfirmed) {
         this.usersService.updateProfileFreelancer(this.freelancerdata.id,formData).subscribe(response=>
           {
+            
             localStorage.clear();
             localStorage.setItem( 'freelancerdata', JSON.stringify( response ) );
             window.location.reload();
@@ -130,21 +171,19 @@ export class EditFreelancerComponent implements OnInit {
             this.freelancerdata[indexId].description=data.description
             this.freelancerdata[indexId].birthday=data.birthday
             this.freelancerdata[indexId].earning=data.earning
-          //  this.freelancerdata[indexId].password=data.password
-            //this.freelancerdata[indexId].password_confirmation=data.password_confirmation
-    
+            this.freelancerdata[indexId].password=data.password
+            this.freelancerdata[indexId].password_confirmation=data.password_confirmation
             this.freelancerdata[indexId].github=data.github
             this.freelancerdata[indexId].facebook=data.facebook
             this.freelancerdata[indexId].instagram=data.instagram
             this.freelancerdata[indexId].linkedin=data.linkedin
-    
             this.messageSuccess=`this email : ${this.freelancerdata[indexId].email} is updated`
     
           },(err:HttpErrorResponse)=>{
             console.log(err.message)
           
           })
-        this.route.navigate(['/dashboard-freelancer']);
+       this.route.navigate(['/dashbord-freelancer']);
         Swal.fire('Saved!', '', 'success')
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
@@ -156,6 +195,8 @@ export class EditFreelancerComponent implements OnInit {
   
   ngOnInit(): void {
   }
+
+
 
 
 }

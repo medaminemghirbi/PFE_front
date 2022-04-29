@@ -56,6 +56,9 @@ import { EndedMissionsFreelancerComponent } from './freelancer/ended-missions-fr
 import { DetailMissionComponent } from './users/detail-mission/detail-mission.component';
 import { DetailClientComponent } from './users/detail-client/detail-client.component';
 import { ChatComponent } from './chat/chat.component';
+import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './users/reset-password/reset-password.component';
+import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,7 +102,10 @@ import { ChatComponent } from './chat/chat.component';
     EndedMissionsFreelancerComponent,
     DetailMissionComponent,
     DetailClientComponent,
-    ChatComponent ,
+    ChatComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    AddLanguagesComponent ,
  
   ],
   imports: [

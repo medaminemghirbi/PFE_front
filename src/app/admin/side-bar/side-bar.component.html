@@ -1,95 +1,40 @@
- <!-- Page Wrapper -->
- <div id="wrapper">
-
-  <!-- Sidebar -->
-  <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: rgb(38, 8,158);" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" >
-          <div class="sidebar-brand-icon rotate-n-15">
-              <i class="fas fa-laugh-wink" style="color: white;" ></i>
-          </div>
-          <div class="sidebar-brand-text mx-3" style="color: white;"> Admin </div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/dashboard">
-            <i class="fas fa-home fa-2x text-gray-300"></i>
-            <span>Dashboard </span></a>
-    </li>
-      <li class="nav-item active">
-          <a class="nav-link" routerLink="/categories">
-              <i class="fas fa-calendar fa-2x text-gray-300"></i>
-              <span>All Categories </span></a>
-      </li>
-      <li class="nav-item active">
-          <a class="nav-link" routerLink="/addcategory">
-              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-              <span>Add Category  </span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/alllanguages" >
-            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-            <span>All Languages </span></a>
-    </li>
-      <li class="nav-item active">
-          <a class="nav-link" routerLink="/missions">
-              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-              <span>All Missions </span></a>
-      </li>
-
-      
-
-      <li class="nav-item active">
-          <a class="nav-link" routerLink="/allusers">
-              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-              <span>All Users </span></a>
-      </li>
-
-      
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-              aria-expanded="true" aria-controls="collapseTwo">
-              <i class="fas fa-fw fa-cog"></i>
-              <span>choices </span>
-          </a>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">choices :</h6>
-                  <a class="collapse-item" routerLink="/profil-admin">Profile </a>
-                  <a class="collapse-item" routerLink="/allreviews" >Reviews </a>
-              </div>
-          </div>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-          Addons
-      </div>
+<div class="dashboard" id="accordionSidebar" >
+    <div class="dashboard-nav"  style="background-color: rgb(38, 8,158);">
+        <header>
+            <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a><a href="#" class="brand-logo">    <i class="fas fa-laugh-wink" style="color: white;" ></i> <span>ADMIN</span></a>
+            <div class="nav-item-divider"></div>
+        </header>
+        <nav class="dashboard-nav-list">
+            <a routerLink="/dashboard" class="dashboard-nav-item "><i class="fas fa-tachometer-alt"></i> dashboard </a>
+            <a routerLink="/categories" class="dashboard-nav-item dashboard-nav-dropdown-toggle" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-photo-video"></i> All Categories  </a>  
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-black py-2 collapse-inner rounded">              
+                    <a routerLink="/addcategory" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Add Category  </a>              
+             
+                </div>
+            </div>
+            <a  routerLink="/missions" class="dashboard-nav-item " ><i  class="fas fa-briefcase"></i>All Missions  </a>  
+            <a  routerLink="/alllanguages" class="dashboard-nav-item " ><i  class="fas fa-language"></i>All Languages  </a>  
+            <a routerLink="/allusers" class="dashboard-nav-item " ><i  class="fas fa-users"></i>All Users  </a>  
+     
+            <a class="dashboard-nav-item dashboard-nav-dropdown-toggle" data-toggle="collapse" data-target="#settingscolaps"
+            aria-expanded="true" aria-controls="collapseTwo"><i class="fas fa-cogs"></i>  Settings  </a>  
+            <div id="settingscolaps" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-black py-2 collapse-inner rounded">              
+                    <a routerLink="/profil-admin" class="dashboard-nav-item"><i class="fas fa-user"></i> Profil </a>              
+             
+                </div>
+            </div>
+            
+  
+           
  
-      
-      <!-- Nav Item - Charts -->
-      <li class="nav-item"   >
-        <a class="nav-link"  (click)="logout()"  >
-            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-            <span>Logout </span></a>
-    </li>
 
-    
-
-  </ul>
+            <div class="nav-item-divider"></div>
+            <a (click)="logout()" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
+        </nav>
+    </div>
+    <div class="dashboard-app"></div>
+  </div>
+  

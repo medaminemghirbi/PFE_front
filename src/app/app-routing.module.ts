@@ -19,6 +19,7 @@ import { MissionsClientComponent } from './client/missions-client/missions-clien
 import { PostulatedMissionsClientComponent } from './client/postulated-missions-client/postulated-missions-client.component';
 import { ProfilClientComponent } from './client/profil-client/profil-client.component';
 import { ActiveMissionsFreelancerComponent } from './freelancer/active-missions-freelancer/active-missions-freelancer.component';
+import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.component';
 
 import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/dashbord-freelancer.component';
 import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freelancer.component';
@@ -37,7 +38,9 @@ import { DetailFreelancerComponent } from './users/detail-freelancer/detail-free
 import { DetailMissionComponent } from './users/detail-mission/detail-mission.component';
 import { FindFreelancerComponent } from './users/find-freelancer/find-freelancer.component';
 import { FindProjectComponent } from './users/find-project/find-project.component';
+import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 import { HomeComponent } from './users/home/home.component';
+import { ResetPasswordComponent } from './users/reset-password/reset-password.component';
 
 const routes: Routes = [
   {path:'',  component : HomeComponent},
@@ -46,7 +49,7 @@ const routes: Routes = [
   {path:'about' , component:AboutComponent},
   {path:'contact' , component:ContactComponent} ,
 
-  {path:'chat' , component:ChatComponent } , 
+  {path:'chat' , canActivate:[AuthGuard]  , component:ChatComponent } , 
 
   { path : 'register' , component:RegisterComponent } ,
   {path:'login' ,  component:LoginComponent } ,
@@ -81,7 +84,10 @@ const routes: Routes = [
   { path:'detail-freelancer/:id', canActivate:[AuthGuard]  , component:DetailFreelancerComponent },
   { path : 'active-missions-freelancer' ,canActivate:[AuthGuard]  , component:ActiveMissionsFreelancerComponent},
   { path : 'ended-missions-freelancer' ,canActivate:[AuthGuard]  , component:EndedMissionsFreelancerComponent},
+  { path:'languages', canActivate:[AuthGuard]  , component:AddLanguagesComponent},
 
+    {path:'reset/:token', component: ResetPasswordComponent },
+    {path:'forgot-password',component:ForgotPasswordComponent }
 
 ];
 

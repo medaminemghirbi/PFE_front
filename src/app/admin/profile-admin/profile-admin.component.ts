@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
@@ -16,11 +16,12 @@ export class ProfileAdminComponent implements OnInit {
   admindata:any;
   image: any;
   upadate!: any;
+  imageupdate!: any;
   messageSuccess: any;
   constructor(private route:Router, private usersService:UsersService) {
     this.admindata = JSON.parse( localStorage.getItem('admindata') !) ;
     console.log(this.admindata)
-
+    this.imageupdate = new FormGroup({ avatar: new FormControl('', [Validators.required]), });
     this.upadate = new FormGroup({
      // photo: new FormControl('', [Validators.required]),
       firstname: new FormControl('', [Validators.required]),
@@ -32,7 +33,7 @@ export class ProfileAdminComponent implements OnInit {
       birthday: new FormControl('', [Validators.required]),
       adresse: new FormControl('', [Validators.required]),
       // rating: new FormControl('', [Validators.required]),
-      earning : new FormControl('', [Validators.required]),
+      //earning : new FormControl('', [Validators.required]),
       github: new FormControl('', [Validators.required]),
       facebook: new FormControl('', [Validators.required]),
       instagram : new FormControl('', [Validators.required]),
@@ -55,11 +56,44 @@ export class ProfileAdminComponent implements OnInit {
   fileChange(event:any) {
     this.image =event.target.files[0];   
   }
-  
+  updateimage(f:any){
+    let data=f.value
+    const imageformadata = new FormData();
+    imageformadata.append('avatar', this.image );
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        
+        this.usersService.updateimageuser(this.admindata.id,imageformadata).subscribe(response=>
+          {
+            
+            localStorage.clear();
+            localStorage.setItem( 'admindata', JSON.stringify( response ) );
+            window.location.reload();
+         
+    
+          },(err:HttpErrorResponse)=>{
+            console.log(err.message)
+          
+          })
+    //   this.route.navigate(['/dashbord-freelancer']);
+        Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+    
+  } 
   updatenewuser (f:any){
     let data=f.value
     const formData = new FormData();
-    formData.append('avatar', this.image );
+   // formData.append('avatar', this.image );
     formData.append('firstname', this.upadate.value.firstname);
     formData.append('lastname', this.upadate.value.lastname);
     formData.append('email', this.upadate.value.email);
@@ -68,12 +102,12 @@ export class ProfileAdminComponent implements OnInit {
     formData.append('job', this.upadate.value.job);
     formData.append('description', this.upadate.value.description);
     formData.append('birthday', this.upadate.value.birthday);
-    formData.append('earning', this.upadate.value.earning);
+   // formData.append('earning', this.upadate.value.earning);
     formData.append('github', this.upadate.value.github);
     formData.append('facebook', this.upadate.value.facebook);
     formData.append('instagram', this.upadate.value.instagram);
     formData.append('linkedin', this.upadate.value.linkedin);
-    //formData.append('password', this.upadate.value.password);
+    formData.append('password', this.upadate.value.password);
     //formData.append('password_confirmation', this.upadate.value.password_confirmation);
     Swal.fire({
       title: 'Do you want to save the changes?',
@@ -86,6 +120,9 @@ export class ProfileAdminComponent implements OnInit {
       if (result.isConfirmed) {
     this.usersService.updateProfileUser(this.admindata.id,formData).subscribe(response=>
       {
+        localStorage.clear();
+        localStorage.setItem( 'admindata', JSON.stringify( response ) );
+        window.location.reload();
       console.log(response)
         let indexId=this.admindata.findIndex((obj:any)=>obj.id==this.admindata.id)
 
@@ -98,12 +135,12 @@ export class ProfileAdminComponent implements OnInit {
         this.admindata[indexId].job=data.job
         this.admindata[indexId].description=data.description
         this.admindata[indexId].birthday=data.birthday
-        this.admindata[indexId].earning=data.earning
+       // this.admindata[indexId].earning=data.earning
         this.admindata[indexId].github=data.github
         this.admindata[indexId].facebook=data.facebook
         this.admindata[indexId].instagram=data.instagram
         this.admindata[indexId].linkedin=data.linkedin
-       // this.admindata[indexId].password=data.password
+       this.admindata[indexId].password=data.password
        // this.admindata[indexId].password_confirmation=data.password_confirmation
 
         this.messageSuccess=`this email : ${this.admindata[indexId].email} is updated`
@@ -111,7 +148,7 @@ export class ProfileAdminComponent implements OnInit {
       },(err:HttpErrorResponse)=>{
         console.log(err.message)
       })
-      this.route.navigate(['/dashboard']);
+     this.route.navigate(['/dashboard']);
         Swal.fire('Saved!', '', 'success')
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')

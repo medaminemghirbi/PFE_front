@@ -15,13 +15,14 @@ export class ProfilClientComponent implements OnInit {
   clientdata:any;
   admindata:any;
   upadate!: any;
+  imageupdate!:any;
   image:any;
   messageSuccess: any;
 
   constructor(private route:Router, private usersService:UsersService) {
     this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
     console.log(this.clientdata)
-
+    this.imageupdate = new FormGroup({ avatar: new FormControl('', [Validators.required]), });
     this.upadate = new FormGroup({
      // avatar: new FormControl('', [Validators.required]),
       firstname: new FormControl('', [Validators.required]),
@@ -32,11 +33,8 @@ export class ProfilClientComponent implements OnInit {
       description : new FormControl('', [Validators.required]),
       birthday: new FormControl('', [Validators.required]),
       adresse: new FormControl('', [Validators.required]),
-      github: new FormControl('', [Validators.required]),
-      facebook: new FormControl('', [Validators.required]),
-      instagram : new FormControl('', [Validators.required]),
-      linkedin: new FormControl('', [Validators.required]),
-     // password: new FormControl('', [Validators.required]),
+
+      password: new FormControl('', [Validators.required]),
     //  password_confirmation: new FormControl('', [Validators.required]),
     });
   }
@@ -56,7 +54,6 @@ export class ProfilClientComponent implements OnInit {
     let data=f.value
     const formData = new FormData();
    formData.append('avatar', this.image );
-
    this.usersService.updateimagefreelancer(this.freelancerdata.id,formData).subscribe(response=>
     {
       debugger
@@ -66,23 +63,52 @@ export class ProfilClientComponent implements OnInit {
    
     console.log(response)
       let indexId=this.freelancerdata.findIndex((obj:any)=>obj.id==this.freelancerdata.id)
-
       this.freelancerdata[indexId].user_image_url=data.user_image_url
-
-
       this.messageSuccess=`this email : ${this.freelancerdata[indexId].email} is updated`
-
     },(err:HttpErrorResponse)=>{
       console.log(err.message)
     
     })
     
   }*/
-
+  updateimage(f:any){
+    let data=f.value
+    const imageformadata = new FormData();
+    imageformadata.append('avatar', this.image );
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        
+        this.usersService.updateimageuser(this.clientdata.id,imageformadata).subscribe(response=>
+          {
+            
+            localStorage.clear();
+            localStorage.setItem( 'clientdata', JSON.stringify( response ) );
+            window.location.reload();
+         
+    
+          },(err:HttpErrorResponse)=>{
+            console.log(err.message)
+          
+          })
+    //   this.route.navigate(['/dashbord-freelancer']);
+        Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+    
+  }
   updatenewuser (f:any){
     let data=f.value
     const formData = new FormData();
-    formData.append('avatar', this.image );
+    //formData.append('avatar', this.image );
     formData.append('firstname', this.upadate.value.firstname);
     formData.append('lastname', this.upadate.value.lastname);
     formData.append('email', this.upadate.value.email);
@@ -91,12 +117,8 @@ export class ProfilClientComponent implements OnInit {
     formData.append('job', this.upadate.value.job);
     formData.append('description', this.upadate.value.description);
     formData.append('birthday', this.upadate.value.birthday);
-    formData.append('github', this.upadate.value.github);
-    formData.append('facebook', this.upadate.value.facebook);
-    formData.append('instagram', this.upadate.value.instagram);
-    formData.append('linkedin', this.upadate.value.linkedin);
-   // formData.append('password', this.upadate.value.password);
-    
+
+    formData.append('password', this.upadate.value.password);
   // formData.append('password_confirmation', this.upadate.value.password_confirmation);
     Swal.fire({
       title: 'Do you want to save the changes?',
@@ -125,14 +147,9 @@ export class ProfilClientComponent implements OnInit {
             this.clientdata[indexId].job=data.job
             this.clientdata[indexId].description=data.description
             this.clientdata[indexId].birthday=data.birthday
-
-            this.clientdata[indexId].github=data.github
-            this.clientdata[indexId].facebook=data.facebook
-            this.clientdata[indexId].instagram=data.instagram
-            this.clientdata[indexId].linkedin=data.linkedin
-
-           // this.clientdata[indexId].password=data.password
-            //this.clientdata[indexId].password_confirmation=data.password_confirmation
+    
+            this.clientdata[indexId].password=data.password
+            this.clientdata[indexId].password_confirmation=data.password_confirmation
     
             this.messageSuccess=`this email : ${this.clientdata[indexId].email} is updated`
     
@@ -140,7 +157,7 @@ export class ProfilClientComponent implements OnInit {
             console.log(err.message)
           
           })
-        this.route.navigate(['/dashbaord-client']);
+        this.route.navigate(['/dashbord-client']);
         Swal.fire('Saved!', '', 'success')
       } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'info')
@@ -152,4 +169,6 @@ export class ProfilClientComponent implements OnInit {
   
   ngOnInit(): void {
   }
+
+  
 }
