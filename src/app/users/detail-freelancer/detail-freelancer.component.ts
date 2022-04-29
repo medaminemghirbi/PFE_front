@@ -14,6 +14,7 @@ export class DetailFreelancerComponent implements OnInit {
   dataArray:any ;
   dataArrayy:any ;
   dataArrayyy:any ;
+  dataArrayyyy:any ;
   id: any;
   logged_in:boolean = false ;
   role: string = '';
@@ -32,6 +33,14 @@ export class DetailFreelancerComponent implements OnInit {
       console.log(data)
       this.dataArray = data ,
        (err:HttpErrorResponse)=>{
+        console.log(err)
+      this.messageErr="We dont't found this user in our database"} 
+      //console.log(this.dataArray)
+    }) 
+    this.usersService.getfreelancerlanguage(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
+    
+      console.log(data)
+      this.dataArrayyyy=data , (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found this user in our database"} 
       //console.log(this.dataArray)

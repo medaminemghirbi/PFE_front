@@ -95,8 +95,8 @@ addexperiance (f:any){
   formData.append('description', this.addexper.value.description);
   formData.append('dateDebut', this.addexper.value.dateDebut);
   formData.append('dateFin', this.addexper.value.dateFin);
-  formData.append('langugage', this.addexper.value.langugage);
-  formData.append('languagerating', this.addexper.value.languagerating);
+  //formData.append('langugage', this.addexper.value.langugage);
+  //formData.append('languagerating', this.addexper.value.languagerating);
   formData.append('user_id',this.freelancerdata.id);
   
   
@@ -132,14 +132,12 @@ dataexperiance={
   end_date:'',
   */
 }
-getdata(entreprise:string,jobType:string,dateDebut:Date,dateFin:Date,langugage:string,languagerating:string,description:string,id:any){
+getdata(entreprise:string,jobType:string,dateDebut:Date,dateFin:Date,description:string,id:any){
   this.dataexperiance.entreprise= entreprise
   this.dataexperiance.jobType= jobType 
   this.dataexperiance.dateDebut =dateDebut 
   this.dataexperiance.dateFin =dateFin 
 
-  this.dataexperiance.langugage =langugage 
-  this.dataexperiance.languagerating =languagerating
   this.dataexperiance.description= description 
   this.dataexperiance.id= id 
   console.log(this.dataexperiance)
@@ -153,8 +151,8 @@ updateexperiance(f:any){
   formData.append('description', this.addexper.value.description);
   formData.append('dateDebut', this.addexper.value.dateDebut);
   formData.append('dateFin', this.addexper.value.dateFin);
-  formData.append('langugage', this.addexper.value.langugage);
-  formData.append('languagerating', this.addexper.value.languagerating);
+  //formData.append('langugage', this.addexper.value.langugage);
+ // formData.append('languagerating', this.addexper.value.languagerating);
   formData.append('freelancer_id',this.freelancerdata.id);
   
   let data=f.value
