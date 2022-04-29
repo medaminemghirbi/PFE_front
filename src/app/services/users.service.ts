@@ -190,11 +190,23 @@ export class UsersService {
       return this.http.delete(environment.urlBackend+'requests/' + id )
     }
 
-      
+    updatefreelancerlanguages (id:string,newdata:any){
+      return this.http.patch(environment.urlBackend+'updatefreelancerlanguages/' + id , newdata )
+    } 
     updateRequest (id:string,newdata:any) {
       return this.http.patch(environment.urlBackend+'requests/' + id , newdata )
     }
+    getfreelancerlanguage (id:any){
+      return this.http.get(`${environment.urlBackend}`+'getfreelancerlanguage/'+id)
+  
+    }
+    updatelanguage (id:string,newdata:any){
+      return this.http.patch(environment.urlBackend+'updatelanguage/' + id , newdata )
+    }
 
+    destroylanguagefreelancer  (id:any) {
+      return this.http.delete(environment.urlBackend+'destroylanguagefreelancer/' + id )
+    }
 //***********************countall api***********************/
     countall(){
       return this.http.get<any>(`${environment.urlBackend}`+'countall/')

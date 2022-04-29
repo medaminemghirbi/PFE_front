@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
 
@@ -32,7 +32,7 @@ export class ExperianceComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getfreealncerexperiance(this.id);
+    this.getfreealncerexperiance(this.freelancerdata.id);
 
   }
     click(){
@@ -90,13 +90,13 @@ deletexperiance(id:any){
 
 addexperiance (f:any){
   const formData = new FormData();
+  formData.append('jobType', this.addexper.value.jobType);
   formData.append('entreprise', this.addexper.value.entreprise);
+  formData.append('description', this.addexper.value.description);
   formData.append('dateDebut', this.addexper.value.dateDebut);
   formData.append('dateFin', this.addexper.value.dateFin);
-  formData.append('jobType', this.addexper.value.jobType);
-  formData.append('description', this.addexper.value.description);
-  formData.append('langugage', this.addexper.value.langugage);
-  formData.append('languagerating', this.addexper.value.languagerating);
+  //formData.append('langugage', this.addexper.value.langugage);
+  //formData.append('languagerating', this.addexper.value.languagerating);
   formData.append('user_id',this.freelancerdata.id);
   
   
@@ -107,7 +107,7 @@ addexperiance (f:any){
   this.usersService.addexperiance(formData).subscribe( ()=>{
       console.log(data)
     
-    window.location.reload();
+      window.location.reload();
 
   },(err:HttpErrorResponse)=>{
     this.messageErr=err.error
@@ -132,14 +132,12 @@ dataexperiance={
   end_date:'',
   */
 }
-getdata(entreprise:string,jobType:string,dateDebut:Date,dateFin:Date,langugage:string,languagerating:string,description:string,id:any){
+getdata(entreprise:string,jobType:string,dateDebut:Date,dateFin:Date,description:string,id:any){
   this.dataexperiance.entreprise= entreprise
   this.dataexperiance.jobType= jobType 
   this.dataexperiance.dateDebut =dateDebut 
   this.dataexperiance.dateFin =dateFin 
 
-  this.dataexperiance.langugage =langugage 
-  this.dataexperiance.languagerating =languagerating
   this.dataexperiance.description= description 
   this.dataexperiance.id= id 
   console.log(this.dataexperiance)
@@ -153,9 +151,9 @@ updateexperiance(f:any){
   formData.append('description', this.addexper.value.description);
   formData.append('dateDebut', this.addexper.value.dateDebut);
   formData.append('dateFin', this.addexper.value.dateFin);
-  formData.append('langugage', this.addexper.value.langugage);
-  formData.append('languagerating', this.addexper.value.languagerating);
-  formData.append('user_id',this.freelancerdata.id);
+  //formData.append('langugage', this.addexper.value.langugage);
+ // formData.append('languagerating', this.addexper.value.languagerating);
+  formData.append('freelancer_id',this.freelancerdata.id);
   
   let data=f.value
   

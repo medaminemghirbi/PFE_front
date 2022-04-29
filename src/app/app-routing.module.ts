@@ -17,12 +17,14 @@ import { EndedMissionsClientComponent } from './client/ended-missions-client/end
 import { MissionsClientComponent } from './client/missions-client/missions-client.component';
 import { PostulatedMissionsClientComponent } from './client/postulated-missions-client/postulated-missions-client.component';
 import { ActiveMissionsFreelancerComponent } from './freelancer/active-missions-freelancer/active-missions-freelancer.component';
+import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.component';
 import { CvComponent } from './freelancer/cv/cv.component';
 import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/dashbord-freelancer.component';
 import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freelancer.component';
 import { EndedMissionsFreelancerComponent } from './freelancer/ended-missions-freelancer/ended-missions-freelancer.component';
 import { ExpEducationComponent } from './freelancer/exp-education/exp-education.component';
 import { ExperianceComponent } from './freelancer/experiance/experiance.component';
+import { GeneratecvComponent } from './freelancer/generatecv/generatecv.component';
 import { MissionsFreelancerComponent } from './freelancer/missions-freelancer/missions-freelancer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -62,6 +64,7 @@ const routes: Routes = [
   { path:'experiance', canActivate:[AuthGuard] ,component:ExperianceComponent},
 
   {path:"detailfreelancer/:id",component:DetailfreelancerComponent},
+  {path:"generatecv/:id",component:GeneratecvComponent},
   {path:'dashbord-client',canActivate:[AuthGuard]  ,component:DashbordClientComponent},
   {path:"alllanguages",canActivate:[AuthGuard] ,component:AlllanguagesComponent},
   {path:"addmission",canActivate:[AuthGuard],component:AddmissionComponent},
@@ -77,7 +80,8 @@ const routes: Routes = [
   { path:'detail-client/:id', canActivate:[AuthGuard]  , component:DetailClientComponent },
   { path:'detail-mission/:id', canActivate:[AuthGuard]  , component:DetailmissionComponent },
   {path:'reset/:token', component: ResetPasswordComponent},
-  {path:'forgot-password',component:ForgotPasswordComponent}
+  {path:'forgot-password',component:ForgotPasswordComponent},
+  { path:'languages', canActivate:[AuthGuard]  , component:AddLanguagesComponent},
 ];
 
 @NgModule({

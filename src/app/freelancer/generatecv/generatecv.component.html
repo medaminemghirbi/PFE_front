@@ -18,8 +18,7 @@
                   {{item.reviews_count}} <i class="fas fa-star" style=" color: rgb(10, 10, 94);"></i> </p>
                   
                 <div  >
-     
-                  <button *ngIf="!logged_in" class="btn btn-outline-primary">Contacter</button>
+                  <button (click)="printPage()" class="btn btn-outline-primary" *ngIf="logged_in && role==='freelancer' " routerLink="/edit-freelancer"  > Download My CV </button>
                </div>
                
               </div>

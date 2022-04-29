@@ -1,15 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/model/user.model';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
-  selector: 'app-detailfreelancer',
-  templateUrl: './detailfreelancer.component.html',
-  styleUrls: ['./detailfreelancer.component.css']
+  selector: 'app-generatecv',
+  templateUrl: './generatecv.component.html',
+  styleUrls: ['./generatecv.component.css']
 })
-export class DetailfreelancerComponent implements OnInit {
+export class GeneratecvComponent implements OnInit {
   messageErr =''
   dataArray:any ;
   dataArrayy:any ;
@@ -68,5 +67,7 @@ export class DetailfreelancerComponent implements OnInit {
 
   }
 
-
+  printPage() {
+    window.print();
+  }
 }

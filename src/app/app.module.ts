@@ -60,6 +60,8 @@ import { DetailmissionComponent } from './users/detailmission/detailmission.comp
 import { DetailClientComponent } from './users/detail-client/detail-client.component';
 import { ResetPasswordComponent } from './users/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
+import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.component';
+import { GeneratecvComponent } from './freelancer/generatecv/generatecv.component';
 
 
 
@@ -116,6 +118,8 @@ import { ForgotPasswordComponent } from './users/forgot-password/forgot-password
      DetailClientComponent,
      ResetPasswordComponent,
      ForgotPasswordComponent,
+     AddLanguagesComponent,
+     GeneratecvComponent,
      
 
   ],
