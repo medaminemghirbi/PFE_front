@@ -43,7 +43,7 @@
                       <td>{{item.filepath}}</td> 
                       <td > <a [routerLink]="['/detail-mission',item.id]"  > {{item.title}}  </a></td>                      
                         <td>{{item.description}}</td> 
-                        <td > <a  >  {{item.client.email }} </a> </td> 
+                        <td > <a [routerLink]="['/detail-client',item.client_id]" >   {{item.client.email }} </a></td>  
                          
                         <td>                           
                           <button  class="btn btn-outline-success"> Get Facture </button>  &nbsp;

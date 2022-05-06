@@ -66,15 +66,18 @@
                           <button *ngIf="item.email_confirmed===true " mdbBtn  color="success" mdbWavesEffect > {{item.email_confirmed}} </button>
                         </td>
                         <td>
-                          <a *ngIf="item.role==='freelancer' " class="text-success"  [routerLink]="['/detail-freelancer',item.id]"  >
-                             <i  class="fas  fa-2x fa-eye"></i> </a>
-                           
-                            
-                            &nbsp;&nbsp;
-                          <a *ngIf="item.role==='freelancer' " class="text-danger" (click)="deleteuser(item.id , i)" > <i class="fas  fa-2x fa-trash-alt"></i> </a>
-                          &nbsp;&nbsp;
+                          <div *ngIf="item.role==='client' " > 
+                          <a *ngIf="item.role==='client' " class="text-success"  [routerLink]="['/detail-client',item.id]"  >
+                            <i  class="fas  fa-2x fa-eye"></i> </a> &nbsp;
                           <a *ngIf="item.role==='client' " class="text-danger" (click)="deleteclient(item.id , i)" > <i class="fas  fa-2x fa-trash-alt"></i> </a>
-                           
+                        </div>
+                        <div *ngIf="item.role==='freelancer' " > 
+                          <a *ngIf="item.role==='freelancer' " class="text-success"  [routerLink]="['/detail-freelancer',item.id]"  >
+                             <i  class="fas  fa-2x fa-eye"></i> </a>    
+                            &nbsp;
+                          <a *ngIf="item.role==='freelancer' " class="text-danger" (click)="deleteuser(item.id , i)" > <i class="fas  fa-2x fa-trash-alt"></i> </a>
+                        </div>
+                         
 
                         </td>
                       </tr>

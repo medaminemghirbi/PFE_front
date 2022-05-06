@@ -31,9 +31,11 @@
                 </div>
             </div>
             
-            <a  [routerLink]="['/detail-freelancer',freelancerdata.id]"   class="dashboard-nav-item "><i class="fas fa-id-card"></i> Generate My CV </a>
+            <a  [routerLink]="['/generatecv',freelancerdata.id]"  class="dashboard-nav-item "><i class="fas fa-id-card"></i> Generate My CV </a>
            
- 
+            
+                <a routerLink="/favoris" class="dashboard-nav-item "><i class="fas fa-heart"></i> Favoris </a>
+           
 
             <div class="nav-item-divider"></div>
             <a (click)="logout()" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>

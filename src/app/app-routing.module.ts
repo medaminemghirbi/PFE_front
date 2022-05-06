@@ -26,6 +26,7 @@ import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freel
 import { EndedMissionsFreelancerComponent } from './freelancer/ended-missions-freelancer/ended-missions-freelancer.component';
 import { ExpEducationComponent } from './freelancer/exp-education/exp-education.component';
 import { ExperianceComponent } from './freelancer/experiance/experiance.component';
+import { FavorisComponent } from './freelancer/favoris/favoris.component';
 import { MissionsFreelancerComponent } from './freelancer/missions-freelancer/missions-freelancer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -39,6 +40,7 @@ import { DetailMissionComponent } from './users/detail-mission/detail-mission.co
 import { FindFreelancerComponent } from './users/find-freelancer/find-freelancer.component';
 import { FindProjectComponent } from './users/find-project/find-project.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
+import { GeneratecvComponent } from './users/generatecv/generatecv.component';
 import { HomeComponent } from './users/home/home.component';
 import { ResetPasswordComponent } from './users/reset-password/reset-password.component';
 
@@ -85,9 +87,13 @@ const routes: Routes = [
   { path : 'active-missions-freelancer' ,canActivate:[AuthGuard]  , component:ActiveMissionsFreelancerComponent},
   { path : 'ended-missions-freelancer' ,canActivate:[AuthGuard]  , component:EndedMissionsFreelancerComponent},
   { path:'languages', canActivate:[AuthGuard]  , component:AddLanguagesComponent},
+  { path:'favoris' , canActivate:[AuthGuard]  ,  component:FavorisComponent},
 
     {path:'reset/:token', component: ResetPasswordComponent },
-    {path:'forgot-password',component:ForgotPasswordComponent }
+    {path:'forgot-password',component:ForgotPasswordComponent } ,
+
+    {path:'generatecv/:id',component:GeneratecvComponent  } ,
+    
 
 ];
 

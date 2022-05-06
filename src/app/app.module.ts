@@ -59,6 +59,8 @@ import { ChatComponent } from './chat/chat.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './users/reset-password/reset-password.component';
 import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.component';
+import { GeneratecvComponent } from './users/generatecv/generatecv.component';
+import { FavorisComponent } from './freelancer/favoris/favoris.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,7 +107,9 @@ import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.
     ChatComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    AddLanguagesComponent ,
+    AddLanguagesComponent,
+    GeneratecvComponent,
+    FavorisComponent ,
  
   ],
   imports: [

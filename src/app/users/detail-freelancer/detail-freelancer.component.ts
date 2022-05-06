@@ -18,8 +18,12 @@ export class DetailFreelancerComponent implements OnInit {
   id: any;
   logged_in:boolean = false ;
   role: string = '';
+  freelancerdata: any;
 
   constructor(private activatedRoute: ActivatedRoute,private usersService :UsersService) { 
+    this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
+    console.log(this.freelancerdata)
+    
     this.logged_in = JSON.parse( localStorage.getItem('logged_in') !);
     console.log(this.logged_in)
 

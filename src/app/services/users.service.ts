@@ -296,6 +296,19 @@ export class UsersService {
     countrequest (id:any) {
       return this.http.get(environment.urlBackend+'countrequest/') ;
     }
+/****************** favoris api ***************************/
+    addFavoris(data:any){
+      return this.http.post(environment.urlBackend+'favoris/' , data) ;
+    }
+
+    
+    getallfavoris(id:any){
+      return this.http.get(`${environment.urlBackend}`+'favoris/'+id)
+    }
+
+    deleteFavoris  (id:any) {
+      return this.http.delete(environment.urlBackend+'favoris/' + id )
+    }
 
 //////////////////**************************  reviews api ************************************//////////////
         addReview (profile:any) {

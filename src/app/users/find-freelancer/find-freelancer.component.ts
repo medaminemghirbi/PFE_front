@@ -24,7 +24,7 @@ export class FindFreelancerComponent implements OnInit {
 
   languagedata:any = []
 
-  constructor(private usersService:UsersService,) { 
+  constructor(private usersService:UsersService) { 
    // this.produits = usersService.listeProduits();
    this.stepOneOfOneForm = new FormGroup({
     language_id: new FormControl('', [Validators.required]),
