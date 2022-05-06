@@ -1,7 +1,7 @@
 <app-usersnavbar></app-usersnavbar>
 <br>
 <div class="container"  >
-  <div class="main-body">
+  <div class="main-body" id="htmlData" >
     <div class="row">
 
       <div class="col-lg-4"  >
@@ -18,7 +18,7 @@
                   {{item.reviews_count}} <i class="fas fa-star" style=" color: rgb(10, 10, 94);"></i> </p>
                   
                 <div  >
-                  <button (click)="printPage()" class="btn btn-outline-primary" *ngIf="logged_in && role==='freelancer' " routerLink="/edit-freelancer"  > Download My CV </button>
+                  <button (click)="openPDF()" class="btn btn-outline-primary" *ngIf="logged_in && role==='freelancer' " routerLink="/edit-freelancer"  > Download My CV </button>
                </div>
                
               </div>

@@ -217,28 +217,7 @@
                                    {{ data.jobType }}
                                   </td>
                               </tr>
-                              <tr>        
-                                <td>
-                                    <strong>
-                                        <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                        Language                                          
-                                    </strong>
-                                </td>
-                                <td class="text-primary">
-                                 {{ data.langugage }}
-                                </td>
-                            </tr>
-                            <tr>        
-                              <td>
-                                  <strong>
-                                      <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                      Language rating                                          
-                                  </strong>
-                              </td>
-                              <td class="text-primary">
-                               {{ data.languagerating }} /100
-                              </td>
-                          </tr>
+                            
                               <tr>        
                                 <td>
                                     <strong>
@@ -304,7 +283,7 @@
                   <p >  {{data.language.name}} </p>
                     
                     <div class="progress">
-                      <div class="progress-bar progress-bar-striped " role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">  {{data.languagerate}}%</div>
+                      <div class="progress-bar progress-bar-striped "[ngStyle]="{width: data.languagerate+'%'}" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">  {{data.languagerate}}%</div>
                     </div>
                 </div>
 

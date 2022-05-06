@@ -29,7 +29,7 @@
                             <th scope="col"> Email Freelancer </th> 
                           <!--  <th scope="col">  Freelancer  Stars</th>     -->           
                             <!--<th scope="col">Delete </th>-->
-                            <th scope="col">Generate Facture  </th>
+                            <th scope="col">Pay Freelancer  </th>
                             <th scope="col">Rate Freelancer  </th>
                           </tr>
                         </thead>
@@ -48,14 +48,16 @@
                                 <td>     
                                     <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
                                  </td>-->
-                                 <td> <button  class="btn btn-outline-success"> Generate Facture </button></td>
+                                 <td> <button  [routerLink]="['/pay-freelancer',item.id]" class="btn btn-outline-success"> Pay Freelancer </button></td>
                                   
                              <td>
-                              <button    (click)="addreview(item.id , item.freelancer.id)" type="button" class="btn btn-outline-primary px-3"><i class="far fa-star" aria-hidden="true"> {{item.freelancer.reviews_count}}</i></button>
+                              <button    (click)="addreview(item.id , item.freelancer.id)" type="button" class="btn btn-outline-primary px-3">
+                                <i class="far fa-star" aria-hidden="true"> {{item.freelancer.reviews_count}}</i>
+                              </button>
                               
                                  </td>
         
-                               
+                  
                               </tr>
                         </tbody>
                        

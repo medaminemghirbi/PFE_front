@@ -110,7 +110,9 @@ missionbybudget( budget : any ) {
      this.dataArray = response ;
   })
 }
-
+addreview(){
+  
+}
  ///****************************************************  addrequest  ************************************///
  addrequest (id:any , freelancer_id:any){
   Swal.fire({

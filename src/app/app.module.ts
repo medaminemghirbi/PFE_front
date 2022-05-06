@@ -25,7 +25,6 @@ import { SideBarComponent } from './admin/side-bar/side-bar.component';
 
 import { AddCategoryComponent } from './admin/add-category/add-category.component';
 import { ListUsersComponent } from './admin/list-users/list-users.component';
-import { CookieService } from 'ngx-cookie-service';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { MissionsComponent } from './admin/missions/missions.component';
 import { ReviewsComponent } from './admin/reviews/reviews.component';
@@ -62,6 +61,7 @@ import { ResetPasswordComponent } from './users/reset-password/reset-password.co
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.component';
 import { GeneratecvComponent } from './freelancer/generatecv/generatecv.component';
+import { PayfreelancerComponent } from './client/payfreelancer/payfreelancer.component';
 
 
 
@@ -120,6 +120,7 @@ import { GeneratecvComponent } from './freelancer/generatecv/generatecv.componen
      ForgotPasswordComponent,
      AddLanguagesComponent,
      GeneratecvComponent,
+     PayfreelancerComponent,
      
 
   ],
@@ -139,7 +140,7 @@ import { GeneratecvComponent } from './freelancer/generatecv/generatecv.componen
     
     
   ],
-  providers: [CookieService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,6 +15,7 @@ import { DashbordClientComponent } from './client/dashbord-client/dashbord-clien
 import { EditProfilClientComponent } from './client/edit-profil-client/edit-profil-client.component';
 import { EndedMissionsClientComponent } from './client/ended-missions-client/ended-missions-client.component';
 import { MissionsClientComponent } from './client/missions-client/missions-client.component';
+import { PayfreelancerComponent } from './client/payfreelancer/payfreelancer.component';
 import { PostulatedMissionsClientComponent } from './client/postulated-missions-client/postulated-missions-client.component';
 import { ActiveMissionsFreelancerComponent } from './freelancer/active-missions-freelancer/active-missions-freelancer.component';
 import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.component';
@@ -82,6 +83,7 @@ const routes: Routes = [
   {path:'reset/:token', component: ResetPasswordComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
   { path:'languages', canActivate:[AuthGuard]  , component:AddLanguagesComponent},
+  { path:'pay-freelancer/:id', canActivate:[AuthGuard]  , component:PayfreelancerComponent },
 ];
 
 @NgModule({

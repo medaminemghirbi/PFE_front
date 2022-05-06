@@ -1,118 +1,163 @@
-body {
-  padding: 0;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: flex-end;
-}
-footer {
-
-  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
-box-shadow: 5px 5px 15px 5px #000000;
-  background-color: rgb(6, 0, 31);
-  color: #a7a7a7;
-  font-size: 16px;
-}
-footer * {
-  
-  font-family: "Poppins", sans-serif;
-  box-sizing: border-box;
-  border: none;
-  outline: none;
-}
-.row {
-  
-  padding: 1em 1em;
-}
-.row.primary {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 2fr;
-  align-items: stretch;
-}
-.column {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 0 2em;
-  min-height: 15em;
-}
-h3 {
-  width: 100%;
-  text-align: left;
-  color: white;
-  font-size: 1.4em;
-  white-space: nowrap;
-}
 ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
 }
-li:not(:first-child) {
-  margin-top: 0.8em;
+.footer-section {
+background: rgb(218, 218, 219);
+position: relative;
 }
-ul li a {
-  color: #ffffff;
-  text-decoration: none;
+.footer-cta {
+border-bottom: 1px solid #373636;
 }
-ul li a:hover {
-  color: #2a8ded;
+.single-cta i {
+color: #1a2f8b;
+font-size: 30px;
+float: left;
+margin-top: 8px;
 }
-.about p {
-  text-align: justify;
-  line-height: 2;
-  margin: 0;
+.cta-text {
+padding-left: 15px;
+display: inline-block;
 }
-input,
-button {
-  font-size: 1em;
-  padding: 1em;
-  width: 100%;
-  border-radius: 5px;
-  margin-bottom: 5px;
+.cta-text h4 {
+color: rgb(0, 0, 0);
+font-size: 20px;
+font-weight: 600;
+margin-bottom: 2px;
 }
-button {
-  background-color: rgb(38, 8,158);
-  color: #ffffff;
+.cta-text span {
+color: #000000;
+font-size: 15px;
 }
-div.social {
-  display: flex;
-  justify-content: space-around;
-  font-size: 2.4em;
-  flex-direction: row;
-  margin-top: 0.5em;
+.footer-content {
+position: relative;
+z-index: 2;
 }
-.social i {
-  color: #bac6d9;
+.footer-pattern img {
+position: absolute;
+top: 0;
+left: 0;
+height: 330px;
+background-size: cover;
+background-position: 100% 100%;
+}
+.footer-logo {
+margin-bottom: 30px;
+}
+.footer-logo img {
+  max-width: 200px;
+}
+.footer-text p {
+margin-bottom: 14px;
+font-size: 14px;
+    color: #000000;
+line-height: 28px;
+}
+.footer-social-icon span {
+color: #fff;
+display: block;
+font-size: 20px;
+font-weight: 700;
+font-family: 'Poppins', sans-serif;
+margin-bottom: 20px;
+}
+.footer-social-icon a {
+color: rgb(0, 0, 0);
+font-size: 16px;
+margin-right: 15px;
+}
+.footer-social-icon i {
+height: 40px;
+width: 40px;
+text-align: center;
+line-height: 38px;
+border-radius: 50%;
+}
+.facebook-bg{
+background: #3B5998;
+}
+.twitter-bg{
+background: #55ACEE;
+}
+.google-bg{
+background: #DD4B39;
+}
+.footer-widget-heading h3 {
+color: rgb(0, 0, 0);
+font-size: 20px;
+font-weight: 600;
+margin-bottom: 40px;
+position: relative;
+}
+.footer-widget-heading h3::before {
+content: "";
+position: absolute;
+left: 0;
+bottom: -15px;
+height: 2px;
+width: 50px;
+background: #1a2f8b;
+}
+.footer-widget ul li {
+display: inline-block;
+float: left;
+width: 50%;
+margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+color: #1a2f8b;
+}
+.footer-widget ul li a {
+color: #000000;
+text-transform: capitalize;
+}
+.subscribe-form {
+position: relative;
+overflow: hidden;
+}
+.subscribe-form input {
+width: 100%;
+padding: 14px 28px;
+background: #2E2E2E;
+border: 1px solid #2E2E2E;
+color: #fff;
+}
+.subscribe-form button {
+  position: absolute;
+  right: 0;
+  background: #1a2f8b;
+  padding: 13px 20px;
+  border: 1px solid #1a2f8b;
+  top: 0;
+}
+.subscribe-form button i {
+color: #fff;
+font-size: 22px;
+transform: rotate(-6deg);
+}
+.copyright-area{
+background: #202020;
+padding: 25px 0;
+}
+.copyright-text p {
+margin: 0;
+font-size: 14px;
+color: #000000;
+}
+.copyright-text p a{
+color:#1da318;
+  top: 0;
+}
+.footer-menu li {
+display: inline-block;
+margin-left: 20px;
+}
+.footer-menu li:hover a{
+color: #1da318;
+top: 0;
+}
+.footer-menu li a {
+font-size: 14px;
+color: #000000;
 }
 
-.copyright {
-  padding: 0.3em 1em;
-  background-color: rgb(38, 8,158);
-}
-.footer-menu{
-  float: left;
-    margin-top: 10px;
-}
-
-.footer-menu a{
-  color: #ffffff;
-  padding: 6px;
-
-  text-decoration: none;
-}
-.footer-menu a:hover{
-  color: #27bcda;
-}
-.copyright p {
-  font-size: 0.9em;
-  text-align: right;
-}
-@media screen and (max-width: 850px) {
-  .row.primary {
-    grid-template-columns: 1fr;
-  }
-
-}

@@ -1,14 +1,16 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
-
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas'
 @Component({
   selector: 'app-generatecv',
   templateUrl: './generatecv.component.html',
   styleUrls: ['./generatecv.component.css']
 })
 export class GeneratecvComponent implements OnInit {
+  @ViewChild('htmlData') htmlData!: ElementRef;
   messageErr =''
   dataArray:any ;
   dataArrayy:any ;
@@ -67,7 +69,17 @@ export class GeneratecvComponent implements OnInit {
 
   }
 
-  printPage() {
-    window.print();
+  public openPDF(): void {
+    let DATA: any = document.getElementById('htmlData');
+    html2canvas(DATA).then((canvas) => {
+      let fileWidth = 208;
+      let fileHeight = (canvas.height * fileWidth) / canvas.width;
+      const FILEURI = canvas.toDataURL('image/png');
+      let PDF = new jsPDF('p', 'mm', 'a4');
+      let position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+      window.print
+      PDF.save('angular-demo.pdf');
+    });
   }
 }
