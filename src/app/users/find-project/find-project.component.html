@@ -102,6 +102,8 @@
               
               <br><br>
           </div>
+          <button *ngIf="role!=='client' && role!=='admin' " class="btn btn-danger"  type="submit" 
+          (click)="addfavoris(produit.id,freelancerdata.id)" > <i class="fas fa-heart"></i>  Favoris  </button> &nbsp;
           <div class="form-group">
                      <a  class="btn btn-primary">{{produit.category.name}}</a>
             <button *ngIf="role!=='client' && role!=='admin' " class="btn btn-danger"  type="submit" (click)="addrequest(produit.id,freelancerdata.id)" > Postuler  </button>

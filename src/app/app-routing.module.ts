@@ -25,6 +25,7 @@ import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freel
 import { EndedMissionsFreelancerComponent } from './freelancer/ended-missions-freelancer/ended-missions-freelancer.component';
 import { ExpEducationComponent } from './freelancer/exp-education/exp-education.component';
 import { ExperianceComponent } from './freelancer/experiance/experiance.component';
+import { FavorisComponent } from './freelancer/favoris/favoris.component';
 import { GeneratecvComponent } from './freelancer/generatecv/generatecv.component';
 import { MissionsFreelancerComponent } from './freelancer/missions-freelancer/missions-freelancer.component';
 import { LoginComponent } from './login/login.component';
@@ -84,6 +85,7 @@ const routes: Routes = [
   {path:'forgot-password',component:ForgotPasswordComponent},
   { path:'languages', canActivate:[AuthGuard]  , component:AddLanguagesComponent},
   { path:'pay-freelancer/:id', canActivate:[AuthGuard]  , component:PayfreelancerComponent },
+  { path:'favoris' , canActivate:[AuthGuard]  ,  component:FavorisComponent},
 ];
 
 @NgModule({

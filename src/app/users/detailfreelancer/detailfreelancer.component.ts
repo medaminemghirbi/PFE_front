@@ -18,7 +18,8 @@ export class DetailfreelancerComponent implements OnInit {
   id: any;
   logged_in:boolean = false ;
   role: string = '';
-
+  arrayData:any[] = []
+  colorsBootstrap = ["success", "info", "warning", "danger"]
   constructor(private activatedRoute: ActivatedRoute,private usersService :UsersService) { 
     this.logged_in = JSON.parse( localStorage.getItem('logged_in') !);
     console.log(this.logged_in)
@@ -58,9 +59,22 @@ export class DetailfreelancerComponent implements OnInit {
       //console.log(this.dataArray)
     }) 
     this.usersService.getfreelancerlanguage(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
-    
       console.log(data)
-      this.dataArrayyyy=data , (err:HttpErrorResponse)=>{
+      let i = 0 
+       /* data.forEach((b:any) => this.arrayData.push({ "id": b["id"], 
+                                                "name": b["language"].name,
+                                                "languagerate": b["languagerate"] }));*/
+      while(i < data.length) {
+        this.arrayData.push({ "id": data[i].id, 
+        "name": data[i].language.name,
+        "languagerate": data[i].languagerate,
+        "color": this.colorsBootstrap[i] });
+        i++
+       // if(i === 3)
+        //  i=0
+      }
+      debugger
+      this.dataArrayyyy=this.arrayData , (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found this user in our database"} 
       //console.log(this.dataArray)

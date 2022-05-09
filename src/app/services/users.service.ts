@@ -197,7 +197,7 @@ export class UsersService {
       return this.http.patch(environment.urlBackend+'requests/' + id , newdata )
     }
     getfreelancerlanguage (id:any){
-      return this.http.get(`${environment.urlBackend}`+'getfreelancerlanguage/'+id)
+      return this.http.get<any>(`${environment.urlBackend}`+'getfreelancerlanguage/'+id)
   
     }
     updatelanguage (id:string,newdata:any){
@@ -254,7 +254,19 @@ export class UsersService {
       return this.http.get(environment.urlBackend+'countrequest/') ;
     }
 
+//////////////********************************favoris */
+addFavoris(data:any){
+  return this.http.post(environment.urlBackend+'favoris/' , data) ;
+}
 
+
+getallfavoris(id:any){
+  return this.http.get(`${environment.urlBackend}`+'favoris/'+id)
+}
+
+deleteFavoris  (id:any) {
+  return this.http.delete(environment.urlBackend+'favoris/' + id )
+}
   /********************** freelancer : status accepted *****************************************/
   getrequestacceptedbyfreelancer (freelancer_id : any) {
     return this.http.get(`${environment.urlBackend}`+'getrequestacceptedbyfreelancer/' + freelancer_id )

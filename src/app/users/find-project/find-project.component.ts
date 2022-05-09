@@ -148,5 +148,41 @@ addreview(){
      
   }) ;
 }
+addfavoris (id:any , user_id:any){
+
+  const formData = new FormData();
+    formData.append('mission_id',id );
+    formData.append('user_id',this.freelancerdata.id);
+ // let data=f.value   
+  console.log(formData)
+  this.usersService.addFavoris(formData).subscribe( ()=>{
+      
+      //console.log(data)
+      console.log(formData)
+      //this.submitted = true ;
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
+     // window.location.reload();
+    this.route.navigate(['/project'])
+
+  },(err:HttpErrorResponse)=>{
+    this.messageErr=err.error
+     
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'You cant twice ' ,
+      position: 'top-end',
+        showConfirmButton: false,
+        timer: 1500
+    })
+     
+  }) ;
+}
 
 }

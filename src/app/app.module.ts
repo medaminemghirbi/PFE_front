@@ -62,6 +62,7 @@ import { ForgotPasswordComponent } from './users/forgot-password/forgot-password
 import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.component';
 import { GeneratecvComponent } from './freelancer/generatecv/generatecv.component';
 import { PayfreelancerComponent } from './client/payfreelancer/payfreelancer.component';
+import { FavorisComponent } from './freelancer/favoris/favoris.component';
 
 
 
@@ -121,6 +122,7 @@ import { PayfreelancerComponent } from './client/payfreelancer/payfreelancer.com
      AddLanguagesComponent,
      GeneratecvComponent,
      PayfreelancerComponent,
+     FavorisComponent,
      
 
   ],

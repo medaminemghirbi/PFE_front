@@ -155,7 +155,12 @@ export class PostulatedMissionsClientComponent implements OnInit {
            this.route.navigate(['/postulated-missions-client']);
           
           },(err:HttpErrorResponse)=>{
-            console.log(err.message)
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'You cant update twice!',
+              footer: '<a href="">Why do I have this issue?</a>'
+            })
           
           })
         Swal.fire('Saved!', '', 'success')
