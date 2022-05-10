@@ -13,6 +13,22 @@
   <body>
       <!--############################# navbar section ##########################""-->
     <app-navbar></app-navbar>
+
+    <div style="display: block" *ngIf="chartReady">
+        <canvas mdbChart
+        [chartType]="chartType"
+        [datasets]="chartDatasets"
+        [labels]="chartLabels"
+        [colors]="chartColors"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+      </canvas>
+      
+      </div>
+
+      
 <!--#############################main section##########################""-->
 <section class="main py-5"> 
 <div class="container py-5">

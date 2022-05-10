@@ -52,10 +52,13 @@
                         <td> {{item.updated_at | date:'medium'}}  </td>
                         --> 
                         <td>  
-                            <button  class="btn btn-outline-success" [routerLink]="['/detail-mission',item.id]" > Show </button> &nbsp;&nbsp;
+                            <button  class="btn btn-outline-success" [routerLink]="['/detail-mission',item.id]" > 
+                              <i class="fa fa-eye" aria-hidden="true"></i> Show </button> 
                            
-                            <button  (click)="getdata(item.title,item.description,item.duration, item.beginingDate,item.budget,item.category_id,item.language_id ,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  > Update </button>&nbsp;&nbsp;
-                            <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
+                            <button  (click)="getdata(item.title,item.description,item.duration, item.beginingDate,item.budget,item.category_id,item.language_id ,item.id)"  class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"  >
+                              <i class="fa fa-edit" aria-hidden="true"></i>  Update </button>
+                            <button (click)="delete(item.id , i)" class="btn btn-outline-danger">
+                              <i class="fa fa-trash" aria-hidden="true"></i>  Delete </button> 
                           
                         </td>
 

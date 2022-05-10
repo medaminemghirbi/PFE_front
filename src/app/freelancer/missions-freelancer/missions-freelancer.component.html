@@ -63,7 +63,7 @@
                                       
                                            
                                         <td>  
-                                            <button readonly style="cursor: not-allowed;" disabled *ngIf="item.status==='accepted' " (click)="delete(item.id , i)" type="button"  class="btn btn-outline-danger"> Delete   My Request     </button> 
+                                            <button readonly style="cursor: not-allowed;" disabled *ngIf="item.status==='accepted' " (click)="delete(item.id , i)" type="button"  class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete   My Request     </button> 
                                             <button  *ngIf="item.status!=='accepted' " (click)="delete(item.id , i)" type="button"  class="btn btn-outline-danger"> Delete   My Request    </button> &nbsp; &nbsp;
                                         </td>
 

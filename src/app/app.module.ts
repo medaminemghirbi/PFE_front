@@ -61,6 +61,7 @@ import { ResetPasswordComponent } from './users/reset-password/reset-password.co
 import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.component';
 import { GeneratecvComponent } from './users/generatecv/generatecv.component';
 import { FavorisComponent } from './freelancer/favoris/favoris.component';
+import { PayfreelancerComponent } from './client/payfreelancer/payfreelancer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,7 +110,8 @@ import { FavorisComponent } from './freelancer/favoris/favoris.component';
     ResetPasswordComponent,
     AddLanguagesComponent,
     GeneratecvComponent,
-    FavorisComponent ,
+    FavorisComponent,
+    PayfreelancerComponent ,
  
   ],
   imports: [

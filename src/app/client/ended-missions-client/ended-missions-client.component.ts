@@ -33,7 +33,7 @@ export class EndedMissionsClientComponent implements OnInit {
   count: any;
   data: any =[];
 
-  constructor(private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute, ) {
+  constructor(private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute ) {
     this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
     console.log(this.clientdata)
 

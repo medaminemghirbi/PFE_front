@@ -19,12 +19,8 @@ export class DashboardAdminComponent implements OnInit {
   chartLabels:any = [];
   chartColors:any = [];
   chartReady = false;
-
-
   constructor(public UsersService:UsersService, public router:Router) { 
     this.chartType = 'horizontalBar';
-
- 
 
     this.chartLabels = ['Users', 'Missions', 'Categories', 'Langugages'];
   
@@ -59,15 +55,15 @@ export class DashboardAdminComponent implements OnInit {
      console.log(this.chartDatasets)
       debugger
       this.dataArray=result
-      
- 
-      
          ,
        (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found this user in our database"} 
       //console.log(this.dataArray)
     }) 
+
+    ////////////////////////////////////////
+    
    
     
   }

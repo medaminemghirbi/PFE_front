@@ -12,6 +12,7 @@ export class FavorisComponent implements OnInit {
   dataArray: any ;
   messageErr: any ;
   freelancerdata: any;
+  missions:any = "./assets/img/missions.jpeg";
   
   constructor(private usersService:UsersService) {
     this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);

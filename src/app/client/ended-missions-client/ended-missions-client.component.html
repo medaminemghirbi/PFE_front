@@ -51,9 +51,10 @@
                         </td> 
                        
                         <td>     
-                            <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
+                            <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> 
+                              <i class="fa fa-trash" aria-hidden="true"></i>  Delete </button> 
                          </td>
-                         <td> <button  class="btn btn-outline-success"  > Generate Facture </button>
+                         <td> <button [routerLink]="['/pay-freelancer',item.id]" class="btn btn-outline-success"  > Generate Facture </button>
                           
                      
                           <td>

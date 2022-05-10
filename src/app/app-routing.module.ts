@@ -16,6 +16,7 @@ import { AddMissionComponent } from './client/add-mission/add-mission.component'
 import { DashboardClientComponent } from './client/dashboard-client/dashboard-client.component';
 import { EndedMissionsClientComponent } from './client/ended-missions-client/ended-missions-client.component';
 import { MissionsClientComponent } from './client/missions-client/missions-client.component';
+import { PayfreelancerComponent } from './client/payfreelancer/payfreelancer.component';
 import { PostulatedMissionsClientComponent } from './client/postulated-missions-client/postulated-missions-client.component';
 import { ProfilClientComponent } from './client/profil-client/profil-client.component';
 import { ActiveMissionsFreelancerComponent } from './freelancer/active-missions-freelancer/active-missions-freelancer.component';
@@ -76,6 +77,7 @@ const routes: Routes = [
   { path:'detail-client/:id', canActivate:[AuthGuard]  , component:DetailClientComponent },
 
   { path:'detail-mission/:id', canActivate:[AuthGuard]  , component:DetailMissionComponent },
+  { path:'pay-freelancer/:id', canActivate:[AuthGuard]  , component:PayfreelancerComponent },
 
 
   { path:'Education' , canActivate:[AuthGuard]  ,  component:ExpEducationComponent},

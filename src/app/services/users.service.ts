@@ -238,6 +238,10 @@ export class UsersService {
   countall(){
     return this.http.get<any>(`${environment.urlBackend}`+'countall/')
   }
+  ////////////////////
+  countAllHome(){
+    return this.http.get<any>(`${environment.urlBackend}`+'countAllHome/')
+  }
 
 //***********************experience  call api***********************/
   getfreelancerexperiance(id:any){
@@ -343,4 +347,9 @@ export class UsersService {
         chat  (id:any) {    
           return this.http.get(environment.urlBackend+'getroom/' + id)
         }
+        /********************** payement  *********************/
+        ppp(data: any) {
+          return this.http.post('http://localhost:3000/payment', data);
+        }
+        
 }

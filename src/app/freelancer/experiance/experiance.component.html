@@ -107,8 +107,10 @@
                                               </div>
                                           </div>
                                           <div align="right" >
-                                            <button   (click)="deletexperiance(data.id )" type="button"  class="btn btn-outline-danger btn-sm"> Delete  Experiance   </button>  &nbsp; &nbsp;
-                                            <button (click)="getdata(data.entreprise,data.jobType,data.dateDebut,data.dateFin,data.description,data.id)" type="button" data-toggle="modal" data-target="#exampleModal1" class="btn btn-outline-success btn-sm">Update  Experaince  </button>
+                                            <button   (click)="deletexperiance(data.id )" type="button"  class="btn btn-outline-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>  Delete  Experiance   </button>  &nbsp; &nbsp;
+                                            <button (click)="getdata(data.entreprise,data.jobType,data.dateDebut,data.dateFin,data.description,data.id)" type="button" data-toggle="modal" data-target="#exampleModal1" class="btn btn-outline-success btn-sm">
+                                              
+                                              <i class="fa fa-edit" aria-hidden="true"></i> Update  Experaince  </button>
                                           </div>
                                       
                                       </div>
@@ -123,7 +125,7 @@
                                           <div class="modal-dialog">
                                             <div class="modal-content">
                                               <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Add Experaince </h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Add Expereince </h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                   <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -159,7 +161,7 @@
                                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                       <div class="text-right">
                                                         
-                                                        <button type="submit"  class="btn btn-primary"> Add  </button>
+                                                        <button type="submit" [disabled]="f.invalid" class="btn btn-primary"> Add  </button>
                                                       </div>
                                                     </div>
                                                   </div>

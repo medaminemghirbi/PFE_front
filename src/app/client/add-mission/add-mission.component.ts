@@ -68,7 +68,6 @@ export class AddMissionComponent implements OnInit {
   }
 
   addmission (f:any){
-
     const formData = new FormData();
       formData.append('title', this.addmissionn.value.title);
       formData.append('description', this.addmissionn.value.description);
@@ -77,26 +76,50 @@ export class AddMissionComponent implements OnInit {
       formData.append('budget', this.addmissionn.value.budget);
       formData.append('category_id',this.addmissionn.value.category_id);
       formData.append('client_id',this.clientdata.id);
-      formData.append('language_id',this.addmissionn.value.language_id);
-      
-
+      formData.append('language_id',this.addmissionn.value.language_id);   
     let data=f.value   
     console.log(data)
     this.usersService.addMission(formData).subscribe( ()=>{
-      
+       
+      if (data.beginingDate > Date.now() ) {
+        console.log(formData)
         console.log(data)
-       // console.log(formData)
-        this.submitted = true ;
-        Swal.fire('Saved!', '', 'success')
+        this.submitted = true ;  
+        Swal.fire({
+          icon: 'success',
+          title: 'success...',
+          text: 'Saved !' ,
+          position: 'top-end',
+            showConfirmButton: true,
+            timer: 1500
+        })
        // window.location.reload();
-      this.route.navigate(['/missions-client'])
-
+      //this.route.navigate(['/missions-client'])   
+      }
+      else {
+        console.log(data.beginingDate)
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'beginingDate must be after current date !' ,
+          position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500
+        })  
+      }
+   
     },(err:HttpErrorResponse)=>{
       this.messageErr=err.error
       console.log(err.error)
        console.log(err.status)
-       
-    }) ;
+       Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'beginingDate must be after current date !' ,
+        position: 'top-end',
+          showConfirmButton: false,
+          timer: 1500
+      })    
+    }) ;  
   }
-
 }
