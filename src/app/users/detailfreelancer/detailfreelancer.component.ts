@@ -70,8 +70,7 @@ export class DetailfreelancerComponent implements OnInit {
         "languagerate": data[i].languagerate,
         "color": this.colorsBootstrap[i] });
         i++
-       // if(i === 3)
-        //  i=0
+
       }
       debugger
       this.dataArrayyyy=this.arrayData , (err:HttpErrorResponse)=>{

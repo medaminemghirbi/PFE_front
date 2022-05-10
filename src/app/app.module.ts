@@ -63,6 +63,7 @@ import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.
 import { GeneratecvComponent } from './freelancer/generatecv/generatecv.component';
 import { PayfreelancerComponent } from './client/payfreelancer/payfreelancer.component';
 import { FavorisComponent } from './freelancer/favoris/favoris.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -138,7 +139,8 @@ import { FavorisComponent } from './freelancer/favoris/favoris.component';
     ReactiveFormsModule,
     ChartsModule,
     NgSelectModule,
-    Ng2SearchPipeModule 
+    Ng2SearchPipeModule ,
+    NgxPaginationModule
     
     
   ],

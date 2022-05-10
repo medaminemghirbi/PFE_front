@@ -12,12 +12,18 @@
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Languages </h6>
+        <h6 class="m-0 font-weight-bold text-primary">Skills </h6>
     </div>
-                        
+    <form
+    class="card-header py-3" >
+    <div class="input-group">
+        <input type="text" name="role" class="form-control" [(ngModel)]="searchedKeyword"  placeholder="Search for..." >
+      
+    </div>
+    </form>                   
     <div class="card-body">
       <div align="right" >
-      <button class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal1"  > Add Language  </button>&nbsp;&nbsp;
+      <button class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal1"  > Add Skill  </button>&nbsp;&nbsp;
      </div>
 
       <br> 
@@ -38,7 +44,7 @@
                
                 <tbody>
                   
-                    <tr *ngFor="let item of dataArray ; index as i" >
+                    <tr *ngFor="let item of dataArray | paginate: { itemsPerPage: 5, currentPage: p } | filter:searchedKeyword ; index as i"  >
                         <th scope="row"  > {{item.id}} </th>
                         <td> {{item.name}} </td>
                        
@@ -53,6 +59,9 @@
                     
                 </tbody>
             </table>
+        </div>
+        <div style="text-align:right;">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
     </div>
   </div>

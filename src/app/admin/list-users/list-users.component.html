@@ -37,7 +37,7 @@
                     </form>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" width="100%" *ngIf="dataArray">
+                            <table class="table table-bordered" width="100%" *ngIf="dataArray " >
                                 <thead >
                                   <tr >
                                     <th scope="col" (click)="sort('id')" ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
@@ -52,7 +52,7 @@
                                 <tbody>
                                    
                                   
-                                    <tr *ngFor="let item of dataArray | filter:searchedKeyword ; index as i" >
+                                    <tr *ngFor="let item of dataArray | paginate: { itemsPerPage: 10, currentPage: p } | filter:searchedKeyword ; index as i" >
                                       <th scope="row" > {{item.id}} </th>
                                         <td> {{item.email}} </td>
                                         <td> {{item.lastname}}</td>
@@ -84,7 +84,10 @@
                 
                 
                             </div>
-                
+                            <div style="text-align:right;">
+                              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </div>
+                          
                     </div>
                   </div>
                 
@@ -108,9 +111,7 @@
                    <!-- End of Page Wrapper -->
                    
                    <!-- Scroll to Top Button-->
-                   <a class="scroll-to-top rounded" href="#page-top">
-                     <i class="fas fa-angle-up"></i>
-                   </a>
+
                    
                    <!-- Logout Modal-->
                    <div  class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -131,3 +132,4 @@
                          </div>
                      </div>
                    </div>
+                   

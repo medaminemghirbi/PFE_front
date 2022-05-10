@@ -13,6 +13,13 @@
   <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Categories </h6>
   </div>
+  <form
+  class="card-header py-3" >
+  <div class="input-group">
+      <input type="text" name="role" class="form-control" [(ngModel)]="searchedKeyword"  placeholder="Search for..." >
+    
+  </div>
+  </form>
   <div class="card-body">
 
       <div class="table-responsive">
@@ -32,7 +39,7 @@
              
               <tbody>
                 
-                  <tr *ngFor="let item of dataArray ; index as i" >
+                  <tr *ngFor="let item of dataArray | paginate: { itemsPerPage: 3, currentPage: p } | filter:searchedKeyword ; index as i" >
                       <th scope="row"  > {{item.id}} </th>
                       <td> {{item.name}} </td>
                       <td> <img  height="180" [src]="item.image_url" alt="" class="card-img-top"></td>
@@ -47,6 +54,9 @@
                   
               </tbody>
           </table>
+      </div>
+      <div style="text-align:right;">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
   </div>
 </div>
