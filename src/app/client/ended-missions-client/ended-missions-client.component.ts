@@ -45,24 +45,6 @@ clicked:boolean = false;
   
 
   ngOnInit(): void {
-    this.usersService.getendedmissionbyclient(this.clientdata.id).subscribe(data=>{
-      console.log(data)
-      this.dataArray = data , (err:HttpErrorResponse)=>{
-        console.log(err)
-      this.messageErr="We dont't found this mission in our database"} 
-      //console.log(this.dataArray)
-    }) 
-    this.usersService.freelancerhomedata(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
-
-      console.log(data)
-      this.dataArrayy = data ,
-       (err:HttpErrorResponse)=>{
-        console.log(err)
-      this.messageErr="We dont't found this user in our database"} 
-      //console.log(this.dataArray)
-    }) 
-
-
   }
 
 

@@ -15,6 +15,7 @@ export class FindProjectComponent implements OnInit {
   languages: { "id": number, "name": string }[] = []
   selectedDefaultLanguage:any
   logo:any = "./assets/mission.png";
+  logo1:any = "./assets/money-bag.png";
   //search = faSearch;
   freelancers:any;
   dataArraye:any = [];

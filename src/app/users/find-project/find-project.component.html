@@ -2,7 +2,7 @@
 
 <!-- Sidebar filter section -->
 <section id="sidebar"> 
-  <p> Home | <b>All Freelancers</b></p>
+  <p> Home | <b>All Missions</b></p>
   <div class="border-bottom pb-2 ml-2">
       <h4 id="burgundy">Filters</h4>
   </div>
@@ -92,24 +92,28 @@
           <div class="card-block">
             <a style="text-decoration: none;" [routerLink]="['/detail-mission',produit.id]">     <h6 class="card-title">{{produit.title}}</h6></a>
             <i class="fas fa-clock">&nbsp; {{produit.beginingDate}}</i>
-             Budget&nbsp;{{produit.budget}} DT 
-             <i class="fas fa-book">  {{produit.requests_count}} Proposition</i> 
+            &nbsp;&nbsp;  <img [src]="logo1 " width="25" height="25"/>{{produit.budget}} DT
+
+              &nbsp;
+             &nbsp;&nbsp; <i class="fas fa-book">  {{produit.requests_count}} Proposition</i> 
             <p class="card-text text-justify">{{produit.description}} .<br></p>
            
             
-
-              <a style="display: inline;" class="btn btn-primary" *ngFor="let x of produit.languages">{{x.name}}</a>
+            <a  class="btn btn-primary">{{produit.category.name}}</a><br><br>
+              <a style="display: inline;" class="btn btn-primary" *ngFor="let x of produit.languages">{{x.name}} &nbsp;</a>
               
               <br><br>
           </div>
-          <button *ngIf="role!=='client' && role!=='admin' " class="btn btn-danger"  type="submit" 
-          (click)="addfavoris(produit.id,freelancerdata.id)" > <i class="fas fa-heart"></i>  Favoris  </button> &nbsp;
+
           <div class="form-group">
-                     <a  class="btn btn-primary">{{produit.category.name}}</a>
+            <button *ngIf="role!=='client' && role!=='admin' " class="btn btn-danger"  type="submit" 
+            (click)="addfavoris(produit.id,freelancerdata.id)" > <i class="fas fa-heart"></i>  Favoris  </button> &nbsp;
+  
+      
+           
             <button *ngIf="role!=='client' && role!=='admin' " class="btn btn-danger"  type="submit" (click)="addrequest(produit.id,freelancerdata.id)" > Postuler  </button>
    
           </div>
-  
 
     
       </div>

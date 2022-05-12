@@ -17,6 +17,7 @@ export class FindFreelancerComponent implements OnInit {
   datacate:any = [];
   messageErr ='';
   stepOneOfOneForm : any ;
+  p:number = 1 ;
 
   languages: { "id": number, "name": string }[] = []
 

@@ -19,7 +19,7 @@ export class DetailfreelancerComponent implements OnInit {
   logged_in:boolean = false ;
   role: string = '';
   arrayData:any[] = []
-  colorsBootstrap = ["success", "info", "warning", "danger"]
+  colorsBootstrap = ["success", "info", "warning", "danger","primary","secondary","dark","light",]
   constructor(private activatedRoute: ActivatedRoute,private usersService :UsersService) { 
     this.logged_in = JSON.parse( localStorage.getItem('logged_in') !);
     console.log(this.logged_in)

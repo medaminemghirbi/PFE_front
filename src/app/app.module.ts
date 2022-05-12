@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ChartsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
+import { TableModule } from 'primeng/table';
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
 import { ProfileAdminComponent } from './admin/profile-admin/profile-admin.component';
 import { SideBarComponent } from './admin/side-bar/side-bar.component';
@@ -140,7 +141,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ChartsModule,
     NgSelectModule,
     Ng2SearchPipeModule ,
-    NgxPaginationModule
+    NgxPaginationModule,
+    TableModule,
     
     
   ],

@@ -30,6 +30,7 @@ export class PostulatedMissionsClientComponent implements OnInit {
   dataArrayy:any ;
   dataArrayyy:any ;
   update: FormGroup;
+  missionAccepted:boolean = false
 
   constructor(private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute, ) {
     this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
@@ -47,40 +48,17 @@ export class PostulatedMissionsClientComponent implements OnInit {
   ngOnInit(): void {
     this.usersService.getrequestbyclient(this.clientdata.id).subscribe(data=>{
       console.log(data)
-      this.dataArray = data , (err:HttpErrorResponse)=>{
-        console.log(err)
-      this.messageErr="We dont't found this mission in our database"} 
-      //console.log(this.dataArray)
-    }) 
-    this.usersService.freelancerhomedata(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
+      this.dataArray = data
+      for(let i=0; i<this.dataArray.request.length; i++){
+        if( this.dataArray.request[i].status === "accepted" ){
+          this.missionAccepted = true
+          console.log(this.missionAccepted)
+          return
+        }
+      }
+    })
 
-      console.log(data)
-      this.dataArray = data ,
-       (err:HttpErrorResponse)=>{
-        console.log(err)
-      this.messageErr="We dont't found this user in our database"} 
-      //console.log(this.dataArray)
-    }) 
 
-    this.usersService.getfreelancereducation(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
-
-      console.log(data)
-      this.dataArrayy = data ,
-       (err:HttpErrorResponse)=>{
-        console.log(err)
-      this.messageErr="We dont't found this user in our database"} 
-      //console.log(this.dataArray)
-    }) 
-
-    this.usersService.getfreelancerexperiance(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
-
-      console.log(data)
-      this.dataArrayyy =data ,
-       (err:HttpErrorResponse)=>{
-        console.log(err)
-      this.messageErr="We dont't found this user in our database"} 
-      //console.log(this.dataArray)
-    }) 
 
   }
 
