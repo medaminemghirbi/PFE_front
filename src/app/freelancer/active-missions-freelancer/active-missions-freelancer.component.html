@@ -43,7 +43,8 @@
                                       <button *ngIf="item.mission.completed===true " class="btn btn-success">{{item.mission.completed}} </button> 
                                       <button *ngIf="item.mission.completed===false " class="btn btn-danger">{{item.mission.completed}} </button> 
                                     </td> 
-                                    <td>{{item.mission.filepath}}</td> 
+                                    <td *ngIf="item.mission.filepath"><a href="{{item.mission.filepath}}">Go To file</a></td> 
+                                    <td *ngIf="!item.mission.filepath">{{item.mission.filepath}}</td> 
                                     <td>{{item.mission.title}}</td>
                                     <td> <button class="btn btn-success">{{item.status}}</button> </td>
                                     <td > <a [routerLink]="['/detail-freelancer',item.freelancer_id]" >  {{item.freelancer.email }} </a></td> 
@@ -103,9 +104,9 @@
                                       </div>
                                       <div class="form-group">
                                         <label for="exampleFormControlInput1">Url Mission </label>
-                                        <input type="text" class="form-control" placeholder="filepath " [(ngModel)]="dataMission.filepath" formControlName="filepath" required name="filepath"  minlength="2" maxlength="20" ngModel>
+                                        <input class="form-control" placeholder="filepath "  ngModel rows="3" [(ngModel)]="dataMission.filepath" formControlName="filepath" required name="filepath"  ngModel>
                                       </div>
-                                 
+                        
                                       <div class="alert alert-success" *ngIf="messageSuccess">
                                           {{messageSuccess}}
                                       </div>      

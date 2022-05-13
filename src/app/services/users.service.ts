@@ -185,7 +185,9 @@ export class UsersService {
     getrequestbyclient (client_id : any) {
       return this.http.get(`${environment.urlBackend}`+'getrequestbyclient/' + client_id )
     }
-
+    getmissionbyrequestclient(client_id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getmissionbyrequestclient/' + client_id )
+    }
     deleteRequest(id:any) {
       return this.http.delete(environment.urlBackend+'requests/' + id )
     }

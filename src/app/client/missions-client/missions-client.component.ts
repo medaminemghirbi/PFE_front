@@ -181,6 +181,8 @@ export class MissionsClientComponent implements OnInit {
       
     }
   
-  
+  test(){
+    console.log("hi")
+  }
 
 }

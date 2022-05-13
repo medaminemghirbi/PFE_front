@@ -30,8 +30,12 @@ export class PostulatedMissionsClientComponent implements OnInit {
   dataArrayy:any ;
   dataArrayyy:any ;
   update: FormGroup;
-  missionAccepted:boolean = false
-
+  missionAcceptedValue:any=[]
+  test:boolean = false
+  i:any
+  y:any=false
+  testi:any
+  missionId:any
   constructor(private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute, ) {
     this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
     console.log(this.clientdata)
@@ -49,13 +53,24 @@ export class PostulatedMissionsClientComponent implements OnInit {
     this.usersService.getrequestbyclient(this.clientdata.id).subscribe(data=>{
       console.log(data)
       this.dataArray = data
+      //let missionId = this.dataArray.request[0].mission_id
+/*      debugger 
+
+      if( this.dataArray.request[0].status === "accepted"){
+        this.missionAcceptedValue.push(this.dataArray.request[0])
+        this.testi = true}
+      else
+        this.testi = false*/
       for(let i=0; i<this.dataArray.request.length; i++){
         if( this.dataArray.request[i].status === "accepted" ){
-          this.missionAccepted = true
-          console.log(this.missionAccepted)
+          this.missionAcceptedValue = this.dataArray.request[i]
+          this.missionId = this.dataArray.request[i].mission_id
+          this.i++
           return
         }
       }
+      if(this.i === 0)
+        this.y = true
     })
 
 
@@ -92,6 +107,29 @@ export class PostulatedMissionsClientComponent implements OnInit {
   }
   
     getdata(status:string,mission_id:string,freelancer_id:any , id:any){
+      
+      if(this.missionAcceptedValue !== null){
+        this.y = false
+        if( mission_id ===  this.missionAcceptedValue.mission_id && freelancer_id === this.missionAcceptedValue.freelancer_id ){
+          this.test = true
+          this.y = true
+        }
+        else{
+          this.test = false
+        }
+
+        if(this.missionId != mission_id){
+          this.test = true
+          this.y = true
+
+        }
+
+      }
+      else{
+        this.test = true
+        this.y = true
+      }
+      
       this.messageSuccess=''
       this.dataMission.id=id
       this.dataMission.status=status

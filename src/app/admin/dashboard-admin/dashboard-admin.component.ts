@@ -21,7 +21,7 @@ export class DashboardAdminComponent implements OnInit {
 
 
   constructor(public UsersService:UsersService, public router:Router) { 
-    this.chartType = 'horizontalBar';
+    this.chartType = 'bar';
 
  
 

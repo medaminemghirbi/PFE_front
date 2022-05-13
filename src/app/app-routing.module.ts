@@ -51,15 +51,15 @@ const routes: Routes = [
 
   { path : 'register' , component:RegisterComponent } ,
   {path:'login' ,  component:LoginComponent } ,
-  {path:'dashboard'    , component:DashboardAdminComponent } ,
-  { path : 'profil-admin' , component:ProfileAdminComponent  },
+  {path:'dashboard'    , canActivate:[AuthGuard], component:DashboardAdminComponent } ,
+  { path : 'profil-admin', canActivate:[AuthGuard], component:ProfileAdminComponent  },
   { path : 'addcategory' , canActivate:[AuthGuard]    ,component:AddCategoryComponent} ,
   { path : 'categories' , canActivate:[AuthGuard]   , component : CategoriesComponent} ,
   { path : 'missions' , canActivate:[AuthGuard]   ,component : MissionsComponent} ,
   {path:'allusers'  ,canActivate:[AuthGuard] , component:ListUsersComponent} ,
   {path:'allreviews' ,canActivate:[AuthGuard]   ,component:ReviewsComponent} ,
   
-  { path:'Education', component:ExpEducationComponent},
+  { path:'Education', canActivate:[AuthGuard], component:ExpEducationComponent},
   {path:'edit-freelancer' ,canActivate:[AuthGuard]  ,component:EditFreelancerComponent} ,
   {path:'dashbord-freelancer' ,canActivate:[AuthGuard]  ,component:DashbordFreelancerComponent} ,
   {path:'edit-client' ,canActivate:[AuthGuard]  ,component:EditProfilClientComponent} ,
