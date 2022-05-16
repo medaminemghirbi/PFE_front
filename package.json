@@ -27,6 +27,7 @@
     "actioncable-js": "^5.0.0-rc2",
     "angular-bootstrap-md": "^12.2.0",
     "angular-svg-icon": "^13.0.0",
+    "angularx-social-login": "^4.1.0",
     "chart.js": "^3.7.1",
     "cors": "^2.8.5",
     "creditcardpayments": "^1.0.3",

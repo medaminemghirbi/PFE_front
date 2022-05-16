@@ -62,9 +62,9 @@ import { ResetPasswordComponent } from './users/reset-password/reset-password.co
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.component';
 import { GeneratecvComponent } from './freelancer/generatecv/generatecv.component';
-import { PayfreelancerComponent } from './client/payfreelancer/payfreelancer.component';
 import { FavorisComponent } from './freelancer/favoris/favoris.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DescuterComponent } from './client/descuter/descuter.component';
 
 
 
@@ -123,8 +123,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
      ForgotPasswordComponent,
      AddLanguagesComponent,
      GeneratecvComponent,
-     PayfreelancerComponent,
      FavorisComponent,
+     DescuterComponent,
      
 
   ],

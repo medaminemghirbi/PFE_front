@@ -18,7 +18,7 @@ export class SideBarComponent implements OnInit {
   }
   logout(){
     this.UsersService.logout();
-
+    this.router.navigate(['/login']);
     localStorage.clear()
 
    

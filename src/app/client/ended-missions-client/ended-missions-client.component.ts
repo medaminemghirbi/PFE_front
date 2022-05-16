@@ -2,16 +2,21 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CheckoutService } from 'src/app/services/checkout.service';
 import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
-
+import { render } from 'creditcardpayments/creditCardPayments';
 @Component({
   selector: 'app-ended-missions-client',
   templateUrl: './ended-missions-client.component.html',
   styleUrls: ['./ended-missions-client.component.css']
 })
 export class EndedMissionsClientComponent implements OnInit {
+  paymentHandler: any = null;
 
+  success: boolean = false
+  
+  failure:boolean = false
 
     p:number = 1 ;
     dataMission = {
@@ -34,7 +39,7 @@ export class EndedMissionsClientComponent implements OnInit {
     count: any;
     data: any =[];
   
-    constructor(private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute ) {
+    constructor(private checkout: CheckoutService,private usersService:UsersService,private route:Router ,private activatedRoute: ActivatedRoute ) {
       this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
       console.log(this.clientdata)
   
@@ -43,7 +48,22 @@ export class EndedMissionsClientComponent implements OnInit {
         mission_id: new FormControl(''),
         freelancer_id: new FormControl(''),
       });
-      
+      render(
+        {
+            id: "#myPaypalButtons",
+            currency: "USD",
+            value: "100.00",
+            onApprove: (details) => {           
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'transcation sucess',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            }
+          }
+        );
     }
     
   
@@ -65,10 +85,58 @@ export class EndedMissionsClientComponent implements OnInit {
         //console.log(this.dataArray)
       }) 
   
-  
+      this.invokeStripe();
     }
   
+    makePayment(amount: number) {
+      const paymentHandler = (<any>window).StripeCheckout.configure({
+        key: 'pk_test_51KsTRVAP0C7RxDT0uiUbJJmJMRnP7ijbDLlO3B1FSfNpRW5FMgbZ7YgTzKcNRXAERgcvjWvsZKLdZMZovyjlxeVX00Ssa2dzww',
+        locale: 'auto',
+        token: function (stripeToken: any) {
+          console.log(stripeToken);
+          paymentstripe(stripeToken);
+        },
+      
+      });
   
+      const paymentstripe = (stripeToken: any) => {
+        this.checkout.makePayment(stripeToken,amount).subscribe((data: any) => {
+          console.log(data);
+          if (data.data === "success") {
+            this.success = true
+          }
+          else {
+            this.failure = true
+          }
+        });
+      };
+  
+      paymentHandler.open({
+        name: 'Freelancy Payement',
+        description: 'Freelancy Payement system',
+        amount: amount * 100,
+      });
+    }
+  
+    invokeStripe() {
+      if (!window.document.getElementById('stripe-script')) {
+        const script = window.document.createElement('script');
+        script.id = 'stripe-script';
+        script.type = 'text/javascript';
+        script.src = 'https://checkout.stripe.com/checkout.js';
+        script.onload = () => {
+          this.paymentHandler = (<any>window).StripeCheckout.configure({
+            key: 'pk_test_51KsTRVAP0C7RxDT0uiUbJJmJMRnP7ijbDLlO3B1FSfNpRW5FMgbZ7YgTzKcNRXAERgcvjWvsZKLdZMZovyjlxeVX00Ssa2dzww',
+            locale: 'auto',
+            token: function (stripeToken: any) {
+              console.log(stripeToken);
+            },
+          });
+        };
+  
+        window.document.body.appendChild(script);
+      }
+    }
   
     delete(id:any  , i :number){
       Swal.fire({

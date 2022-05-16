@@ -48,7 +48,10 @@
                                 <td>     
                                     <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
                                  </td>-->
-                                 <td> <button  [routerLink]="['/pay-freelancer',item.id]" class="btn btn-outline-success"> Pay Freelancer </button></td>
+                                 <td>
+                                        <div style="text-align:center;" id="myPaypalButtons"></div>
+                                   
+                                    <button (click)="makePayment(item.budget )" class="btn btn-outline-success">Pay Freelancer With Stripe  </button></td>
                                   
                              <td>
                               <button    (click)="addreview(item.id , item.freelancer.id)" type="button" class="btn btn-outline-primary px-3">
