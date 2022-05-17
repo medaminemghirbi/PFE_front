@@ -34,6 +34,7 @@ export class EndedMissionsClientComponent implements OnInit {
     clientdata: any;
     submitted: boolean = false ;
     dataArrayy:any ;
+    paydata:any;
     dataArrayyy:any ;
     update: FormGroup;
     count: any;
@@ -138,6 +139,22 @@ export class EndedMissionsClientComponent implements OnInit {
       }
     }
   
+
+
+pay(data:any){
+  this.checkout.paywithkonnect(data).subscribe(response => {
+    this.paydata = response;
+    window.location.replace(this.paydata.payUrl);
+    //window.location.reload()
+    console.log(response);
+  });
+}
+
+
+
+
+
+    
     delete(id:any  , i :number){
       Swal.fire({
         title: 'Are you sure?',

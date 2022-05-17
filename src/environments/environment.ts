@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false ,
-  urlBackend:'http://localhost:3000/'
+  urlBackend:'http://localhost:3000/',
+  urlplayement:'https://api.preprod.konnect.network/api/v2/payments/init-payment'
 };
 
 /*

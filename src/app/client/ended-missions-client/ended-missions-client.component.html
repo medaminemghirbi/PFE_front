@@ -49,8 +49,8 @@
                                     <button (click)="delete(item.id , i)" class="btn btn-outline-danger"> Delete </button> 
                                  </td>-->
                                  <td>
-                                        <div style="text-align:center;" id="myPaypalButtons"></div>
-                                   
+                                       <div style="text-align:center;" id="myPaypalButtons"></div>
+                                       <button (click)='pay({receiverWallet: "62838361e09cf743223912f2",amount:item.budget,firstName:"y",lastName:"x",phoneNumber: "58277084",email:item.freelancer.email  })'  class="btn btn-outline-warning"> Konnect Service  </button>
                                     <button (click)="makePayment(item.budget )" class="btn btn-outline-success">Pay Freelancer With Stripe  </button></td>
                                   
                              <td>
