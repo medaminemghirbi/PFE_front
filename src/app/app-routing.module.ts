@@ -80,7 +80,7 @@ const routes: Routes = [
   { path : 'ended-missions-client' ,canActivate:[AuthGuard]  , component:EndedMissionsClientComponent},
   {path:'cv/:id', canActivate:[AuthGuard]  ,component:CvComponent},
   { path:'detail-client/:id', canActivate:[AuthGuard]  , component:DetailClientComponent },
-  { path:'detail-mission/:id', canActivate:[AuthGuard]  , component:DetailmissionComponent },
+  { path:'detail-mission/:id', component:DetailmissionComponent },
   {path:'reset/:token', component: ResetPasswordComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
   { path:'languages', canActivate:[AuthGuard]  , component:AddLanguagesComponent},

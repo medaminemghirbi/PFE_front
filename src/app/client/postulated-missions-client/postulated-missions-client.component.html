@@ -23,7 +23,7 @@
                     <th scope="col"> Mission_id </th>
                     <th scope="col"> Title Mission </th>
                     <th scope="col"> Email Freelancer </th>
-                    <th colspan="2">Actions</th>
+                    <th colspan="3">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -40,24 +40,18 @@
                     </td>
 
                     <td>
-                      <!--  <button    (click)="getdata(item.status,item.mission_id,item.freelancer_id, item.id)"  class="btn btn-outline-dark" data-toggle="modal"  data-target="#exampleModal"  ><i class="fa fa-edit" aria-hidden="true"></i> Update Request </button>&nbsp;
-                                </td>
-                                <td>
-                                  <button  (click)="delete(item.id , i)" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete </button> 
-                                -->
-                      <button 
+                     
+                                <button 
                         (click)="getdata(item.status,item.mission_id,item.freelancer_id, item.id)"
                         class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"><i
-                          class="fa fa-edit" aria-hidden="true"></i> Update Request </button>&nbsp;
-                      <!--<button *ngIf="!missionAccepted || item.status == 'accepted' "
-                        (click)="getdata(item.status,item.mission_id,item.freelancer_id, item.id)"
-                        class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal"> <i
-                          class="fa fa-edit" aria-hidden="true"></i>Update Request </button>&nbsp;-->
+                          class="fa fa-edit" aria-hidden="true"></i> Update Request </button>
+  </td><td>
                       <button
-                        (click)="delete(item.id , i)" class="btn btn-outline-danger"><i class="fa fa-trash"
+                        (click)="delete(item.id , i)" *ngIf="item.status==='encours' || item.status==='refus'   " class="btn btn-outline-danger"><i class="fa fa-trash"
                           aria-hidden="true"></i> Delete </button>
-                      <!--<button *ngIf="!missionAccepted || item.status == 'accepted'" (click)="delete(item.id , i)"
-                        class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete </button>-->
+                          <button readonly style="cursor: not-allowed;" disabled 
+                          (click)="delete(item.id , i)" *ngIf="item.status==='accepted' "  class="btn btn-outline-danger"><i class="fa fa-trash"
+                            aria-hidden="true"></i> Delete </button>
                     </td>
 
 

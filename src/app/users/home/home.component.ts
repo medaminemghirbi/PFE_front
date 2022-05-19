@@ -11,6 +11,9 @@ import { UsersService } from 'src/app/services/users.service';
 export class HomeComponent implements OnInit {
   dataArray:any = [];
   messageErr =''
+  slider1 :any ="./assets/x.jpg"
+  slider2 :any ="./assets/slid.jpg"
+  slider3 :any ="./assets/slider3.png"
   cate1:any = "https://mediablog.cdnpk.net/sites/9/2021/12/An-Introduction-To-Graphic-Design-Part-1.jpg";
   cate2:any = "https://apotac.com/wp-content/uploads/2021/11/Untitled-design-391.png";
   cate3:any = "https://splashdev.at/wp-content/uploads/2021/04/Business.jpg";

@@ -18,7 +18,7 @@ export class CheckoutService {
   paywithkonnect(data:any){
 
     let headers = new HttpHeaders({
-      'x-api-key':'62838361e09cf743223912f1:umZpSwVNKCKOAT2qaroAHTs'
+      'x-api-key':'62838361e09cf743223912f1:GbIDSy9ZpMivEfxsBZbHzGAe1TxnwGmW'
      });
   let options = { headers: headers };
 

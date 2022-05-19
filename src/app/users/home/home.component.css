@@ -227,3 +227,68 @@ color: rgb(255, 255, 255);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+
+.carousel-caption>h1{
+    font-size: 200%;
+    text-align: center;
+
+    text-shadow: 2px 6px 8px black;
+    
+    
+}
+.carousel-caption>p{
+    font-size: 125%;
+    text-align: center;
+    text-shadow: 10px 10px 8px black;
+    
+}
+
+.carousel-caption>h1{
+    font-size: 150%;
+    text-align: center;
+}
+.carousel-caption>p{
+    font-size: 100%;
+    text-align: center;
+
+    
+}
+.carousel-caption>h1{
+    font-size: 250%;
+    text-align: center;
+
+    text-shadow: 2px 6px 8px black;
+    
+    
+}
+
+
+.carousel-caption>p{
+    font-size: 150%;
+    text-align: center;
+
+    
+}
+.carousel-caption>h1{
+    font-size: 350%;
+    text-align: center;
+
+    text-shadow: 2px 6px 8px black;
+    
+    
+}
+.carousel-captionp{
+    margin-bottom: 60px;
+}
+
+
+.carousel-caption>p{
+    font-size: 200%;
+    text-align: center;
+    text-shadow: 10px 10px 8px black;
+    
+}
+.carousel-caption{
+    top: 35%;
+}

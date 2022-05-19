@@ -13,20 +13,49 @@
   <body>
       <!--############################# navbar section ##########################""-->
     <app-usersnavbar></app-usersnavbar>
+    
+    <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+        <mdb-carousel-item>
+            <img class="d-block w-100" [src]="slider1" height="580" alt="Second slide">
+            <div class="carousel-caption"> 
+              <h1 >Welcome To Freelancy Plateforme</h1>
+          <p>we are not The only but we are the best</p>
+          
+     <a routerLink="/register" ><button  class="btn btn-outline-primary btn-lg btn-block"><p></p>Start    </button></a>                  
+      </div>
+          </mdb-carousel-item>
+          <mdb-carousel-item>
+            <img class="d-block w-100" [src]="slider2" height="580" alt="Second slide">
+            <div class="carousel-caption"> 
+              <h1  >Welcome To Freelancy Plateforme</h1>
+          <p>Work hard and fly like carthagien eagels </p>
+          
+     <a routerLink="/register" ><button  class="btn btn-outline-primary btn-lg btn-block"><p></p>Start    </button></a>                  
+      </div>
+          </mdb-carousel-item>
+          <mdb-carousel-item>
+            <img class="d-block w-100" src="https://i.workana.com/wp-content/uploads/2018/12/freelancer-1.jpg" height="580" alt="Second slide">
+            <div class="carousel-caption"> 
+                <br><br>
+                <a routerLink="/register" ><button  class="btn btn-outline-primary btn-lg btn-block"><p></p>Start    </button></a>                  
+
+      </div>
+          </mdb-carousel-item>
+
+      </mdb-carousel>
 <!--#############################main section##########################""-->
-<section class="main py-5"> 
+<!--<section class="main py-5"> 
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-7">
             <h1>
                 FreeLancy is an exclusive network of the best freelance talents and experts in Tunisia.</h1><br>
-          <!-- <input type="text" placeholder="Job Title Or Keyword">
-            <button class="btn2">Find Mission</button>-->
+       
           
         </div>
     </div>
 </div>
-</section>
+</section>-->
 <!--#############################categorie section##########################""-->
 
 <section class="ceta">

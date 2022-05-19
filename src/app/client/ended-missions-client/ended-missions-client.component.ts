@@ -144,7 +144,9 @@ export class EndedMissionsClientComponent implements OnInit {
 pay(data:any){
   this.checkout.paywithkonnect(data).subscribe(response => {
     this.paydata = response;
-    window.location.replace(this.paydata.payUrl);
+    window.open(this.paydata.payUrl);
+  
+   // window.location.replace(this.paydata.payUrl);
     //window.location.reload()
     console.log(response);
   });

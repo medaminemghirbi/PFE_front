@@ -65,7 +65,7 @@ import { GeneratecvComponent } from './freelancer/generatecv/generatecv.componen
 import { FavorisComponent } from './freelancer/favoris/favoris.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DescuterComponent } from './client/descuter/descuter.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -143,6 +143,8 @@ import { DescuterComponent } from './client/descuter/descuter.component';
     Ng2SearchPipeModule ,
     NgxPaginationModule,
     TableModule,
+    BrowserAnimationsModule
+    
     
     
   ],
