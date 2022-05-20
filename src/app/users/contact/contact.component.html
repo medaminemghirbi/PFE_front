@@ -1,0 +1,85 @@
+<app-usersnavbar></app-usersnavbar>
+<section id="contact">
+  
+  <h5 style="color: black;" class="section-header">Contact</h5>
+  
+  <div class="contact-wrapper">
+  
+  <!-- Left contact page --> 
+    
+    <form id="contact-form" class="form-horizontal" role="form" (submit)="sendEmail($event)" >
+       
+      <div class="form-group">
+        <div class="col-sm-12">
+          <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value="" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-12">
+          <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value="" required>
+        </div>
+      </div>
+      <div class="form-group"><div class="col-sm-12">
+      <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required></textarea>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="col-sm-12">
+              <button style="background-color: rgb(38, 8,158);" class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+              <div class="alt-send-button">
+                  <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
+              </div>
+              </button>
+          </div>
+      </div>
+    </form>
+    
+  <!-- Left contact page --> 
+    
+      <div style="color: black;" class="direct-contact-container">
+
+        <ul class="contact-list">
+          <li class="list-item"><i style="color: black;" class="fa fa-map-marker fa-2x"><span class="contact-text place"><a href="#" title="Send me an email"> 
+             Sahloul , Sousse </a></span></i></li>
+          
+          <li class="list-item"><i style="color: black;" class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="#" title="Give me a call">(+216) 24 540 686 </a></span></i></li>
+          
+          <li class="list-item"><i style="color: black;" class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="#" title="Send me an email">Freelancy@gmail.com</a></span></i></li>
+          
+        </ul>
+
+        <hr>
+        <ul class="social-media-list">
+          <li><a href="#" target="_blank" class="contact-icon">
+              <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe me-2 icon-inline">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></a>
+          </li>
+          <li><a href="#" target="_blank" class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github me-2 icon-inline">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+           </a>
+          </li>
+          <li><a href="#" target="_blank" class="contact-icon">
+              <svg style="color: white;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram me-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          </li>
+          <li><a href="#" target="_blank" class="contact-icon">
+              <svg style="color: white;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook me-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          </li>       
+        </ul>
+        <hr>
+
+        <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+
+      </div>
+    
+  </div>
+  
+</section> 
+
+<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.348555688883!2d10.600561314780242!3d35.84045588015739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd8a6162762d3f%3A0x11e8b567d2c92ff4!2sCom%20and%20Dev!5e0!3m2!1sfr!2stn!4v1652274824447!5m2!1sfr!2stn" width="600" height="450" style="border:0;" width="1300" height="450" style="border:0;" allowfullscreenloading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  </div>

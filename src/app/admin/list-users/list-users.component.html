@@ -1,0 +1,135 @@
+<div id="wrapper">
+  <app-side-bar></app-side-bar>
+     <div id="content-wrapper" class="d-flex flex-column">
+   
+         <!-- Main Content -->
+         <div id="content">
+   
+             <!-- Topbar -->
+ 
+             <app-adminnavbar></app-adminnavbar>
+             <!-- End of Topbar -->
+   
+             <!-- Begin Page Content -->
+                  <!-- Begin Page Content -->
+                  
+
+                  <div class="container">
+  
+                    <div class="col" >
+                      <div class="alert alert-danger" role="alert" *ngIf="messageErr" >
+                         {{messageErr}}
+                        </div>
+                  </div>
+                
+                  
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Users  </h6>
+                       
+                    </div>
+                    <form
+                    class="card-header py-3" >
+                    <div class="input-group">
+                        <input type="text" name="role" class="form-control" [(ngModel)]="searchedKeyword"  placeholder="Search for..." >
+                      
+                    </div>
+                    </form>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" width="100%" *ngIf="dataArray " >
+                                <thead >
+                                  <tr >
+                                    <th scope="col" (click)="sort('id')" ># ID &nbsp;<i class="fa fa-sort"> </i>  </th>
+                                    <th scope="col" (click)="sort('title')" >Email &nbsp;<i class="fa fa-sort"> </i> </th>
+                                    <th scope="col" (click)="sort('lastname')" >Last name &nbsp;<i class="fa fa-sort"> </i> </th>
+                                    <th scope="col" (click)="sort('firstname')" >First name &nbsp;<i class="fa fa-sort"> </i> </th>
+                                    <th scope="col" (click)="sort('role')" >Role  &nbsp;<i class="fa fa-sort"> </i> </th>
+                                    <th scope="col" (click)="sort('role')" >Email Confirmed  &nbsp;<i class="fa fa-sort"> </i> </th>
+                                    <th scope="col">Actions</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                   
+                                  
+                                    <tr *ngFor="let item of dataArray | paginate: { itemsPerPage: 10, currentPage: p } | filter:searchedKeyword ; index as i" >
+                                      <th scope="row" > {{item.id}} </th>
+                                        <td> {{item.email}} </td>
+                                        <td> {{item.lastname}}</td>
+                                        <td> {{item.firstname}}</td>
+                                        <td> {{item.role}} </td>
+                                        <td  > &nbsp; &nbsp;
+                                         
+                                          <button *ngIf="item.email_confirmed===null " mdbBtn  color="danger" mdbWavesEffect> false </button>
+                                           
+                                        
+                                          <button *ngIf="item.email_confirmed===true " mdbBtn  color="success" mdbWavesEffect > {{item.email_confirmed}} </button>
+                                        </td>
+                                        <td>
+                                          <a *ngIf="item.role==='freelancer' " class="text-success"  [routerLink]="['/detail-freelancer',item.id]"  >
+                                             <i  class="fas  fa-2x fa-eye"></i> </a>
+                                           
+                                            
+                                            &nbsp;&nbsp;
+                                          <a *ngIf="item.role==='freelancer' " class="text-danger" (click)="deleteuser(item.id , i)" > <i class="fas  fa-2x fa-trash-alt"></i> </a>
+                                          &nbsp;&nbsp;
+                                          <a *ngIf="item.role==='client' " class="text-danger" (click)="deleteclient(item.id , i)" > <i class="fas  fa-2x fa-trash-alt"></i> </a>
+                                           
+                
+                                        </td>
+                                      </tr>
+                                </tbody>
+                         
+                              </table>
+                
+                
+                            </div>
+                            <div style="text-align:right;">
+                              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </div>
+                          
+                    </div>
+                  </div>
+                
+                  
+                
+                 
+                                     <!-- Content Row -->
+                             <!-- /.container-fluid -->
+                   
+                         </div>
+                         <!-- End of Main Content -->
+                   
+                         <!-- Footer -->
+                 
+                         <!-- End of Footer -->
+                   
+                     </div>
+                     <!-- End of Content Wrapper -->
+                   
+                   </div>
+                   <!-- End of Page Wrapper -->
+                   
+                   <!-- Scroll to Top Button-->
+
+                   
+                   <!-- Logout Modal-->
+                   <div  class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                     <div class="modal-dialog" role="document">
+                         <div class="modal-content">
+                             <div class="modal-header">
+                                 <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                     <span aria-hidden="true">×</span>
+                                 </button>
+                             </div>
+                             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                             <div class="modal-footer">
+                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                 <a class="btn btn-primary" href="/login" >Logout</a>
+                             </div>
+                         </div>
+                     </div>
+                   </div>
+                   

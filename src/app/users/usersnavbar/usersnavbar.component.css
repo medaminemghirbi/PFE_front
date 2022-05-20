@@ -1,0 +1,52 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+.nav-link{
+  color: rgb(10, 10, 94);
+
+}
+.nav-link:hover{
+  color: red;
+  transition: 0.3s;
+}
+.nav-item{
+  color: rgb(7, 7, 78);
+  font-weight: 500;
+  padding-left: 35px;
+}
+
+.btn0{
+  height: 52px;
+  width: 130px;
+  outline: none;
+  border: none;
+  color: wheat;
+  cursor: pointer;
+  transition: all 0.4s;
+  background-color: rgb(38, 8,158);
+}
+.btn0:hover{
+background: rgb(255, 0, 225);
+transition: all 0.4s;
+}
+.btn1{
+  height: 52px;
+  width: 130px;
+  background-color: transparent;
+  color: rgb(38, 8,158);
+  outline: none;
+  border: 2px solid rgb(38, 8,158);
+
+
+}
+.btn1:hover{
+  background-color: rgb(38, 8,158);
+transition: all 0.4s;
+color: wheat;
+border: none;
+outline: none;
+}
