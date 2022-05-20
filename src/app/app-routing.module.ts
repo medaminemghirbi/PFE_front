@@ -11,6 +11,7 @@ import { ReviewsComponent } from './admin/reviews/reviews.component';
 import { ActiveMissionsClientComponent } from './client/active-missions-client/active-missions-client.component';
 import { AddmissionComponent } from './client/addmission/addmission.component';
 import { AllmissionsComponent } from './client/allmissions/allmissions.component';
+import { CalendarComponent } from './client/calendar/calendar.component';
 import { DashbordClientComponent } from './client/dashbord-client/dashbord-client.component';
 import { DescuterComponent } from './client/descuter/descuter.component';
 import { EditProfilClientComponent } from './client/edit-profil-client/edit-profil-client.component';
@@ -21,6 +22,7 @@ import { ActiveMissionsFreelancerComponent } from './freelancer/active-missions-
 import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.component';
 import { CvComponent } from './freelancer/cv/cv.component';
 import { DashbordFreelancerComponent } from './freelancer/dashbord-freelancer/dashbord-freelancer.component';
+import { DescuterFreelancerComponent } from './freelancer/descuter-freelancer/descuter-freelancer.component';
 import { EditFreelancerComponent } from './freelancer/edit-freelancer/edit-freelancer.component';
 import { EndedMissionsFreelancerComponent } from './freelancer/ended-missions-freelancer/ended-missions-freelancer.component';
 import { ExpEducationComponent } from './freelancer/exp-education/exp-education.component';
@@ -86,7 +88,9 @@ const routes: Routes = [
   { path:'languages', canActivate:[AuthGuard]  , component:AddLanguagesComponent},
   { path:'favoris' , canActivate:[AuthGuard]  ,  component:FavorisComponent},
   { path:'descuter/:id' , canActivate:[AuthGuard]  ,  component:DescuterComponent},
+  { path:'descuter-freelancer/:id' , canActivate:[AuthGuard]  ,  component:DescuterFreelancerComponent},
 
+  { path:'calendar' , canActivate:[AuthGuard]  ,  component:CalendarComponent},
 ];
 
 @NgModule({

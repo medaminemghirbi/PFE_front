@@ -28,7 +28,7 @@
               </div>
           </div>
         </div>
-        <div class="container-fluid"> 
+       <div class="container-fluid"> 
 
           <section class="msger">
               <header class="msger-header">
@@ -41,45 +41,41 @@
               </header>
             
               <main class="msger-chat">
-                <div class="msg left-msg">
+          
+                <div class="msg right-msg" *ngFor="let data of dataArray">
                   <div
                    class="msg-img"
-                   style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+                   style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjTThsV0nUW7Qr3Y4QC8rs3gdI3MunygNrGQ&usqp=CAU)"
                   ></div>
             
-                  <div class="msg-bubble">
-                    <div class="msg-info">
-                      <div class="msg-info-name">BOT</div>
-                      <div class="msg-info-time">12:45</div>
-                    </div>
+                  <div class="msg-bubble" >
+         
             
                     <div class="msg-text">
-                      Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
+                     {{data.text}}
                     </div>
                   </div>
                 </div>
-            
-                <div class="msg right-msg">
+                <div class="msg left-msg" *ngFor="let data of dataArrayy">
                   <div
                    class="msg-img"
-                   style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+                   style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjTThsV0nUW7Qr3Y4QC8rs3gdI3MunygNrGQ&usqp=CAU)"
                   ></div>
             
-                  <div class="msg-bubble">
-                    <div class="msg-info">
-                      <div class="msg-info-name">Sajad</div>
-                      <div class="msg-info-time">12:46</div>
-                    </div>
+                  <div class="msg-bubble" >
+         
             
                     <div class="msg-text">
-                      You can change your name in JS section!
+                      {{data.text}}
                     </div>
                   </div>
                 </div>
+                
+                
               </main>
             
-              <form class="msger-inputarea">
-                <input type="text" class="msger-input" placeholder="Enter your message...">
+              <form class="msger-inputarea" [formGroup]="addmessage" #f="ngForm" (ngSubmit)="sendmessage (f); f.reset()">
+                <input name="text" class="form-control"  formControlName="text"  required type="text" class="msger-input" placeholder="Enter your message...">
                 <button type="submit" class="msger-send-btn">Send</button>
               </form>
             </section>
@@ -99,7 +95,7 @@
 
 </div>
 
-<script>
+<!--<script>
 
 const msgerForm = get(".msger-inputarea");
 const msgerInput = get(".msger-input");
@@ -177,4 +173,4 @@ return Math.floor(Math.random() * (max - min) + min);
 }
 
 
-</script>
+</script>-->

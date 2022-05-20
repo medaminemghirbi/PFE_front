@@ -66,6 +66,9 @@ import { FavorisComponent } from './freelancer/favoris/favoris.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DescuterComponent } from './client/descuter/descuter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarComponent } from './client/calendar/calendar.component';
+import {CalendarModule} from 'primeng/calendar';
+import { DescuterFreelancerComponent } from './freelancer/descuter-freelancer/descuter-freelancer.component';
 
 
 @NgModule({
@@ -125,6 +128,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
      GeneratecvComponent,
      FavorisComponent,
      DescuterComponent,
+     CalendarComponent,
+     DescuterFreelancerComponent,
      
 
   ],
@@ -143,7 +148,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     Ng2SearchPipeModule ,
     NgxPaginationModule,
     TableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CalendarModule
     
     
     

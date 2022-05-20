@@ -30,8 +30,7 @@
                                
                              
                                
-                                <th scope="col"> Email Freelancer </th>               
-                                <th scope="col"> Actions </th>  
+                                <th colspan="3"> Actions </th>  
                               </tr>
                             </thead>
                             <tbody>         
@@ -47,8 +46,8 @@
                                     <td *ngIf="!item.mission.filepath">{{item.mission.filepath}}</td> 
                                     <td>{{item.mission.title}}</td>
                                     <td> <button class="btn btn-success">{{item.status}}</button> </td>
-                                    <td > <a [routerLink]="['/detail-freelancer',item.freelancer_id]" >  {{item.freelancer.email }} </a></td> 
-                
+
+                                    
                                     <td>  
                                      
                                       <button  (click)="getdata( item.id , item.mission.completed , item.mission.filepath)"
@@ -56,7 +55,9 @@
                                          Update </button>  &nbsp;&nbsp;
                                       
                                   </td>
-            
+                                  <td>
+                                    <button class="btn btn-success">Contacter Client</button>
+                                  </td>
                                    
                                   </tr>
                             </tbody>

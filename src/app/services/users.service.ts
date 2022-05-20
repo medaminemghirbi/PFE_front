@@ -318,4 +318,18 @@ deleteFavoris  (id:any) {
         resetpassword(token:string,email:any){
           return this.http.put(environment.urlBackend+'password_resets/'+token,email);
         }
+
+
+        /*------------message + get message --------------*/
+       
+        sendmessage(messagedetails:any){
+          return this.http.post(environment.urlBackend+'message/' , messagedetails) ;
+        }
+        getmessagebysender  (id:any) {    
+          return this.http.get(environment.urlBackend+'getmessagebysender/' + id)
+        }
+        getmessagebyreceiver  (id:any) {    
+          
+          return this.http.get(environment.urlBackend+'getmessagebyreceiver/' + id)
+        }
 }

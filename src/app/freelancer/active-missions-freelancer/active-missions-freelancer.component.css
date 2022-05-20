@@ -1,108 +1,54 @@
 table {
-	border: 1px solid #ccc;
-	border-collapse: collapse;
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	table-layout: fixed;
+  
+  width: auto;
+  text-align: center;
+  border: 1px solid #fff;
+  border-spacing: 1px;
+  font-family: 'Cairo', sans-serif;
+margin: auto;
 }
 
-table caption {
-	font-size: 1.5em;
-	margin: .5em 0 .75em;
+caption {
+  font-weight: bold;
 }
-table tr {
-	background-color: #fff;
-	border: 1px solid #e1e5e9;
-	padding: .35em;
-	border-radius: 3px;
-}
-table thead tr:first-child {
-    border: 1px solid #0f82e6;
-}
-table th,
+
 table td {
-	padding: 1.625em;
-	text-align: center;
-	color: #9da9b9;
-	font-size: 14px;
-	font-family: cursive;
-}
-
-table td:nth-child(4) {
-	font-size: 18px;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
 }
 
 table th {
-	font-size: .85em;
-	letter-spacing: .1em;
-	text-transform: uppercase;
-	background: #0f82e6;
-	color: #FFF;
+  background-color: rgb(10, 10, 94);
+  color: #fff;
+  padding: 10px;
 }
 
-table tbody tr td .btn-invoice {
-	background: #0f82e6;
-	color: #FFF;
-	font-size: 13px;
-	padding: 10px 20px;
-	border: 0;
-	font-family: cursive;
+img {
+  width: 90px;
+  height: 90px;
 }
 
-tbody tr:nth-child(even) {
-	background-color: #eee;
+.view,
+.delete,
+.update {
+  border: none;
+  padding: 5px 10px;
+  color: #fff;
+  font-weight: bold;
 }
 
-tbody tr:nth-child(odd) {
-	background-color: #fff;
+.view {
+  background-color: #03A9F4;
+}
+.update {
+  background-color: #054405;
 }
 
-@media screen and (max-width: 600px) {
-	table {
-		border: 0;
-	}
-	table caption {
-		font-size: 1.3em;
-	}
-	table thead {
-		border: none;
-		clip: rect(0 0 0 0);
-		height: 1px;
-		margin: -1px;
-		overflow: hidden;
-		position: absolute;
-		width: 1px;
-		padding: 0;
-	}
-	table tr {
-		border-bottom: 3px solid #e1e5e9;
-		display: block;
-		margin-bottom: .625em;
-	}
-	table th,
-	table td {
-		padding: 0.625em;
-	}
-	table td {
-		border-bottom: 1px solid #e1e5e9;
-		display: block;
-		font-size: .8em;
-		text-align: right;
-		color: #9da9b9;
-	}
-	table td::before {
-		content: attr(data-label);
-		float: left;
-		font-weight: bold;
-		text-transform: uppercase;
-		color: #656971;
-	}
-	table td:last-child {
-		border-bottom: 0;
-	}
-	table td:nth-child(4) {
-		font-size: 0.8em;
-	}
-  
+.delete {
+  background-color: #E91E63;
+}
+
+.tablefoot {
+  padding: 0;
+  border-bottom: 3px solid #333;
 }

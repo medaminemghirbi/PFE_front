@@ -1,0 +1,15 @@
+<div id="wrapper">
+  <app-sideebarr></app-sideebarr>
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+      <!-- Topbar -->
+
+      <app-clientnavbar></app-clientnavbar>
+      <div id="calendar"></div>
+      <div class="field col-12 md:col-4">
+        <label for="time">Time / 24h</label>
+        <p-calendar [(ngModel)]="value" [showTime]="true" [showSeconds]="true" inputId="time"></p-calendar>
+    </div>
