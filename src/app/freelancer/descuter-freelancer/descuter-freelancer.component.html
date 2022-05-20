@@ -1,1 +1,85 @@
-<p>descuter-freelancer works!</p>
+
+  
+   <div id="wrapper">
+    <app-side-barr></app-side-barr>
+       <div id="content-wrapper" class="d-flex flex-column">
+     
+           <!-- Main Content -->
+           <div id="content">
+     
+               <!-- Topbar -->
+   
+               <app-freelancernavbar></app-freelancernavbar>
+               <div class="container">
+                <form [formGroup]="conversationFormGroup" (ngSubmit)="getOrcreateConversation()">
+                  <div>
+                      <label>Conversation Name</label>
+                      <input type="text" matInput placeholder="abcd" formControlName="name">
+                  </div>&nbsp;
+                  <button mat-raised-button color="primary" type="submit" [disabled]="!conversationFormGroup.valid" title="Get Or Create Conversation">GetOrCreateConversation</button>
+   
+              </form>
+            
+              <div>
+                  <div id="remote-container">
+    
+                  </div>
+                  <div id="local-container">
+           
+                  </div>
+              </div>
+            </div>
+            <div class="container-fluid"> 
+
+                <section class="msger">
+                    <header class="msger-header">
+                      <div class="msger-header-title">
+                        <i class="fas fa-comment-alt"></i> Chat
+                      </div>
+                      <div class="msger-header-options">
+                        <span><i class="fas fa-cog"></i></span>
+                      </div>
+                    </header>
+                  
+                    <main class="msger-chat">
+                
+                      <div class="msg right-msg" *ngFor="let data of dataArray">
+                        <div
+                         class="msg-img"
+                         style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjTThsV0nUW7Qr3Y4QC8rs3gdI3MunygNrGQ&usqp=CAU)"
+                        ></div>
+                  
+                        <div class="msg-bubble" >
+               
+                  
+                          <div class="msg-text">
+                           {{data.text}}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="msg left-msg" *ngFor="let data of dataArrayy">
+                        <div
+                         class="msg-img"
+                         style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjTThsV0nUW7Qr3Y4QC8rs3gdI3MunygNrGQ&usqp=CAU)"
+                        ></div>
+                  
+                        <div class="msg-bubble" >
+               
+                  
+                          <div class="msg-text">
+                            {{data.text}}
+                          </div>
+                        </div>
+                      </div>
+                      
+                      
+                    </main>
+                  
+                    <form class="msger-inputarea" [formGroup]="addmessage" #f="ngForm" (ngSubmit)="sendmessage (f); f.reset()">
+                      <input name="text" class="form-control"  formControlName="text"  required type="text" class="msger-input" placeholder="Enter your message...">
+                      <button type="submit" class="msger-send-btn">Send</button>
+                    </form>
+                  </section>
+      
+      
+            </div>

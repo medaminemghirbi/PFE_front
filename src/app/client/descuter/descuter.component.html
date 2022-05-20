@@ -12,11 +12,10 @@
               <div>
                   <label>Conversation Name</label>
                   <input type="text" matInput placeholder="abcd" formControlName="name">
-              </div>&nbsp;
-              <button mat-raised-button color="primary" type="submit" [disabled]="!conversationFormGroup.valid" title="Get Or Create Conversation">GetOrCreateConversation</button>
-             <br> <button id="record" disabled>Start Recording</button>
-              <button id="play" disabled>Play</button>
-              <button id="download" disabled>Download</button>
+                  <button class="btn btn-outline-danger" mat-raised-button color="primary" type="submit" [disabled]="!conversationFormGroup.valid" title="Get Or Create Conversation">GetOrCreateConversation</button>
+              </div>
+             
+
           </form>
         
           <div>

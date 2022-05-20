@@ -29,8 +29,8 @@ export class DescuterComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.usersService.getmessagebysender(this.clientdata.id).subscribe(datac=>{
-      
+    this.usersService.getmessagebysender(this.clientdata.id,this.activatedRoute.snapshot.params['id']).subscribe(datac=>{
+      debugger
       console.log(datac)
       this.dataArray = datac , (err:HttpErrorResponse)=>{
         console.log(err)
@@ -38,7 +38,7 @@ export class DescuterComponent implements OnInit {
       //console.log(this.dataArray)
       
     }) 
-    this.usersService.getmessagebyreceiver(this.clientdata.id).subscribe(data=>{
+    this.usersService.getmessagebyreceiver(this.activatedRoute.snapshot.params['id'],this.clientdata.id).subscribe(data=>{
       debugger
       console.log(data)
       this.dataArrayy = data , (err:HttpErrorResponse)=>{

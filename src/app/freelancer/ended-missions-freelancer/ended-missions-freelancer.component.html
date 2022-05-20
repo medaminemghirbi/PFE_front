@@ -29,7 +29,7 @@
                                 <th scope="col" >Description  &nbsp;<i class="fa fa-sort"> </i> </th>
                                 <th scope="col"> Email Client </th>     
                                 <th scope="col"> Rating Client</th>  
-                                <th scope="col">Actions</th>
+                       
                                 <th scope="col">Rate CLient</th>
                               </tr>
                             </thead>
@@ -41,14 +41,15 @@
                                   <td> <button *ngIf="item.completed==true " class="btn btn-success"> {{item.completed}} </button> 
                                     <button *ngIf="item.completed==false " class="btn btn-danger"> {{item.completed}} </button> 
                                   </td>
-                                  <td>{{item.filepath}}</td> 
+                                
+                                  <td *ngIf="item.filepath"><a href="{{item.filepath}}">Go To file</a></td> 
+                                  <td *ngIf="!item.filepath">{{item.filepath}}</td> 
+                                  
                                   <td > <a [routerLink]="['/detail-mission',item.id]"  > {{item.title}}  </a></td>                      
                                     <td>{{item.description}}</td> 
                                     <td > <a  >  {{item.client.email }} </a> </td> 
                                      <td> {{item.client.reviews_count}} Stars </td>
-                                    <td>                           
-                                      <button  class="btn btn-outline-success"> Get Facture </button>  &nbsp;
-            </td>
+           
             <td>                        
             <button    (click)="addreview(item.id , item.client.id)" type="button" class="btn btn-outline-primary px-3"><i class="far fa-star" aria-hidden="true"> {{item.client.reviews_count}}</i></button>
             

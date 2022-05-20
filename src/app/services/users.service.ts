@@ -325,11 +325,11 @@ deleteFavoris  (id:any) {
         sendmessage(messagedetails:any){
           return this.http.post(environment.urlBackend+'message/' , messagedetails) ;
         }
-        getmessagebysender  (id:any) {    
-          return this.http.get(environment.urlBackend+'getmessagebysender/' + id)
+        getmessagebysender  (sender_id:any,receiver_id:any) {    
+          return this.http.get(environment.urlBackend+'getmessagebysender/' + sender_id+'/'+receiver_id)
         }
-        getmessagebyreceiver  (id:any) {    
+        getmessagebyreceiver  (sender_id:any,receiver_id:any) {    
           
-          return this.http.get(environment.urlBackend+'getmessagebyreceiver/' + id)
+          return this.http.get(environment.urlBackend+'getmessagebyreceiver/' + receiver_id+'/'+sender_id)
         }
 }
