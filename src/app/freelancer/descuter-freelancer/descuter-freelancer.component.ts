@@ -16,6 +16,8 @@ export class DescuterFreelancerComponent implements OnInit {
   dataArray: any;
   dataArrayy : any;
   addmessage: any ;
+  current_user:any
+  ordered_msges:any
   conversationFormGroup = this.fb.group({
     name: this.fb.control('', [Validators.required])
   });
@@ -29,24 +31,34 @@ export class DescuterFreelancerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.current_user = this.freelancerdata
     this.usersService.getmessagebysender(this.freelancerdata.id,this.activatedRoute.snapshot.params['id']).subscribe(datac=>{
-      debugger
+      //this.ordered_msges = _.sortBy(datac, function(msg:any){ return msg; });
       console.log(datac)
+      debugger
       this.dataArray = datac , (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found any message with that id"} 
       //console.log(this.dataArray)
-      
+  
+  
     }) 
     this.usersService.getmessagebyreceiver(this.activatedRoute.snapshot.params['id'],this.freelancerdata.id).subscribe(data=>{
-      debugger
       console.log(data)
       this.dataArrayy = data , (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found any message with that id"} 
       //console.log(this.dataArray)
-    }) 
-    
+      debugger
+      this.ordered_msges = this.dataArray.message.concat(this.dataArrayy.message)
+     // this.elem = new Date(this.ordered_msges[0]).getTime()
+     /* this.ordered_msges.forEach((element: any) => {
+        if(new Date(element.created_at).getTime() >= this.elem ){
+          this.ord.push(element)
+        }
+      }) */
+    })
+
   }
   get conversationNameFc(): FormControl {
     return this.conversationFormGroup.get('name') as FormControl;
@@ -60,7 +72,7 @@ export class DescuterFreelancerComponent implements OnInit {
     formData.append('receiver_id', this.activatedRoute.snapshot.params['id']);
 
     
-
+    window.location.reload();
   let data=f.value   
   console.log(data)
   this.usersService.sendmessage(formData).subscribe( ()=>{

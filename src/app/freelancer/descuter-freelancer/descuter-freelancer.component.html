@@ -41,12 +41,12 @@
                       </div>
                     </header>
                   
-                    <main class="msger-chat">
-                
-                      <div class="msg right-msg" *ngFor="let data of dataArray">
+                    <main class="msger-chat"  *ngFor="let data of ordered_msges | orderBy: 'created_at': 'asc'">
+          
+                      <div class="msg right-msg" *ngIf="data.sender_id === current_user.id">
                         <div
                          class="msg-img"
-                         style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjTThsV0nUW7Qr3Y4QC8rs3gdI3MunygNrGQ&usqp=CAU)"
+                         style="background-image: url({{current_user.user_image_url}})"
                         ></div>
                   
                         <div class="msg-bubble" >
@@ -57,9 +57,10 @@
                           </div>
                         </div>
                       </div>
-                      <div class="msg left-msg" *ngFor="let data of dataArrayy">
+                     <div class="msg left-msg" *ngIf="data.sender_id !== current_user.id">
                         <div
                          class="msg-img"
+                         
                          style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjTThsV0nUW7Qr3Y4QC8rs3gdI3MunygNrGQ&usqp=CAU)"
                         ></div>
                   

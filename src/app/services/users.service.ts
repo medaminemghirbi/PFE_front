@@ -329,7 +329,6 @@ deleteFavoris  (id:any) {
           return this.http.get(environment.urlBackend+'getmessagebysender/' + sender_id+'/'+receiver_id)
         }
         getmessagebyreceiver  (sender_id:any,receiver_id:any) {    
-          
           return this.http.get(environment.urlBackend+'getmessagebyreceiver/' + receiver_id+'/'+sender_id)
         }
 }

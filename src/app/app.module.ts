@@ -69,6 +69,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarComponent } from './client/calendar/calendar.component';
 import {CalendarModule} from 'primeng/calendar';
 import { DescuterFreelancerComponent } from './freelancer/descuter-freelancer/descuter-freelancer.component';
+import { OrderByPipe } from './order-by.pipe';
 
 
 @NgModule({
@@ -76,6 +77,8 @@ import { DescuterFreelancerComponent } from './freelancer/descuter-freelancer/de
     AppComponent,
     HomeComponent,
 
+    OrderByPipe,
+    
     FooterComponent,
     FindFreelancerComponent,
     FindProjectComponent,

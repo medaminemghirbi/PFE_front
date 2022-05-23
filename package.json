@@ -33,6 +33,7 @@
     "creditcardpayments": "^1.0.3",
     "html-to-pdfmake": "^2.3.11",
     "jspdf": "^2.5.1",
+    "lodash": "^4.17.21",
     "mdb-angular-ui-kit": "^2.0.0",
     "ng-multiselect-dropdown": "^0.3.8",
     "ng2-charts": "^3.0.9",
@@ -46,6 +47,7 @@
     "session-expiration-alert": "^13.0.0",
     "sweetalert2": "^11.4.7",
     "tslib": "^2.3.0",
+    "underscore": "^1.13.3",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -54,9 +56,11 @@
     "@angular/compiler-cli": "~13.2.0",
     "@types/html-to-pdfmake": "^2.1.0",
     "@types/jasmine": "~3.10.0",
+    "@types/lodash": "^4.14.182",
     "@types/node": "^12.11.1",
     "@types/pdfmake": "^0.1.21",
     "@types/recordrtc": "^5.6.8",
+    "@types/underscore": "^1.11.4",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",

@@ -1,8 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
+import { of, map } from 'rxjs';
+
+
 declare var apiRTC: any;
 @Component({
   selector: 'app-descuter',
@@ -15,6 +18,11 @@ export class DescuterComponent implements OnInit {
   dataArray: any;
   dataArrayy : any;
   addmessage: any ;
+  ordered_msges:any
+  ord:any[] = []
+  elem:any
+  test:any
+  current_user:any
   conversationFormGroup = this.fb.group({
     name: this.fb.control('', [Validators.required])
   });
@@ -29,23 +37,35 @@ export class DescuterComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.current_user = this.clientdata
     this.usersService.getmessagebysender(this.clientdata.id,this.activatedRoute.snapshot.params['id']).subscribe(datac=>{
-      debugger
+      //this.ordered_msges = _.sortBy(datac, function(msg:any){ return msg; });
       console.log(datac)
+      debugger
       this.dataArray = datac , (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found any message with that id"} 
       //console.log(this.dataArray)
-      
+  
+  
     }) 
     this.usersService.getmessagebyreceiver(this.activatedRoute.snapshot.params['id'],this.clientdata.id).subscribe(data=>{
-      debugger
       console.log(data)
       this.dataArrayy = data , (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found any message with that id"} 
       //console.log(this.dataArray)
-    }) 
+      debugger
+      this.ordered_msges = this.dataArray.message.concat(this.dataArrayy.message)
+     // this.elem = new Date(this.ordered_msges[0]).getTime()
+     /* this.ordered_msges.forEach((element: any) => {
+        if(new Date(element.created_at).getTime() >= this.elem ){
+          this.ord.push(element)
+        }
+      }) */
+    })
+
+
   }
  get conversationNameFc(): FormControl {
     return this.conversationFormGroup.get('name') as FormControl;
