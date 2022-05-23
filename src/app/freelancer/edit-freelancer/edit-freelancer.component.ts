@@ -42,6 +42,7 @@ export class EditFreelancerComponent implements OnInit {
       facebook: new FormControl('', [Validators.required]),
       instagram : new FormControl('', [Validators.required]),
       linkedin: new FormControl('', [Validators.required]),
+      rib: new FormControl('', [Validators.required]),
     //  password_confirmation: new FormControl('', [Validators.required]),
     });
   }
@@ -102,7 +103,7 @@ export class EditFreelancerComponent implements OnInit {
         this.usersService.updateimageuser(this.freelancerdata.id,imageformadata).subscribe(response=>
           {
             
-            localStorage.clear();
+           
             localStorage.setItem( 'freelancerdata', JSON.stringify( response ) );
             window.location.reload();
          
@@ -145,7 +146,7 @@ export class EditFreelancerComponent implements OnInit {
     formData.append('facebook', this.upadate.value.facebook);
     formData.append('instagram', this.upadate.value.instagram);
     formData.append('linkedin', this.upadate.value.linkedin);
-    
+    formData.append('RIB', this.upadate.value.rib);
   // formData.append('password_confirmation', this.upadate.value.password_confirmation);
     Swal.fire({
       title: 'Do you want to save the changes?',
@@ -159,7 +160,7 @@ export class EditFreelancerComponent implements OnInit {
         this.usersService.updateProfileFreelancer(this.freelancerdata.id,formData).subscribe(response=>
           {
             
-            localStorage.clear();
+            
             localStorage.setItem( 'freelancerdata', JSON.stringify( response ) );
             window.location.reload();
          
@@ -182,6 +183,7 @@ export class EditFreelancerComponent implements OnInit {
             this.freelancerdata[indexId].facebook=data.facebook
             this.freelancerdata[indexId].instagram=data.instagram
             this.freelancerdata[indexId].linkedin=data.linkedin
+            this.freelancerdata[indexId].rib=data.rib
             this.messageSuccess=`this email : ${this.freelancerdata[indexId].email} is updated`
     
           },(err:HttpErrorResponse)=>{

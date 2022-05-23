@@ -73,7 +73,7 @@ export class ProfileAdminComponent implements OnInit {
         this.usersService.updateimageuser(this.admindata.id,imageformadata).subscribe(response=>
           {
             
-            localStorage.clear();
+            
             localStorage.setItem( 'admindata', JSON.stringify( response ) );
             window.location.reload();
          
@@ -120,7 +120,7 @@ export class ProfileAdminComponent implements OnInit {
       if (result.isConfirmed) {
     this.usersService.updateProfileUser(this.admindata.id,formData).subscribe(response=>
       {
-        localStorage.clear();
+        
         localStorage.setItem( 'admindata', JSON.stringify( response ) );
         window.location.reload();
       console.log(response)
