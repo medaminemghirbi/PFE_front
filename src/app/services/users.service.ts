@@ -214,6 +214,11 @@ export class UsersService {
       return this.http.get<any>(`${environment.urlBackend}`+'countall/')
     }
 
+    countAllHome(){
+      return this.http.get<any>(`${environment.urlBackend}`+'countAllHome/')
+    }
+    
+
 //***********************experience  call api***********************/
   getfreelancerexperiance(id:any){
     return this.http.get(`${environment.urlBackend}`+'getuserexperiance/'+id)
@@ -323,5 +328,19 @@ deleteFavoris  (id:any) {
         chat  (id:any) {    
           return this.http.get(environment.urlBackend+'getroom/' + id)
         }
+
+         /*------------message + get message --------------*/
+       
+         sendmessage(messagedetails:any){
+          return this.http.post(environment.urlBackend+'message/' , messagedetails) ;
+        }
+        getmessagebysender  (sender_id:any,receiver_id:any) {    
+          return this.http.get(environment.urlBackend+'getmessagebysender/' + sender_id+'/'+receiver_id)
+        }
+        getmessagebyreceiver  (sender_id:any,receiver_id:any) {    
+          
+          return this.http.get(environment.urlBackend+'getmessagebyreceiver/' + receiver_id+'/'+sender_id)
+        }
+        
         
 }

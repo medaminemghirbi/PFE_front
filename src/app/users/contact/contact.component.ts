@@ -29,11 +29,12 @@ export class ContactComponent  {
   public sendEmail(e: Event) {
     e.preventDefault();
     /* const formData = new FormData();
+
       formData.append('name', this.sendemail.value.name);
       formData.append('email', this.sendemail.value.email);
       formData.append('message', this.sendemail.value.message);
     */
-    emailjs.sendForm('service_nbx2joc', 'template_pin6cfa', e.target as HTMLFormElement, 'PENdgAWn2ZDfw24BQ')
+    emailjs.sendForm('service_ft0i1pf', 'template_v8iv5fs', e.target as HTMLFormElement, 'user_c18mROsP6hhSIlubZqFTI')
       .then((result: EmailJSResponseStatus) => {
        
         console.log(result.text);

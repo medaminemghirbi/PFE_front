@@ -93,7 +93,7 @@ export class EditProfilClientComponent implements OnInit {
         this.usersService.updateimageuser(this.clientdata.id,imageformadata).subscribe(response=>
           {
             
-            localStorage.clear();
+            
             localStorage.setItem( 'clientdata', JSON.stringify( response ) );
             window.location.reload();
          
@@ -136,7 +136,7 @@ export class EditProfilClientComponent implements OnInit {
       if (result.isConfirmed) {
         this.usersService.updateprofilclient(this.clientdata.id,formData).subscribe(response=>
           {
-            localStorage.clear();
+            
             localStorage.setItem( 'clientdata', JSON.stringify( response ) );
             window.location.reload();
          

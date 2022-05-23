@@ -64,11 +64,13 @@ import { AddLanguagesComponent } from './freelancer/add-languages/add-languages.
 import { GeneratecvComponent } from './freelancer/generatecv/generatecv.component';
 import { FavorisComponent } from './freelancer/favoris/favoris.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { DescuterComponent } from './client/descuter/descuter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DiscuterFreelancerComponent } from './client/discuter-freelancer/discuter-freelancer.component';
 import { DiscuterClientComponent } from './freelancer/discuter-client/discuter-client.component';
-
+import { DiscuterComponent } from './client/discuter/discuter.component';
+import { CalendarComponent } from './client/calendar/calendar.component';
+import {CalendarModule} from 'primeng/calendar';
+import { OrderByPipe } from './order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -126,10 +128,12 @@ import { DiscuterClientComponent } from './freelancer/discuter-client/discuter-c
      AddLanguagesComponent,
      GeneratecvComponent,
      FavorisComponent,
-     DescuterComponent,
      DiscuterFreelancerComponent,
-     DiscuterClientComponent ,
-    
+     DiscuterClientComponent,
+     DiscuterComponent,
+     CalendarComponent ,
+     OrderByPipe ,
+     
      
 
   ],
@@ -148,8 +152,8 @@ import { DiscuterClientComponent } from './freelancer/discuter-client/discuter-c
     Ng2SearchPipeModule ,
     NgxPaginationModule,
     TableModule,
-    BrowserAnimationsModule
-    
+    BrowserAnimationsModule ,
+    CalendarModule ,
     
     
   ],

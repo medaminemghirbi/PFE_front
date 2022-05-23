@@ -27,7 +27,7 @@
                          
                            
                             <th scope="col"> Email Freelancer </th> 
-                            <th scope="col">Descuter</th>              
+                            <th scope="col">Discuter</th>              
                       
                           </tr>
                         </thead>
@@ -43,7 +43,7 @@
                                  <button *ngIf="item.mission.completed===false " class="btn btn-warning">{{item.mission.completed}}</button> </td>
 
                                 <td > <a [routerLink]="['/detailfreelancer',item.freelancer_id]" >  {{item.freelancer.email }} </a></td> 
-                                <td> <a [routerLink]="['/descuter',item.freelancer_id]" >  Descuter </a></td> 
+                                <td> <a [routerLink]="['/discuterfreelancer',item.freelancer_id ]" >  Discuter </a></td> 
         
                                
                               </tr>

@@ -80,6 +80,9 @@ export class DetailfreelancerComponent implements OnInit {
     }) 
 
   }
-
+  
+  printPage() {
+    window.print();
+  }
 
 }

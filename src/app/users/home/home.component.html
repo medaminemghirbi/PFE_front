@@ -13,7 +13,9 @@
   <body>
       <!--############################# navbar section ##########################""-->
     <app-usersnavbar></app-usersnavbar>
+
     
+
     <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
         <mdb-carousel-item>
             <img class="d-block w-100" [src]="slider1" height="580" alt="Second slide">
@@ -168,7 +170,20 @@
         </div>
     </div>
 </section>-->
-
+<div style="display: block" *ngIf="chartReady">
+    <canvas mdbChart
+    [chartType]="chartType"
+    [datasets]="chartDatasets"
+    [labels]="chartLabels"
+    [colors]="chartColors"
+    [options]="chartOptions"
+    [legend]="true"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)">
+  </canvas>
+  
+  </div>
+<br>
 
 <app-footer></app-footer>
 

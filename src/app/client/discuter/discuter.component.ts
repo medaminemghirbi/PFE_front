@@ -1,25 +1,106 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 declare var apiRTC: any;
+
 @Component({
-  selector: 'app-descuter',
-  templateUrl: './descuter.component.html',
-  styleUrls: ['./descuter.component.css']
+  selector: 'app-discuter',
+  templateUrl: './discuter.component.html',
+  styleUrls: ['./discuter.component.css']
 })
-export class DescuterComponent implements OnInit {
+export class DiscuterComponent implements OnInit {
+
+  clientdata:any;
+  messageErr = '' ;
+  dataArray: any;
+  dataArrayy : any;
+  addmessage: any ;
   conversationFormGroup = this.fb.group({
     name: this.fb.control('', [Validators.required])
   });
-  constructor(private fb: FormBuilder) {
+  role: any;
+  constructor(private activatedRoute: ActivatedRoute,private fb: FormBuilder,private usersService:UsersService) {
+    this.clientdata = JSON.parse( localStorage.getItem('clientdata') !);
+    this.role = JSON.parse( localStorage.getItem('role') !);
+    console.log(this.role)
+    
+    this.addmessage = new FormGroup({
+      text: new FormControl('', [Validators.required]),
+
+    });
   }
 
 
   ngOnInit(): void {
+    this.usersService.getmessagebysender(this.clientdata.id , this.activatedRoute.snapshot.params['id']).subscribe(datac=>{
+      
+      console.log(datac)
+      this.dataArray = datac , (err:HttpErrorResponse)=>{
+        console.log(err)
+      this.messageErr="We dont't found any message with that id"} 
+      //console.log(this.dataArray)
+      
+    }) 
+    this.usersService.getmessagebyreceiver(this.activatedRoute.snapshot.params['id'] ,this.clientdata.id).subscribe(data=>{
+      debugger
+      console.log(data)
+      this.dataArrayy = data , (err:HttpErrorResponse)=>{
+        console.log(err)
+      this.messageErr="We dont't found any message with that id"} 
+      //console.log(this.dataArray)
+    }) 
   }
  get conversationNameFc(): FormControl {
     return this.conversationFormGroup.get('name') as FormControl;
   }
 
+  
+  
+  sendmessage(f:any){
+    const formData = new FormData();
+    formData.append('text', this.addmessage.value.text);
+    formData.append('sender_id', this.clientdata.id);
+    formData.append('receiver_id', this.activatedRoute.snapshot.params['id']);
+
+    
+
+  let data=f.value   
+  console.log(data)
+  this.usersService.sendmessage(formData).subscribe( ()=>{
+    window.location.reload();
+      console.log(data)
+
+
+  },(err:HttpErrorResponse)=>{
+    this.messageErr=err.error
+    console.log(err.error)
+     console.log(err.status)
+     
+  }) ;
+
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   getOrcreateConversation() {
     var localStream: null = null;
 

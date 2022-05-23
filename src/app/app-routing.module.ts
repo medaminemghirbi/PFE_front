@@ -11,8 +11,10 @@ import { ReviewsComponent } from './admin/reviews/reviews.component';
 import { ActiveMissionsClientComponent } from './client/active-missions-client/active-missions-client.component';
 import { AddmissionComponent } from './client/addmission/addmission.component';
 import { AllmissionsComponent } from './client/allmissions/allmissions.component';
+import { CalendarComponent } from './client/calendar/calendar.component';
 import { DashbordClientComponent } from './client/dashbord-client/dashbord-client.component';
-import { DescuterComponent } from './client/descuter/descuter.component';
+import { DiscuterFreelancerComponent } from './client/discuter-freelancer/discuter-freelancer.component';
+import { DiscuterComponent } from './client/discuter/discuter.component';
 import { EditProfilClientComponent } from './client/edit-profil-client/edit-profil-client.component';
 import { EndedMissionsClientComponent } from './client/ended-missions-client/ended-missions-client.component';
 import { MissionsClientComponent } from './client/missions-client/missions-client.component';
@@ -86,9 +88,14 @@ const routes: Routes = [
   {path:'forgot-password',component:ForgotPasswordComponent},
   { path:'languages', canActivate:[AuthGuard]  , component:AddLanguagesComponent},
   { path:'favoris' , canActivate:[AuthGuard]  ,  component:FavorisComponent},
-  { path:'descuter/:id' , canActivate:[AuthGuard]  ,  component:DescuterComponent},
+
+  { path:'calendar' , canActivate:[AuthGuard]  ,  component:CalendarComponent},
+  { path:'discuter/:id' , canActivate:[AuthGuard]  ,  component:DiscuterComponent},
+
+  {path:'discuterfreelancer/:id' , canActivate:[AuthGuard]  , component:DiscuterFreelancerComponent } , 
 
   {path:'discuterClient/:id' , canActivate:[AuthGuard]  , component:DiscuterClientComponent } , 
+
 
 ];
 

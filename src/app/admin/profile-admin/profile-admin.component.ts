@@ -21,7 +21,11 @@ export class ProfileAdminComponent implements OnInit {
   constructor(private route:Router, private usersService:UsersService) {
     this.admindata = JSON.parse( localStorage.getItem('admindata') !) ;
     console.log(this.admindata)
-    this.imageupdate = new FormGroup({ avatar: new FormControl('', [Validators.required]), });
+    
+    this.imageupdate = new FormGroup({ 
+      avatar: new FormControl('', [Validators.required]), 
+    });
+
     this.upadate = new FormGroup({
      // photo: new FormControl('', [Validators.required]),
       firstname: new FormControl('', [Validators.required]),
@@ -60,6 +64,7 @@ export class ProfileAdminComponent implements OnInit {
     let data=f.value
     const imageformadata = new FormData();
     imageformadata.append('avatar', this.image );
+
     Swal.fire({
       title: 'Do you want to save the changes?',
       showDenyButton: true,
@@ -73,7 +78,7 @@ export class ProfileAdminComponent implements OnInit {
         this.usersService.updateimageuser(this.admindata.id,imageformadata).subscribe(response=>
           {
             
-            localStorage.clear();
+            //localStorage.clear();
             localStorage.setItem( 'admindata', JSON.stringify( response ) );
             window.location.reload();
          
@@ -120,7 +125,7 @@ export class ProfileAdminComponent implements OnInit {
       if (result.isConfirmed) {
     this.usersService.updateProfileUser(this.admindata.id,formData).subscribe(response=>
       {
-        localStorage.clear();
+       
         localStorage.setItem( 'admindata', JSON.stringify( response ) );
         window.location.reload();
       console.log(response)
