@@ -1,9 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+//import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
+
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas'
 
 @Component({
   selector: 'app-active-missions-freelancer',
@@ -11,7 +15,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./active-missions-freelancer.component.css']
 })
 export class ActiveMissionsFreelancerComponent implements OnInit {
-
+  @ViewChild('htmlData') htmlData!: ElementRef;
   p:number = 1 ;
   dataMission = {
     id : '' ,
@@ -107,5 +111,22 @@ export class ActiveMissionsFreelancerComponent implements OnInit {
       
     }
 
+    printPage() {
+      window.print();
+    }
+
+    public openPDF(): void {
+      let DATA: any = document.getElementById('htmlData');
+      html2canvas(DATA).then((canvas) => {
+        let fileWidth = 208;
+        let fileHeight = (canvas.height * fileWidth) / canvas.width;
+        const FILEURI = canvas.toDataURL('image/png');
+        let PDF = new jsPDF('p', 'mm', 'a4');
+        let position = 0;
+        //PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+        window.print
+        PDF.save('angular-demo2.pdf');
+      });
+    }
 
 }

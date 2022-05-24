@@ -72,7 +72,7 @@
     <div class="col-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let data of dataArray">
       <div class="our-team">
         <div class="picture">
-          <a [routerLink]="['/detailfreelancer',data.id]">  <img class="img-fluid" [src]="data.user_image_url"></a>
+          <a [routerLink]="['/detailfreelancer',data.id]" >  <img class="img-fluid" [src]="data.user_image_url"></a>
         </div> 
         <div class="team-content">
           <h4 class="name">{{data.lastname}} {{data.firstname}} </h4>

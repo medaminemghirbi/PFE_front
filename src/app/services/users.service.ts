@@ -170,6 +170,10 @@ export class UsersService {
       return this.http.get(`${environment.urlBackend}`+'getmissionbycategory/' + category_id )
     }
 
+    getcategorymissionhome (id : any) {
+      return this.http.get(`${environment.urlBackend}`+'getcategorymission/' + id )
+    }
+
     getmissionbylanguage (language_id : any) {
       return this.http.get(`${environment.urlBackend}`+'getmissionbylanguage/' + language_id )
     }

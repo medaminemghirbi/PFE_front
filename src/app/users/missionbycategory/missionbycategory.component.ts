@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { faSearch} from '@fortawesome/free-solid-svg-icons';
-import {CardModule} from 'primeng/card';
-import { UsersService } from 'src/app/services/users.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+
 @Component({
-  selector: 'app-find-project',
-  templateUrl: './find-project.component.html',
-  styleUrls: ['./find-project.component.css']
+  selector: 'app-missionbycategory',
+  templateUrl: './missionbycategory.component.html',
+  styleUrls: ['./missionbycategory.component.css']
 })
-export class FindProjectComponent implements OnInit {
+export class MissionbycategoryComponent implements OnInit {
   languages: { "id": number, "name": string }[] = []
   selectedDefaultLanguage:any
   logo:any = "./assets/mission.png";
@@ -30,7 +29,8 @@ export class FindProjectComponent implements OnInit {
   role: string = '';
   languagefiltre!: any;
   languageids:any= [];
-  constructor(private usersService:UsersService , private route : Router ) {
+
+  constructor( private activatedRoute: ActivatedRoute, private usersService:UsersService , private route : Router  ) { 
     this.freelancerdata = JSON.parse( localStorage.getItem('freelancerdata') !);
     this.logged_in = JSON.parse( localStorage.getItem('logged_in') !);
     this.selectedDefaultLanguage= null
@@ -42,16 +42,19 @@ export class FindProjectComponent implements OnInit {
     this.languagefiltre = new FormGroup({
       language_id: new FormControl('', [Validators.required]),
     });
-   }
+  }
 
   ngOnInit(): void {
-    this.usersService.getAllMissions().subscribe(data=>{
+    this.usersService.getcategorymissionhome(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
+
       console.log(data)
-      this.dataArray=data , (err:HttpErrorResponse)=>{
+      this.dataArray = data ,
+       (err:HttpErrorResponse)=>{
         console.log(err)
       this.messageErr="We dont't found this user in our database"} 
       //console.log(this.dataArray)
     }) 
+
     this.usersService.getAllcategories().subscribe(data=>{
 
       console.log(data)
@@ -71,8 +74,11 @@ export class FindProjectComponent implements OnInit {
     console.log(err)
     this.messageErr="We dont't found this langugae in our database"}
     }) 
-    this.getallmiss()
+
+    //this.getallmiss()
+
   }
+
   getallmiss () {
     this.usersService.getAllMissions().subscribe(data=>{
       console.log(data)
@@ -179,3 +185,4 @@ addfavoris (id:any , user_id:any){
 }
 
 }
+

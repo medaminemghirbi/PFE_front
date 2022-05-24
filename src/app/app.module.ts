@@ -71,6 +71,7 @@ import { DiscuterComponent } from './client/discuter/discuter.component';
 import { CalendarComponent } from './client/calendar/calendar.component';
 import {CalendarModule} from 'primeng/calendar';
 import { OrderByPipe } from './order-by.pipe';
+import { MissionbycategoryComponent } from './users/missionbycategory/missionbycategory.component';
 
 @NgModule({
   declarations: [
@@ -132,7 +133,8 @@ import { OrderByPipe } from './order-by.pipe';
      DiscuterClientComponent,
      DiscuterComponent,
      CalendarComponent ,
-     OrderByPipe ,
+     OrderByPipe,
+     MissionbycategoryComponent ,
      
      
 

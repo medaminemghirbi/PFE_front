@@ -43,6 +43,7 @@ import { FindFreelancerComponent } from './users/find-freelancer/find-freelancer
 import { FindProjectComponent } from './users/find-project/find-project.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 import { HomeComponent } from './users/home/home.component';
+import { MissionbycategoryComponent } from './users/missionbycategory/missionbycategory.component';
 import { ResetPasswordComponent } from './users/reset-password/reset-password.component';
 
 const routes: Routes = [
@@ -51,7 +52,8 @@ const routes: Routes = [
   {path:'project' , component:FindProjectComponent},
   {path:'about' , component:AboutComponent},
   {path:'contact' , component:ContactComponent} ,
-
+  {path:'missionbycategoryhome/:id' , component:MissionbycategoryComponent } ,
+  
   { path : 'register' , component:RegisterComponent } ,
   {path:'login' ,  component:LoginComponent } ,
   {path:'dashboard'    , canActivate:[AuthGuard], component:DashboardAdminComponent } ,
@@ -95,7 +97,7 @@ const routes: Routes = [
   {path:'discuterfreelancer/:id' , canActivate:[AuthGuard]  , component:DiscuterFreelancerComponent } , 
 
   {path:'discuterClient/:id' , canActivate:[AuthGuard]  , component:DiscuterClientComponent } , 
-
+  
 
 ];
 
