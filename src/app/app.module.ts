@@ -72,6 +72,7 @@ import { CalendarComponent } from './client/calendar/calendar.component';
 import {CalendarModule} from 'primeng/calendar';
 import { OrderByPipe } from './order-by.pipe';
 import { MissionbycategoryComponent } from './users/missionbycategory/missionbycategory.component';
+import { TestComponent } from './users/test/test.component';
 
 @NgModule({
   declarations: [
@@ -134,7 +135,8 @@ import { MissionbycategoryComponent } from './users/missionbycategory/missionbyc
      DiscuterComponent,
      CalendarComponent ,
      OrderByPipe,
-     MissionbycategoryComponent ,
+     MissionbycategoryComponent,
+     TestComponent ,
      
      
 

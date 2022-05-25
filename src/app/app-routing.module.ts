@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, TestabilityRegistry } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './admin/add-category/add-category.component';
 import { AlllanguagesComponent } from './admin/alllanguages/alllanguages.component';
@@ -45,6 +45,7 @@ import { ForgotPasswordComponent } from './users/forgot-password/forgot-password
 import { HomeComponent } from './users/home/home.component';
 import { MissionbycategoryComponent } from './users/missionbycategory/missionbycategory.component';
 import { ResetPasswordComponent } from './users/reset-password/reset-password.component';
+import { TestComponent } from './users/test/test.component';
 
 const routes: Routes = [
   {path:'',  component : HomeComponent},
@@ -53,7 +54,9 @@ const routes: Routes = [
   {path:'about' , component:AboutComponent},
   {path:'contact' , component:ContactComponent} ,
   {path:'missionbycategoryhome/:id' , component:MissionbycategoryComponent } ,
-  
+
+  {path:'test' , component:TestComponent} ,
+
   { path : 'register' , component:RegisterComponent } ,
   {path:'login' ,  component:LoginComponent } ,
   {path:'dashboard'    , canActivate:[AuthGuard], component:DashboardAdminComponent } ,
